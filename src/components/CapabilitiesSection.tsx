@@ -11,9 +11,9 @@ const capabilities = [
 
 // Per-breakpoint layout values
 function getLayout(vw: number) {
-  if (vw < 640)  return { cardWidth: 220, gap: 12, px: 24 };
-  if (vw < 1024) return { cardWidth: 300, gap: 16, px: 48 };
-  return             { cardWidth: 380, gap: 20, px: 80 };
+  if (vw < 640)  return { cardWidth: 270, gap: 12, px: 24 };
+  if (vw < 1024) return { cardWidth: 360, gap: 16, px: 48 };
+  return             { cardWidth: 440, gap: 20, px: 80 };
 }
 
 const CapabilitiesSection = () => {
