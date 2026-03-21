@@ -93,7 +93,7 @@ const ProcessSection = () => {
                   <p
                     className="font-serif-display text-[16px]"
                     style={{
-                      color: "rgba(17,17,17,0.25)",
+                      color: "rgba(17,17,17,0.55)",
                       writingMode: "vertical-rl",
                       letterSpacing: "0.06em",
                     }}
@@ -183,7 +183,7 @@ const ProcessSection = () => {
                 >
                   <p
                     className="font-serif-display text-[13px]"
-                    style={{ color: "rgba(17,17,17,0.25)", letterSpacing: "0.06em" }}
+                    style={{ color: "rgba(17,17,17,0.55)", letterSpacing: "0.06em" }}
                   >
                     {step.num}
                   </p>
