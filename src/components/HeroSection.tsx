@@ -50,7 +50,7 @@ const HeroSection = () => {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        src="/hero-video.mp4"
+        src="/hero_video.mp4"
       />
 
       {/* 30% dark overlay */}

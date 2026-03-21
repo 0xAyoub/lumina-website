@@ -31,8 +31,8 @@ const ProcessSection = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="process" className="bg-background py-[100px] md:py-[140px]">
-      <div className="w-full px-6 md:px-12 lg:px-20">
+    <section id="process" className="bg-background pt-[80px] pb-6 md:py-[140px] min-h-screen md:min-h-0 flex flex-col">
+      <div className="w-full px-6 md:px-12 lg:px-20 flex flex-col flex-1">
 
         {/* Header */}
         <p
@@ -154,26 +154,37 @@ const ProcessSection = () => {
           })}
         </div>
 
-        {/* Mobile: vertical stack */}
-        <div className="md:hidden space-y-3">
+        {/* Mobile: fill all remaining screen height */}
+        <div className="md:hidden flex flex-col flex-1 gap-3">
           {steps.map((step) => (
             <div
               key={step.num}
-              className="p-7 rounded-[7px]"
+              className="flex flex-col justify-between p-6 rounded-[7px] flex-1"
               style={{ backgroundColor: "rgba(0,0,0,0.04)" }}
             >
-              <p className="font-serif-display text-[40px] leading-none mb-4" style={{ color: "#C5D2F8" }}>
-                {step.num}
-              </p>
-              <h3
-                className="font-sans-display text-[18px] font-medium tracking-[-0.01em] mb-3"
-                style={{ color: "#111111" }}
+              <div>
+                <p className="font-serif-display text-[36px] leading-none mb-3" style={{ color: "#C5D2F8" }}>
+                  {step.num}
+                </p>
+                <h3
+                  className="font-sans-display text-[16px] font-medium tracking-[-0.01em] mb-2"
+                  style={{ color: "#111111" }}
+                >
+                  {step.title}
+                </h3>
+                <p className="text-[12px] leading-[1.7]" style={{ color: "rgba(17,17,17,0.5)" }}>
+                  {step.body}
+                </p>
+              </div>
+              <a
+                href="https://cal.com/lumina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] tracking-[0.02em] mt-3"
+                style={{ color: "rgba(17,17,17,0.3)" }}
               >
-                {step.title}
-              </h3>
-              <p className="text-[13px] leading-[1.75]" style={{ color: "rgba(17,17,17,0.5)" }}>
-                {step.body}
-              </p>
+                {step.cta} →
+              </a>
             </div>
           ))}
         </div>
