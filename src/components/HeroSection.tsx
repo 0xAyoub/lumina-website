@@ -41,7 +41,7 @@ const HeroSection = () => {
   return (
     <section
       data-navbar-dark="true"
-      className="relative h-screen flex flex-col justify-end pb-20 overflow-hidden bg-black"
+      className="relative h-screen flex flex-col justify-end pb-14 overflow-hidden bg-black"
     >
       {/* Background video */}
       <video
@@ -53,8 +53,8 @@ const HeroSection = () => {
         src="/hero_video.mp4"
       />
 
-      {/* 30% dark overlay */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
 
       {/* Decorative orb */}
       <div
@@ -63,8 +63,8 @@ const HeroSection = () => {
         style={{ filter: "blur(100px)" }}
       />
 
-      <div ref={heroRef} className="relative z-10 w-full px-6 md:px-12 lg:px-20">
-        <h1 className="font-sans-display text-[32px] md:text-[48px] lg:text-[60px] leading-[1.05] tracking-[-0.018em] text-white mb-8">
+      <div ref={heroRef} className="relative z-10 w-full px-5 md:px-10 lg:px-14">
+        <h1 className="font-sans-display text-[28px] md:text-[42px] lg:text-[52px] leading-[1.02] tracking-[-0.022em] text-white mb-4">
           <span className="hero-line block">Your next best-performing ad</span>
           <span className="hero-line block">
             doesn't need <span className="font-serif-display italic">a camera.</span>
@@ -72,17 +72,17 @@ const HeroSection = () => {
         </h1>
 
         <p
-          className="text-[14px] md:text-[15px] leading-[1.7] text-white/50 max-w-[420px] mb-8 reveal"
+          className="text-[13px] md:text-[14px] leading-[1.55] text-white/45 max-w-[380px] mb-5 reveal"
           data-delay="700"
         >
           AI-generated cinematic creatives for DTC brands. Fraction of the cost.
           Fraction of the time.
         </p>
 
-        <div className="flex gap-3 reveal" data-delay="900">
+        <div className="flex gap-2 reveal" data-delay="900">
           <a
             href="#process"
-            className="text-[11px] font-medium bg-white text-black px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
+            className="text-[11px] font-medium bg-white text-black px-5 py-2 rounded-[7px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
           >
             How it works
           </a>
@@ -90,7 +90,7 @@ const HeroSection = () => {
             href="https://cal.com/lumina"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] font-medium text-white/50 px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:text-white active:scale-[0.97]"
+            className="text-[11px] font-medium text-white/50 px-5 py-2 rounded-[7px] border border-white/20 transition-all duration-200 hover:text-white hover:border-white/40 active:scale-[0.97]"
           >
             Book a call →
           </a>
