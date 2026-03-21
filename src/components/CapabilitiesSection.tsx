@@ -103,7 +103,7 @@ const CapabilitiesSection = () => {
                 >
                   <div className="flex-1 min-h-0 rounded-[10px] mb-3 overflow-hidden bg-white/5 relative">
                     {cap.video && (
-                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} />
+                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
                     )}
                     {/* Expand icon */}
                     <div className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-black/40 flex items-center justify-center backdrop-blur-sm">
@@ -167,7 +167,7 @@ const CapabilitiesSection = () => {
                   {/* Image / video — fills card height */}
                   <div className="flex-1 min-h-0 rounded-[10px] overflow-hidden bg-white/5 relative mb-3">
                     {cap.video && (
-                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} />
+                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
                     )}
                     {/* Expand icon overlay */}
                     <div
@@ -218,6 +218,7 @@ const CapabilitiesSection = () => {
                   loop playsInline
                   className="w-full h-full object-cover"
                   src={capabilities[modal].video!}
+                  onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
                 />
               ) : (
                 <div className="w-full h-full bg-white/5" />

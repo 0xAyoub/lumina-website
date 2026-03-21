@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // The two text segments — line2Plain is regular, line2Italic is styled
-const LINE1       = "Your next best-performing ad";
+const LINE1       = "Your future performing ad";
 const LINE2_PLAIN = "doesn't need ";
 const LINE2_ITALIC = "a camera.";
 const FULL_LINE2  = LINE2_PLAIN + LINE2_ITALIC;
@@ -82,6 +82,7 @@ const HeroSection = () => {
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover"
         src="/hero_video.mp4"
+        onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
       />
       <div className="absolute inset-0 bg-black/15 pointer-events-none" />
       <div
