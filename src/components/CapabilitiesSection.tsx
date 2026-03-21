@@ -61,15 +61,24 @@ const CapabilitiesSection = () => {
             `translate3d(${-progress * maxTranslate.current}px,0,0)`;
         }
       }
-      // Mobile
+      // Mobile — dwell then snap: 65% of each step is hold, 35% is the slide
       if (mobileSectionRef.current && mobileContainerRef.current) {
         const top = mobileSectionRef.current.getBoundingClientRect().top;
         const vh = window.innerHeight;
-        const mobileScrollable = (N - 1) * vh;
+        const vw = window.innerWidth;
+        const DWELL = 0.65 * vh;
+        const TRANS = 0.35 * vh;
+        const STEP  = DWELL + TRANS; // == 1.0 * vh, so section stays N×100dvh
+        const mobileScrollable = (N - 1) * STEP;
         if (top <= 0 && top >= -mobileScrollable) {
-          const progress = Math.max(0, Math.min(1, -top / mobileScrollable));
+          const s       = Math.max(0, Math.min(-top, mobileScrollable));
+          const cardIdx = Math.min(Math.floor(s / STEP), N - 2);
+          const within  = s - cardIdx * STEP;
+          const raw     = Math.max(0, Math.min(1, (within - DWELL) / TRANS));
+          // ease-in-out so the slide accelerates then settles
+          const t       = raw < 0.5 ? 2 * raw * raw : -1 + (4 - 2 * raw) * raw;
           mobileContainerRef.current.style.transform =
-            `translate3d(${-progress * (N - 1) * window.innerWidth}px,0,0)`;
+            `translate3d(${-(cardIdx + t) * vw}px,0,0)`;
         }
       }
     };
