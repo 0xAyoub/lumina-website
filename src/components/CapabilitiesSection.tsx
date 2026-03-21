@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 
 const capabilities = [
-  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/video1.mp4" },
-  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null },
-  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null },
-  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", video: null },
-  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", video: null },
-  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", video: null },
+  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/video1.mp4", desc: "Minimalist — Squalane Serum" },
+  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null, desc: null },
+  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null, desc: null },
+  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", video: null, desc: null },
+  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", video: null, desc: null },
+  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", video: null, desc: null },
 ];
 
 function getLayout(vw: number) {
@@ -230,13 +230,13 @@ const CapabilitiesSection = () => {
             </div>
 
             {/* Description + CTA below video, left-aligned */}
-            <div className="flex items-end justify-between w-full mt-4 gap-6">
+            <div className="flex items-end justify-between w-full mt-3 gap-6">
               <div>
-                <p className="text-white text-[13px] font-medium tracking-[-0.01em] mb-1">
+                <p className="text-white/90 text-[11px] font-medium tracking-[0.01em] mb-0.5">
                   {capabilities[modal].label}
                 </p>
-                <p className="text-white/45 text-[12px] leading-[1.65] max-w-[280px]">
-                  {capabilities[modal].short}
+                <p className="text-white/35 text-[11px] leading-[1.5]">
+                  {capabilities[modal].desc ?? capabilities[modal].short}
                 </p>
               </div>
               <a
