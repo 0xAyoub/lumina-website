@@ -88,7 +88,15 @@ const CapabilitiesSection = () => {
           <div className="cap-mobile flex h-full px-6 pb-6 gap-3">
             {capabilities.map((cap) => (
               <div key={cap.label} className="flex-shrink-0 w-[78vw] flex flex-col">
-                <div className="flex-1 min-h-0 bg-white/5 rounded-[10px] mb-3" />
+                <div className="flex-1 min-h-0 rounded-[10px] mb-3 overflow-hidden bg-white/5">
+                  {cap.label === "Cinematic Video Ads" && (
+                    <video
+                      autoPlay muted loop playsInline
+                      className="w-full h-full object-cover"
+                      src="/video1.mp4"
+                    />
+                  )}
+                </div>
                 <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1">
                   {cap.label}
                 </p>
@@ -142,7 +150,15 @@ const CapabilitiesSection = () => {
                 className="flex-shrink-0"
                 style={{ width: `${cardWidth}px` }}
               >
-                <div className="w-full aspect-[4/3] bg-white/5 rounded-[7px] mb-4" />
+                <div className="w-full aspect-[4/3] bg-white/5 rounded-[7px] mb-4 overflow-hidden">
+                  {cap.label === "Cinematic Video Ads" && (
+                    <video
+                      autoPlay muted loop playsInline
+                      className="w-full h-full object-cover"
+                      src="/video1.mp4"
+                    />
+                  )}
+                </div>
                 <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1.5">
                   {cap.label}
                 </p>
