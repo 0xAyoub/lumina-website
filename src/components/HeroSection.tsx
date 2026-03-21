@@ -53,7 +53,7 @@ const HeroSection = () => {
         src="/hero_video.mp4"
       />
 
-      {/* Dark overlay */}
+      {/* Dark overlay — reduced opacity */}
       <div className="absolute inset-0 bg-black/20 pointer-events-none" />
 
       {/* Decorative orb */}
@@ -64,7 +64,7 @@ const HeroSection = () => {
       />
 
       <div ref={heroRef} className="relative z-10 w-full px-5 md:px-10 lg:px-14">
-        <h1 className="font-sans-display text-[28px] md:text-[42px] lg:text-[52px] leading-[1.02] tracking-[-0.022em] text-white mb-4">
+        <h1 className="font-sans-display text-[26px] md:text-[42px] lg:text-[50px] leading-[1.02] tracking-[-0.024em] text-white mb-4">
           <span className="hero-line block">Your next best-performing ad</span>
           <span className="hero-line block">
             doesn't need <span className="font-serif-display italic">a camera.</span>
@@ -72,7 +72,7 @@ const HeroSection = () => {
         </h1>
 
         <p
-          className="text-[13px] md:text-[14px] leading-[1.55] text-white/45 max-w-[380px] mb-5 reveal"
+          className="text-[13px] md:text-[14px] leading-[1.5] text-white/45 max-w-[360px] mb-5 reveal"
           data-delay="700"
         >
           AI-generated cinematic creatives for DTC brands. Fraction of the cost.
