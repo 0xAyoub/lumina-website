@@ -10,14 +10,15 @@ const capabilities = [
 ];
 
 // Per-breakpoint layout values
+// sectionVh controls scroll speed: higher = slower, more time to see cards
 function getLayout(vw: number) {
-  if (vw < 640)  return { cardWidth: 270, gap: 12, px: 24 };
-  if (vw < 1024) return { cardWidth: 360, gap: 16, px: 48 };
-  return             { cardWidth: 440, gap: 20, px: 80 };
+  if (vw < 640)  return { cardWidth: 270, gap: 12, px: 24, sectionVh: 320 };
+  if (vw < 1024) return { cardWidth: 360, gap: 16, px: 48, sectionVh: 260 };
+  return             { cardWidth: 440, gap: 20, px: 80, sectionVh: 200 };
 }
 
 const CapabilitiesSection = () => {
-  const sectionRef  = useRef<HTMLDivElement>(null);
+  const sectionRef   = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -25,20 +26,18 @@ const CapabilitiesSection = () => {
     getLayout(typeof window !== "undefined" ? window.innerWidth : 1440)
   );
 
-  // Update layout on resize
   useEffect(() => {
     const onResize = () => setLayout(getLayout(window.innerWidth));
     window.addEventListener("resize", onResize, { passive: true });
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Scroll progress — same logic for all viewports
   useEffect(() => {
     const onScroll = () => {
       if (!sectionRef.current) return;
-      const rect      = sectionRef.current.getBoundingClientRect();
-      const secH      = sectionRef.current.offsetHeight;
-      const vpH       = window.innerHeight;
+      const rect       = sectionRef.current.getBoundingClientRect();
+      const secH       = sectionRef.current.offsetHeight;
+      const vpH        = window.innerHeight;
       const scrollable = secH - vpH;
       if (rect.top <= 0 && rect.bottom >= vpH) {
         setScrollProgress(Math.min(1, Math.max(0, -rect.top / scrollable)));
@@ -48,10 +47,9 @@ const CapabilitiesSection = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // translateX: move cards left until last card is fully visible
-  const { cardWidth, gap, px } = layout;
+  const { cardWidth, gap, px, sectionVh } = layout;
   const n = capabilities.length;
-  const totalContentWidth = n * cardWidth + (n - 1) * gap; // all cards + gaps
+  const totalContentWidth = n * cardWidth + (n - 1) * gap;
   const maxTranslate = Math.max(
     0,
     totalContentWidth + px - (typeof window !== "undefined" ? window.innerWidth : 1440) + px
@@ -64,12 +62,12 @@ const CapabilitiesSection = () => {
       id="work"
       data-navbar-dark="true"
       className="bg-secondary text-secondary-foreground relative"
-      style={{ height: "200vh" }}
+      style={{ height: `${sectionVh}vh` }}
     >
-      <div className="sticky top-0 h-screen flex flex-col justify-center md:justify-center overflow-hidden pt-6 pb-6 md:pt-0 md:pb-0">
+      <div className="sticky top-0 h-screen flex flex-col overflow-hidden pt-8 pb-8 md:pt-0 md:pb-0 md:justify-center">
 
         {/* Header */}
-        <div className="mb-4 md:mb-8 flex-shrink-0" style={{ paddingLeft: px, paddingRight: px }}>
+        <div className="mb-5 md:mb-8 flex-shrink-0" style={{ paddingLeft: px, paddingRight: px }}>
           <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-4">
             What we produce
           </p>
@@ -91,25 +89,25 @@ const CapabilitiesSection = () => {
           </div>
         </div>
 
-        {/* Cards — same scroll mechanic, responsive widths */}
+        {/* Cards */}
         <div
           ref={containerRef}
-          className="flex will-change-transform sm:flex-none flex-1 min-h-0"
+          className="flex will-change-transform flex-1 min-h-0 md:flex-none"
           style={{
             gap: `${gap}px`,
             paddingLeft: `${px}px`,
             transform: `translateX(${translateX}px)`,
-            transition: "transform 0.1s linear",
+            transition: "transform 0.08s linear",
           }}
         >
           {capabilities.map((cap) => (
             <div
               key={cap.label}
-              className="flex-shrink-0 flex flex-col sm:block h-full sm:h-auto"
+              className="flex-shrink-0 flex flex-col md:block h-full md:h-auto"
               style={{ width: `${cardWidth}px` }}
             >
-              <div className="w-full flex-1 sm:flex-none sm:aspect-[4/3] bg-white/5 rounded-[7px] mb-3 min-h-0" />
-              <div className="flex-shrink-0">
+              <div className="w-full flex-1 md:flex-none md:aspect-[4/3] bg-white/5 rounded-[7px] mb-3 min-h-0" />
+              <div className="flex-shrink-0 pb-2 md:pb-0">
                 <p className="text-[12px] sm:text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1.5">
                   {cap.label}
                 </p>
