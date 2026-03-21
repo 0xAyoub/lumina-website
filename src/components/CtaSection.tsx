@@ -5,7 +5,7 @@ const CtaSection = () => {
       <section className="hidden md:flex w-full" style={{ height: "100dvh" }}>
 
         {/* Left column — 70vw, two stacked panels */}
-        <div className="flex flex-col" style={{ width: "70vw" }}>
+        <div className="flex flex-col" style={{ width: "50vw" }}>
 
           {/* Top panel — Book a call, white background */}
           <div
@@ -71,7 +71,7 @@ const CtaSection = () => {
 
         {/* Right column — 30vw, full height, Cal.com embed with inset margins */}
         <div
-          className="flex-1 bg-white p-5 lg:p-7"
+          className="bg-white p-5 lg:p-7" style={{ width: "50vw" }}
         >
           <div className="w-full h-full rounded-[14px] overflow-hidden bg-white border border-black/[0.06] shadow-[0_2px_24px_rgba(0,0,0,0.05)]">
             <iframe
