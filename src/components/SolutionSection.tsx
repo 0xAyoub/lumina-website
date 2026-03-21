@@ -140,9 +140,7 @@ const SolutionSection = () => {
 
             <div className="reveal" data-delay="450">
               <a
-                href="https://cal.com/lumina"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
                 className="inline-block text-[11px] font-medium px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
                 style={{ backgroundColor: "#111111", color: "#ffffff" }}
               >
@@ -157,9 +155,7 @@ const SolutionSection = () => {
               {capTiles.map((tile) => (
                 <a
                   key={tile.label}
-                  href="https://cal.com/lumina"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#contact"
                   className="group relative flex flex-col justify-end p-5 rounded-[7px] overflow-hidden transition-all duration-300"
                   style={{ backgroundColor: "rgba(0,0,0,0.04)", minHeight: "110px" }}
                   onMouseEnter={(e) =>

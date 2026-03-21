@@ -98,9 +98,7 @@ const Navbar = () => {
           </a>
         ))}
         <a
-          href="https://cal.com/lumina"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contact"
           className="text-[11px] font-medium px-3 py-1.5 sm:px-4 rounded-[7px] hover:opacity-80 active:scale-[0.97]"
           style={{
             backgroundColor: btnBg,
@@ -152,9 +150,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://cal.com/lumina"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="text-[11px] font-medium px-4 py-2 rounded-[7px] text-center mt-1"
             style={{ backgroundColor: btnBg, color: btnText }}
             onClick={() => setMenuOpen(false)}

@@ -136,9 +136,7 @@ const ProcessSection = () => {
                   </div>
 
                   <a
-                    href="https://cal.com/lumina"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#contact"
                     className="text-[11px] tracking-[0.02em] transition-colors duration-200 w-fit"
                     style={{ color: "rgba(255,255,255,0.3)" }}
                     onMouseEnter={(e) =>
@@ -223,9 +221,7 @@ const ProcessSection = () => {
                     </p>
                   </div>
                   <a
-                    href="https://cal.com/lumina"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#contact"
                     className="text-[11px] tracking-[0.02em] w-fit"
                     style={{ color: "rgba(255,255,255,0.3)" }}
                   >
@@ -240,9 +236,7 @@ const ProcessSection = () => {
         {/* CTA — desktop only */}
         <div className="hidden md:flex mt-10 items-center gap-4">
           <a
-            href="https://cal.com/lumina"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="text-[11px] font-medium px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
             style={{ backgroundColor: "#111111", color: "#ffffff" }}
           >

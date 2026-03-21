@@ -133,9 +133,7 @@ const HeroSection = () => {
               How it works
             </a>
             <a
-              href="https://cal.com/lumina"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="text-[11px] font-medium text-white/50 px-4 py-1.5 rounded-[6px] border border-white/20 transition-all duration-200 hover:text-white/80 hover:border-white/35 active:scale-[0.97]"
             >
               Book a call →

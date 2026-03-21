@@ -2,7 +2,7 @@ const CtaSection = () => {
   return (
     <>
       {/* ── Desktop layout: 3-panel side-by-side (md+) ── */}
-      <section className="hidden md:flex w-full" style={{ height: "100dvh" }}>
+      <section id="contact" className="hidden md:flex w-full" style={{ height: "100dvh" }}>
 
         {/* Left column — 70vw, two stacked panels */}
         <div className="flex flex-col" style={{ width: "60vw" }}>
@@ -87,7 +87,7 @@ const CtaSection = () => {
       </section>
 
       {/* ── Mobile layout ── */}
-      <section className="md:hidden">
+      <section id="contact" className="md:hidden">
 
         {/* First screen: Book a call + cal.com embed */}
         <div className="flex flex-col bg-white" style={{ height: "100dvh" }}>
