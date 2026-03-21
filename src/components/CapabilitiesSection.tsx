@@ -79,29 +79,33 @@ const CapabilitiesSection = () => {
           </h2>
         </div>
 
-        {/* Native horizontal swipe — zero JS, perfectly smooth */}
+        {/* Native horizontal swipe — one card at a time, zero JS */}
         <div
           className="overflow-x-auto"
           style={{
             scrollSnapType: "x mandatory",
+            scrollBehavior: "smooth",
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
           }}
         >
-          <style>{`.cap-scroll::-webkit-scrollbar { display: none; }`}</style>
-          <div
-            className="cap-scroll flex px-6 gap-3"
-            style={{ width: "max-content" }}
-          >
-            {capabilities.map((cap) => (
+          <style>{`.cap-scroll::-webkit-scrollbar{display:none}`}</style>
+          <div className="cap-scroll flex">
+            {capabilities.map((cap, i) => (
               <div
                 key={cap.label}
-                className="flex-shrink-0 flex flex-col"
-                style={{ width: "75vw", scrollSnapAlign: "start" }}
+                className="flex-shrink-0 flex flex-col px-6"
+                style={{
+                  width: "100vw",
+                  scrollSnapAlign: "start",
+                  scrollSnapStop: "always",
+                  paddingLeft: i === 0 ? "24px" : "12px",
+                  paddingRight: i === capabilities.length - 1 ? "24px" : "12px",
+                }}
               >
-                <div className="w-full bg-white/5 rounded-[7px] mb-3" style={{ aspectRatio: "4/3" }} />
-                <p className="text-[12px] font-medium tracking-[0.02em] text-white/70 mb-1.5">
+                <div className="w-full bg-white/5 rounded-[7px] mb-4" style={{ aspectRatio: "4/3" }} />
+                <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1.5">
                   {cap.label}
                 </p>
                 <p className="text-[12px] leading-[1.65] text-white/35">
@@ -109,8 +113,6 @@ const CapabilitiesSection = () => {
                 </p>
               </div>
             ))}
-            {/* trailing space so last card snaps flush */}
-            <div className="flex-shrink-0 w-6" />
           </div>
         </div>
       </div>
