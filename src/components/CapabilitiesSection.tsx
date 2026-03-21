@@ -200,13 +200,12 @@ const CapabilitiesSection = () => {
         >
           <div
             className="relative flex flex-col items-start"
-            style={{ height: "88dvh" }}
             onClick={e => e.stopPropagation()}
           >
             {/* 9:16 video container */}
             <div
               className="relative rounded-[14px] overflow-hidden bg-black flex-shrink-0"
-              style={{ height: "100%", aspectRatio: "9/16" }}
+              style={{ height: "calc(100dvh - 140px)", aspectRatio: "9/16" }}
             >
               {capabilities[modal].video ? (
                 <video
