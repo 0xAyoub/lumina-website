@@ -52,13 +52,13 @@ const Navbar = () => {
   const textColor = isDark ? "rgba(255,255,255,0.6)" : "rgba(17,17,17,0.6)";
   const textColorHover = isDark ? "#ffffff" : "#111111";
   const logColor = isDark ? "#ffffff" : "#111111";
-  const btnBg = inHero ? "rgba(255,255,255,0.12)" : isDark ? "rgba(255,255,255,1)" : "rgba(17,17,17,1)";
-  const btnText = inHero ? "rgba(255,255,255,0.7)" : isDark ? "#111111" : "#ffffff";
-  const btnBorder = inHero ? "1px solid rgba(255,255,255,0.18)" : "none";
+  const btnBg = isDark ? "rgba(255,255,255,1)" : "rgba(17,17,17,1)";
+  const btnText = isDark ? "#111111" : "#ffffff";
+  const btnBorder = "none";
 
   return (
     <nav
-      className="fixed top-[10px] z-50 flex items-center justify-between h-10 p-2"
+      className="fixed top-[10px] z-50 flex items-center justify-between h-10 p-1 px-1 mx-3"
       style={{
         left: isDesktop && scrolled ? "400px" : "5px",
         right: isDesktop && scrolled ? "400px" : "5px",
