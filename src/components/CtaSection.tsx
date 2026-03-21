@@ -5,7 +5,7 @@ const CtaSection = () => {
       <section className="hidden md:flex w-full" style={{ height: "100dvh" }}>
 
         {/* Left column — 70vw, two stacked panels */}
-        <div className="flex flex-col" style={{ width: "50vw" }}>
+        <div className="flex flex-col" style={{ width: "60vw" }}>
 
           {/* Top panel — Book a call, white background */}
           <div
@@ -71,11 +71,11 @@ const CtaSection = () => {
 
         {/* Right column — 30vw, full height, Cal.com embed with inset margins */}
         <div
-          className="bg-white p-5 lg:p-7" style={{ width: "50vw" }}
+          className="bg-white p-5 lg:p-7" style={{ width: "40vw" }}
         >
           <div className="w-full h-full rounded-[14px] overflow-hidden bg-white border border-black/[0.06] shadow-[0_2px_24px_rgba(0,0,0,0.05)]">
             <iframe
-              src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=light&layout=month_view"
+              src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=light&layout=column_view&hideBranding=1&hide_event_type_details=1"
               className="w-full h-full"
               frameBorder="0"
               title="Book a 15-min Creative Sprint Intro"
@@ -118,7 +118,7 @@ const CtaSection = () => {
           <div className="flex-1 min-h-0 p-4">
             <div className="w-full h-full rounded-[12px] overflow-hidden bg-white border border-black/[0.06] shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
               <iframe
-                src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=light&layout=month_view"
+                src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=light&layout=column_view&hideBranding=1&hide_event_type_details=1"
                 className="w-full h-full"
                 frameBorder="0"
                 title="Book a 15-min Creative Sprint Intro"
