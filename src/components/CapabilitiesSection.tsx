@@ -17,16 +17,11 @@ function getLayout(vw: number) {
 const N = capabilities.length;
 
 const CapabilitiesSection = () => {
-  // Desktop refs
-  const sectionRef    = useRef<HTMLDivElement>(null);
-  const containerRef  = useRef<HTMLDivElement>(null);
-  const layoutRef     = useRef(getLayout(typeof window !== "undefined" ? window.innerWidth : 1440));
-  const maxTranslate  = useRef(0);
-  const scrollable    = useRef(0);
-
-  // Mobile refs
-  const mobileSectionRef   = useRef<HTMLDivElement>(null);
-  const mobileContainerRef = useRef<HTMLDivElement>(null);
+  const sectionRef   = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const layoutRef    = useRef(getLayout(typeof window !== "undefined" ? window.innerWidth : 1440));
+  const maxTranslate = useRef(0);
+  const scrollable   = useRef(0);
 
   const [layout, setLayout] = useState(layoutRef.current);
 
@@ -52,34 +47,12 @@ const CapabilitiesSection = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      // Desktop
-      if (sectionRef.current && containerRef.current) {
-        const top = sectionRef.current.getBoundingClientRect().top;
-        if (top <= 0 && top >= -scrollable.current) {
-          const progress = Math.max(0, Math.min(1, -top / scrollable.current));
-          containerRef.current.style.transform =
-            `translate3d(${-progress * maxTranslate.current}px,0,0)`;
-        }
-      }
-      // Mobile — dwell then snap: 65% of each step is hold, 35% is the slide
-      if (mobileSectionRef.current && mobileContainerRef.current) {
-        const top = mobileSectionRef.current.getBoundingClientRect().top;
-        const vh = window.innerHeight;
-        const vw = window.innerWidth;
-        const DWELL = 0.65 * vh;
-        const TRANS = 0.35 * vh;
-        const STEP  = DWELL + TRANS; // == 1.0 * vh, so section stays N×100dvh
-        const mobileScrollable = (N - 1) * STEP;
-        if (top <= 0 && top >= -mobileScrollable) {
-          const s       = Math.max(0, Math.min(-top, mobileScrollable));
-          const cardIdx = Math.min(Math.floor(s / STEP), N - 2);
-          const within  = s - cardIdx * STEP;
-          const raw     = Math.max(0, Math.min(1, (within - DWELL) / TRANS));
-          // ease-in-out so the slide accelerates then settles
-          const t       = raw < 0.5 ? 2 * raw * raw : -1 + (4 - 2 * raw) * raw;
-          mobileContainerRef.current.style.transform =
-            `translate3d(${-(cardIdx + t) * vw}px,0,0)`;
-        }
+      if (!sectionRef.current || !containerRef.current) return;
+      const top = sectionRef.current.getBoundingClientRect().top;
+      if (top <= 0 && top >= -scrollable.current) {
+        const progress = Math.max(0, Math.min(1, -top / scrollable.current));
+        containerRef.current.style.transform =
+          `translate3d(${-progress * maxTranslate.current}px,0,0)`;
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -91,42 +64,30 @@ const CapabilitiesSection = () => {
   return (
     <div id="work" data-navbar-dark="true" className="bg-secondary text-secondary-foreground">
 
-      {/* ── Mobile: scroll-driven sticky (< 768px) ── */}
-      <section
-        ref={mobileSectionRef}
-        className="md:hidden relative"
-        style={{ height: `${N * 100}dvh` }}
-      >
-        <div
-          className="sticky top-0 overflow-hidden flex flex-col"
-          style={{ height: "100dvh", transform: "translateZ(0)" }}
-        >
-          {/* Header */}
-          <div className="px-6 pt-10 pb-5 flex-shrink-0">
-            <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-3">
-              What we produce
-            </p>
-            <h2 className="font-sans-display text-[20px] leading-[1.1] tracking-[-0.018em] text-white">
-              Every frame.{" "}
-              <span className="font-serif-display italic text-white/50">
-                Indistinguishable from reality.
-              </span>
-            </h2>
-          </div>
+      {/* ── Mobile: simple native horizontal scroll (< 768px) ── */}
+      <div className="md:hidden py-10">
+        <div className="px-6 mb-6">
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-3">
+            What we produce
+          </p>
+          <h2 className="font-sans-display text-[20px] leading-[1.1] tracking-[-0.018em] text-white">
+            Every frame.{" "}
+            <span className="font-serif-display italic text-white/50">
+              Indistinguishable from reality.
+            </span>
+          </h2>
+        </div>
 
-          {/* Cards strip */}
-          <div
-            ref={mobileContainerRef}
-            className="flex will-change-transform flex-1 min-h-0"
-          >
+        <div
+          className="overflow-x-auto"
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+        >
+          <style>{`.cap-mobile::-webkit-scrollbar{display:none}`}</style>
+          <div className="cap-mobile flex gap-4 px-6 pb-2">
             {capabilities.map((cap) => (
-              <div
-                key={cap.label}
-                className="flex-shrink-0 flex flex-col px-6 pb-10"
-                style={{ width: "100vw" }}
-              >
-                <div className="flex-1 bg-white/5 rounded-[7px] mb-4 min-h-0" />
-                <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1.5">
+              <div key={cap.label} className="flex-shrink-0 w-[72vw]">
+                <div className="w-full aspect-[4/3] bg-white/5 rounded-[7px] mb-3" />
+                <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1">
                   {cap.label}
                 </p>
                 <p className="text-[12px] leading-[1.65] text-white/35">
@@ -136,7 +97,7 @@ const CapabilitiesSection = () => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* ── Tablet + Desktop: sticky scroll-driven (768px+) ── */}
       <section
@@ -148,7 +109,6 @@ const CapabilitiesSection = () => {
           className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden"
           style={{ transform: "translateZ(0)" }}
         >
-          {/* Header */}
           <div className="mb-8 flex-shrink-0" style={{ paddingLeft: px, paddingRight: px }}>
             <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-4">
               What we produce
@@ -169,7 +129,6 @@ const CapabilitiesSection = () => {
             </div>
           </div>
 
-          {/* Cards */}
           <div
             ref={containerRef}
             className="flex will-change-transform flex-none"
