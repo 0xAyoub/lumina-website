@@ -198,54 +198,6 @@ const SolutionSection = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div style={{ borderTop: "1px solid rgba(17,17,17,0.08)", marginBottom: "64px" }} />
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-10">
-          {[
-            {
-              value: "48h",
-              label: "Average delivery time for a full creative batch",
-              icon: (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                </svg>
-              ),
-            },
-            {
-              value: "10x",
-              label: "More creative variations vs. traditional agencies",
-              icon: (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m2 16 4-4 4 4 4-4 4 4" /><path d="m2 8 4-4 4 4 4-4 4 4" />
-                </svg>
-              ),
-            },
-            {
-              value: "85%",
-              label: "Of ad performance determined by creative — Meta Internal Research",
-              icon: (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
-                </svg>
-              ),
-            },
-          ].map((stat, i) => (
-            <div key={stat.value} className="reveal" data-delay={String(i * 100)}>
-              <span style={{ color: "#C5D2F8" }}>{stat.icon}</span>
-              <p className="font-serif-display text-[48px] md:text-[64px] leading-[1] mt-2" style={{ color: "#C5D2F8" }}>
-                {stat.value}
-              </p>
-              <p
-                className="text-[12px] leading-[1.6] mt-2 max-w-[200px] tracking-[0.035em]"
-                style={{ color: "rgba(17,17,17,0.35)" }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

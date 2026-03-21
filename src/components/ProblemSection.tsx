@@ -1,3 +1,33 @@
+const cards = [
+  {
+    title: "Slow",
+    body: "4 to 8 weeks from brief to launch. By the time your ad is live, the trend is dead, your audience has moved on, and your competitors have already tested 20 variations.",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+    ),
+  },
+  {
+    title: "Expensive",
+    body: "A single 30-second video costs €10K–€50K through a traditional agency. That's your entire monthly creative budget — for one asset, with no guarantee it performs.",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      </svg>
+    ),
+  },
+  {
+    title: "Low volume",
+    body: "Winning on Meta and TikTok requires 30 to 50 fresh creatives every month. No human team sustains that output without burning out, cutting quality, or missing the brief.",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+      </svg>
+    ),
+  },
+];
+
 const ProblemSection = () => {
   return (
     <section
@@ -18,30 +48,21 @@ const ProblemSection = () => {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-x-5 gap-y-5 mb-16">
-          {[
-            {
-              title: "Slow",
-              body: "4 to 8 weeks from brief to launch. By the time your ad is live, the trend is dead, your audience has moved on, and your competitors have already tested 20 variations.",
-            },
-            {
-              title: "Expensive",
-              body: "A single 30-second video costs €10K–€50K through a traditional agency. That's your entire monthly creative budget — for one asset, with no guarantee it performs.",
-            },
-            {
-              title: "Low volume",
-              body: "Winning on Meta and TikTok requires 30 to 50 fresh creatives every month. No human team sustains that output without burning out, cutting quality, or missing the brief.",
-            },
-          ].map((card, i) => (
+          {cards.map((card, i) => (
             <div
               key={card.title}
               className="reveal p-7 rounded-[7px]"
               data-delay={String(i * 80)}
               style={{ backgroundColor: "rgba(255,255,255,0.04)" }}
             >
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-[6px] mb-5 text-white/40"
+                style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>
+                {card.icon}
+              </span>
               <h3 className="font-serif-display text-[22px] text-white mb-4">
                 {card.title}
               </h3>
-              <p className="text-[14px] leading-[1.75] text-white/45">{card.body}</p>
+              <p className="text-[13px] leading-[1.75] text-white/45">{card.body}</p>
             </div>
           ))}
         </div>

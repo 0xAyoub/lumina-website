@@ -1,18 +1,30 @@
 const beforeItems = [
-  "1 video ad / month",
-  "€15K for 5 assets",
-  "4-week production cycle",
+  "1–3 video ads / month",
+  "€10K–€50K per asset",
+  "4–8 week production cycle",
   "Gut-based creative decisions",
-  "ROAS plateau",
+  "ROAS plateau after 60 days",
 ];
 
 const afterItems = [
-  "50+ creatives / month",
-  "80% cost reduction",
-  "48h delivery",
-  "Data-driven every step",
+  "30–50 creatives / month",
+  "80% lower cost per asset",
+  "48h delivery, every batch",
+  "Data-driven every iteration",
   "20–40% ROAS lift in 60 days",
 ];
+
+const XIcon = () => (
+  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </svg>
+);
 
 const DifferenceSection = () => {
   return (
@@ -37,14 +49,20 @@ const DifferenceSection = () => {
             data-delay="0"
             style={{ backgroundColor: "rgba(255,255,255,0.04)" }}
           >
-            <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/35 mb-8">
-              Before Lumina
-            </p>
-            <ul className="space-y-5">
+            <div className="flex items-center gap-2.5 mb-8">
+              <span className="inline-flex items-center justify-center w-[18px] h-[18px] rounded-full text-white/30"
+                style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>
+                <XIcon />
+              </span>
+              <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/35">
+                Before Lumina
+              </p>
+            </div>
+            <ul className="space-y-4">
               {beforeItems.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0" />
-                  <span className="text-[14px] leading-[1.7] text-white/45">{item}</span>
+                  <span className="flex-shrink-0 text-white/20"><XIcon /></span>
+                  <span className="text-[13px] leading-[1.65] text-white/40">{item}</span>
                 </li>
               ))}
             </ul>
@@ -56,14 +74,20 @@ const DifferenceSection = () => {
             data-delay="100"
             style={{ backgroundColor: "rgba(255,255,255,0.07)" }}
           >
-            <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/55 mb-8">
-              With Lumina
-            </p>
-            <ul className="space-y-5">
+            <div className="flex items-center gap-2.5 mb-8">
+              <span className="inline-flex items-center justify-center w-[18px] h-[18px] rounded-full"
+                style={{ backgroundColor: "rgba(197,210,248,0.15)", color: "#C5D2F8" }}>
+                <CheckIcon />
+              </span>
+              <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/55">
+                With Lumina
+              </p>
+            </div>
+            <ul className="space-y-4">
               {afterItems.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
-                  <span className="text-[14px] leading-[1.7] text-white">{item}</span>
+                  <span className="flex-shrink-0" style={{ color: "#C5D2F8" }}><CheckIcon /></span>
+                  <span className="text-[13px] leading-[1.65] text-white">{item}</span>
                 </li>
               ))}
             </ul>
