@@ -15,54 +15,51 @@ function getLayout(vw: number) {
   return             { cardWidth: 440, gap: 20, px: 80, sectionVh: 200 };
 }
 
-const CapabilitiesSection = () => {
-  const sectionRef   = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const layoutRef    = useRef(getLayout(typeof window !== "undefined" ? window.innerWidth : 1440));
-  const rafRef       = useRef(0);
+const N = capabilities.length;
 
-  // layout state only drives section height + card sizes (no scroll-driven re-renders)
+const CapabilitiesSection = () => {
+  const sectionRef    = useRef<HTMLDivElement>(null);
+  const containerRef  = useRef<HTMLDivElement>(null);
+  const layoutRef     = useRef(getLayout(typeof window !== "undefined" ? window.innerWidth : 1440));
+  const maxTranslate  = useRef(0);
+  const scrollable    = useRef(0);
+
   const [layout, setLayout] = useState(layoutRef.current);
 
+  // Recompute cached metrics — called on mount and resize
+  const updateMetrics = () => {
+    if (!sectionRef.current) return;
+    const { cardWidth, gap, px } = layoutRef.current;
+    const totalW = N * cardWidth + (N - 1) * gap;
+    maxTranslate.current = Math.max(0, totalW + px - window.innerWidth + px);
+    scrollable.current   = sectionRef.current.offsetHeight - window.innerHeight;
+  };
+
   useEffect(() => {
+    updateMetrics();
     const onResize = () => {
       const next = getLayout(window.innerWidth);
       layoutRef.current = next;
       setLayout(next);
+      // metrics update after layout state re-render
+      requestAnimationFrame(updateMetrics);
     };
     window.addEventListener("resize", onResize, { passive: true });
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Scroll → direct DOM mutation, no React state, no re-render
+  // Scroll handler — only math + one style write, no React state
   useEffect(() => {
     const onScroll = () => {
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        if (!sectionRef.current || !containerRef.current) return;
-
-        const rect       = sectionRef.current.getBoundingClientRect();
-        const secH       = sectionRef.current.offsetHeight;
-        const vpH        = window.innerHeight;
-        const scrollable = secH - vpH;
-
-        if (rect.top > 0 || rect.bottom < vpH) return;
-
-        const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
-        const { cardWidth, gap, px } = layoutRef.current;
-        const n = capabilities.length;
-        const totalW = n * cardWidth + (n - 1) * gap;
-        const maxTranslate = Math.max(0, totalW + px - window.innerWidth + px);
-
-        containerRef.current.style.transform = `translateX(${-progress * maxTranslate}px)`;
-      });
+      if (!sectionRef.current || !containerRef.current) return;
+      const top = sectionRef.current.getBoundingClientRect().top;
+      if (top > 0 || top < -scrollable.current) return;
+      const progress = Math.max(0, Math.min(1, -top / scrollable.current));
+      containerRef.current.style.transform =
+        `translate3d(${-progress * maxTranslate.current}px,0,0)`;
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafRef.current);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const { cardWidth, gap, px, sectionVh } = layout;
@@ -75,8 +72,10 @@ const CapabilitiesSection = () => {
       className="bg-secondary text-secondary-foreground relative"
       style={{ height: `${sectionVh}vh` }}
     >
-      <div className="sticky top-0 h-screen flex flex-col overflow-hidden pt-8 pb-8 md:pt-0 md:pb-0 md:justify-center">
-
+      <div
+        className="sticky top-0 h-screen flex flex-col overflow-hidden pt-8 pb-8 md:pt-0 md:pb-0 md:justify-center"
+        style={{ transform: "translateZ(0)" }}
+      >
         {/* Header */}
         <div className="mb-5 md:mb-8 flex-shrink-0" style={{ paddingLeft: px, paddingRight: px }}>
           <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-4">
@@ -100,7 +99,7 @@ const CapabilitiesSection = () => {
           </div>
         </div>
 
-        {/* Cards — transform driven by direct DOM writes */}
+        {/* Cards */}
         <div
           ref={containerRef}
           className="flex will-change-transform flex-1 min-h-0 md:flex-none"
@@ -124,7 +123,6 @@ const CapabilitiesSection = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
