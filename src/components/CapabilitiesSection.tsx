@@ -66,10 +66,10 @@ const CapabilitiesSection = () => {
       className="bg-secondary text-secondary-foreground relative"
       style={{ height: "200vh" }}
     >
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen flex flex-col justify-center md:justify-center overflow-hidden pt-6 pb-6 md:pt-0 md:pb-0">
 
         {/* Header */}
-        <div className="mb-6 md:mb-8" style={{ paddingLeft: px, paddingRight: px }}>
+        <div className="mb-4 md:mb-8 flex-shrink-0" style={{ paddingLeft: px, paddingRight: px }}>
           <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-4">
             What we produce
           </p>
@@ -94,7 +94,7 @@ const CapabilitiesSection = () => {
         {/* Cards — same scroll mechanic, responsive widths */}
         <div
           ref={containerRef}
-          className="flex will-change-transform"
+          className="flex will-change-transform sm:flex-none flex-1 min-h-0"
           style={{
             gap: `${gap}px`,
             paddingLeft: `${px}px`,
@@ -105,16 +105,18 @@ const CapabilitiesSection = () => {
           {capabilities.map((cap) => (
             <div
               key={cap.label}
-              className="flex-shrink-0"
+              className="flex-shrink-0 flex flex-col sm:block h-full sm:h-auto"
               style={{ width: `${cardWidth}px` }}
             >
-              <div className="w-full aspect-[4/3] bg-white/5 rounded-[7px] mb-4" />
-              <p className="text-[12px] sm:text-[13px] font-medium tracking-[0.02em] text-white/70 mb-2">
-                {cap.label}
-              </p>
-              <p className="text-[12px] sm:text-[13px] leading-[1.65] text-white/35">
-                {cap.short}
-              </p>
+              <div className="w-full flex-1 sm:flex-none sm:aspect-[4/3] bg-white/5 rounded-[7px] mb-3 min-h-0" />
+              <div className="flex-shrink-0">
+                <p className="text-[12px] sm:text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1.5">
+                  {cap.label}
+                </p>
+                <p className="text-[12px] sm:text-[13px] leading-[1.65] text-white/35">
+                  {cap.short}
+                </p>
+              </div>
             </div>
           ))}
         </div>
