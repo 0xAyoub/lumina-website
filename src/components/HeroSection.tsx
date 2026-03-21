@@ -1,25 +1,9 @@
 import { useEffect, useRef } from "react";
 
-const marqueeItems = [
-  "30–50 CREATIVES / MONTH",
-  "48H TURNAROUND",
-  "META · TIKTOK · GOOGLE ADS",
-  "NO CAMERAS",
-  "PERFORMANCE-DRIVEN",
-  "DTC BRANDS",
-  "PARIS, FRANCE",
-];
-
 const HeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const lines = heroRef.current?.querySelectorAll(".hero-line");
-    lines?.forEach((line, i) => {
-      setTimeout(() => line.classList.add("revealed"), 400 + i * 250);
-    });
-
     const handleScroll = () => {
       if (orbRef.current) {
         orbRef.current.style.transform = `translateY(${window.scrollY * 0.25}px)`;
@@ -28,15 +12,6 @@ const HeroSection = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const marqueeContent = marqueeItems.map((item, i) => (
-    <span
-      key={i}
-      className="mx-8 text-[10px] font-medium uppercase tracking-[0.10em] text-white/35 whitespace-nowrap"
-    >
-      {item}
-    </span>
-  ));
 
   return (
     <section
@@ -53,7 +28,7 @@ const HeroSection = () => {
         src="/hero_video.mp4"
       />
 
-      {/* Dark overlay — reduced opacity */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/15 pointer-events-none" />
 
       {/* Decorative orb */}
@@ -63,23 +38,20 @@ const HeroSection = () => {
         style={{ filter: "blur(100px)" }}
       />
 
-      <div ref={heroRef} className="relative z-10 w-full px-4 md:px-8 lg:px-12">
+      <div className="relative z-10 w-full px-4 md:px-8 lg:px-12">
         <h1 className="font-sans-display text-[24px] md:text-[38px] lg:text-[46px] leading-[1.0] tracking-[-0.026em] text-white mb-3">
-          <span className="hero-line block">Your next best-performing ad</span>
-          <span className="hero-line block">
+          <span className="block">Your next best-performing ad</span>
+          <span className="block">
             doesn't need <span className="font-serif-display italic">a camera.</span>
           </span>
         </h1>
 
-        <p
-          className="text-[12px] md:text-[13px] leading-[1.45] text-white/40 max-w-[340px] mb-4 reveal"
-          data-delay="700"
-        >
+        <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[360px] mb-4">
           AI-generated cinematic creatives for DTC brands. Fraction of the cost.
           Fraction of the time.
         </p>
 
-        <div className="flex gap-2 reveal" data-delay="900">
+        <div className="flex gap-2">
           <a
             href="#process"
             className="text-[11px] font-medium bg-white text-black px-4 py-1.5 rounded-[6px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
@@ -90,19 +62,10 @@ const HeroSection = () => {
             href="https://cal.com/lumina"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] font-medium text-white/45 px-4 py-1.5 rounded-[6px] border border-white/18 transition-all duration-200 hover:text-white/80 hover:border-white/35 active:scale-[0.97]"
+            className="text-[11px] font-medium text-white/50 px-4 py-1.5 rounded-[6px] border border-white/20 transition-all duration-200 hover:text-white/80 hover:border-white/35 active:scale-[0.97]"
           >
             Book a call →
           </a>
-        </div>
-      </div>
-
-      {/* Marquee ticker */}
-      <div className="absolute bottom-0 left-0 right-0 py-3 overflow-hidden border-t border-white/8">
-        <div className="animate-marquee flex whitespace-nowrap">
-          {marqueeContent}
-          {marqueeContent}
-          {marqueeContent}
         </div>
       </div>
     </section>
