@@ -44,7 +44,7 @@ const CtaSection = () => {
           </div>
 
           {/* Bottom panel — Email the founder, dark background */}
-          <div className="flex-1 flex flex-col justify-between px-12 lg:px-20 pt-10 pb-12 bg-[#111]">
+          <div className="flex-1 flex flex-col justify-between px-12 lg:px-20 pt-10 pb-12 bg-[#111]" style={{ borderTopRightRadius: "12px" }}>
             <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/25">
               Or write directly
             </p>
