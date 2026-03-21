@@ -64,9 +64,10 @@ const CapabilitiesSection = () => {
   return (
     <div id="work" data-navbar-dark="true" className="bg-secondary text-secondary-foreground">
 
-      {/* ── Mobile: simple native horizontal scroll (< 768px) ── */}
-      <div className="md:hidden py-10">
-        <div className="px-6 mb-6">
+      {/* ── Mobile: 100dvh, tall cards, native horizontal scroll (< 768px) ── */}
+      <div className="md:hidden flex flex-col" style={{ height: "100dvh" }}>
+        {/* Header */}
+        <div className="flex-shrink-0 px-6 pt-10 pb-5">
           <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-3">
             What we produce
           </p>
@@ -78,15 +79,16 @@ const CapabilitiesSection = () => {
           </h2>
         </div>
 
+        {/* Horizontal scroll — fills remaining height */}
         <div
-          className="overflow-x-auto"
+          className="flex-1 min-h-0 overflow-x-auto overflow-y-hidden"
           style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
         >
           <style>{`.cap-mobile::-webkit-scrollbar{display:none}`}</style>
-          <div className="cap-mobile flex gap-4 px-6 pb-2">
+          <div className="cap-mobile flex h-full px-6 pb-6 gap-3">
             {capabilities.map((cap) => (
-              <div key={cap.label} className="flex-shrink-0 w-[72vw]">
-                <div className="w-full aspect-[4/3] bg-white/5 rounded-[7px] mb-3" />
+              <div key={cap.label} className="flex-shrink-0 w-[78vw] flex flex-col">
+                <div className="flex-1 min-h-0 bg-white/5 rounded-[10px] mb-3" />
                 <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1">
                   {cap.label}
                 </p>
