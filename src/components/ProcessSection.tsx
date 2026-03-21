@@ -39,14 +39,14 @@ const ProcessSection = () => {
 
         {/* Header */}
         <p
-          className="text-[11px] font-medium uppercase tracking-[0.10em] mb-3 md:mb-6 flex-shrink-0 reveal"
+          className="text-[11px] font-medium uppercase tracking-[0.10em] mb-3 md:mb-6 flex-shrink-0"
           style={{ color: "rgba(17,17,17,0.35)" }}
         >
           Process
         </p>
         <div className="grid md:grid-cols-[1fr_1fr] gap-4 md:gap-16 items-end mb-5 md:mb-16 flex-shrink-0">
           <h2
-            className="font-sans-display text-[22px] md:text-[38px] leading-[1.1] tracking-[-0.018em] reveal"
+            className="font-sans-display text-[22px] md:text-[38px] leading-[1.1] tracking-[-0.018em]"
             style={{ color: "#111111" }}
           >
             From brief to performance.
@@ -56,9 +56,8 @@ const ProcessSection = () => {
             </span>
           </h2>
           <p
-            className="hidden md:block text-[14px] leading-[1.75] max-w-[400px] reveal"
+            className="hidden md:block text-[14px] leading-[1.75] max-w-[400px]"
             style={{ color: "rgba(17,17,17,0.45)" }}
-            data-delay="80"
           >
             Every step is designed to be frictionless. The first call is 30 minutes. The first creatives arrive in 48 hours. Everything after that is automatic.
           </p>
@@ -239,7 +238,7 @@ const ProcessSection = () => {
         </div>
 
         {/* CTA — desktop only */}
-        <div className="hidden md:flex mt-10 items-center gap-4 reveal" data-delay="200">
+        <div className="hidden md:flex mt-10 items-center gap-4">
           <a
             href="https://cal.com/lumina"
             target="_blank"
