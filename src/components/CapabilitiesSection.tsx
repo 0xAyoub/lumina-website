@@ -9,7 +9,6 @@ const capabilities = [
   { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost." },
 ];
 
-// Tablet + desktop only (md = 768px+)
 function getLayout(vw: number) {
   if (vw < 1024) return { cardWidth: 360, gap: 16, px: 48, sectionVh: 260 };
   return             { cardWidth: 440, gap: 20, px: 80, sectionVh: 200 };
@@ -18,11 +17,16 @@ function getLayout(vw: number) {
 const N = capabilities.length;
 
 const CapabilitiesSection = () => {
-  const sectionRef   = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const layoutRef    = useRef(getLayout(typeof window !== "undefined" ? window.innerWidth : 1440));
-  const maxTranslate = useRef(0);
-  const scrollable   = useRef(0);
+  // Desktop refs
+  const sectionRef    = useRef<HTMLDivElement>(null);
+  const containerRef  = useRef<HTMLDivElement>(null);
+  const layoutRef     = useRef(getLayout(typeof window !== "undefined" ? window.innerWidth : 1440));
+  const maxTranslate  = useRef(0);
+  const scrollable    = useRef(0);
+
+  // Mobile refs
+  const mobileSectionRef   = useRef<HTMLDivElement>(null);
+  const mobileContainerRef = useRef<HTMLDivElement>(null);
 
   const [layout, setLayout] = useState(layoutRef.current);
 
@@ -48,12 +52,26 @@ const CapabilitiesSection = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      if (!sectionRef.current || !containerRef.current) return;
-      const top = sectionRef.current.getBoundingClientRect().top;
-      if (top > 0 || top < -scrollable.current) return;
-      const progress = Math.max(0, Math.min(1, -top / scrollable.current));
-      containerRef.current.style.transform =
-        `translate3d(${-progress * maxTranslate.current}px,0,0)`;
+      // Desktop
+      if (sectionRef.current && containerRef.current) {
+        const top = sectionRef.current.getBoundingClientRect().top;
+        if (top <= 0 && top >= -scrollable.current) {
+          const progress = Math.max(0, Math.min(1, -top / scrollable.current));
+          containerRef.current.style.transform =
+            `translate3d(${-progress * maxTranslate.current}px,0,0)`;
+        }
+      }
+      // Mobile
+      if (mobileSectionRef.current && mobileContainerRef.current) {
+        const top = mobileSectionRef.current.getBoundingClientRect().top;
+        const vh = window.innerHeight;
+        const mobileScrollable = (N - 1) * vh;
+        if (top <= 0 && top >= -mobileScrollable) {
+          const progress = Math.max(0, Math.min(1, -top / mobileScrollable));
+          mobileContainerRef.current.style.transform =
+            `translate3d(${-progress * (N - 1) * window.innerWidth}px,0,0)`;
+        }
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -64,47 +82,41 @@ const CapabilitiesSection = () => {
   return (
     <div id="work" data-navbar-dark="true" className="bg-secondary text-secondary-foreground">
 
-      {/* ── Mobile: native swipe (< 768px) ── */}
-      <div className="md:hidden py-12">
-        {/* Header */}
-        <div className="px-6 mb-6">
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-4">
-            What we produce
-          </p>
-          <h2 className="font-sans-display text-[20px] leading-[1.1] tracking-[-0.018em] text-white">
-            Every frame.{" "}
-            <span className="font-serif-display italic text-white/50">
-              Indistinguishable from reality.
-            </span>
-          </h2>
-        </div>
-
-        {/* Native horizontal swipe — one card at a time, zero JS */}
+      {/* ── Mobile: scroll-driven sticky (< 768px) ── */}
+      <section
+        ref={mobileSectionRef}
+        className="md:hidden relative"
+        style={{ height: `${N * 100}dvh` }}
+      >
         <div
-          className="overflow-x-auto"
-          style={{
-            scrollSnapType: "x mandatory",
-            scrollBehavior: "smooth",
-            WebkitOverflowScrolling: "touch",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
+          className="sticky top-0 overflow-hidden flex flex-col"
+          style={{ height: "100dvh", transform: "translateZ(0)" }}
         >
-          <style>{`.cap-scroll::-webkit-scrollbar{display:none}`}</style>
-          <div className="cap-scroll flex">
-            {capabilities.map((cap, i) => (
+          {/* Header */}
+          <div className="px-6 pt-10 pb-5 flex-shrink-0">
+            <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-3">
+              What we produce
+            </p>
+            <h2 className="font-sans-display text-[20px] leading-[1.1] tracking-[-0.018em] text-white">
+              Every frame.{" "}
+              <span className="font-serif-display italic text-white/50">
+                Indistinguishable from reality.
+              </span>
+            </h2>
+          </div>
+
+          {/* Cards strip */}
+          <div
+            ref={mobileContainerRef}
+            className="flex will-change-transform flex-1 min-h-0"
+          >
+            {capabilities.map((cap) => (
               <div
                 key={cap.label}
-                className="flex-shrink-0 flex flex-col px-6"
-                style={{
-                  width: "100vw",
-                  scrollSnapAlign: "start",
-                  scrollSnapStop: "always",
-                  paddingLeft: i === 0 ? "24px" : "12px",
-                  paddingRight: i === capabilities.length - 1 ? "24px" : "12px",
-                }}
+                className="flex-shrink-0 flex flex-col px-6 pb-10"
+                style={{ width: "100vw" }}
               >
-                <div className="w-full bg-white/5 rounded-[7px] mb-4" style={{ aspectRatio: "4/3" }} />
+                <div className="flex-1 bg-white/5 rounded-[7px] mb-4 min-h-0" />
                 <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1.5">
                   {cap.label}
                 </p>
@@ -115,7 +127,7 @@ const CapabilitiesSection = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ── Tablet + Desktop: sticky scroll-driven (768px+) ── */}
       <section
