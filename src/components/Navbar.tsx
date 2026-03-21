@@ -47,11 +47,14 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  const textColor = isDark ? "rgba(255,255,255,0.7)" : "rgba(17,17,17,0.6)";
+  const inHero = isDark && !scrolled;
+
+  const textColor = isDark ? "rgba(255,255,255,0.6)" : "rgba(17,17,17,0.6)";
   const textColorHover = isDark ? "#ffffff" : "#111111";
   const logColor = isDark ? "#ffffff" : "#111111";
-  const btnBg = isDark ? "rgba(255,255,255,1)" : "rgba(17,17,17,1)";
-  const btnText = isDark ? "#111111" : "#ffffff";
+  const btnBg = inHero ? "rgba(255,255,255,0.12)" : isDark ? "rgba(255,255,255,1)" : "rgba(17,17,17,1)";
+  const btnText = inHero ? "rgba(255,255,255,0.7)" : isDark ? "#111111" : "#ffffff";
+  const btnBorder = inHero ? "1px solid rgba(255,255,255,0.18)" : "none";
 
   return (
     <nav
@@ -59,13 +62,11 @@ const Navbar = () => {
       style={{
         left: isDesktop && scrolled ? "400px" : "5px",
         right: isDesktop && scrolled ? "400px" : "5px",
-        backgroundColor: isDark ? "rgba(17,17,17,0.72)" : "rgba(255,255,255,0.82)",
+        backgroundColor: inHero ? "rgba(255,255,255,0.04)" : isDark ? "rgba(17,17,17,0.72)" : "rgba(255,255,255,0.82)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
         borderRadius: "7px",
-        border: isDark
-          ? "1px solid rgba(255,255,255,0.07)"
-          : "1px solid rgba(0,0,0,0.06)",
+        border: inHero ? "1px solid rgba(255,255,255,0.08)" : isDark ? "1px solid rgba(255,255,255,0.07)" : "1px solid rgba(0,0,0,0.06)",
         transition:
           "left 0.6s cubic-bezier(0.16, 1, 0.3, 1), right 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, border-color 0.4s ease",
       }}
@@ -105,7 +106,8 @@ const Navbar = () => {
           style={{
             backgroundColor: btnBg,
             color: btnText,
-            transition: "background-color 0.4s ease, color 0.4s ease",
+            border: btnBorder,
+            transition: "background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease",
           }}
         >
           Book a call
