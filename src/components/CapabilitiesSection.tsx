@@ -9,8 +9,6 @@ const capabilities = [
   { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost." },
 ];
 
-// Per-breakpoint layout values
-// sectionVh controls scroll speed: higher = slower, more time to see cards
 function getLayout(vw: number) {
   if (vw < 640)  return { cardWidth: 270, gap: 12, px: 24, sectionVh: 320 };
   if (vw < 1024) return { cardWidth: 360, gap: 16, px: 48, sectionVh: 260 };
@@ -20,41 +18,54 @@ function getLayout(vw: number) {
 const CapabilitiesSection = () => {
   const sectionRef   = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const layoutRef    = useRef(getLayout(typeof window !== "undefined" ? window.innerWidth : 1440));
+  const rafRef       = useRef(0);
 
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [layout, setLayout] = useState(() =>
-    getLayout(typeof window !== "undefined" ? window.innerWidth : 1440)
-  );
+  // layout state only drives section height + card sizes (no scroll-driven re-renders)
+  const [layout, setLayout] = useState(layoutRef.current);
 
   useEffect(() => {
-    const onResize = () => setLayout(getLayout(window.innerWidth));
+    const onResize = () => {
+      const next = getLayout(window.innerWidth);
+      layoutRef.current = next;
+      setLayout(next);
+    };
     window.addEventListener("resize", onResize, { passive: true });
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  // Scroll → direct DOM mutation, no React state, no re-render
   useEffect(() => {
     const onScroll = () => {
-      if (!sectionRef.current) return;
-      const rect       = sectionRef.current.getBoundingClientRect();
-      const secH       = sectionRef.current.offsetHeight;
-      const vpH        = window.innerHeight;
-      const scrollable = secH - vpH;
-      if (rect.top <= 0 && rect.bottom >= vpH) {
-        setScrollProgress(Math.min(1, Math.max(0, -rect.top / scrollable)));
-      }
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        if (!sectionRef.current || !containerRef.current) return;
+
+        const rect       = sectionRef.current.getBoundingClientRect();
+        const secH       = sectionRef.current.offsetHeight;
+        const vpH        = window.innerHeight;
+        const scrollable = secH - vpH;
+
+        if (rect.top > 0 || rect.bottom < vpH) return;
+
+        const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
+        const { cardWidth, gap, px } = layoutRef.current;
+        const n = capabilities.length;
+        const totalW = n * cardWidth + (n - 1) * gap;
+        const maxTranslate = Math.max(0, totalW + px - window.innerWidth + px);
+
+        containerRef.current.style.transform = `translateX(${-progress * maxTranslate}px)`;
+      });
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const { cardWidth, gap, px, sectionVh } = layout;
-  const n = capabilities.length;
-  const totalContentWidth = n * cardWidth + (n - 1) * gap;
-  const maxTranslate = Math.max(
-    0,
-    totalContentWidth + px - (typeof window !== "undefined" ? window.innerWidth : 1440) + px
-  );
-  const translateX = -scrollProgress * maxTranslate;
 
   return (
     <section
@@ -89,16 +100,11 @@ const CapabilitiesSection = () => {
           </div>
         </div>
 
-        {/* Cards */}
+        {/* Cards — transform driven by direct DOM writes */}
         <div
           ref={containerRef}
           className="flex will-change-transform flex-1 min-h-0 md:flex-none"
-          style={{
-            gap: `${gap}px`,
-            paddingLeft: `${px}px`,
-            transform: `translateX(${translateX}px)`,
-            transition: "transform 0.08s linear",
-          }}
+          style={{ gap: `${gap}px`, paddingLeft: `${px}px` }}
         >
           {capabilities.map((cap) => (
             <div
