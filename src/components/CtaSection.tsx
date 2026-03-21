@@ -10,7 +10,6 @@ const CtaSection = () => {
           {/* Top panel — Book a call, white background */}
           <div
             className="flex-1 flex flex-col justify-between px-12 lg:px-20 pt-14 pb-10 bg-white"
-            style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}
           >
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-black/30 mb-5">
@@ -72,7 +71,7 @@ const CtaSection = () => {
 
         {/* Right column — 30vw, full height, Cal.com embed with inset margins */}
         <div
-          className="flex-1 bg-[#f7f7f7] p-5 lg:p-7"
+          className="flex-1 bg-white p-5 lg:p-7"
           style={{ borderLeft: "1px solid rgba(0,0,0,0.07)" }}
         >
           <div className="w-full h-full rounded-[14px] overflow-hidden bg-white border border-black/[0.06] shadow-[0_2px_24px_rgba(0,0,0,0.05)]">
