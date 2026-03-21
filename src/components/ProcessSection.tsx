@@ -31,17 +31,17 @@ const ProcessSection = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="process" className="bg-background pt-[80px] pb-6 md:py-[140px] min-h-screen md:min-h-0 flex flex-col">
-      <div className="w-full px-6 md:px-12 lg:px-20 flex flex-col flex-1">
+    <section id="process" className="bg-background md:py-[140px] md:h-auto flex flex-col" style={{ height: "100dvh" }}>
+      <div className="w-full px-6 md:px-12 lg:px-20 flex flex-col h-full md:h-auto pt-[80px] pb-4 md:pt-0 md:pb-0 min-h-0">
 
         {/* Header */}
         <p
-          className="text-[11px] font-medium uppercase tracking-[0.10em] mb-6 reveal"
+          className="text-[11px] font-medium uppercase tracking-[0.10em] mb-4 md:mb-6 reveal"
           style={{ color: "rgba(17,17,17,0.35)" }}
         >
           Process
         </p>
-        <div className="grid md:grid-cols-[1fr_1fr] gap-8 md:gap-16 items-end mb-16">
+        <div className="grid md:grid-cols-[1fr_1fr] gap-8 md:gap-16 items-end mb-6 md:mb-16">
           <h2
             className="font-sans-display text-[26px] md:text-[38px] leading-[1.1] tracking-[-0.018em] reveal"
             style={{ color: "#111111" }}
@@ -155,11 +155,11 @@ const ProcessSection = () => {
         </div>
 
         {/* Mobile: fill all remaining screen height */}
-        <div className="md:hidden flex flex-col flex-1 gap-3">
+        <div className="md:hidden flex flex-col flex-1 min-h-0 gap-3">
           {steps.map((step) => (
             <div
               key={step.num}
-              className="flex flex-col justify-between p-6 rounded-[7px] flex-1"
+              className="flex flex-col justify-between p-6 rounded-[7px] flex-1 min-h-0"
               style={{ backgroundColor: "rgba(0,0,0,0.04)" }}
             >
               <div>
@@ -190,7 +190,7 @@ const ProcessSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex items-center gap-4 reveal" data-delay="200">
+        <div className="hidden md:flex mt-10 items-center gap-4 reveal" data-delay="200">
           <a
             href="https://cal.com/lumina"
             target="_blank"
