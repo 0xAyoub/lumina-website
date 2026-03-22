@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 
 const capabilities = [
-  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/video1.mp4", desc: "Minimalist — Squalane Serum" },
-  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null, desc: null },
-  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null, desc: null },
-  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", video: null, desc: null },
-  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", video: null, desc: null },
-  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", video: null, desc: null },
+  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/video1.mp4", desc: "Minimalist — Squalane Serum", placeholder: null },
+  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null, desc: null, placeholder: "Soon." },
+  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null, desc: null, placeholder: "Very soon." },
+  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", video: null, desc: null, placeholder: "Maybe tomorrow." },
+  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", video: null, desc: null, placeholder: "Be indulgent,\nwe're early-stage." },
+  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", video: null, desc: null, placeholder: "We're on it.\nProbably." },
 ];
 
 function getLayout(vw: number) {
@@ -105,6 +105,11 @@ const CapabilitiesSection = () => {
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
                     )}
+                    {!cap.video && cap.placeholder && (
+                      <div className="absolute inset-0 flex items-center justify-center px-4">
+                        <p className="text-[12px] text-white/20 text-center leading-[1.6] whitespace-pre-line">{cap.placeholder}</p>
+                      </div>
+                    )}
                     {/* Expand icon */}
                     <div className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-black/40 flex items-center justify-center backdrop-blur-sm">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -169,6 +174,11 @@ const CapabilitiesSection = () => {
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
                     )}
+                    {!cap.video && cap.placeholder && (
+                      <div className="absolute inset-0 flex items-center justify-center px-5">
+                        <p className="text-[12px] text-white/20 text-center leading-[1.65] whitespace-pre-line">{cap.placeholder}</p>
+                      </div>
+                    )}
                     {/* Expand icon overlay */}
                     <div
                       className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-opacity duration-200 opacity-0 group-hover:opacity-100"
@@ -221,7 +231,11 @@ const CapabilitiesSection = () => {
                   onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
                 />
               ) : (
-                <div className="w-full h-full bg-white/5" />
+                <div className="w-full h-full bg-white/5 flex items-center justify-center px-8">
+                  {capabilities[modal].placeholder && (
+                    <p className="text-[13px] text-white/25 text-center leading-[1.65] whitespace-pre-line">{capabilities[modal].placeholder}</p>
+                  )}
+                </div>
               )}
 
               {/* Close button */}
