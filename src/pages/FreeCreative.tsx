@@ -10,10 +10,10 @@ const inputBase: React.CSSProperties = {
   width: "100%",
   background: "transparent",
   border: "none",
-  borderBottom: "1px solid rgba(255,255,255,0.12)",
-  color: "rgba(255,255,255,0.90)",
+  borderBottom: "1px solid rgba(0,0,0,0.10)",
+  color: "rgba(0,0,0,0.85)",
   fontSize: "14px",
-  padding: "12px 0",
+  padding: "10px 0",
   outline: "none",
   fontFamily: "inherit",
   letterSpacing: "-0.01em",
@@ -26,17 +26,17 @@ const labelStyle: React.CSSProperties = {
   fontWeight: 500,
   textTransform: "uppercase" as const,
   letterSpacing: "0.08em",
-  color: "rgba(255,255,255,0.30)",
-  marginBottom: "6px",
+  color: "rgba(0,0,0,0.28)",
+  marginBottom: "5px",
 };
 
 // ── Thank-you screen ──────────────────────────────────────────────────
 const ThankYou = () => (
-  <div className="min-h-[100dvh] flex flex-col bg-[#0c0c0c]">
+  <div className="h-[100dvh] flex flex-col bg-white">
     <div className="flex-shrink-0 px-6 md:px-12 pt-7">
       <Link
         to="/"
-        className="inline-flex items-center gap-2 text-[11px] text-white/35 hover:text-white/70 transition-colors duration-200"
+        className="inline-flex items-center gap-2 text-[11px] text-black/35 hover:text-black/70 transition-colors duration-200"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
           <path d="M19 12H5m0 0 7-7m-7 7 7 7"/>
@@ -45,25 +45,25 @@ const ThankYou = () => (
       </Link>
     </div>
 
-    <div className="flex-shrink-0 px-6 md:px-12 pt-12 pb-10">
-      <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-4">
+    <div className="flex-shrink-0 px-6 md:px-12 pt-10 pb-6">
+      <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-black/30 mb-4">
         Request received
       </p>
-      <h1 className="font-sans-display text-[26px] md:text-[40px] leading-[1.05] tracking-[-0.022em] text-white mb-4 max-w-[540px]">
+      <h1 className="font-sans-display text-[26px] md:text-[40px] leading-[1.05] tracking-[-0.022em] text-black mb-3 max-w-[540px]">
         We'll be in touch<br />
-        <span className="font-serif-display italic text-white/45">within 24–48 hours.</span>
+        <span className="font-serif-display italic text-black/35">within 24–48 hours.</span>
       </h1>
-      <p className="text-[13px] leading-[1.7] text-white/40 max-w-[440px]">
+      <p className="text-[13px] leading-[1.7] text-black/40 max-w-[440px]">
         In the meantime, schedule your demo below — we'll walk you through exactly what we'll build for your brand, live.
       </p>
     </div>
 
-    <div className="flex-1 min-h-0 px-6 md:px-12 pb-8" style={{ minHeight: "480px" }}>
-      <div className="w-full h-full rounded-[14px] overflow-hidden bg-white/[0.03] border border-white/[0.07]" style={{ minHeight: "480px" }}>
+    <div className="flex-1 min-h-0 px-6 md:px-12 pb-8">
+      <div className="w-full h-full rounded-[14px] overflow-hidden bg-black/[0.02] border border-black/[0.06]">
         <iframe
-          src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=dark&layout=column_view&hideBranding=1&hide_event_type_details=1"
+          src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=light&layout=column_view&hideBranding=1&hide_event_type_details=1"
           className="w-full h-full"
-          style={{ minHeight: "480px" }}
+          style={{ minHeight: "380px" }}
           frameBorder="0"
           title="Schedule your demo"
           allow="payment"
@@ -99,17 +99,17 @@ const FreeCreative = () => {
 
   const fieldStyle = (id: string): React.CSSProperties => ({
     ...inputBase,
-    borderBottomColor: focused === id ? "rgba(255,255,255,0.45)" : "rgba(255,255,255,0.12)",
+    borderBottomColor: focused === id ? "rgba(0,0,0,0.40)" : "rgba(0,0,0,0.10)",
   });
 
   return (
-    <div className="min-h-[100dvh] bg-[#0c0c0c] flex flex-col">
+    <div className="h-[100dvh] bg-white flex flex-col overflow-hidden">
 
-      {/* Back arrow */}
-      <div className="flex-shrink-0 px-6 md:px-12 pt-7">
+      {/* Top bar */}
+      <div className="flex-shrink-0 flex items-center px-6 md:px-12 pt-6 pb-2">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-[11px] text-white/35 hover:text-white/70 transition-colors duration-200"
+          className="inline-flex items-center gap-2 text-[11px] text-black/35 hover:text-black/70 transition-colors duration-200"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
             <path d="M19 12H5m0 0 7-7m-7 7 7 7"/>
@@ -118,27 +118,32 @@ const FreeCreative = () => {
         </Link>
       </div>
 
-      {/* Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
-        <div className="w-full max-w-[640px]">
+      {/* Main — desktop: side-by-side, mobile: stacked scrollable */}
+      <div className="flex-1 min-h-0 flex flex-col md:flex-row">
 
-          {/* Header */}
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-5">
+        {/* Left: title block */}
+        <div className="flex-shrink-0 md:flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-8 pb-4 md:py-0">
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-black/30 mb-4">
             Free creative
           </p>
-          <h1 className="font-sans-display text-[26px] md:text-[38px] leading-[1.05] tracking-[-0.022em] text-white mb-3">
+          <h1 className="font-sans-display text-[26px] md:text-[32px] lg:text-[38px] leading-[1.06] tracking-[-0.022em] text-black mb-3 max-w-[420px]">
             Get one mind-blowing<br />
-            <span className="font-serif-display italic text-white/45">AI creative for $0.</span>
+            <span className="font-serif-display italic text-black/35">AI creative for $0.</span>
           </h1>
-          <p className="text-[13px] leading-[1.7] text-white/35 mb-10 max-w-[480px]">
-            Tell us about your brand and what you want. We'll produce one cinematic AI creative — for free, no commitment.
+          <p className="text-[13px] leading-[1.7] text-black/35 max-w-[340px]">
+            Fill in the form — we'll produce one cinematic AI creative, free, no commitment.
           </p>
+        </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+        {/* Divider — desktop only */}
+        <div className="hidden md:block w-px bg-black/[0.06] my-10" />
 
-            {/* Row 1: names */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {/* Right: form */}
+        <div className="flex-1 min-h-0 overflow-y-auto px-6 md:px-12 lg:px-16 py-6 md:py-10 flex flex-col justify-center">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-[480px] w-full md:mx-auto">
+
+            {/* Names */}
+            <div className="grid grid-cols-2 gap-4">
               <div>
                 <label style={labelStyle}>First name</label>
                 <input
@@ -147,7 +152,7 @@ const FreeCreative = () => {
                   onFocus={() => setFocused("fn")} onBlur={() => setFocused(null)}
                   placeholder="Ayoub"
                   style={fieldStyle("fn")}
-                  className="placeholder:text-white/20"
+                  className="placeholder:text-black/20"
                 />
               </div>
               <div>
@@ -158,39 +163,39 @@ const FreeCreative = () => {
                   onFocus={() => setFocused("ln")} onBlur={() => setFocused(null)}
                   placeholder="Benouda"
                   style={fieldStyle("ln")}
-                  className="placeholder:text-white/20"
+                  className="placeholder:text-black/20"
                 />
               </div>
             </div>
 
-            {/* Row 2: company */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Company */}
+            <div className="grid grid-cols-2 gap-4">
               <div>
-                <label style={labelStyle}>Company name</label>
+                <label style={labelStyle}>Company</label>
                 <input
                   required type="text" value={company}
                   onChange={e => setCompany(e.target.value)}
                   onFocus={() => setFocused("co")} onBlur={() => setFocused(null)}
                   placeholder="Your Brand"
                   style={fieldStyle("co")}
-                  className="placeholder:text-white/20"
+                  className="placeholder:text-black/20"
                 />
               </div>
               <div>
-                <label style={labelStyle}>Website URL</label>
+                <label style={labelStyle}>Website</label>
                 <input
                   type="url" value={companyUrl}
                   onChange={e => setCompanyUrl(e.target.value)}
                   onFocus={() => setFocused("url")} onBlur={() => setFocused(null)}
                   placeholder="https://yourbrand.com"
                   style={fieldStyle("url")}
-                  className="placeholder:text-white/20"
+                  className="placeholder:text-black/20"
                 />
               </div>
             </div>
 
-            {/* Row 3: contact */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Contact */}
+            <div className="grid grid-cols-2 gap-4">
               <div>
                 <label style={labelStyle}>Email</label>
                 <input
@@ -199,18 +204,18 @@ const FreeCreative = () => {
                   onFocus={() => setFocused("em")} onBlur={() => setFocused(null)}
                   placeholder="you@brand.com"
                   style={fieldStyle("em")}
-                  className="placeholder:text-white/20"
+                  className="placeholder:text-black/20"
                 />
               </div>
               <div>
-                <label style={labelStyle}>Phone number</label>
+                <label style={labelStyle}>Phone</label>
                 <input
                   type="tel" value={phone}
                   onChange={e => setPhone(e.target.value)}
                   onFocus={() => setFocused("ph")} onBlur={() => setFocused(null)}
                   placeholder="+33 6 00 00 00 00"
                   style={fieldStyle("ph")}
-                  className="placeholder:text-white/20"
+                  className="placeholder:text-black/20"
                 />
               </div>
             </div>
@@ -218,21 +223,21 @@ const FreeCreative = () => {
             {/* Ad style */}
             <div>
               <label style={labelStyle}>Ad style</label>
-              <div className="flex flex-wrap gap-2 mt-1">
+              <div className="flex flex-wrap gap-1.5 mt-2">
                 {AD_STYLES.map(s => (
                   <button
                     key={s} type="button"
                     onClick={() => toggleStyle(s)}
-                    className="px-4 py-1.5 rounded-full text-[12px] transition-all duration-150"
+                    className="px-3.5 py-1 rounded-full text-[11px] transition-all duration-150"
                     style={{
                       border: adStyles.includes(s)
-                        ? "1px solid rgba(255,255,255,0.55)"
-                        : "1px solid rgba(255,255,255,0.12)",
+                        ? "1px solid rgba(0,0,0,0.50)"
+                        : "1px solid rgba(0,0,0,0.12)",
                       color: adStyles.includes(s)
-                        ? "rgba(255,255,255,0.90)"
-                        : "rgba(255,255,255,0.40)",
+                        ? "rgba(0,0,0,0.85)"
+                        : "rgba(0,0,0,0.38)",
                       background: adStyles.includes(s)
-                        ? "rgba(255,255,255,0.07)"
+                        ? "rgba(0,0,0,0.05)"
                         : "transparent",
                     }}
                   >
@@ -249,32 +254,33 @@ const FreeCreative = () => {
                 required value={description}
                 onChange={e => setDescription(e.target.value)}
                 onFocus={() => setFocused("desc")} onBlur={() => setFocused(null)}
-                placeholder="Tell us about your product, target audience, tone, references, any creative direction. The more detail, the better the result."
-                rows={4}
+                placeholder="Product, target audience, tone, references, creative direction..."
+                rows={3}
                 style={{
                   ...fieldStyle("desc"),
                   resize: "none",
                   lineHeight: "1.7",
                 }}
-                className="placeholder:text-white/20"
+                className="placeholder:text-black/20"
               />
             </div>
 
             {/* Submit */}
-            <div className="pt-2">
+            <div className="pt-1 flex items-center gap-5">
               <button
                 type="submit"
-                className="w-full sm:w-auto text-[12px] font-medium bg-white text-black px-8 py-3 rounded-[8px] transition-all duration-200 hover:opacity-85 active:scale-[0.98]"
+                className="text-[12px] font-medium bg-black text-white px-7 py-2.5 rounded-[8px] transition-all duration-200 hover:opacity-75 active:scale-[0.98]"
               >
                 Get my free creative →
               </button>
-              <p className="text-[11px] text-white/25 mt-3">
-                No credit card. No commitment. One deliverable, 48h.
+              <p className="text-[11px] text-black/25">
+                No credit card. 48h delivery.
               </p>
             </div>
 
           </form>
         </div>
+
       </div>
     </div>
   );
