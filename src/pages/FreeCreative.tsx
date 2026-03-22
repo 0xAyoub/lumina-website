@@ -32,7 +32,7 @@ const labelStyle: React.CSSProperties = {
 
 // ── Thank-you screen ──────────────────────────────────────────────────
 const ThankYou = () => (
-  <div className="h-[100dvh] flex flex-col bg-white">
+  <div className="min-h-[100dvh] md:h-[100dvh] flex flex-col bg-white">
     <div className="flex-shrink-0 px-6 md:px-12 pt-7">
       <Link
         to="/"
@@ -49,7 +49,7 @@ const ThankYou = () => (
       <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-black/30 mb-4">
         Request received
       </p>
-      <h1 className="font-sans-display text-[26px] md:text-[40px] leading-[1.05] tracking-[-0.022em] text-black mb-3 max-w-[540px]">
+      <h1 className="font-sans-display text-[24px] md:text-[40px] leading-[1.05] tracking-[-0.022em] text-black mb-3 max-w-[540px]">
         We'll be in touch<br />
         <span className="font-serif-display italic text-black/35">within 24–48 hours.</span>
       </h1>
@@ -58,12 +58,12 @@ const ThankYou = () => (
       </p>
     </div>
 
-    <div className="flex-1 min-h-0 px-6 md:px-12 pb-8">
-      <div className="w-full h-full rounded-[14px] overflow-hidden bg-black/[0.02] border border-black/[0.06]">
+    <div className="flex-1 min-h-0 px-6 md:px-12 pb-8" style={{ minHeight: "360px" }}>
+      <div className="w-full h-full rounded-[14px] overflow-hidden bg-black/[0.02] border border-black/[0.06]" style={{ minHeight: "360px" }}>
         <iframe
           src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=light&layout=column_view&hideBranding=1&hide_event_type_details=1"
           className="w-full h-full"
-          style={{ minHeight: "380px" }}
+          style={{ minHeight: "360px" }}
           frameBorder="0"
           title="Schedule your demo"
           allow="payment"
@@ -129,7 +129,8 @@ const FreeCreative = () => {
   });
 
   return (
-    <div className="h-[100dvh] bg-white flex flex-col overflow-hidden">
+    // Mobile: natural scroll. Desktop: locked to 100dvh
+    <div className="min-h-[100dvh] md:h-[100dvh] bg-white flex flex-col md:overflow-hidden">
 
       {/* Top bar */}
       <div className="flex-shrink-0 flex items-center px-6 md:px-12 pt-6 pb-2">
@@ -144,19 +145,19 @@ const FreeCreative = () => {
         </Link>
       </div>
 
-      {/* Main — desktop: side-by-side, mobile: stacked scrollable */}
+      {/* Main */}
       <div className="flex-1 min-h-0 flex flex-col md:flex-row">
 
-        {/* Left: title block */}
-        <div className="flex-shrink-0 md:flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-8 pb-4 md:py-0">
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-black/30 mb-4">
+        {/* Left: title — compact on mobile, centered on desktop */}
+        <div className="flex-shrink-0 md:flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-6 pb-2 md:py-0">
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-black/30 mb-3 md:mb-4">
             Free creative
           </p>
-          <h1 className="font-sans-display text-[26px] md:text-[32px] lg:text-[38px] leading-[1.06] tracking-[-0.022em] text-black mb-3 max-w-[420px]">
+          <h1 className="font-sans-display text-[22px] sm:text-[26px] md:text-[30px] lg:text-[38px] leading-[1.06] tracking-[-0.022em] text-black mb-2 md:mb-3 max-w-[420px]">
             Get one mind-blowing<br />
             <span className="font-serif-display italic text-black/35">AI creative for $0.</span>
           </h1>
-          <p className="text-[13px] leading-[1.7] text-black/35 max-w-[340px]">
+          <p className="text-[12px] md:text-[13px] leading-[1.7] text-black/35 max-w-[320px] md:max-w-[340px]">
             Fill in the form — we'll produce one cinematic AI creative, free, no commitment.
           </p>
         </div>
@@ -164,12 +165,12 @@ const FreeCreative = () => {
         {/* Divider — desktop only */}
         <div className="hidden md:block w-px bg-black/[0.06] my-10" />
 
-        {/* Right: form */}
-        <div className="flex-1 min-h-0 overflow-y-auto px-6 md:px-12 lg:px-16 py-6 md:py-10 flex flex-col justify-center">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-[480px] w-full md:mx-auto">
+        {/* Right: form — scrollable on mobile, centered on desktop */}
+        <div className="flex-1 min-h-0 md:overflow-y-auto px-6 md:px-12 lg:px-16 pt-6 pb-10 md:py-10 flex flex-col md:justify-center">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5 w-full max-w-[480px] md:mx-auto">
 
             {/* Names */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label style={labelStyle}>First name</label>
                 <input
@@ -195,7 +196,7 @@ const FreeCreative = () => {
             </div>
 
             {/* Company */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label style={labelStyle}>Company</label>
                 <input
@@ -221,7 +222,7 @@ const FreeCreative = () => {
             </div>
 
             {/* Contact */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label style={labelStyle}>Email</label>
                 <input
@@ -293,7 +294,7 @@ const FreeCreative = () => {
 
             {/* Submit */}
             <div className="pt-1">
-              <div className="flex items-center gap-5">
+              <div className="flex flex-wrap items-center gap-4">
                 <button
                   type="submit"
                   disabled={loading}
