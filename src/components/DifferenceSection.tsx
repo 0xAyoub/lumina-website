@@ -144,12 +144,12 @@ const DifferenceSection = () => {
       <div className="w-full px-6 md:px-12 lg:px-20">
 
         {/* Header */}
-        <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-4">
+        <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/55 mb-4">
           The difference
         </p>
         <h2 className="font-sans-display text-[22px] md:text-[34px] leading-[1.08] tracking-[-0.018em] text-white mb-14 md:mb-16">
           Not all creative partners{" "}
-          <span className="font-serif-display italic text-white/40">are created equal.</span>
+          <span className="font-serif-display italic text-white/60">are created equal.</span>
         </h2>
 
         {/* ── Desktop table (md+) ── */}
@@ -171,10 +171,10 @@ const DifferenceSection = () => {
                 } : {}}
               >
                 <div className="pt-5">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: col.highlight ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.35)" }}>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: col.highlight ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.90)" }}>
                     <RevealText text={col.label} delay={ci * 80} active={active} />
                   </p>
-                  <p className="text-[11px]" style={{ color: col.highlight ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.2)" }}>
+                  <p className="text-[11px]" style={{ color: col.highlight ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.60)" }}>
                     <RevealText text={col.sub} delay={ci * 80 + 60} active={active} />
                   </p>
                 </div>
@@ -190,8 +190,8 @@ const DifferenceSection = () => {
                   className="flex items-center gap-2 py-4 pr-4"
                   style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
                 >
-                  <span className="text-white/25"><row.Icon /></span>
-                  <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/30">
+                  <span className="text-white/65"><row.Icon /></span>
+                  <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/75">
                     {row.label}
                   </span>
                 </div>
@@ -203,7 +203,7 @@ const DifferenceSection = () => {
                     className="px-5 py-4 text-[12px] leading-[1.65]"
                     style={{
                       borderTop: "1px solid rgba(255,255,255,0.06)",
-                      color: col.highlight ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.30)",
+                      color: col.highlight ? "rgba(255,255,255,0.90)" : "rgba(255,255,255,0.82)",
                       ...(col.highlight ? {
                         background: "rgba(255,255,255,0.04)",
                         borderLeft: "1px solid rgba(255,255,255,0.10)",
@@ -233,7 +233,7 @@ const DifferenceSection = () => {
                 className="px-5 py-5 text-[11px] leading-[1.6]"
                 style={{
                   borderTop: "1px solid rgba(255,255,255,0.06)",
-                  color: col.highlight ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.18)",
+                  color: col.highlight ? "rgba(255,255,255,0.60)" : "rgba(255,255,255,0.60)",
                   fontStyle: "italic",
                   ...(col.highlight ? {
                     background: "rgba(255,255,255,0.04)",
@@ -282,16 +282,16 @@ const DifferenceSection = () => {
                   style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
                 >
                   <div className="flex items-start gap-2 w-[80px] flex-shrink-0 pt-0.5">
-                    <span style={{ color: col.highlight ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.18)" }}>
+                    <span style={{ color: col.highlight ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.60)" }}>
                       <row.Icon />
                     </span>
                     <span className="text-[10px] font-medium uppercase tracking-[0.06em]"
-                      style={{ color: col.highlight ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.18)" }}>
+                      style={{ color: col.highlight ? "rgba(255,255,255,0.50)" : "rgba(255,255,255,0.60)" }}>
                       {row.label}
                     </span>
                   </div>
                   <p className="text-[12px] leading-[1.6]"
-                    style={{ color: col.highlight ? "rgba(255,255,255,0.80)" : "rgba(255,255,255,0.28)" }}>
+                    style={{ color: col.highlight ? "rgba(255,255,255,0.90)" : "rgba(255,255,255,0.82)" }}>
                     <RevealText text={col.rows[row.id as RowId]} delay={ci * 60 + ri * 50 + 100} active={active} />
                   </p>
                 </div>
@@ -300,7 +300,7 @@ const DifferenceSection = () => {
               {/* Tagline */}
               <div className="px-5 py-4">
                 <p className="text-[11px] leading-[1.6] italic"
-                  style={{ color: col.highlight ? "rgba(255,255,255,0.45)" : "rgba(255,255,255,0.16)" }}>
+                  style={{ color: col.highlight ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.42)" }}>
                   <RevealText text={col.tagline} delay={ci * 60 + rows.length * 50 + 100} active={active} />
                 </p>
               </div>
