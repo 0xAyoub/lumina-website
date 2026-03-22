@@ -111,8 +111,7 @@ const FreeCreative = () => {
           "Brief": description,
         }),
       });
-      const data = await res.json();
-      if (!res.ok || data.success === "false") throw new Error("Failed");
+      if (!res.ok) throw new Error("Failed");
       setSubmitted(true);
       window.scrollTo(0, 0);
     } catch {
