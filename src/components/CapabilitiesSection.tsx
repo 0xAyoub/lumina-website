@@ -143,7 +143,7 @@ const CapabilitiesSection = () => {
                   </span>
                 </h2>
                 <a
-                  href="#contact"
+                  href="/free"
                   className="flex-shrink-0 text-[11px] font-medium text-white/40 border border-white/15 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/30"
                 >
                   Get a free sample →
@@ -268,7 +268,7 @@ const CapabilitiesSection = () => {
                 </p>
               </div>
               <a
-                href="#contact"
+                href="/free"
                 onClick={() => setModal(null)}
                 className="flex-shrink-0 text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/40"
               >

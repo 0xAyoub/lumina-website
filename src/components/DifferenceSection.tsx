@@ -311,7 +311,7 @@ const DifferenceSection = () => {
         {/* CTA */}
         <div className="mt-12">
           <a
-            href="#contact"
+            href="/free"
             className="text-[11px] font-medium bg-white text-black px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
           >
             See the numbers for your brand →
