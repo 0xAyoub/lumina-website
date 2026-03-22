@@ -111,9 +111,11 @@ const SolutionSection = () => {
               className="font-sans-display text-[28px] md:text-[42px] leading-[1.1] tracking-[-0.018em] mb-5 reveal"
               style={{ color: "#111111" }}
             >
-              We replaced the studio
+              We make AI creatives
               <br />
-              <span className="font-serif-display italic">with an engine.</span>
+
+              <span className="font-serif-display italic mb-0">for you at scale.  <span className="text-[12px] not-italic font-sans-display leading-[1.1] tracking-[-0.018em] mb-5">(That doesn't look like AI)</span></span> <br />
+            
             </h2>
             <p
               className="text-[14px] leading-[1.8] mb-10 max-w-[480px] reveal"
