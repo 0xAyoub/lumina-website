@@ -4,7 +4,7 @@ const CtaSection = () => {
   return (
     <>
       {/* ── Desktop layout: 2-panel side-by-side, full height (md+) ── */}
-      <section id="contact" className="hidden md:flex w-full" style={{ height: "50dvh" }}>
+      <section id="contact" className="hidden md:flex w-full" style={{ height: "70dvh" }}>
 
         {/* Left panel — 70vw, Get free creative, white background */}
         <div className="flex flex-col justify-between px-12 lg:px-20 pt-14 pb-12 bg-white" style={{ width: "70vw" }}>
