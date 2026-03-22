@@ -84,15 +84,42 @@ const FreeCreative = () => {
   const [adStyles, setAdStyles]       = useState<string[]>([]);
   const [description, setDescription] = useState("");
   const [submitted, setSubmitted]     = useState(false);
+  const [loading, setLoading]         = useState(false);
+  const [error, setError]             = useState<string | null>(null);
   const [focused, setFocused]         = useState<string | null>(null);
 
   const toggleStyle = (s: string) =>
     setAdStyles(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo(0, 0);
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/ayoub@withluminalabs.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          _subject: `Free creative request — ${firstName} ${lastName} · ${company}`,
+          "First name": firstName,
+          "Last name": lastName,
+          "Company": company,
+          "Website": companyUrl || "—",
+          "Email": email,
+          "Phone": phone || "—",
+          "Ad styles": adStyles.length ? adStyles.join(", ") : "—",
+          "Brief": description,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.success === "false") throw new Error("Failed");
+      setSubmitted(true);
+      window.scrollTo(0, 0);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) return <ThankYou />;
@@ -266,16 +293,22 @@ const FreeCreative = () => {
             </div>
 
             {/* Submit */}
-            <div className="pt-1 flex items-center gap-5">
-              <button
-                type="submit"
-                className="text-[12px] font-medium bg-black text-white px-7 py-2.5 rounded-[8px] transition-all duration-200 hover:opacity-75 active:scale-[0.98]"
-              >
-                Get my free creative →
-              </button>
-              <p className="text-[11px] text-black/25">
-                No credit card. 48h delivery.
-              </p>
+            <div className="pt-1">
+              <div className="flex items-center gap-5">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="text-[12px] font-medium bg-black text-white px-7 py-2.5 rounded-[8px] transition-all duration-200 hover:opacity-75 active:scale-[0.98] disabled:opacity-50"
+                >
+                  {loading ? "Sending…" : "Get my free creative →"}
+                </button>
+                <p className="text-[11px] text-black/25">
+                  No credit card. 48h delivery.
+                </p>
+              </div>
+              {error && (
+                <p className="text-[11px] text-red-500 mt-2">{error}</p>
+              )}
             </div>
 
           </form>
