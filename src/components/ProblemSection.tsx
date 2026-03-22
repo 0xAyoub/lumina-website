@@ -39,11 +39,11 @@ const ProblemSection = () => {
           The problem
         </p>
 
-        <h2 className="font-sans-display text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.018em] text-white max-w-[800px] mb-16 reveal">
-          You spend €30K/month on ads. Your team ships 5 assets a week.
+        <h2 className="font-sans-display text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.018em] text-white/70 max-w-[800px] mb-16 reveal">
+          You don't have a targeting problem.
           <br />
-          <span className="font-serif-display italic text-white/50">
-            Your competitors ship 50.
+          <span className="font-serif-display italic text-white/100">
+            You have a creative problem.
           </span>
         </h2>
 

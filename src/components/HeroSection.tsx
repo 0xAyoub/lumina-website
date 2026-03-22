@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 // The two text segments — line2Plain is regular, line2Italic is styled
-const LINE1       = "Your future performing ad";
-const LINE2_PLAIN = "doesn't need ";
-const LINE2_ITALIC = "a camera.";
+const LINE1       = "Creative fatigue kills ROAS."
+const LINE2_PLAIN = "";
+const LINE2_ITALIC = "We kill creative fatigue.";
 const FULL_LINE2  = LINE2_PLAIN + LINE2_ITALIC;
 
 // Variable delay per character — simulates real typing rhythm

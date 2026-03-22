@@ -16,7 +16,7 @@ const steps = [
   {
     num: "03",
     title: "The retainer",
-    body: "You liked what you saw. Now we scale it. Monthly subscription. Fresh creatives, every week. We deploy. We test. We kill what doesn't work. We double down on what does. Your ad account becomes a machine.",
+    body: "You liked what you saw. Now we scale it. Monthly subscription. Fresh creatives, bi-weekly. We deploy. We test. You kill what doesn't work, double down on what does. Your ad account becomes a machine.",
     cta: "Start the retainer",
   },
   {
