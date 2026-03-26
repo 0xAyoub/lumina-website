@@ -93,11 +93,11 @@ const LongArrow = () => (
 
 const SolutionSection = () => {
   return (
-    <section className="bg-background py-[100px] md:py-[140px]">
+    <section className="bg-background py-[100px] md:py-[100px]">
       <div className="w-full px-6 md:px-12 lg:px-20">
 
         {/* Two-column grid */}
-        <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-16 md:gap-20 mb-20">
+        <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-16 md:gap-20">
 
           {/* Left column */}
           <div>
