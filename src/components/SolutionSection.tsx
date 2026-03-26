@@ -151,48 +151,85 @@ const SolutionSection = () => {
             </div>
           </div>
 
-          {/* Right column — capability tiles */}
+          {/* Right column — capability tiles marquee */}
           <div className="reveal" data-delay="100">
-            <div className="grid grid-cols-2 gap-3">
-              {capTiles.map((tile) => (
-                <a
-                  key={tile.label}
-                  href="/free"
-                  className="group relative flex flex-col justify-end p-5 rounded-[7px] overflow-hidden transition-all duration-300"
-                  style={{ backgroundColor: "rgba(0,0,0,0.04)", minHeight: "110px" }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.07)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.04)")
-                  }
-                >
-                  {/* Icon top-left */}
-                  <span
-                    className="absolute top-5 left-5"
-                    style={{ color: "#C5D2F8" }}
-                  >
-                    {tile.icon}
-                  </span>
 
-                  {/* Label bottom-left */}
-                  <span
-                    className="text-[12px] font-medium leading-[1.4] pr-10"
-                    style={{ color: "rgba(17,17,17,0.6)" }}
-                  >
-                    {tile.label}
-                  </span>
+            {/* Keyframes */}
+            <style>{`
+              @keyframes marquee-up   { from { transform: translateY(0);    } to { transform: translateY(-50%); } }
+              @keyframes marquee-down { from { transform: translateY(-50%); } to { transform: translateY(0);    } }
+              @keyframes marquee-left { from { transform: translateX(0);    } to { transform: translateX(-50%); } }
+            `}</style>
 
-                  {/* Long arrow bottom-right */}
-                  <span
-                    className="absolute bottom-[18px] right-5 transition-all duration-300 group-hover:translate-x-1"
-                    style={{ color: "rgba(17,17,17,0.2)" }}
+            {/* ── Desktop: 2-column vertical marquee ── */}
+            <div
+              className="hidden md:flex gap-3 overflow-hidden relative"
+              style={{ height: "420px" }}
+            >
+              {/* Fade top */}
+              <div className="absolute inset-x-0 top-0 h-14 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }} />
+              {/* Fade bottom */}
+              <div className="absolute inset-x-0 bottom-0 h-14 z-10 pointer-events-none" style={{ background: "linear-gradient(to top, #ffffff, transparent)" }} />
+
+              {/* Column A — scrolls up */}
+              <div className="flex-1 flex flex-col gap-3" style={{ animation: "marquee-up 9s linear infinite" }}>
+                {[...capTiles.slice(0, 3), ...capTiles.slice(0, 3)].map((tile, i) => (
+                  <a
+                    key={i}
+                    href="/free"
+                    className="group relative flex flex-col justify-end p-5 rounded-[7px] overflow-hidden flex-shrink-0 transition-all duration-300"
+                    style={{ backgroundColor: "rgba(0,0,0,0.04)", minHeight: "118px" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.07)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.04)")}
                   >
-                    <LongArrow />
-                  </span>
-                </a>
-              ))}
+                    <span className="absolute top-5 left-5" style={{ color: "#C5D2F8" }}>{tile.icon}</span>
+                    <span className="text-[12px] font-medium leading-[1.4] pr-10" style={{ color: "rgba(17,17,17,0.6)" }}>{tile.label}</span>
+                    <span className="absolute bottom-[18px] right-5 transition-all duration-300 group-hover:translate-x-1" style={{ color: "rgba(17,17,17,0.2)" }}><LongArrow /></span>
+                  </a>
+                ))}
+              </div>
+
+              {/* Column B — scrolls down */}
+              <div className="flex-1 flex flex-col gap-3" style={{ animation: "marquee-down 11s linear infinite" }}>
+                {[...capTiles.slice(3, 6), ...capTiles.slice(3, 6)].map((tile, i) => (
+                  <a
+                    key={i}
+                    href="/free"
+                    className="group relative flex flex-col justify-end p-5 rounded-[7px] overflow-hidden flex-shrink-0 transition-all duration-300"
+                    style={{ backgroundColor: "rgba(0,0,0,0.04)", minHeight: "118px" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.07)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.04)")}
+                  >
+                    <span className="absolute top-5 left-5" style={{ color: "#C5D2F8" }}>{tile.icon}</span>
+                    <span className="text-[12px] font-medium leading-[1.4] pr-10" style={{ color: "rgba(17,17,17,0.6)" }}>{tile.label}</span>
+                    <span className="absolute bottom-[18px] right-5 transition-all duration-300 group-hover:translate-x-1" style={{ color: "rgba(17,17,17,0.2)" }}><LongArrow /></span>
+                  </a>
+                ))}
+              </div>
             </div>
+
+            {/* ── Mobile: horizontal marquee ── */}
+            <div className="md:hidden overflow-hidden relative">
+              {/* Fade left */}
+              <div className="absolute inset-y-0 left-0 w-10 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #ffffff, transparent)" }} />
+              {/* Fade right */}
+              <div className="absolute inset-y-0 right-0 w-10 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #ffffff, transparent)" }} />
+
+              <div className="flex gap-3" style={{ animation: "marquee-left 14s linear infinite", width: "max-content" }}>
+                {[...capTiles, ...capTiles].map((tile, i) => (
+                  <a
+                    key={i}
+                    href="/free"
+                    className="group relative flex flex-col justify-end p-4 rounded-[7px] overflow-hidden flex-shrink-0 transition-all duration-300"
+                    style={{ backgroundColor: "rgba(0,0,0,0.04)", width: "140px", height: "110px" }}
+                  >
+                    <span className="absolute top-4 left-4" style={{ color: "#C5D2F8" }}>{tile.icon}</span>
+                    <span className="text-[11px] font-medium leading-[1.4]" style={{ color: "rgba(17,17,17,0.6)" }}>{tile.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 
