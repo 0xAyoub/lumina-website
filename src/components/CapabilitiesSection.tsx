@@ -37,7 +37,6 @@ function getLayout(vw: number) {
   return             { cardWidth: 320, gap: 18, px: 60, sectionVh: 240 };
 }
 
-const N = capabilities.length;
 
 const CapabilitiesSection = () => {
   const sectionRef   = useRef<HTMLDivElement>(null);
@@ -52,10 +51,10 @@ const CapabilitiesSection = () => {
   const videoRef            = useRef<HTMLVideoElement>(null);
 
   const updateMetrics = () => {
-    if (!sectionRef.current) return;
-    const { cardWidth, gap, px } = layoutRef.current;
-    const totalW = N * cardWidth + (N - 1) * gap;
-    maxTranslate.current = Math.max(0, totalW + px - window.innerWidth + px);
+    if (!sectionRef.current || !containerRef.current) return;
+    const { px } = layoutRef.current;
+    // Measure actual rendered strip width so 16:9 cards are accounted for
+    maxTranslate.current = Math.max(0, containerRef.current.scrollWidth - window.innerWidth + px);
     scrollable.current   = sectionRef.current.offsetHeight - window.innerHeight;
   };
 
