@@ -94,16 +94,18 @@ const CapabilitiesSection = () => {
   // ── Modal sizing ────────────────────────────────────────────────────
   // 9:16 → constrain height, width derives from ratio (capped for wide screens)
   // 16:9 → constrain to viewport with safe margins on both axes
+  // p-4 modal padding (32px) + description bar (52px) + gap (12px) + buffer = 160px
+  const R = "160px";
   const modalVideoStyle = (aspect: "9:16" | "16:9"): React.CSSProperties =>
     aspect === "16:9"
       ? {
-          width: "min(92vw, calc((100dvh - 120px) * 16 / 9))",
-          maxHeight: "calc(100dvh - 120px)",
+          width: `min(92vw, calc((100dvh - ${R}) * 16 / 9))`,
+          height: `min(calc(100dvh - ${R}), calc(92vw * 9 / 16))`,
           aspectRatio: "16/9",
         }
       : {
-          height: "min(calc(100dvh - 100px), calc(92vw * 16 / 9))",
-          maxWidth: "92vw",
+          height: `min(calc(100dvh - ${R}), calc(88vw * 16 / 9))`,
+          width: `min(88vw, calc((100dvh - ${R}) * 9 / 16))`,
           aspectRatio: "9/16",
         };
 
@@ -125,12 +127,9 @@ const CapabilitiesSection = () => {
             </h2>
           </div>
 
-          <style>{`
-            .cap-scroll::-webkit-scrollbar { display: none; }
-          `}</style>
           <div
-            className="cap-scroll flex-1 min-h-0 overflow-x-auto overflow-y-hidden"
-            style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+            className="no-scrollbar flex-1 min-h-0 overflow-x-auto overflow-y-hidden"
+            style={{ WebkitOverflowScrolling: "touch" } as React.CSSProperties}
           >
             <div className="flex h-full px-5 pb-5 gap-3" style={{ width: "max-content" }}>
               {capabilities.map((cap, i) => (
