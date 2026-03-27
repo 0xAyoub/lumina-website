@@ -33,10 +33,9 @@ const capabilities = [
 ];
 
 function getLayout(vw: number) {
-  if (vw < 1024) return { cardWidth: 260, gap: 14, px: 40, sectionVh: 300 };
+  if (vw < 1024) return { cardWidth: 240, gap: 12, px: 24, sectionVh: 300 };
   return             { cardWidth: 320, gap: 18, px: 60, sectionVh: 240 };
 }
-
 
 const CapabilitiesSection = () => {
   const sectionRef   = useRef<HTMLDivElement>(null);
@@ -53,13 +52,13 @@ const CapabilitiesSection = () => {
   const updateMetrics = () => {
     if (!sectionRef.current || !containerRef.current) return;
     const { px } = layoutRef.current;
-    // Measure actual rendered strip width so 16:9 cards are accounted for
     maxTranslate.current = Math.max(0, containerRef.current.scrollWidth - window.innerWidth + px);
     scrollable.current   = sectionRef.current.offsetHeight - window.innerHeight;
   };
 
   useEffect(() => {
-    updateMetrics();
+    // Delay first measure so 16:9 cards have rendered their derived widths
+    const id = setTimeout(updateMetrics, 80);
     const onResize = () => {
       const next = getLayout(window.innerWidth);
       layoutRef.current = next;
@@ -67,7 +66,7 @@ const CapabilitiesSection = () => {
       requestAnimationFrame(updateMetrics);
     };
     window.addEventListener("resize", onResize, { passive: true });
-    return () => window.removeEventListener("resize", onResize);
+    return () => { clearTimeout(id); window.removeEventListener("resize", onResize); };
   }, []);
 
   useEffect(() => {
@@ -84,7 +83,6 @@ const CapabilitiesSection = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when modal open; reset mute on close
   useEffect(() => {
     document.body.style.overflow = modal !== null ? "hidden" : "";
     if (modal === null) setMuted(true);
@@ -93,17 +91,33 @@ const CapabilitiesSection = () => {
 
   const { cardWidth, gap, px, sectionVh } = layout;
 
+  // ── Modal sizing ────────────────────────────────────────────────────
+  // 9:16 → constrain height, width derives from ratio (capped for wide screens)
+  // 16:9 → constrain to viewport with safe margins on both axes
+  const modalVideoStyle = (aspect: "9:16" | "16:9"): React.CSSProperties =>
+    aspect === "16:9"
+      ? {
+          width: "min(92vw, calc((100dvh - 120px) * 16 / 9))",
+          maxHeight: "calc(100dvh - 120px)",
+          aspectRatio: "16/9",
+        }
+      : {
+          height: "min(calc(100dvh - 100px), calc(92vw * 16 / 9))",
+          maxWidth: "92vw",
+          aspectRatio: "9/16",
+        };
+
   return (
     <>
       <div id="work" data-navbar-dark="true" className="bg-secondary text-secondary-foreground">
 
-        {/* ── Mobile: 100dvh, tall cards, native horizontal scroll (< 768px) ── */}
+        {/* ── Mobile / tablet: 100dvh, horizontal scroll (< 768px) ── */}
         <div className="md:hidden flex flex-col" style={{ height: "100dvh" }}>
-          <div className="flex-shrink-0 px-6 pt-10 pb-5">
-            <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-3">
+          <div className="flex-shrink-0 px-5 pt-10 pb-4">
+            <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-2">
               What we produce
             </p>
-            <h2 className="font-sans-display text-[20px] leading-[1.1] tracking-[-0.018em] text-white">
+            <h2 className="font-sans-display text-[19px] leading-[1.1] tracking-[-0.018em] text-white">
               Every frame.{" "}
               <span className="font-serif-display italic text-white/50">
                 Indistinguishable from reality.
@@ -113,35 +127,37 @@ const CapabilitiesSection = () => {
 
           <div
             className="flex-1 min-h-0 overflow-x-auto overflow-y-hidden"
-            style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+            style={{ scrollbarWidth: "none" } as React.CSSProperties}
           >
-            <style>{`.cap-mobile::-webkit-scrollbar{display:none}`}</style>
-            <div className="cap-mobile flex h-full px-6 pb-6 gap-3">
+            <style>{`
+              .cap-mobile-scroll::-webkit-scrollbar { display: none; }
+            `}</style>
+            <div className="cap-mobile-scroll flex h-full px-5 pb-5 gap-3" style={{ width: "max-content" }}>
               {capabilities.map((cap, i) => (
                 <div
                   key={cap.label}
-                  className="flex-shrink-0 flex flex-col cursor-pointer"
-                  style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: "72vw" }}
+                  className="flex-shrink-0 h-full flex flex-col cursor-pointer"
+                  style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: "68vw" }}
                   onClick={() => setModal(i)}
                 >
-                  {/* Video area — fills card height */}
-                  <div className="flex-1 min-h-0 rounded-[10px] mb-3 overflow-hidden bg-white/5 relative">
+                  <div className="flex-1 min-h-0 rounded-[10px] mb-2 overflow-hidden bg-white/5 relative">
                     {cap.video && (
-                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
+                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video}
+                        onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
                     )}
                     {!cap.video && cap.placeholder && (
                       <div className="absolute inset-0 flex items-center justify-center px-4">
                         <p className="text-[12px] text-white/20 text-center leading-[1.6] whitespace-pre-line">{cap.placeholder}</p>
                       </div>
                     )}
-                    <div className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-black/40 flex items-center justify-center backdrop-blur-sm">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="absolute bottom-2 right-2 w-6 h-6 rounded-full bg-black/40 flex items-center justify-center backdrop-blur-sm">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
                       </svg>
                     </div>
                   </div>
-                  <p className="text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1">{cap.label}</p>
-                  <p className="text-[12px] leading-[1.65] text-white/35">{cap.short}</p>
+                  <p className="flex-shrink-0 text-[12px] font-medium tracking-[0.02em] text-white/70 mb-0.5">{cap.label}</p>
+                  <p className="flex-shrink-0 text-[11px] leading-[1.55] text-white/35 line-clamp-2">{cap.short}</p>
                 </div>
               ))}
             </div>
@@ -158,7 +174,6 @@ const CapabilitiesSection = () => {
             className="sticky top-0 flex flex-col overflow-hidden"
             style={{ height: "100dvh", transform: "translateZ(0)", paddingTop: "48px", paddingBottom: "32px" }}
           >
-            {/* Header */}
             <div className="flex-shrink-0 mb-6" style={{ paddingLeft: px, paddingRight: px }}>
               <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-3">
                 What we produce
@@ -179,7 +194,6 @@ const CapabilitiesSection = () => {
               </div>
             </div>
 
-            {/* Cards strip — fills remaining height */}
             <div
               ref={containerRef}
               className="flex-1 min-h-0 flex will-change-transform"
@@ -189,16 +203,13 @@ const CapabilitiesSection = () => {
                 <div
                   key={cap.label}
                   className="flex-shrink-0 h-full flex flex-col cursor-pointer group"
-                  style={cap.aspect === "16:9"
-                    ? { aspectRatio: "16/9" }
-                    : { width: `${cardWidth}px` }
-                  }
+                  style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: `${cardWidth}px` }}
                   onClick={() => setModal(i)}
                 >
-                  {/* Video area — fills card height */}
                   <div className="flex-1 min-h-0 rounded-[10px] overflow-hidden bg-white/5 relative mb-3">
                     {cap.video && (
-                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
+                      <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video}
+                        onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
                     )}
                     {!cap.video && cap.placeholder && (
                       <div className="absolute inset-0 flex items-center justify-center px-5">
@@ -214,13 +225,8 @@ const CapabilitiesSection = () => {
                       </svg>
                     </div>
                   </div>
-
-                  <p className="flex-shrink-0 text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1">
-                    {cap.label}
-                  </p>
-                  <p className="flex-shrink-0 text-[12px] leading-[1.6] text-white/35">
-                    {cap.short}
-                  </p>
+                  <p className="flex-shrink-0 text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1">{cap.label}</p>
+                  <p className="flex-shrink-0 text-[12px] leading-[1.6] text-white/35">{cap.short}</p>
                 </div>
               ))}
             </div>
@@ -232,28 +238,24 @@ const CapabilitiesSection = () => {
       {/* ── Modal ── */}
       {modal !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          style={{ backgroundColor: "rgba(0,0,0,0.7)", backdropFilter: "blur(6px)" }}
           onClick={() => setModal(null)}
         >
           <div
-            className="relative flex flex-col items-start"
+            className="relative flex flex-col items-start w-full"
+            style={{ maxWidth: "fit-content" }}
             onClick={e => e.stopPropagation()}
           >
-            {/* Video container — adapts to 9:16 or 16:9 */}
+            {/* Video — responsive to both axes and both aspect ratios */}
             <div
-              className="relative rounded-[14px] overflow-hidden bg-black flex-shrink-0"
-              style={capabilities[modal].aspect === "16:9"
-                ? { maxWidth: "82vw", maxHeight: "calc(100dvh - 140px)", aspectRatio: "16/9", width: "min(82vw, calc((100dvh - 140px) * 16 / 9))" }
-                : { height: "calc(100dvh - 140px)", aspectRatio: "9/16" }
-              }
+              className="relative rounded-[12px] overflow-hidden bg-black flex-shrink-0"
+              style={modalVideoStyle(capabilities[modal].aspect)}
             >
               {capabilities[modal].video ? (
                 <video
                   ref={videoRef}
-                  autoPlay
-                  muted={muted}
-                  loop playsInline
+                  autoPlay muted={muted} loop playsInline
                   className="w-full h-full object-cover"
                   src={capabilities[modal].video!}
                   onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
@@ -266,23 +268,12 @@ const CapabilitiesSection = () => {
                 </div>
               )}
 
-              {/* Close button */}
-              <button
-                onClick={() => setModal(null)}
-                className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-opacity duration-150 hover:opacity-70"
-                style={{ backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)" }}
-              >
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 6 6 18M6 6l12 12"/>
-                </svg>
-              </button>
-
               {/* Sound toggle */}
               {capabilities[modal].video && (
                 <button
                   onClick={() => setMuted(v => !v)}
-                  className="absolute bottom-3 left-3 w-8 h-8 rounded-full flex items-center justify-center transition-opacity duration-150 hover:opacity-70"
-                  style={{ backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)" }}
+                  className="absolute bottom-3 left-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
+                  style={{ backgroundColor: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }}
                 >
                   {muted ? (
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -299,23 +290,34 @@ const CapabilitiesSection = () => {
               )}
             </div>
 
-            {/* Description + CTA below video, left-aligned */}
-            <div className="flex items-end justify-between w-full mt-3 gap-6">
-              <div>
+            {/* Description + CTA + close — below video */}
+            <div className="flex flex-wrap items-start justify-between w-full mt-3 gap-x-4 gap-y-2">
+              <div className="flex-1 min-w-0">
                 <p className="text-white/90 text-[11px] font-medium tracking-[0.01em] mb-0.5">
                   {capabilities[modal].label}
                 </p>
-                <p className="text-white/35 text-[11px] leading-[1.5]">
+                <p className="text-white/40 text-[11px] leading-[1.55]">
                   {capabilities[modal].desc ?? capabilities[modal].short}
                 </p>
               </div>
-              <a
-                href="/free"
-                onClick={() => setModal(null)}
-                className="flex-shrink-0 text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/40"
-              >
-                Book a call →
-              </a>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <a
+                  href="/free"
+                  onClick={() => setModal(null)}
+                  className="text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/40 whitespace-nowrap"
+                >
+                  Book a call →
+                </a>
+                <button
+                  onClick={() => setModal(null)}
+                  className="w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity flex-shrink-0"
+                  style={{ backgroundColor: "rgba(255,255,255,0.10)" }}
+                >
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
