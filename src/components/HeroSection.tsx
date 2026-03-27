@@ -81,7 +81,7 @@ const HeroSection = () => {
       <video
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        src="/cinematic-video.mp4"
+        src="/jewelry-ad.mp4"
         onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
       />
       <div className="absolute inset-0 bg-black/15 pointer-events-none" />
