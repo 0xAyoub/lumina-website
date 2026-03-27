@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 
 const capabilities = [
-  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/video1.mp4", desc: "Minimalist — Squalane Serum", placeholder: null },
+  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/cinematic-video.mp4", desc: "Cinematic — AI-directed", placeholder: null },
   { label: "Impossible Videos", short: "Gravity-defying physics, microscopic worlds, abstract liquid matter — visuals that simply cannot exist on a real set.", video: "/video2.mp4", desc: "Physics-defying — AI-only", placeholder: null },
   { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null, desc: null, placeholder: "Soon." },
   { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null, desc: null, placeholder: "Very soon." },
