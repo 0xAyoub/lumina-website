@@ -125,14 +125,14 @@ const CapabilitiesSection = () => {
             </h2>
           </div>
 
+          <style>{`
+            .cap-scroll::-webkit-scrollbar { display: none; }
+          `}</style>
           <div
-            className="flex-1 min-h-0 overflow-x-auto overflow-y-hidden"
-            style={{ scrollbarWidth: "none" } as React.CSSProperties}
+            className="cap-scroll flex-1 min-h-0 overflow-x-auto overflow-y-hidden"
+            style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
           >
-            <style>{`
-              .cap-mobile-scroll::-webkit-scrollbar { display: none; }
-            `}</style>
-            <div className="cap-mobile-scroll flex h-full px-5 pb-5 gap-3" style={{ width: "max-content" }}>
+            <div className="flex h-full px-5 pb-5 gap-3" style={{ width: "max-content" }}>
               {capabilities.map((cap, i) => (
                 <div
                   key={cap.label}
