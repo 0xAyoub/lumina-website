@@ -1,13 +1,13 @@
 import { useRef, useEffect, useState } from "react";
 
 const capabilities = [
-  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/cinematic-video.mp4", desc: "Cinematic — AI-directed", placeholder: null },
-  { label: "Impossible Videos", short: "Gravity-defying physics, microscopic worlds, abstract liquid matter — visuals that simply cannot exist on a real set.", video: "/video2.mp4", desc: "Physics-defying — AI-only", placeholder: null },
-  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null, desc: null, placeholder: "Soon." },
-  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null, desc: null, placeholder: "Very soon." },
-  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", video: null, desc: null, placeholder: "Maybe tomorrow." },
-  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", video: null, desc: null, placeholder: "Be indulgent,\nwe're early-stage." },
-  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", video: null, desc: null, placeholder: "We're on it.\nProbably." },
+  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/cinematic-video.mp4", desc: "Cinematic — AI-directed", placeholder: null, aspect: "9:16" as const },
+  { label: "Impossible Videos", short: "Gravity-defying physics, microscopic worlds, abstract liquid matter — visuals that simply cannot exist on a real set.", video: "/video2.mp4", desc: "Physics-defying — AI-only", placeholder: null, aspect: "16:9" as const },
+  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null, desc: null, placeholder: "Soon.", aspect: "9:16" as const },
+  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null, desc: null, placeholder: "Very soon.", aspect: "9:16" as const },
+  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", video: null, desc: null, placeholder: "Maybe tomorrow.", aspect: "9:16" as const },
+  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", video: null, desc: null, placeholder: "Be indulgent,\nwe're early-stage.", aspect: "9:16" as const },
+  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", video: null, desc: null, placeholder: "We're on it.\nProbably.", aspect: "9:16" as const },
 ];
 
 function getLayout(vw: number) {
@@ -216,10 +216,13 @@ const CapabilitiesSection = () => {
             className="relative flex flex-col items-start"
             onClick={e => e.stopPropagation()}
           >
-            {/* 9:16 video container */}
+            {/* Video container — adapts to 9:16 or 16:9 */}
             <div
               className="relative rounded-[14px] overflow-hidden bg-black flex-shrink-0"
-              style={{ height: "calc(100dvh - 140px)", aspectRatio: "9/16" }}
+              style={capabilities[modal].aspect === "16:9"
+                ? { maxWidth: "82vw", maxHeight: "calc(100dvh - 140px)", aspectRatio: "16/9", width: "min(82vw, calc((100dvh - 140px) * 16 / 9))" }
+                : { height: "calc(100dvh - 140px)", aspectRatio: "9/16" }
+              }
             >
               {capabilities[modal].video ? (
                 <video
