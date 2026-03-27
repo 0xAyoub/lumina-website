@@ -1,13 +1,27 @@
 import { useRef, useEffect, useState } from "react";
 
 const capabilities = [
-  { label: "Cinematic Video Ads", short: "30-second spots. RED camera quality. Narrative-driven, platform-optimized. Produced in hours, not weeks.", video: "/cinematic-video.mp4", desc: "Cinematic — AI-directed", placeholder: null, aspect: "9:16" as const },
-  { label: "Impossible Videos", short: "Gravity-defying physics, microscopic worlds, abstract liquid matter — visuals that simply cannot exist on a real set.", video: "/video2.mp4", desc: "Physics-defying — AI-only", placeholder: null, aspect: "16:9" as const },
-  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", video: null, desc: null, placeholder: "Soon.", aspect: "9:16" as const },
-  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", video: null, desc: null, placeholder: "Very soon.", aspect: "9:16" as const },
-  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", video: null, desc: null, placeholder: "Maybe tomorrow.", aspect: "9:16" as const },
-  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", video: null, desc: null, placeholder: "Be indulgent,\nwe're early-stage.", aspect: "9:16" as const },
-  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", video: null, desc: null, placeholder: "We're on it.\nProbably.", aspect: "9:16" as const },
+  {
+    label: "Jewelry Campaign",
+    short: "Cartier-grade cinematics. Produced by AI.",
+    desc: "This is the kind of ad a luxury jewelry brand spends $400K and 6 weeks to shoot. We produce the same result in 48 hours — no studio, no crew, no travel. Same visual language. Infinite scale.",
+    video: "/cinematic-video.mp4",
+    placeholder: null,
+    aspect: "16:9" as const,
+  },
+  {
+    label: "Impossible Videos",
+    short: "Visuals no real set could ever capture.",
+    desc: "Liquid metal. Gravity-defying product reveals. Microscopic textures expanding into cinematic landscapes. Every frame here is physically impossible to film — and we deliver them on demand.",
+    video: "/video2.mp4",
+    placeholder: null,
+    aspect: "16:9" as const,
+  },
+  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", desc: null, video: null, placeholder: "Soon.", aspect: "9:16" as const },
+  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", desc: null, video: null, placeholder: "Very soon.", aspect: "9:16" as const },
+  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", desc: null, video: null, placeholder: "Maybe tomorrow.", aspect: "9:16" as const },
+  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", desc: null, video: null, placeholder: "Be indulgent,\nwe're early-stage.", aspect: "9:16" as const },
+  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", desc: null, video: null, placeholder: "We're on it.\nProbably.", aspect: "9:16" as const },
 ];
 
 function getLayout(vw: number) {
@@ -99,9 +113,11 @@ const CapabilitiesSection = () => {
               {capabilities.map((cap, i) => (
                 <div
                   key={cap.label}
-                  className="flex-shrink-0 w-[72vw] flex flex-col cursor-pointer"
+                  className="flex-shrink-0 flex flex-col cursor-pointer"
+                  style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: "72vw" }}
                   onClick={() => setModal(i)}
                 >
+                  {/* Video area — fills card height */}
                   <div className="flex-1 min-h-0 rounded-[10px] mb-3 overflow-hidden bg-white/5 relative">
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
@@ -111,7 +127,6 @@ const CapabilitiesSection = () => {
                         <p className="text-[12px] text-white/20 text-center leading-[1.6] whitespace-pre-line">{cap.placeholder}</p>
                       </div>
                     )}
-                    {/* Expand icon */}
                     <div className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-black/40 flex items-center justify-center backdrop-blur-sm">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
@@ -167,10 +182,13 @@ const CapabilitiesSection = () => {
                 <div
                   key={cap.label}
                   className="flex-shrink-0 h-full flex flex-col cursor-pointer group"
-                  style={{ width: `${cardWidth}px` }}
+                  style={cap.aspect === "16:9"
+                    ? { aspectRatio: "16/9" }
+                    : { width: `${cardWidth}px` }
+                  }
                   onClick={() => setModal(i)}
                 >
-                  {/* Image / video — fills card height */}
+                  {/* Video area — fills card height */}
                   <div className="flex-1 min-h-0 rounded-[10px] overflow-hidden bg-white/5 relative mb-3">
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video} onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
@@ -180,7 +198,6 @@ const CapabilitiesSection = () => {
                         <p className="text-[12px] text-white/20 text-center leading-[1.65] whitespace-pre-line">{cap.placeholder}</p>
                       </div>
                     )}
-                    {/* Expand icon overlay */}
                     <div
                       className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-opacity duration-200 opacity-0 group-hover:opacity-100"
                       style={{ backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)" }}
