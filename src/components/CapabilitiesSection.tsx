@@ -246,7 +246,7 @@ const CapabilitiesSection = () => {
             style={{ maxWidth: "fit-content" }}
             onClick={e => e.stopPropagation()}
           >
-            {/* Video — responsive to both axes and both aspect ratios */}
+            {/* Video */}
             <div
               className="relative rounded-[12px] overflow-hidden bg-black flex-shrink-0"
               style={modalVideoStyle(capabilities[modal].aspect)}
@@ -267,12 +267,23 @@ const CapabilitiesSection = () => {
                 </div>
               )}
 
-              {/* Sound toggle */}
+              {/* Close — top left */}
+              <button
+                onClick={() => setModal(null)}
+                className="absolute top-3 left-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
+                style={{ backgroundColor: "rgba(0,0,0,0.50)", backdropFilter: "blur(6px)" }}
+              >
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6 6 18M6 6l12 12"/>
+                </svg>
+              </button>
+
+              {/* Sound — bottom right */}
               {capabilities[modal].video && (
                 <button
                   onClick={() => setMuted(v => !v)}
-                  className="absolute bottom-3 left-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
-                  style={{ backgroundColor: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }}
+                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
+                  style={{ backgroundColor: "rgba(0,0,0,0.50)", backdropFilter: "blur(6px)" }}
                 >
                   {muted ? (
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -289,34 +300,23 @@ const CapabilitiesSection = () => {
               )}
             </div>
 
-            {/* Description + CTA + close — below video */}
-            <div className="flex flex-wrap items-start justify-between w-full mt-3 gap-x-4 gap-y-2">
-              <div className="flex-1 min-w-0">
-                <p className="text-white/90 text-[11px] font-medium tracking-[0.01em] mb-0.5">
+            {/* Text left — CTA right */}
+            <div className="flex items-center justify-between w-full mt-3 gap-6">
+              <div className="min-w-0">
+                <p className="text-white/85 text-[11px] font-medium tracking-[0.01em] mb-0.5 truncate">
                   {capabilities[modal].label}
                 </p>
-                <p className="text-white/40 text-[11px] leading-[1.55]">
-                  {capabilities[modal].desc ?? capabilities[modal].short}
+                <p className="text-white/35 text-[11px] leading-[1.5] line-clamp-1">
+                  {capabilities[modal].short}
                 </p>
               </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
-                <a
-                  href="/free"
-                  onClick={() => setModal(null)}
-                  className="text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/40 whitespace-nowrap"
-                >
-                  Book a call →
-                </a>
-                <button
-                  onClick={() => setModal(null)}
-                  className="w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity flex-shrink-0"
-                  style={{ backgroundColor: "rgba(255,255,255,0.10)" }}
-                >
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M18 6 6 18M6 6l12 12"/>
-                  </svg>
-                </button>
-              </div>
+              <a
+                href="/free"
+                onClick={() => setModal(null)}
+                className="flex-shrink-0 text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/40 whitespace-nowrap"
+              >
+                Book a call →
+              </a>
             </div>
           </div>
         </div>
