@@ -76,7 +76,7 @@ const HeroSection = () => {
   return (
     <section
       data-navbar-dark="true"
-      className="relative h-screen flex flex-col justify-end pb-10 overflow-hidden bg-black"
+      className="relative flex flex-col justify-end pb-10 overflow-hidden bg-black" style={{ height: "100dvh" }}
     >
       <video
         autoPlay muted loop playsInline
