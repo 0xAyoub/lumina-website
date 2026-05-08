@@ -16,7 +16,7 @@ export default {
       fontFamily: {
         sans: ["Instrument Sans", "sans-serif"],
         "sans-display": ["Instrument Sans", "sans-serif"],
-        "serif-display": ["Instrument Serif", "serif"],
+        "serif-display": ["Newsreader", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",

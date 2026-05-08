@@ -71,7 +71,9 @@
 
 /* Font utilities */
 .font-serif-display {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Newsreader', serif;
+  font-weight: 200;
+  font-style: italic;
 }
 
 .font-sans-display {
