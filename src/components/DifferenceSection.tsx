@@ -28,92 +28,65 @@ const IncentiveIcon = () => (
   </svg>
 );
 
-// ── Data ───────────────────────────────────────────────────────────────
-const rows = [
-  { id: "delivery",  label: "Delivery",  Icon: ClockIcon },
-  { id: "cost",      label: "Cost",      Icon: CostIcon },
-  { id: "output",    label: "Output",    Icon: OutputIcon },
-  { id: "iteration", label: "Iteration", Icon: IterationIcon },
-  { id: "incentive", label: "Incentive", Icon: IncentiveIcon },
+// ── Lumina highlights ──────────────────────────────────────────────────
+const highlights = [
+  { label: "Delivery",  Icon: ClockIcon,     stat: "48h",    desc: "Every batch, every time." },
+  { label: "Cost",      Icon: CostIcon,      stat: "−80%",   desc: "vs. a traditional agency." },
+  { label: "Output",    Icon: OutputIcon,    stat: "30–50",  desc: "Creatives delivered per month." },
+  { label: "Iteration", Icon: IterationIcon, stat: "Always", desc: "Kill losers. Scale winners." },
+  { label: "Incentive", Icon: IncentiveIcon, stat: "ROAS↑",  desc: "We win when your ROAS grows." },
 ];
 
-type RowId = "delivery" | "cost" | "output" | "iteration" | "incentive";
-
-const columns: {
-  id: string;
-  label: string;
-  sub: string;
-  highlight: boolean;
-  tagline: string;
-  rows: Record<RowId, string>;
-}[] = [
+// ── Competitors ────────────────────────────────────────────────────────
+const competitors = [
   {
     id: "traditional",
     label: "Traditional Agency",
     sub: "The old guard",
-    highlight: false,
     tagline: "Great work. Once. At a price that doesn't scale.",
-    rows: {
-      delivery:  "4–8 weeks per campaign.",
-      cost:      "€10K–€50K per asset. Revisions billed extra.",
-      output:    "1–3 creatives per cycle.",
-      iteration: "Start over each time. No feedback loop.",
-      incentive: "Paid per project. No stake in your ROAS.",
-    },
+    rows: [
+      { Icon: ClockIcon,     label: "Delivery",  text: "4–8 weeks per campaign." },
+      { Icon: CostIcon,      label: "Cost",      text: "€10K–€50K per asset. Revisions billed extra." },
+      { Icon: OutputIcon,    label: "Output",    text: "1–3 creatives per cycle." },
+      { Icon: IterationIcon, label: "Iteration", text: "Start over each time. No feedback loop." },
+      { Icon: IncentiveIcon, label: "Incentive", text: "Paid per project. No stake in your ROAS." },
+    ],
   },
   {
     id: "ai",
     label: "Self-serve AI",
     sub: "The DIY trap",
-    highlight: false,
     tagline: "Fast and cheap. Also forgettable and ineffective.",
-    rows: {
-      delivery:  "Instant — but you do all the work.",
-      cost:      "€50–€200/month. Cheap until you count your time.",
-      output:    "Generic. Looks like AI. No brand intelligence.",
-      iteration: "You guess what to test. No data. No strategy.",
-      incentive: "Sells you the tool. Doesn't care if your ads convert.",
-    },
+    rows: [
+      { Icon: ClockIcon,     label: "Delivery",  text: "Instant — but you do all the work." },
+      { Icon: CostIcon,      label: "Cost",      text: "€50–€200/month. Cheap until you count your time." },
+      { Icon: OutputIcon,    label: "Output",    text: "Generic. Looks like AI. No brand intelligence." },
+      { Icon: IterationIcon, label: "Iteration", text: "You guess what to test. No data. No strategy." },
+      { Icon: IncentiveIcon, label: "Incentive", text: "Sells you the tool. Not your results." },
+    ],
   },
   {
     id: "ugc",
     label: "UGC Creators",
     sub: "The commodity",
-    highlight: false,
     tagline: "Authentic feel. No scale. No strategy. No compounding.",
-    rows: {
-      delivery:  "5–14 days per batch. Scheduling nightmares.",
-      cost:      "€200–€500 per video. Adds up fast at volume.",
-      output:    "Inconsistent. One face, one style per creator.",
-      iteration: "No performance data. No funnel awareness.",
-      incentive: "Paid per video. No awareness of your funnel.",
-    },
-  },
-  {
-    id: "lumina",
-    label: "Lumina",
-    sub: "The engine",
-    highlight: true,
-    tagline: "Agency quality. Software speed. Performance obsessed.",
-    rows: {
-      delivery:  "48 hours. Every batch. Every time.",
-      cost:      "Flat monthly retainer. 80% less than an agency.",
-      output:    "30–50 creatives/month. Enough to test everything.",
-      iteration: "Continuous. Kill losers. Scale winners. Repeat.",
-      incentive: "We win when your ROAS grows. That's the only metric.",
-    },
+    rows: [
+      { Icon: ClockIcon,     label: "Delivery",  text: "5–14 days per batch. Scheduling nightmares." },
+      { Icon: CostIcon,      label: "Cost",      text: "€200–€500 per video. Adds up fast at volume." },
+      { Icon: OutputIcon,    label: "Output",    text: "Inconsistent. One face, one style per creator." },
+      { Icon: IterationIcon, label: "Iteration", text: "No performance data. No funnel awareness." },
+      { Icon: IncentiveIcon, label: "Incentive", text: "Paid per video. No awareness of your funnel." },
+    ],
   },
 ];
 
-// ── Animated cell text ─────────────────────────────────────────────────
+// ── Reveal animation ───────────────────────────────────────────────────
 const RevealText = ({ text, delay, active }: { text: string; delay: number; active: boolean }) => (
   <span
     style={{
       display: "inline-block",
       clipPath: active ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
-      transition: active
-        ? `clip-path 0.55s cubic-bezier(0.4,0,0.2,1) ${delay}ms`
-        : "none",
+      transition: active ? `clip-path 0.55s cubic-bezier(0.4,0,0.2,1) ${delay}ms` : "none",
     }}
   >
     {text}
@@ -128,15 +101,11 @@ const DifferenceSection = () => {
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setActive(true); obs.disconnect(); } },
-      { threshold: 0.12 }
+      { threshold: 0.08 }
     );
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
   }, []);
-
-  // Competitors are the first 3 columns; Lumina is last
-  const competitors = columns.filter(c => !c.highlight);
-  const lumina = columns.find(c => c.highlight)!;
 
   return (
     <section
@@ -156,235 +125,86 @@ const DifferenceSection = () => {
           <span className="font-serif-display italic text-white/60">are created equal.</span>
         </h2>
 
-        {/* ── Desktop table (md+) ── */}
-        <div className="hidden md:block">
-          {/*
-            Grid: label col | 3 competitor cols (compact) | Lumina col (dominant)
-            Lumina gets 3× the space of each competitor column.
-          */}
-          <div className="grid grid-cols-[140px_0.6fr_0.6fr_0.6fr_1.8fr] gap-0">
-
-            {/* ── Column headers ── */}
-            <div /> {/* empty label column */}
-
-            {/* Competitor headers */}
-            {competitors.map((col, ci) => (
-              <div
-                key={col.id}
-                className="px-4 pb-5"
-                style={ci === competitors.length - 1 ? {
-                  borderRight: "1px solid rgba(255,255,255,0.07)",
-                } : {}}
-              >
-                <div className="pt-5">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: "rgba(255,255,255,0.38)" }}>
-                    <RevealText text={col.label} delay={ci * 80} active={active} />
-                  </p>
-                  <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.20)" }}>
-                    <RevealText text={col.sub} delay={ci * 80 + 60} active={active} />
-                  </p>
-                </div>
-              </div>
-            ))}
-
-            {/* Lumina header */}
+        {/* ── Lumina highlight cards ── */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-14 md:mb-16">
+          {highlights.map((h, i) => (
             <div
-              className="px-6 pb-5"
+              key={h.label}
+              className={`flex flex-col justify-between p-5 rounded-[7px]${i === 4 ? " col-span-2 md:col-span-1" : ""}`}
               style={{
-                background: "rgba(197,210,248,0.05)",
-                borderRadius: "10px 10px 0 0",
-                borderTop: "1px solid rgba(197,210,248,0.18)",
-                borderLeft: "1px solid rgba(197,210,248,0.18)",
-                borderRight: "1px solid rgba(197,210,248,0.18)",
+                background: "rgba(197,210,248,0.06)",
+                border: "1px solid rgba(197,210,248,0.12)",
               }}
             >
-              <div className="pt-5">
-                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: "#C5D2F8" }}>
-                  <RevealText text={lumina.label} delay={competitors.length * 80} active={active} />
+              <div className="flex items-center gap-2 mb-4">
+                <span style={{ color: "rgba(197,210,248,0.55)" }}><h.Icon /></span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.10em]" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  {h.label}
+                </span>
+              </div>
+              <div>
+                <p
+                  className="font-sans-display text-[28px] md:text-[32px] leading-[1.0] tracking-[-0.02em] mb-2"
+                  style={{ color: "#C5D2F8" }}
+                >
+                  <RevealText text={h.stat} delay={i * 80} active={active} />
                 </p>
-                <p className="text-[11px]" style={{ color: "rgba(197,210,248,0.50)" }}>
-                  <RevealText text={lumina.sub} delay={competitors.length * 80 + 60} active={active} />
+                <p className="text-[11px] leading-[1.55]" style={{ color: "rgba(255,255,255,0.40)" }}>
+                  <RevealText text={h.desc} delay={i * 80 + 120} active={active} />
                 </p>
               </div>
             </div>
-
-            {/* ── Rows ── */}
-            {rows.map((row, ri) => (
-              <>
-                {/* Row label */}
-                <div
-                  key={`label-${row.id}`}
-                  className="flex items-center gap-2 py-5 pr-4"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-                >
-                  <span style={{ color: "rgba(255,255,255,0.40)" }}><row.Icon /></span>
-                  <span className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "rgba(255,255,255,0.45)" }}>
-                    {row.label}
-                  </span>
-                </div>
-
-                {/* Competitor cells */}
-                {competitors.map((col, ci) => (
-                  <div
-                    key={`${row.id}-${col.id}`}
-                    className="px-4 py-5 text-[11px] leading-[1.65]"
-                    style={{
-                      borderTop: "1px solid rgba(255,255,255,0.06)",
-                      color: "rgba(255,255,255,0.30)",
-                      ...(ci === competitors.length - 1 ? {
-                        borderRight: "1px solid rgba(255,255,255,0.07)",
-                      } : {}),
-                    }}
-                  >
-                    <RevealText
-                      text={col.rows[row.id as RowId]}
-                      delay={ri * 90 + ci * 60 + 200}
-                      active={active}
-                    />
-                  </div>
-                ))}
-
-                {/* Lumina cell */}
-                <div
-                  key={`${row.id}-lumina`}
-                  className="px-6 py-5 text-[13px] leading-[1.65]"
-                  style={{
-                    borderTop: "1px solid rgba(197,210,248,0.10)",
-                    color: "rgba(255,255,255,0.95)",
-                    background: "rgba(197,210,248,0.05)",
-                    borderLeft: "1px solid rgba(197,210,248,0.18)",
-                    borderRight: "1px solid rgba(197,210,248,0.18)",
-                  }}
-                >
-                  <RevealText
-                    text={lumina.rows[row.id as RowId]}
-                    delay={ri * 90 + competitors.length * 60 + 200}
-                    active={active}
-                  />
-                </div>
-              </>
-            ))}
-
-            {/* ── Tagline row ── */}
-            <div
-              key="tagline-label"
-              className="py-6 pr-4"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-            />
-            {competitors.map((col, ci) => (
-              <div
-                key={`tagline-${col.id}`}
-                className="px-4 py-6 text-[11px] leading-[1.6]"
-                style={{
-                  borderTop: "1px solid rgba(255,255,255,0.06)",
-                  color: "rgba(255,255,255,0.22)",
-                  fontStyle: "italic",
-                  ...(ci === competitors.length - 1 ? {
-                    borderRight: "1px solid rgba(255,255,255,0.07)",
-                  } : {}),
-                }}
-              >
-                <RevealText text={col.tagline} delay={rows.length * 90 + ci * 60 + 200} active={active} />
-              </div>
-            ))}
-            <div
-              key="tagline-lumina"
-              className="px-6 py-6 text-[11px] leading-[1.6]"
-              style={{
-                borderTop: "1px solid rgba(197,210,248,0.10)",
-                color: "rgba(197,210,248,0.60)",
-                fontStyle: "italic",
-                background: "rgba(197,210,248,0.05)",
-                borderRadius: "0 0 10px 10px",
-                borderBottom: "1px solid rgba(197,210,248,0.18)",
-                borderLeft: "1px solid rgba(197,210,248,0.18)",
-                borderRight: "1px solid rgba(197,210,248,0.18)",
-              }}
-            >
-              <RevealText text={lumina.tagline} delay={rows.length * 90 + competitors.length * 60 + 200} active={active} />
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* ── Mobile: stacked cards (Lumina first) ── */}
-        <div className="md:hidden flex flex-col gap-3">
+        {/* ── Separator ── */}
+        <div className="flex items-center gap-4 mb-10 md:mb-12">
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 flex-shrink-0">
+            vs. the alternatives
+          </p>
+          <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.07)" }} />
+        </div>
 
-          {/* Lumina card — featured, first */}
-          <div
-            className="rounded-[10px] overflow-hidden"
-            style={{
-              border: "1px solid rgba(197,210,248,0.22)",
-              background: "rgba(197,210,248,0.05)",
-            }}
-          >
-            <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(197,210,248,0.10)" }}>
-              <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-0.5" style={{ color: "#C5D2F8" }}>
-                <RevealText text={lumina.label} delay={0} active={active} />
-              </p>
-              <p className="text-[11px]" style={{ color: "rgba(197,210,248,0.40)" }}>
-                <RevealText text={lumina.sub} delay={50} active={active} />
-              </p>
-            </div>
-            {rows.map((row, ri) => (
-              <div
-                key={row.id}
-                className="px-5 py-3.5 flex gap-3"
-                style={{ borderBottom: "1px solid rgba(197,210,248,0.07)" }}
-              >
-                <div className="flex items-start gap-2 w-[80px] flex-shrink-0 pt-0.5">
-                  <span style={{ color: "rgba(197,210,248,0.55)" }}><row.Icon /></span>
-                  <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(197,210,248,0.55)" }}>
-                    {row.label}
-                  </span>
-                </div>
-                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.92)" }}>
-                  <RevealText text={lumina.rows[row.id as RowId]} delay={ri * 50 + 100} active={active} />
-                </p>
-              </div>
-            ))}
-            <div className="px-5 py-4">
-              <p className="text-[11px] leading-[1.6] italic" style={{ color: "rgba(197,210,248,0.50)" }}>
-                <RevealText text={lumina.tagline} delay={rows.length * 50 + 100} active={active} />
-              </p>
-            </div>
-          </div>
-
-          {/* Competitor cards — dimmed */}
-          {competitors.map((col, ci) => (
+        {/* ── Competitor cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {competitors.map((comp, ci) => (
             <div
-              key={col.id}
-              className="rounded-[10px] overflow-hidden"
-              style={{ border: "1px solid rgba(255,255,255,0.06)" }}
+              key={comp.id}
+              className="rounded-[7px] overflow-hidden"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.06)",
+              }}
             >
+              {/* Card header */}
               <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  <RevealText text={col.label} delay={(ci + 1) * 60} active={active} />
+                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: "rgba(255,255,255,0.42)" }}>
+                  <RevealText text={comp.label} delay={400 + ci * 80} active={active} />
                 </p>
-                <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.18)" }}>
-                  <RevealText text={col.sub} delay={(ci + 1) * 60 + 50} active={active} />
+                <p className="text-[11px] italic leading-[1.55]" style={{ color: "rgba(255,255,255,0.22)" }}>
+                  <RevealText text={comp.tagline} delay={400 + ci * 80 + 60} active={active} />
                 </p>
               </div>
-              {rows.map((row, ri) => (
-                <div
-                  key={row.id}
-                  className="px-5 py-3 flex gap-3"
-                  style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
-                >
-                  <div className="flex items-start gap-2 w-[80px] flex-shrink-0 pt-0.5">
-                    <span style={{ color: "rgba(255,255,255,0.28)" }}><row.Icon /></span>
-                    <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(255,255,255,0.28)" }}>
-                      {row.label}
-                    </span>
+
+              {/* Rows */}
+              <div className="px-5 py-3">
+                {comp.rows.map((row, ri) => (
+                  <div
+                    key={row.label}
+                    className="flex items-start gap-3 py-2.5"
+                    style={ri < comp.rows.length - 1 ? { borderBottom: "1px solid rgba(255,255,255,0.04)" } : {}}
+                  >
+                    <div className="flex items-center gap-1.5 w-[72px] flex-shrink-0 pt-0.5">
+                      <span style={{ color: "rgba(255,255,255,0.25)" }}><row.Icon /></span>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(255,255,255,0.28)" }}>
+                        {row.label}
+                      </span>
+                    </div>
+                    <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.38)" }}>
+                      <RevealText text={row.text} delay={400 + ci * 80 + ri * 45 + 120} active={active} />
+                    </p>
                   </div>
-                  <p className="text-[11px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
-                    <RevealText text={col.rows[row.id as RowId]} delay={(ci + 1) * 60 + ri * 40 + 80} active={active} />
-                  </p>
-                </div>
-              ))}
-              <div className="px-5 py-4">
-                <p className="text-[11px] leading-[1.6] italic" style={{ color: "rgba(255,255,255,0.25)" }}>
-                  <RevealText text={col.tagline} delay={(ci + 1) * 60 + rows.length * 40 + 80} active={active} />
-                </p>
+                ))}
               </div>
             </div>
           ))}
