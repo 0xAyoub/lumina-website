@@ -39,7 +39,7 @@ const CtaSection = () => {
           className="flex flex-col justify-between px-8 lg:px-12 pt-14 pb-12 bg-[#111]"
           style={{ width: "30vw" }}
         >
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/25">
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em]" style={{ color: "#C5D2F8" }}>
             Or write directly
           </p>
           <div>
@@ -94,7 +94,7 @@ const CtaSection = () => {
 
         {/* Second screen: Email the founder */}
         <div className="flex flex-col justify-between px-6 pt-10 pb-14 bg-[#111]" style={{ minHeight: "44dvh" }}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/25 mb-8">
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "#C5D2F8" }}>
             Or write directly
           </p>
           <div>

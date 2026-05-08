@@ -134,6 +134,10 @@ const DifferenceSection = () => {
     return () => obs.disconnect();
   }, []);
 
+  // Competitors are the first 3 columns; Lumina is last
+  const competitors = columns.filter(c => !c.highlight);
+  const lumina = columns.find(c => c.highlight)!;
+
   return (
     <section
       id="results"
@@ -154,154 +158,232 @@ const DifferenceSection = () => {
 
         {/* ── Desktop table (md+) ── */}
         <div className="hidden md:block">
-          <div className="grid grid-cols-[160px_1fr_1fr_1fr_1fr] gap-0">
+          {/*
+            Grid: label col | 3 competitor cols (compact) | Lumina col (dominant)
+            Lumina gets 3× the space of each competitor column.
+          */}
+          <div className="grid grid-cols-[140px_0.6fr_0.6fr_0.6fr_1.8fr] gap-0">
 
-            {/* Column headers */}
+            {/* ── Column headers ── */}
             <div /> {/* empty label column */}
-            {columns.map((col, ci) => (
+
+            {/* Competitor headers */}
+            {competitors.map((col, ci) => (
               <div
                 key={col.id}
-                className="px-5 pb-5"
-                style={col.highlight ? {
-                  background: "rgba(255,255,255,0.04)",
-                  borderRadius: "10px 10px 0 0",
-                  borderTop: "1px solid rgba(255,255,255,0.10)",
-                  borderLeft: "1px solid rgba(255,255,255,0.10)",
-                  borderRight: "1px solid rgba(255,255,255,0.10)",
+                className="px-4 pb-5"
+                style={ci === competitors.length - 1 ? {
+                  borderRight: "1px solid rgba(255,255,255,0.07)",
                 } : {}}
               >
                 <div className="pt-5">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: col.highlight ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.90)" }}>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: "rgba(255,255,255,0.38)" }}>
                     <RevealText text={col.label} delay={ci * 80} active={active} />
                   </p>
-                  <p className="text-[11px]" style={{ color: col.highlight ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.60)" }}>
+                  <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.20)" }}>
                     <RevealText text={col.sub} delay={ci * 80 + 60} active={active} />
                   </p>
                 </div>
               </div>
             ))}
 
-            {/* Rows */}
+            {/* Lumina header */}
+            <div
+              className="px-6 pb-5"
+              style={{
+                background: "rgba(197,210,248,0.05)",
+                borderRadius: "10px 10px 0 0",
+                borderTop: "1px solid rgba(197,210,248,0.18)",
+                borderLeft: "1px solid rgba(197,210,248,0.18)",
+                borderRight: "1px solid rgba(197,210,248,0.18)",
+              }}
+            >
+              <div className="pt-5">
+                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: "#C5D2F8" }}>
+                  <RevealText text={lumina.label} delay={competitors.length * 80} active={active} />
+                </p>
+                <p className="text-[11px]" style={{ color: "rgba(197,210,248,0.50)" }}>
+                  <RevealText text={lumina.sub} delay={competitors.length * 80 + 60} active={active} />
+                </p>
+              </div>
+            </div>
+
+            {/* ── Rows ── */}
             {rows.map((row, ri) => (
               <>
                 {/* Row label */}
                 <div
                   key={`label-${row.id}`}
-                  className="flex items-center gap-2 py-4 pr-4"
+                  className="flex items-center gap-2 py-5 pr-4"
                   style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
                 >
-                  <span className="text-white/65"><row.Icon /></span>
-                  <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/75">
+                  <span style={{ color: "rgba(255,255,255,0.40)" }}><row.Icon /></span>
+                  <span className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "rgba(255,255,255,0.45)" }}>
                     {row.label}
                   </span>
                 </div>
 
-                {/* Cells */}
-                {columns.map((col, ci) => (
+                {/* Competitor cells */}
+                {competitors.map((col, ci) => (
                   <div
                     key={`${row.id}-${col.id}`}
-                    className="px-5 py-4 text-[12px] leading-[1.65]"
+                    className="px-4 py-5 text-[11px] leading-[1.65]"
                     style={{
                       borderTop: "1px solid rgba(255,255,255,0.06)",
-                      color: col.highlight ? "rgba(255,255,255,0.90)" : "rgba(255,255,255,0.82)",
-                      ...(col.highlight ? {
-                        background: "rgba(255,255,255,0.04)",
-                        borderLeft: "1px solid rgba(255,255,255,0.10)",
-                        borderRight: "1px solid rgba(255,255,255,0.10)",
+                      color: "rgba(255,255,255,0.30)",
+                      ...(ci === competitors.length - 1 ? {
+                        borderRight: "1px solid rgba(255,255,255,0.07)",
                       } : {}),
                     }}
                   >
                     <RevealText
                       text={col.rows[row.id as RowId]}
-                      delay={ri * 90 + ci * 70 + 200}
+                      delay={ri * 90 + ci * 60 + 200}
                       active={active}
                     />
                   </div>
                 ))}
+
+                {/* Lumina cell */}
+                <div
+                  key={`${row.id}-lumina`}
+                  className="px-6 py-5 text-[13px] leading-[1.65]"
+                  style={{
+                    borderTop: "1px solid rgba(197,210,248,0.10)",
+                    color: "rgba(255,255,255,0.95)",
+                    background: "rgba(197,210,248,0.05)",
+                    borderLeft: "1px solid rgba(197,210,248,0.18)",
+                    borderRight: "1px solid rgba(197,210,248,0.18)",
+                  }}
+                >
+                  <RevealText
+                    text={lumina.rows[row.id as RowId]}
+                    delay={ri * 90 + competitors.length * 60 + 200}
+                    active={active}
+                  />
+                </div>
               </>
             ))}
 
-            {/* Tagline row */}
+            {/* ── Tagline row ── */}
             <div
               key="tagline-label"
-              className="py-5 pr-4"
+              className="py-6 pr-4"
               style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
             />
-            {columns.map((col, ci) => (
+            {competitors.map((col, ci) => (
               <div
                 key={`tagline-${col.id}`}
-                className="px-5 py-5 text-[11px] leading-[1.6]"
+                className="px-4 py-6 text-[11px] leading-[1.6]"
                 style={{
                   borderTop: "1px solid rgba(255,255,255,0.06)",
-                  color: col.highlight ? "rgba(255,255,255,0.60)" : "rgba(255,255,255,0.60)",
+                  color: "rgba(255,255,255,0.22)",
                   fontStyle: "italic",
-                  ...(col.highlight ? {
-                    background: "rgba(255,255,255,0.04)",
-                    borderRadius: "0 0 10px 10px",
-                    borderBottom: "1px solid rgba(255,255,255,0.10)",
-                    borderLeft: "1px solid rgba(255,255,255,0.10)",
-                    borderRight: "1px solid rgba(255,255,255,0.10)",
+                  ...(ci === competitors.length - 1 ? {
+                    borderRight: "1px solid rgba(255,255,255,0.07)",
                   } : {}),
                 }}
               >
-                <RevealText text={col.tagline} delay={rows.length * 90 + ci * 70 + 200} active={active} />
+                <RevealText text={col.tagline} delay={rows.length * 90 + ci * 60 + 200} active={active} />
               </div>
             ))}
+            <div
+              key="tagline-lumina"
+              className="px-6 py-6 text-[11px] leading-[1.6]"
+              style={{
+                borderTop: "1px solid rgba(197,210,248,0.10)",
+                color: "rgba(197,210,248,0.60)",
+                fontStyle: "italic",
+                background: "rgba(197,210,248,0.05)",
+                borderRadius: "0 0 10px 10px",
+                borderBottom: "1px solid rgba(197,210,248,0.18)",
+                borderLeft: "1px solid rgba(197,210,248,0.18)",
+                borderRight: "1px solid rgba(197,210,248,0.18)",
+              }}
+            >
+              <RevealText text={lumina.tagline} delay={rows.length * 90 + competitors.length * 60 + 200} active={active} />
+            </div>
           </div>
         </div>
 
-        {/* ── Mobile: stacked cards ── */}
-        <div className="md:hidden flex flex-col gap-4">
-          {columns.map((col, ci) => (
+        {/* ── Mobile: stacked cards (Lumina first) ── */}
+        <div className="md:hidden flex flex-col gap-3">
+
+          {/* Lumina card — featured, first */}
+          <div
+            className="rounded-[10px] overflow-hidden"
+            style={{
+              border: "1px solid rgba(197,210,248,0.22)",
+              background: "rgba(197,210,248,0.05)",
+            }}
+          >
+            <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(197,210,248,0.10)" }}>
+              <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-0.5" style={{ color: "#C5D2F8" }}>
+                <RevealText text={lumina.label} delay={0} active={active} />
+              </p>
+              <p className="text-[11px]" style={{ color: "rgba(197,210,248,0.40)" }}>
+                <RevealText text={lumina.sub} delay={50} active={active} />
+              </p>
+            </div>
+            {rows.map((row, ri) => (
+              <div
+                key={row.id}
+                className="px-5 py-3.5 flex gap-3"
+                style={{ borderBottom: "1px solid rgba(197,210,248,0.07)" }}
+              >
+                <div className="flex items-start gap-2 w-[80px] flex-shrink-0 pt-0.5">
+                  <span style={{ color: "rgba(197,210,248,0.55)" }}><row.Icon /></span>
+                  <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(197,210,248,0.55)" }}>
+                    {row.label}
+                  </span>
+                </div>
+                <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.92)" }}>
+                  <RevealText text={lumina.rows[row.id as RowId]} delay={ri * 50 + 100} active={active} />
+                </p>
+              </div>
+            ))}
+            <div className="px-5 py-4">
+              <p className="text-[11px] leading-[1.6] italic" style={{ color: "rgba(197,210,248,0.50)" }}>
+                <RevealText text={lumina.tagline} delay={rows.length * 50 + 100} active={active} />
+              </p>
+            </div>
+          </div>
+
+          {/* Competitor cards — dimmed */}
+          {competitors.map((col, ci) => (
             <div
               key={col.id}
               className="rounded-[10px] overflow-hidden"
-              style={col.highlight ? {
-                border: "1px solid rgba(255,255,255,0.12)",
-                background: "rgba(255,255,255,0.05)",
-              } : {
-                border: "1px solid rgba(255,255,255,0.06)",
-              }}
+              style={{ border: "1px solid rgba(255,255,255,0.06)" }}
             >
-              {/* Card header */}
-              <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-0.5"
-                  style={{ color: col.highlight ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.4)" }}>
-                  <RevealText text={col.label} delay={ci * 60} active={active} />
+              <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  <RevealText text={col.label} delay={(ci + 1) * 60} active={active} />
                 </p>
-                <p className="text-[11px]" style={{ color: col.highlight ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.2)" }}>
-                  <RevealText text={col.sub} delay={ci * 60 + 50} active={active} />
+                <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.18)" }}>
+                  <RevealText text={col.sub} delay={(ci + 1) * 60 + 50} active={active} />
                 </p>
               </div>
-
-              {/* Rows */}
               {rows.map((row, ri) => (
                 <div
                   key={row.id}
-                  className="px-5 py-3.5 flex gap-3"
+                  className="px-5 py-3 flex gap-3"
                   style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
                 >
                   <div className="flex items-start gap-2 w-[80px] flex-shrink-0 pt-0.5">
-                    <span style={{ color: col.highlight ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.60)" }}>
-                      <row.Icon />
-                    </span>
-                    <span className="text-[10px] font-medium uppercase tracking-[0.06em]"
-                      style={{ color: col.highlight ? "rgba(255,255,255,0.50)" : "rgba(255,255,255,0.60)" }}>
+                    <span style={{ color: "rgba(255,255,255,0.28)" }}><row.Icon /></span>
+                    <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(255,255,255,0.28)" }}>
                       {row.label}
                     </span>
                   </div>
-                  <p className="text-[12px] leading-[1.6]"
-                    style={{ color: col.highlight ? "rgba(255,255,255,0.90)" : "rgba(255,255,255,0.82)" }}>
-                    <RevealText text={col.rows[row.id as RowId]} delay={ci * 60 + ri * 50 + 100} active={active} />
+                  <p className="text-[11px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.45)" }}>
+                    <RevealText text={col.rows[row.id as RowId]} delay={(ci + 1) * 60 + ri * 40 + 80} active={active} />
                   </p>
                 </div>
               ))}
-
-              {/* Tagline */}
               <div className="px-5 py-4">
-                <p className="text-[11px] leading-[1.6] italic"
-                  style={{ color: col.highlight ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.42)" }}>
-                  <RevealText text={col.tagline} delay={ci * 60 + rows.length * 50 + 100} active={active} />
+                <p className="text-[11px] leading-[1.6] italic" style={{ color: "rgba(255,255,255,0.25)" }}>
+                  <RevealText text={col.tagline} delay={(ci + 1) * 60 + rows.length * 40 + 80} active={active} />
                 </p>
               </div>
             </div>
