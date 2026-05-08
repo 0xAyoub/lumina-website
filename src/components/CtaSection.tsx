@@ -34,12 +34,12 @@ const CtaSection = () => {
           </div>
         </div>
 
-        {/* Right panel — 30vw, Email the founder, dark background */}
+        {/* Right panel — 30vw, Email the founder, blue background */}
         <div
-          className="flex flex-col justify-between px-8 lg:px-12 pt-14 pb-12 bg-[#111]"
-          style={{ width: "30vw" }}
+          className="flex flex-col justify-between px-8 lg:px-12 pt-14 pb-12"
+          style={{ width: "30vw", backgroundColor: "#C5D2F8" }}
         >
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em]" style={{ color: "#C5D2F8" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em]" style={{ color: "rgba(17,17,17,0.45)" }}>
             Or write directly
           </p>
           <div>
@@ -47,16 +47,16 @@ const CtaSection = () => {
               href="mailto:ayoub@withluminalabs.com"
               className="group inline-flex items-start gap-2 transition-opacity duration-200 hover:opacity-60"
             >
-              <span className="font-sans-display text-[16px] lg:text-[18px] tracking-[-0.015em] text-white leading-[1.4] break-all">
+              <span className="font-sans-display text-[16px] lg:text-[18px] tracking-[-0.015em] leading-[1.4] break-all" style={{ color: "rgba(17,17,17,0.85)" }}>
                 ayoub@withluminalabs.com
               </span>
-              <span className="text-white/30 transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0 mt-0.5">
+              <span className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0 mt-0.5" style={{ color: "rgba(17,17,17,0.35)" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                 </svg>
               </span>
             </a>
-            <p className="text-[11px] text-white/25 mt-3 leading-[1.6]">
+            <p className="text-[11px] mt-3 leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)" }}>
               No sales team, no form.<br />Write directly.
             </p>
           </div>
@@ -93,8 +93,8 @@ const CtaSection = () => {
         </div>
 
         {/* Second screen: Email the founder */}
-        <div className="flex flex-col justify-between px-6 pt-10 pb-14 bg-[#111]" style={{ minHeight: "44dvh" }}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "#C5D2F8" }}>
+        <div className="flex flex-col justify-between px-6 pt-10 pb-14" style={{ minHeight: "44dvh", backgroundColor: "#C5D2F8" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "rgba(17,17,17,0.45)" }}>
             Or write directly
           </p>
           <div>
@@ -102,16 +102,16 @@ const CtaSection = () => {
               href="mailto:ayoub@withluminalabs.com"
               className="group inline-flex items-center gap-2 transition-opacity duration-200 hover:opacity-60"
             >
-              <span className="font-sans-display text-[16px] tracking-[-0.015em] text-white">
+              <span className="font-sans-display text-[16px] tracking-[-0.015em]" style={{ color: "rgba(17,17,17,0.85)" }}>
                 ayoub@withluminalabs.com
               </span>
-              <span className="text-white/30 transition-transform duration-300 group-hover:translate-x-1">
+              <span className="transition-transform duration-300 group-hover:translate-x-1" style={{ color: "rgba(17,17,17,0.35)" }}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                 </svg>
               </span>
             </a>
-            <p className="text-[11px] text-white/25 mt-3 leading-[1.6]">
+            <p className="text-[11px] mt-3 leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)" }}>
               No sales team, no form. Write directly.
             </p>
           </div>

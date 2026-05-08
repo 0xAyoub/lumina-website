@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Instrument Sans", "sans-serif"],
-        "sans-display": ["Instrument Sans", "sans-serif"],
+        "sans-display": ["Newsreader", "serif"],
         "serif-display": ["Newsreader", "serif"],
       },
       colors: {

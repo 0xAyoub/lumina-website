@@ -76,7 +76,8 @@
 }
 
 .font-sans-display {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Newsreader', serif;
+  font-weight: 200;
 }
 
 /* Marquee animation */
