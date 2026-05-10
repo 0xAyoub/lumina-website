@@ -101,6 +101,11 @@ const CapabilitiesSection = () => {
     return () => { document.body.style.overflow = ""; };
   }, [modal]);
 
+  // Sync muted state directly to DOM — React's muted prop doesn't update after mount
+  useEffect(() => {
+    if (videoRef.current) videoRef.current.muted = muted;
+  }, [muted]);
+
   const { cardWidth, gap, px, sectionVh } = layout;
 
   // ── Modal sizing ────────────────────────────────────────────────────
@@ -293,12 +298,7 @@ const CapabilitiesSection = () => {
               {/* Sound — bottom right */}
               {capabilities[modal].video && (
                 <button
-                  onClick={() => {
-                    if (videoRef.current) {
-                      videoRef.current.muted = !videoRef.current.muted;
-                      setMuted(videoRef.current.muted);
-                    }
-                  }}
+                  onClick={() => setMuted(v => !v)}
                   className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
                   style={{ backgroundColor: "rgba(0,0,0,0.50)", backdropFilter: "blur(6px)" }}
                 >
