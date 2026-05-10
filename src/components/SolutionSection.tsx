@@ -114,7 +114,7 @@ const SolutionSection = () => {
               We make AI creatives
               <br />
 
-              <span className="font-serif-display italic mb-0">for you at scale.  <span className="text-[12px] not-italic font-sans-display leading-[1.1] tracking-[-0.018em] mb-5">(That doesn't look like AI)</span></span> <br />
+              <span className="font-serif-display italic">for you at scale.</span>
             
             </h2>
             <p

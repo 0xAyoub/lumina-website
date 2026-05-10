@@ -137,19 +137,19 @@ const DifferenceSection = () => {
               }}
             >
               <div className="flex items-center gap-2 mb-4">
-                <span style={{ color: "rgba(197,210,248,0.55)" }}><h.Icon /></span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.10em]" style={{ color: "rgba(255,255,255,0.35)" }}>
+                <span style={{ color: "rgba(197,210,248,0.70)" }}><h.Icon /></span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.10em]" style={{ color: "rgba(255,255,255,0.50)" }}>
                   {h.label}
                 </span>
               </div>
               <div>
                 <p
-                  className="font-sans-display text-[28px] md:text-[32px] leading-[1.0] tracking-[-0.02em] mb-2"
+                  className="font-sans-display text-[28px] md:text-[34px] leading-[1.0] tracking-[-0.02em] mb-2"
                   style={{ color: "#C5D2F8" }}
                 >
                   <RevealText text={h.stat} delay={i * 80} active={active} />
                 </p>
-                <p className="text-[11px] leading-[1.55]" style={{ color: "rgba(255,255,255,0.40)" }}>
+                <p className="text-[11px] leading-[1.55]" style={{ color: "rgba(255,255,255,0.55)" }}>
                   <RevealText text={h.desc} delay={i * 80 + 120} active={active} />
                 </p>
               </div>
@@ -178,10 +178,10 @@ const DifferenceSection = () => {
             >
               {/* Card header */}
               <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: "rgba(255,255,255,0.42)" }}>
+                <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-1" style={{ color: "rgba(255,255,255,0.60)" }}>
                   <RevealText text={comp.label} delay={400 + ci * 80} active={active} />
                 </p>
-                <p className="text-[11px] italic leading-[1.55]" style={{ color: "rgba(255,255,255,0.22)" }}>
+                <p className="text-[11px] italic leading-[1.55]" style={{ color: "rgba(255,255,255,0.38)" }}>
                   <RevealText text={comp.tagline} delay={400 + ci * 80 + 60} active={active} />
                 </p>
               </div>
@@ -195,12 +195,12 @@ const DifferenceSection = () => {
                     style={ri < comp.rows.length - 1 ? { borderBottom: "1px solid rgba(255,255,255,0.04)" } : {}}
                   >
                     <div className="flex items-center gap-1.5 w-[72px] flex-shrink-0 pt-0.5">
-                      <span style={{ color: "rgba(255,255,255,0.25)" }}><row.Icon /></span>
-                      <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(255,255,255,0.28)" }}>
+                      <span style={{ color: "rgba(255,255,255,0.45)" }}><row.Icon /></span>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(255,255,255,0.48)" }}>
                         {row.label}
                       </span>
                     </div>
-                    <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.38)" }}>
+                    <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.58)" }}>
                       <RevealText text={row.text} delay={400 + ci * 80 + ri * 45 + 120} active={active} />
                     </p>
                   </div>
