@@ -167,7 +167,7 @@ const TomHale = () => {
       <div
         style={{
           width: isMobile ? "100%" : "50vw",
-          padding: isMobile ? "64px 28px 72px" : "64px 56px 72px",
+          padding: isMobile ? "64px 28px 72px" : "64px 72px 72px 80px",
           boxSizing: "border-box",
         }}
       >
