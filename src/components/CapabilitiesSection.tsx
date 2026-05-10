@@ -266,7 +266,7 @@ const CapabilitiesSection = () => {
               {capabilities[modal].video ? (
                 <video
                   ref={videoRef}
-                  autoPlay muted={muted} loop playsInline
+                  autoPlay muted loop playsInline
                   className="w-full h-full object-cover"
                   src={capabilities[modal].video!}
                   onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
@@ -293,7 +293,12 @@ const CapabilitiesSection = () => {
               {/* Sound — bottom right */}
               {capabilities[modal].video && (
                 <button
-                  onClick={() => setMuted(v => !v)}
+                  onClick={() => {
+                    if (videoRef.current) {
+                      videoRef.current.muted = !videoRef.current.muted;
+                      setMuted(videoRef.current.muted);
+                    }
+                  }}
                   className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
                   style={{ backgroundColor: "rgba(0,0,0,0.50)", backdropFilter: "blur(6px)" }}
                 >
