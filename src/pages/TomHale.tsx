@@ -140,11 +140,34 @@ const TomHale = () => {
   return (
     <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", minHeight: "100dvh", background: "#fff" }}>
 
+      {/* ── Sticky logo ── */}
+      <a
+        href="https://withluminalabs.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: "fixed",
+          top: "10px",
+          left: "10px",
+          zIndex: 50,
+          display: "flex",
+          alignItems: "center",
+          margin: "10px",
+          opacity: 0.75,
+          transition: "opacity 0.15s",
+        }}
+        onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+        onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
+        aria-label="Lumina"
+      >
+        <img src="/logo.svg" alt="Lumina" style={{ height: "22px", width: "auto", display: "block" }} />
+      </a>
+
       {/* ── Letter column ── */}
       <div
         style={{
           width: isMobile ? "100%" : "50vw",
-          padding: isMobile ? "40px 28px 72px" : "40px 56px 72px",
+          padding: isMobile ? "64px 28px 72px" : "64px 56px 72px",
           boxSizing: "border-box",
         }}
       >
