@@ -118,7 +118,7 @@ const TomHale = () => {
             fontSize: "32px", lineHeight: 1.1, letterSpacing: "-0.020em",
             color: "#111", fontWeight: 350, marginBottom: "28px",
           }}>
-            Hi <A href="https://www.linkedin.com/in/tomeghale/">Tom</A>,
+            Hi Tom,
           </h1>
 
           <div style={{ maxWidth: "490px" }}>
