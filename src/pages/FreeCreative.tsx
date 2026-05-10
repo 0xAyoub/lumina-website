@@ -177,7 +177,7 @@ const FreeCreative = () => {
                   required type="text" value={firstName}
                   onChange={e => setFirstName(e.target.value)}
                   onFocus={() => setFocused("fn")} onBlur={() => setFocused(null)}
-                  placeholder="Ayoub"
+                  placeholder="Sam"
                   style={fieldStyle("fn")}
                   className="placeholder:text-black/20"
                 />
@@ -188,7 +188,7 @@ const FreeCreative = () => {
                   required type="text" value={lastName}
                   onChange={e => setLastName(e.target.value)}
                   onFocus={() => setFocused("ln")} onBlur={() => setFocused(null)}
-                  placeholder="Benouda"
+                  placeholder="Altman"
                   style={fieldStyle("ln")}
                   className="placeholder:text-black/20"
                 />
