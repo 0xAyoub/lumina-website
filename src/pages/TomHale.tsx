@@ -1,13 +1,33 @@
 import { useEffect, useRef, useState } from "react";
 
-const link: React.CSSProperties = {
-  color: "rgba(17,17,17,0.70)",
-  textDecoration: "none",
-  borderBottom: "1px solid rgba(17,17,17,0.20)",
-};
+const A = ({
+  href,
+  children,
+  external = true,
+}: {
+  href: string;
+  children: React.ReactNode;
+  external?: boolean;
+}) => (
+  <a
+    href={href}
+    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    style={{
+      color: "inherit",
+      textDecoration: "none",
+      borderBottom: "1px solid rgba(17,17,17,0.22)",
+      paddingBottom: "1px",
+      transition: "border-color 0.15s",
+    }}
+    onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(17,17,17,0.55)")}
+    onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(17,17,17,0.22)")}
+  >
+    {children}
+  </a>
+);
 
 const btnStyle: React.CSSProperties = {
-  background: "rgba(0,0,0,0.38)",
+  background: "rgba(0,0,0,0.36)",
   border: "none",
   borderRadius: "50%",
   width: "34px",
@@ -19,193 +39,205 @@ const btnStyle: React.CSSProperties = {
   color: "#fff",
   backdropFilter: "blur(10px)",
   transition: "background 0.18s",
-  flexShrink: 0,
 };
+
+const SoundOn = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+  </svg>
+);
+
+const SoundOff = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <line x1="23" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="23" y2="15"/>
+  </svg>
+);
 
 const TomHale = () => {
   const [muted, setMuted] = useState(true);
-  const [expanded, setExpanded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const popupRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (videoRef.current) videoRef.current.muted = muted;
   }, [muted]);
 
-  useEffect(() => {
-    if (popupRef.current) popupRef.current.muted = muted;
-  }, [muted, expanded]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setExpanded(false); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
   return (
     <div style={{ display: "flex", minHeight: "100dvh", background: "#fff" }}>
 
-      {/* Left: scrollable letter */}
-      <div style={{ width: "50vw", padding: "60px 60px 100px 60px", boxSizing: "border-box" }}>
+      {/* ── Left: letter ── */}
+      <div style={{ width: "50vw", padding: "56px 56px 96px", boxSizing: "border-box" }}>
 
         {/* Byline */}
-        <p style={{ fontSize: "12px", color: "rgba(17,17,17,0.38)", marginBottom: "40px", letterSpacing: "0.01em" }}>
+        <p style={{
+          fontSize: "11px", fontWeight: 500, letterSpacing: "0.09em",
+          textTransform: "uppercase", color: "rgba(17,17,17,0.32)", marginBottom: "44px",
+        }}>
           From Ayoub Benouda, Lumina Labs, Paris
         </p>
 
-        {/* Salutation */}
-        <h1
-          className="font-serif-display"
-          style={{ fontSize: "34px", lineHeight: 1.1, letterSpacing: "-0.022em", color: "#111", marginBottom: "32px", fontWeight: 350 }}
-        >
-          Hi{" "}
-          <a href="https://www.linkedin.com/in/tomeghale/" target="_blank" rel="noopener noreferrer" style={{ ...link, fontSize: "34px" }}>
-            Tom
-          </a>,
+        {/* Greeting */}
+        <h1 className="font-serif-display" style={{
+          fontSize: "32px", lineHeight: 1.1, letterSpacing: "-0.020em",
+          color: "#111", fontWeight: 350, marginBottom: "28px",
+        }}>
+          Hi <A href="https://www.linkedin.com/in/tomeghale/">Tom</A>,
         </h1>
 
-        <div style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.72)", maxWidth: "500px" }}>
+        {/* Body */}
+        <div style={{ maxWidth: "490px" }}>
 
-          <p style={{ marginBottom: "20px" }}>
+          {/* Opening */}
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
             Thanks for accepting the connect. Made you something while I was at it.
           </p>
 
-          <p style={{ marginBottom: "20px" }}>
-            Bike mechanic in Reno, then Macromedia, Adobe, Linden Lab, HomeAway, Momentive, now Oura. That's a career built on the same bet you're making with the ring: small, consistent, data-informed decisions compound. I read the Rent Responsibly fireside and the Sequoia podcast. The "don't rush it, wait for the right CEO job" advice from your mentor stuck with me. The patience to wait for the right fit is the same patience the ring sells to its members.
+          {/* Hook — slightly elevated presence */}
+          <p style={{
+            fontSize: "16px", lineHeight: 1.75, color: "#111",
+            fontWeight: 400, marginBottom: "48px", letterSpacing: "-0.005em",
+          }}>
+            A 30 second spec ad for Oura. Performance creative, not brand. No ask attached.
           </p>
 
-          <p style={{ marginBottom: "36px" }}>
-            So, a 30-second spec ad for Oura. Performance creative, not brand. No ask attached. If a single frame is useful, it's yours.
-          </p>
-
-          {/* Section */}
-          <h2
-            className="font-serif-display"
-            style={{ fontSize: "19px", lineHeight: 1.2, letterSpacing: "-0.014em", color: "#111", fontWeight: 350, margin: "44px 0 14px" }}
-          >
-            Why this ad, and why now
+          {/* ── Section ── */}
+          <h2 className="font-serif-display" style={{
+            fontSize: "20px", lineHeight: 1.15, letterSpacing: "-0.014em",
+            color: "#111", fontWeight: 350, margin: "0 0 16px",
+          }}>
+            Why this ad
           </h2>
 
-          <p style={{ marginBottom: "20px" }}>
-            I know the brand work moved in a different direction. <em style={{ fontStyle: "italic" }}>Give Us the Finger</em> was the right campaign for the cultural positioning: longevity over youth, presence over optimization, the index finger as identity marker. Nice&amp;Frank did exceptional work. That's brand. It builds the gravitational field.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            I know the brand work moved in a different direction.{" "}
+            <em style={{ fontStyle: "italic" }}>Give Us the Finger</em> nailed the cultural positioning, longevity over youth.
+            Nice&amp;Frank did exceptional work.
           </p>
 
-          <p style={{ marginBottom: "20px" }}>This is the other thing.</p>
-
-          <p style={{ marginBottom: "12px" }}>Three things I noticed reading through Oura's recent communications:</p>
-
-          <p style={{ marginBottom: "12px" }}>
-            <strong style={{ fontWeight: 500, color: "rgba(17,17,17,0.85)" }}>1. Dorothy Kilroy said it out loud.</strong> At Elevate Toronto, she confirmed the fastest-growing Oura demographic is women in their early twenties. Not corporate athletes. Not biohackers. Young women.
+          {/* Beat line — full contrast, short */}
+          <p style={{
+            fontSize: "15px", lineHeight: 1.85, color: "#111",
+            fontWeight: 400, marginBottom: "16px", letterSpacing: "-0.005em",
+          }}>
+            This is the other thing.
           </p>
 
-          <p style={{ marginBottom: "12px" }}>
-            <strong style={{ fontWeight: 500, color: "rgba(17,17,17,0.85)" }}>2. The athletic partnerships keep stacking.</strong> Team USA through LA28. Lululemon's FURTHER women's ultramarathon. U.S. Soccer. The product has a natural home with women who are training seriously, even as the brand campaigns lean toward longevity and self-expression.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            Dorothy Kilroy said it at Elevate Toronto. The fastest growing Oura demographic is women
+            in their early twenties. The Lululemon FURTHER partnership, Team USA through LA28,
+            U.S. Soccer. The product has a natural home with women training seriously, even as
+            the brand leans longevity.
           </p>
 
-          <p style={{ marginBottom: "20px" }}>
-            <strong style={{ fontWeight: 500, color: "rgba(17,17,17,0.85)" }}>3. Performance and longevity aren't opposites, they're the same insight at different ages.</strong> A 23-year-old marathon trainee and a 67-year-old tango dancer are both buying the same thing: the feedback loop that turns body data into better decisions. The ad above speaks to the first one in her language.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            Brand campaigns shape who people want to become. Performance creative converts the woman
+            who is already there. Running her tempo session, glancing at her readiness score before
+            a hard workout.
           </p>
 
-          <p style={{ marginBottom: "20px" }}>
-            That's the gap I tried to fill. Brand campaigns shape who people <em style={{ fontStyle: "italic" }}>want to become</em>. Performance creative converts the woman who's already there: running her tempo session, glancing at her readiness score before a hard workout, deciding whether today is push or recover.
+          {/* Beat line */}
+          <p style={{
+            fontSize: "15px", lineHeight: 1.85, color: "#111",
+            fontWeight: 400, marginBottom: "48px", letterSpacing: "-0.005em",
+          }}>
+            That is the gap I tried to fill.
           </p>
 
-          {/* Section */}
-          <h2
-            className="font-serif-display"
-            style={{ fontSize: "19px", lineHeight: 1.2, letterSpacing: "-0.014em", color: "#111", fontWeight: 350, margin: "44px 0 14px" }}
-          >
-            The strategic choices, briefly
+          {/* ── Section ── */}
+          <h2 className="font-serif-display" style={{
+            fontSize: "20px", lineHeight: 1.15, letterSpacing: "-0.014em",
+            color: "#111", fontWeight: 350, margin: "0 0 16px",
+          }}>
+            The choices
           </h2>
 
-          <p style={{ marginBottom: "12px" }}>
-            <strong style={{ fontWeight: 500, color: "rgba(17,17,17,0.85)" }}>Track athlete, not yoga influencer.</strong> Strava-tier serious. The kind of woman who'd choose Oura over an Apple Watch because she doesn't want notifications mid-stride. The 88% 12-month retention number from your team's communications suggests this user, once converted, doesn't leave.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            Track athlete, not yoga influencer. Strava tier serious. The user who would choose Oura
+            over an Apple Watch because she does not want notifications mid stride.
           </p>
 
-          <p style={{ marginBottom: "12px" }}>
-            <strong style={{ fontWeight: 500, color: "rgba(17,17,17,0.85)" }}>Nike grammar, Oura values.</strong> Sprint energy on the track, then the breath, then the stat check. The emotional beat sits in the <em style={{ fontStyle: "italic" }}>recovery</em> moment: the glance down at the ring after the effort. That's the Oura insight, not the Nike one. Performance is the hook; the data-informed pause is the message.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            Nike grammar, Oura values. The emotional beat sits in the recovery moment, the glance
+            down at the ring after the effort. Performance is the hook. The data informed pause
+            is the message.
           </p>
 
-          <p style={{ marginBottom: "12px" }}>
-            <strong style={{ fontWeight: 500, color: "rgba(17,17,17,0.85)" }}>Product hero on white.</strong> The ring rotating, isolated. Standard for premium hardware, deliberately so. It pulls the ad away from generic UGC and signals the same fashion-grade design language the Ceramic line introduced.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "48px" }}>
+            Final frame left empty. Whatever line your team is testing drops cleanly into the geometry.
           </p>
 
-          <p style={{ marginBottom: "20px" }}>
-            <strong style={{ fontWeight: 500, color: "rgba(17,17,17,0.85)" }}>Final frame reserved for slogan.</strong> I left the closing slot deliberately empty. Whatever line your team is testing drops cleanly into the geometry.
-          </p>
-
-          {/* Section */}
-          <h2
-            className="font-serif-display"
-            style={{ fontSize: "19px", lineHeight: 1.2, letterSpacing: "-0.014em", color: "#111", fontWeight: 350, margin: "44px 0 14px" }}
-          >
-            What this took to make
+          {/* ── Section ── */}
+          <h2 className="font-serif-display" style={{
+            fontSize: "20px", lineHeight: 1.15, letterSpacing: "-0.014em",
+            color: "#111", fontWeight: 350, margin: "0 0 16px",
+          }}>
+            What this took
           </h2>
 
-          <p style={{ marginBottom: "20px" }}>
-            48 hours, in Paris. AI-native pipeline: image generation, image-to-video, voice, edit. End-to-end agentic.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            A few days, AI native pipeline I have been building.
           </p>
 
-          <p style={{ marginBottom: "20px" }}>
-            I'm not pitching the pipeline. The point of showing it is unit economics: a creative this caliber, in two days, means a brand at Oura's scale could test 30-50 angles per quarter against the standing top performer instead of 4-6. That's the real argument for AI-native creative: not cost, <em style={{ fontStyle: "italic" }}>iteration speed</em>.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            The point is not cost. It is iteration speed. A creative this caliber in two days means
+            testing thirty angles per quarter against the top performer, not four.
           </p>
 
-          <p style={{ marginBottom: "20px" }}>
-            Whoop is already moving fast on creative volume. The window for whoever converts first on this kind of production tempo isn't open forever.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "16px" }}>
+            Use it, ignore it, send notes. All good outcomes. If it is worth twenty minutes with
+            whoever runs growth or creative, I would take that conversation.
           </p>
 
-          {/* Section */}
-          <h2
-            className="font-serif-display"
-            style={{ fontSize: "19px", lineHeight: 1.2, letterSpacing: "-0.014em", color: "#111", fontWeight: 350, margin: "44px 0 14px" }}
-          >
-            If any of this is useful
-          </h2>
-
-          <p style={{ marginBottom: "20px" }}>
-            Use the ad, share it, ignore it, send me notes. All good outcomes. If it's worth a 20-minute call with whoever runs growth or creative on your team, I'd take that conversation. If not, I'll keep building and check back when there's a v2 worth showing.
+          <p style={{ fontSize: "15px", lineHeight: 1.85, color: "rgba(17,17,17,0.68)", marginBottom: "48px" }}>
+            Either way, the ring is on a lot of fingers in Paris. Mine included.
           </p>
 
-          <p style={{ marginBottom: "36px" }}>
-            Either way, congrats on what you've built. The ring is on a lot of fingers in Paris too. Mine included.
-          </p>
-
-          {/* Signature */}
-          <div style={{ paddingTop: "8px", borderTop: "1px solid rgba(17,17,17,0.08)" }}>
-            <p
-              className="font-serif-display"
-              style={{ fontSize: "20px", color: "#111", marginBottom: "12px", fontWeight: 350, marginTop: "24px" }}
-            >
+          {/* ── Signature ── */}
+          <div style={{ borderTop: "1px solid rgba(17,17,17,0.07)", paddingTop: "28px" }}>
+            <p className="font-serif-display" style={{
+              fontSize: "18px", color: "#111", fontWeight: 350,
+              letterSpacing: "-0.012em", marginBottom: "14px",
+            }}>
               Ayoub Benouda
             </p>
-            <p style={{ fontSize: "13px", color: "rgba(17,17,17,0.45)", lineHeight: 1.8 }}>
-              <a href="mailto:ayoub@withluminalabs.com" style={link}>ayoub@withluminalabs.com</a>
-              {" · "}
-              <a href="https://x.com/ayoubtwelve" target="_blank" rel="noopener noreferrer" style={link}>@ayoubtwelve</a>
-              {" · "}
-              <a href="https://withluminalabs.com" target="_blank" rel="noopener noreferrer" style={link}>withluminalabs.com</a>
-            </p>
+            <div style={{ fontSize: "13px", lineHeight: 2.0, color: "rgba(17,17,17,0.45)" }}>
+              <p style={{ margin: 0 }}>
+                <A href="mailto:ayoub@withluminalabs.com" external={false}>ayoub@withluminalabs.com</A>
+              </p>
+              <p style={{ margin: 0 }}>
+                <A href="https://x.com/ayoubtwelve">@ayoubtwelve</A>
+              </p>
+              <p style={{ margin: 0 }}>
+                <A href="https://withluminalabs.com">withluminalabs.com</A>
+              </p>
+            </div>
           </div>
 
         </div>
       </div>
 
-      {/* Right: sticky panel */}
-      <div
-        style={{
-          width: "50vw",
-          position: "sticky",
-          top: 0,
-          height: "100dvh",
-          background: "#fff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-        }}
-      >
-        {/* Video card with margin + radius */}
-        <div style={{ position: "relative", height: "calc(100dvh - 40px)", aspectRatio: "9/16", borderRadius: "7px", overflow: "hidden" }}>
+      {/* ── Right: sticky video ── */}
+      <div style={{
+        width: "50vw",
+        position: "sticky",
+        top: 0,
+        height: "100dvh",
+        background: "#fff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexShrink: 0,
+      }}>
+        <div style={{
+          position: "relative",
+          height: "calc(100dvh - 40px)",
+          aspectRatio: "9/16",
+          borderRadius: "7px",
+          overflow: "hidden",
+        }}>
           <video
             ref={videoRef}
             autoPlay muted loop playsInline
@@ -214,101 +246,18 @@ const TomHale = () => {
             onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
           />
 
-          {/* Expand — top left */}
-          <button
-            onClick={() => setExpanded(true)}
-            style={{ ...btnStyle, position: "absolute", top: "12px", left: "12px" }}
-            onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
-            aria-label="Expand"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
-              <path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
-            </svg>
-          </button>
-
-          {/* Sound — bottom right */}
+          {/* Sound toggle — bottom right of video */}
           <button
             onClick={() => setMuted(v => !v)}
             style={{ ...btnStyle, position: "absolute", bottom: "12px", right: "12px" }}
             onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.36)")}
             aria-label={muted ? "Unmute" : "Mute"}
           >
-            {muted ? (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
-              </svg>
-            ) : (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-              </svg>
-            )}
+            {muted ? <SoundOff /> : <SoundOn />}
           </button>
         </div>
       </div>
-
-      {/* Expanded popup */}
-      {expanded && (
-        <div
-          onClick={() => setExpanded(false)}
-          style={{
-            position: "fixed", inset: 0, zIndex: 100,
-            background: "rgba(0,0,0,0.70)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            backdropFilter: "blur(6px)",
-          }}
-        >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{ position: "relative", height: "90dvh", aspectRatio: "9/16", borderRadius: "10px", overflow: "hidden" }}
-          >
-            <video
-              ref={popupRef}
-              autoPlay loop playsInline
-              muted={muted}
-              src="/oura-ad.mp4"
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
-            />
-            {/* Close — top left */}
-            <button
-              onClick={() => setExpanded(false)}
-              style={{ ...btnStyle, position: "absolute", top: "14px", left: "14px" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
-              aria-label="Close"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>
-            {/* Sound — bottom right */}
-            <button
-              onClick={() => setMuted(v => !v)}
-              style={{ ...btnStyle, position: "absolute", bottom: "14px", right: "14px" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
-              aria-label={muted ? "Unmute" : "Mute"}
-            >
-              {muted ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                  <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
-                </svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-      )}
 
     </div>
   );
