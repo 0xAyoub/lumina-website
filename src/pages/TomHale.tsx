@@ -136,7 +136,7 @@ const TomHale = () => {
                 videoRef={mobileRef}
                 muted={muted}
                 onToggleMute={toggle}
-                style={{ aspectRatio: "9/16", maxHeight: "70vh", width: "auto", margin: "0 auto" }}
+                style={{ aspectRatio: "9/16", maxHeight: "70vh", width: "auto" }}
               />
             </div>
 
