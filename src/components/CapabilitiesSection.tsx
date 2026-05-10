@@ -78,11 +78,15 @@ const CapabilitiesSection = () => {
   }, []);
 
   useEffect(() => {
+    const SCROLL_OFFSET = 80; // px into section before cards start moving
     const onScroll = () => {
       if (!sectionRef.current || !containerRef.current) return;
       const top = sectionRef.current.getBoundingClientRect().top;
       if (top <= 0 && top >= -scrollable.current) {
-        const progress = Math.max(0, Math.min(1, -top / scrollable.current));
+        const scrolled = -top;
+        const progress = Math.max(0, Math.min(1,
+          (scrolled - SCROLL_OFFSET) / Math.max(1, scrollable.current - SCROLL_OFFSET)
+        ));
         containerRef.current.style.transform =
           `translate3d(${-progress * maxTranslate.current}px,0,0)`;
       }
