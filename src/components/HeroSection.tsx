@@ -93,7 +93,7 @@ const HeroSection = () => {
       />
 
       <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 flex flex-col items-center text-center">
-        <h1 className="font-sans-display text-[24px] md:text-[38px] lg:text-[46px] leading-[1.0] tracking-[-0.026em] text-white mb-3">
+        <h1 className="font-sans-display text-[32px] md:text-[38px] lg:text-[46px] leading-[1.0] tracking-[-0.026em] text-white mb-3">
           {/* Line 1 */}
           <span className="block min-h-[1.1em]">
             {t1}
