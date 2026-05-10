@@ -6,13 +6,41 @@ const link: React.CSSProperties = {
   borderBottom: "1px solid rgba(17,17,17,0.20)",
 };
 
+const btnStyle: React.CSSProperties = {
+  background: "rgba(0,0,0,0.38)",
+  border: "none",
+  borderRadius: "50%",
+  width: "34px",
+  height: "34px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  color: "#fff",
+  backdropFilter: "blur(10px)",
+  transition: "background 0.18s",
+  flexShrink: 0,
+};
+
 const TomHale = () => {
   const [muted, setMuted] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const popupRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (videoRef.current) videoRef.current.muted = muted;
   }, [muted]);
+
+  useEffect(() => {
+    if (popupRef.current) popupRef.current.muted = muted;
+  }, [muted, expanded]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setExpanded(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <div style={{ display: "flex", minHeight: "100dvh", background: "#fff" }}>
@@ -162,7 +190,7 @@ const TomHale = () => {
         </div>
       </div>
 
-      {/* Right: sticky video, fully visible on white */}
+      {/* Right: sticky panel */}
       <div
         style={{
           width: "50vw",
@@ -176,56 +204,111 @@ const TomHale = () => {
           flexShrink: 0,
         }}
       >
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          src="/oura-ad.mp4"
-          style={{ height: "100%", width: "auto", maxWidth: "100%" }}
-          onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
-        />
+        {/* Video card with margin + radius */}
+        <div style={{ position: "relative", height: "calc(100dvh - 40px)", aspectRatio: "9/16", borderRadius: "7px", overflow: "hidden" }}>
+          <video
+            ref={videoRef}
+            autoPlay muted loop playsInline
+            src="/oura-ad.mp4"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
+          />
 
-        {/* Sound toggle */}
-        <button
-          onClick={() => setMuted(v => !v)}
-          style={{
-            position: "absolute",
-            bottom: "20px",
-            right: "20px",
-            background: "rgba(0,0,0,0.35)",
-            border: "1px solid rgba(255,255,255,0.18)",
-            borderRadius: "50%",
-            width: "36px",
-            height: "36px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            color: "#fff",
-            backdropFilter: "blur(8px)",
-            transition: "background 0.2s",
-          }}
-          onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.55)")}
-          onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.35)")}
-          aria-label={muted ? "Unmute" : "Mute"}
-        >
-          {muted ? (
+          {/* Expand — top left */}
+          <button
+            onClick={() => setExpanded(true)}
+            style={{ ...btnStyle, position: "absolute", top: "12px", left: "12px" }}
+            onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
+            aria-label="Expand"
+          >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-              <line x1="23" y1="9" x2="17" y2="15"/>
-              <line x1="17" y1="9" x2="23" y2="15"/>
+              <path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+              <path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
             </svg>
-          ) : (
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-            </svg>
-          )}
-        </button>
+          </button>
+
+          {/* Sound — bottom right */}
+          <button
+            onClick={() => setMuted(v => !v)}
+            style={{ ...btnStyle, position: "absolute", bottom: "12px", right: "12px" }}
+            onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
+            aria-label={muted ? "Unmute" : "Mute"}
+          >
+            {muted ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+              </svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Expanded popup */}
+      {expanded && (
+        <div
+          onClick={() => setExpanded(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 100,
+            background: "rgba(0,0,0,0.70)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            backdropFilter: "blur(6px)",
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{ position: "relative", height: "90dvh", aspectRatio: "9/16", borderRadius: "10px", overflow: "hidden" }}
+          >
+            <video
+              ref={popupRef}
+              autoPlay loop playsInline
+              muted={muted}
+              src="/oura-ad.mp4"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
+            />
+            {/* Close — top left */}
+            <button
+              onClick={() => setExpanded(false)}
+              style={{ ...btnStyle, position: "absolute", top: "14px", left: "14px" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
+              aria-label="Close"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+            {/* Sound — bottom right */}
+            <button
+              onClick={() => setMuted(v => !v)}
+              style={{ ...btnStyle, position: "absolute", bottom: "14px", right: "14px" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.38)")}
+              aria-label={muted ? "Unmute" : "Mute"}
+            >
+              {muted ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      )}
 
     </div>
   );
