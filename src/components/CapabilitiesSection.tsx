@@ -1,14 +1,14 @@
 import { useRef, useEffect, useState } from "react";
 
 const capabilities = [
-  {
-    label: "Oura Ring Campaign",
-    short: "Performance meets elegance. Shot by AI.",
-    desc: "A woman. A run. A ring that knows more than she does. This spot captures the quiet intensity of the Oura Ring — motion, data, and body intelligence — without a crew, without a set, without a single wasted hour.",
-    video: "/oura-ad.mp4",
-    placeholder: null,
-    aspect: "9:16" as const,
-  },
+  // {
+  //   label: "Oura Ring Campaign",
+  //   short: "Performance meets elegance. Shot by AI.",
+  //   desc: "A woman. A run. A ring that knows more than she does. This spot captures the quiet intensity of the Oura Ring — motion, data, and body intelligence — without a crew, without a set, without a single wasted hour.",
+  //   video: "/oura-ad.mp4",
+  //   placeholder: null,
+  //   aspect: "9:16" as const,
+  // },
   {
     label: "Jewelry Campaign",
     short: "Cartier-grade cinematics. Produced by AI.",
