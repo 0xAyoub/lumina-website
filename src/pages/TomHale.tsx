@@ -140,34 +140,40 @@ const TomHale = () => {
   return (
     <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", minHeight: "100dvh", background: "#fff" }}>
 
-      {/* ── Sticky logo ── */}
-      <a
-        href="https://withluminalabs.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          position: "fixed",
-          top: "10px",
-          left: "10px",
-          zIndex: 50,
-          display: "flex",
-          alignItems: "center",
-          margin: "10px",
-          opacity: 0.75,
-          transition: "opacity 0.15s",
-        }}
-        onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-        onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
-        aria-label="Lumina"
-      >
-        <img src="/logo.svg" alt="Lumina" style={{ height: "22px", width: "auto", display: "block" }} />
-      </a>
+      {/* ── Sticky logo bar ── */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: "52px",
+        display: "flex",
+        alignItems: "center",
+        padding: "0 20px",
+        zIndex: 50,
+        background: "rgba(255,255,255,0.88)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        borderBottom: "1px solid rgba(17,17,17,0.06)",
+      }}>
+        <a
+          href="https://withluminalabs.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "flex", alignItems: "center", opacity: 0.9, transition: "opacity 0.15s" }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+          onMouseLeave={e => (e.currentTarget.style.opacity = "0.9")}
+          aria-label="Lumina"
+        >
+          <img src="/logo.svg" alt="Lumina" style={{ height: "26px", width: "auto", display: "block" }} />
+        </a>
+      </div>
 
       {/* ── Letter column ── */}
       <div
         style={{
           width: isMobile ? "100%" : "50vw",
-          padding: isMobile ? "64px 28px 72px" : "64px 72px 72px 80px",
+          padding: isMobile ? "76px 24px 72px" : "80px 72px 72px 80px",
           boxSizing: "border-box",
         }}
       >
