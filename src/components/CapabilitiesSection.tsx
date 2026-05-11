@@ -33,11 +33,6 @@ const capabilities = [
     placeholder: null,
     aspect: "16:9" as const,
   },
-  { label: "Product Hero Shots", short: "Any environment. Any lighting. Any season. Photorealistic product visuals without a studio.", desc: null, video: null, placeholder: "Soon.", aspect: "9:16" as const },
-  { label: "Lifestyle Scenes", short: "Morning routines, kitchen moments, workout contexts — your product in the world. All synthetic.", desc: null, video: null, placeholder: "Very soon.", aspect: "9:16" as const },
-  { label: "High-Volume Variations", short: "One winning concept becomes 50 testable creatives. Different hooks, visuals, copy, CTAs. Included.", desc: null, video: null, placeholder: "Maybe tomorrow.", aspect: "9:16" as const },
-  { label: "UGC-Style Content", short: "Hands-on-product, texture close-ups, authentic aesthetics. The UGC look — without the creator.", desc: null, video: null, placeholder: "Be indulgent,\nwe're early-stage.", aspect: "9:16" as const },
-  { label: "Motion Graphics", short: "Ingredient breakdowns, brand films, benefit animations. Motion design at a fraction of studio cost.", desc: null, video: null, placeholder: "We're on it.\nProbably.", aspect: "9:16" as const },
 ];
 
 function getLayout(vw: number) {
