@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const intersectingDark = useRef(new Set<Element>());
 
   useEffect(() => {
@@ -25,6 +26,23 @@ const Navbar = () => {
       window.removeEventListener("resize", checkDesktop);
       window.removeEventListener("scroll", handler);
     };
+  }, []);
+
+  useEffect(() => {
+    const hideSections = document.querySelectorAll('[data-navbar-hide="true"]');
+    if (!hideSections.length) return;
+    const hideObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (window.innerWidth >= 768) {
+            setIsHidden(entry.isIntersecting);
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+    hideSections.forEach((s) => hideObserver.observe(s));
+    return () => hideObserver.disconnect();
   }, []);
 
   useEffect(() => {
@@ -68,8 +86,9 @@ const Navbar = () => {
           : isDark
           ? "1px solid rgba(255,255,255,0.07)"
           : "1px solid rgba(0,0,0,0.06)",
+        transform: isHidden ? "translateY(calc(-100% - 20px))" : "translateY(0)",
         transition:
-          "left 0.6s cubic-bezier(0.16, 1, 0.3, 1), right 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, border-color 0.4s ease",
+          "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), left 0.6s cubic-bezier(0.16, 1, 0.3, 1), right 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, border-color 0.4s ease",
       }}
     >
       {/* Logo */}
