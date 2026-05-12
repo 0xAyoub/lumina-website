@@ -30,52 +30,52 @@ const IncentiveIcon = () => (
 
 // ── Lumina highlights ──────────────────────────────────────────────────
 const highlights = [
-  { label: "Delivery",  Icon: ClockIcon,     stat: "48h",    desc: "Every batch, every time." },
-  { label: "Cost",      Icon: CostIcon,      stat: "−80%",   desc: "vs. a traditional agency." },
-  { label: "Output",    Icon: OutputIcon,    stat: "30–50",  desc: "Creatives delivered per month." },
-  { label: "Iteration", Icon: IterationIcon, stat: "Always", desc: "Kill losers. Scale winners." },
-  { label: "Incentive", Icon: IncentiveIcon, stat: "ROAS↑",  desc: "We win when your ROAS grows." },
+  { label: "Delivery",  Icon: ClockIcon,     stat: "48h",       desc: "Free ad. Every time." },
+  { label: "Pilot",     Icon: CostIcon,      stat: "€2,500",    desc: "15 ads in 14 days. Flat fee. No contract." },
+  { label: "Retainer",  Icon: OutputIcon,    stat: "€5,000/mo", desc: "30 ads a month. Month-to-month. Kill anytime." },
+  { label: "Output",    Icon: IterationIcon, stat: "30",        desc: "What top supplement brands actually need to scale." },
+  { label: "Iteration", Icon: IncentiveIcon, stat: "bi-weekly", desc: "Kill losers. Re-cut winners. Compound." },
 ];
 
 // ── Competitors ────────────────────────────────────────────────────────
 const competitors = [
   {
     id: "traditional",
-    label: "Traditional Agency",
-    sub: "The old guard",
-    tagline: "Great work. Once. At a price that doesn't scale.",
+    label: "Traditional Performance Agency",
+    sub: "Strong work. Slow delivery. Capped volume.",
+    tagline: "Strong work. Slow delivery. Capped volume.",
     rows: [
-      { Icon: ClockIcon,     label: "Delivery",  text: "4–8 weeks per campaign." },
-      { Icon: CostIcon,      label: "Cost",      text: "€10K–€50K per asset. Revisions billed extra." },
-      { Icon: OutputIcon,    label: "Output",    text: "1–3 creatives per cycle." },
-      { Icon: IterationIcon, label: "Iteration", text: "Start over each time. No feedback loop." },
-      { Icon: IncentiveIcon, label: "Incentive", text: "Paid per project. No stake in your ROAS." },
-    ],
-  },
-  {
-    id: "ai",
-    label: "Self-serve AI",
-    sub: "The DIY trap",
-    tagline: "Fast and cheap. Also forgettable and ineffective.",
-    rows: [
-      { Icon: ClockIcon,     label: "Delivery",  text: "Instant — but you do all the work." },
-      { Icon: CostIcon,      label: "Cost",      text: "€50–€200/month. Cheap until you count your time." },
-      { Icon: OutputIcon,    label: "Output",    text: "Generic. Looks like AI. No brand intelligence." },
-      { Icon: IterationIcon, label: "Iteration", text: "You guess what to test. No data. No strategy." },
-      { Icon: IncentiveIcon, label: "Incentive", text: "Sells you the tool. Not your results." },
+      { Icon: ClockIcon,     label: "Delivery",  text: "4–8 weeks per batch. Nothing ships fast." },
+      { Icon: CostIcon,      label: "Pilot",     text: "€10K minimum. Before a single test." },
+      { Icon: OutputIcon,    label: "Retainer",  text: "€15K–€50K/mo. Volume stays low." },
+      { Icon: IterationIcon, label: "Output",    text: "3–5 creatives per cycle. Not enough to test." },
+      { Icon: IncentiveIcon, label: "Iteration", text: "Start over each time. No compounding loop." },
     ],
   },
   {
     id: "ugc",
-    label: "UGC Creators",
-    sub: "The commodity",
-    tagline: "Authentic feel. No scale. No strategy. No compounding.",
+    label: "UGC Marketplaces (Billo, Insense)",
+    sub: "Authentic feel. Inconsistent. Doesn't compound.",
+    tagline: "Authentic feel. Inconsistent. Doesn't compound.",
     rows: [
       { Icon: ClockIcon,     label: "Delivery",  text: "5–14 days per batch. Scheduling nightmares." },
-      { Icon: CostIcon,      label: "Cost",      text: "€200–€500 per video. Adds up fast at volume." },
-      { Icon: OutputIcon,    label: "Output",    text: "Inconsistent. One face, one style per creator." },
-      { Icon: IterationIcon, label: "Iteration", text: "No performance data. No funnel awareness." },
-      { Icon: IncentiveIcon, label: "Incentive", text: "Paid per video. No awareness of your funnel." },
+      { Icon: CostIcon,      label: "Pilot",     text: "€200–€500 per video. Adds up fast at volume." },
+      { Icon: OutputIcon,    label: "Retainer",  text: "Inconsistent. One face, one style per creator." },
+      { Icon: IterationIcon, label: "Output",    text: "Low volume. Hard to test at scale." },
+      { Icon: IncentiveIcon, label: "Iteration", text: "No performance data. No funnel awareness." },
+    ],
+  },
+  {
+    id: "ai",
+    label: "Self-Serve AI Tools (Arcads, Pencil, Creatify)",
+    sub: "Fast. Cheap. Looks like the other 4,000 brands using them.",
+    tagline: "Fast. Cheap. Looks like the other 4,000 brands using them.",
+    rows: [
+      { Icon: ClockIcon,     label: "Delivery",  text: "Fast — but you do all the work yourself." },
+      { Icon: CostIcon,      label: "Pilot",     text: "€50–€200/month. Cheap until you count your time." },
+      { Icon: OutputIcon,    label: "Retainer",  text: "Generic templates. No brand intelligence." },
+      { Icon: IterationIcon, label: "Output",    text: "Volume yes. Differentiation no." },
+      { Icon: IncentiveIcon, label: "Iteration", text: "You guess what to test. No strategy behind it." },
     ],
   },
 ];
@@ -121,8 +121,8 @@ const DifferenceSection = () => {
           The difference
         </p>
         <h2 className="font-sans-display text-[22px] md:text-[34px] leading-[1.08] tracking-[-0.018em] text-white mb-14 md:mb-16">
-          Not all creative partners{" "}
-          <span className="font-serif-display italic text-white/60">are created equal.</span>
+          Most agencies hide their numbers.{" "}
+          <span className="font-serif-display italic text-white/60">Ours are on the page.</span>
         </h2>
 
         {/* ── Lumina highlight cards ── */}
@@ -216,7 +216,7 @@ const DifferenceSection = () => {
             href="/free"
             className="text-[11px] font-medium bg-white text-black px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
           >
-            See the numbers for your brand →
+            Get a free ad for your brand →
           </a>
         </div>
 

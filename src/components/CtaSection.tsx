@@ -13,23 +13,23 @@ const CtaSection = () => {
               Free creative
             </p>
             <h2 className="font-sans-display text-[26px] lg:text-[42px] leading-[1.05] tracking-[-0.022em] text-black max-w-[580px]">
-              Get one mind-blowing ad.
+              Send us your product.
               <br />
               <span className="font-serif-display italic text-black/35">
-                For $0. No commitment.
+                Get one ad. Free. 48 hours.
               </span>
             </h2>
           </div>
 
           <div>
             <p className="text-[12px] leading-[1.7] text-black/35 mb-6 max-w-[400px]">
-              Tell us about your brand and what you want. We'll produce one cinematic AI creative — free, delivered in 48 hours.
+              Pick a product page. Tell us one thing you wish your ad was doing better. We ship a 15-to-60-second cinematic AI ad in 48 hours. Watermarked, yours to use. No call, no commitment.
             </p>
             <Link
               to="/free"
               className="inline-flex items-center gap-2 text-[12px] font-medium bg-black text-white px-7 py-3 rounded-[8px] transition-all duration-200 hover:opacity-75 active:scale-[0.98]"
             >
-              Get my free creative →
+              Get my free ad →
             </Link>
           </div>
         </div>
@@ -39,7 +39,7 @@ const CtaSection = () => {
           className="flex flex-col justify-between px-8 lg:px-12 pt-14 pb-12"
           style={{ width: "30vw", backgroundColor: "#C5D2F8" }}
         >
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em]" style={{ color: "rgba(17,17,17,0.45)" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em]" style={{ color: "#C5D2F8" }}>
             Or write directly
           </p>
           <div>
@@ -57,7 +57,7 @@ const CtaSection = () => {
               </span>
             </a>
             <p className="text-[11px] mt-3 leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              No sales team, no form.<br />Write directly.
+              No sales team. No form. Just me.
             </p>
           </div>
         </div>
@@ -74,27 +74,27 @@ const CtaSection = () => {
               Free creative
             </p>
             <h2 className="font-sans-display text-[22px] leading-[1.08] tracking-[-0.022em] text-black mb-3">
-              Get one mind-blowing ad.
+              Send us your product.
               <br />
               <span className="font-serif-display italic text-black/35">
-                For $0. No commitment.
+                Get one ad. Free. 48 hours.
               </span>
             </h2>
             <p className="text-[12px] leading-[1.65] text-black/35 mb-8">
-              One cinematic AI creative — free, delivered in 48 hours.
+              Pick a product page. Tell us one thing you wish your ad was doing better. We ship in 48 hours. No call, no commitment.
             </p>
           </div>
           <Link
             to="/free"
             className="inline-flex items-center gap-2 text-[12px] font-medium bg-black text-white px-7 py-3.5 rounded-[8px] transition-all duration-200 hover:opacity-75 active:scale-[0.98] self-start"
           >
-            Get my free creative →
+            Get my free ad →
           </Link>
         </div>
 
         {/* Second screen: Email the founder */}
         <div className="flex flex-col justify-between px-6 pt-10 pb-14" style={{ minHeight: "44dvh", backgroundColor: "#C5D2F8" }}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "rgba(17,17,17,0.45)" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "#C5D2F8" }}>
             Or write directly
           </p>
           <div>
@@ -112,7 +112,7 @@ const CtaSection = () => {
               </span>
             </a>
             <p className="text-[11px] mt-3 leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              No sales team, no form. Write directly.
+              No sales team. No form. Just me.
             </p>
           </div>
         </div>

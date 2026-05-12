@@ -1,8 +1,10 @@
 const stats = [
-  { value: "48h", label: "Delivery" },
-  { value: "50+", label: "Monthly creatives" },
-  { value: "0", label: "Cameras" },
-  { value: "24/7", label: "Engine uptime" },
+  { value: "48h", label: "First ad turnaround" },
+  { value: "€2,500", label: "Pilot. 15 ads. 14 days." },
+  { value: "€5,000/mo", label: "Retainer. 30 ads/month." },
+  { value: "30", label: "Ads shipped per retainer month" },
+  { value: "0", label: "Studio, crew, equipment" },
+  { value: "100%", label: "Built for supplement-brand creative formats" },
 ];
 
 const StatsSection = () => {
