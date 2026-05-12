@@ -33,9 +33,10 @@ const ProcessSection = () => {
   return (
     <section
       id="process"
-      className="bg-background flex flex-col h-[100dvh]"
+      className="bg-background flex flex-col"
+      style={{ minHeight: "100dvh" }}
     >
-      <div className="w-full px-6 md:px-12 lg:px-20 flex flex-col flex-1 min-h-0 pt-[72px] pb-4 md:pt-[72px] md:pb-8">
+      <div className="w-full px-6 md:px-12 lg:px-20 flex flex-col flex-1 pt-[72px] pb-8 md:pt-[72px] md:pb-10">
 
         {/* Header */}
         <p
@@ -63,8 +64,8 @@ const ProcessSection = () => {
           </p>
         </div>
 
-        {/* Desktop: book-page cards — UNCHANGED */}
-        <div className="hidden md:flex gap-3 flex-1 min-h-0">
+        {/* Desktop: book-page cards */}
+        <div className="hidden md:flex gap-3 flex-1" style={{ minHeight: "420px" }}>
           {steps.map((step, i) => {
             const isActive = active === i;
             return (
@@ -155,7 +156,7 @@ const ProcessSection = () => {
         </div>
 
         {/* Mobile/tablet: same book animation, vertical direction */}
-        <div className="md:hidden flex flex-col flex-1 min-h-0 gap-2">
+        <div className="md:hidden flex flex-col gap-2" style={{ minHeight: "520px" }}>
           {steps.map((step, i) => {
             const isActive = active === i;
             return (

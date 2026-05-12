@@ -76,16 +76,16 @@ const DifferenceSection = () => {
           >
             <p
               className="text-[10px] font-medium uppercase tracking-[0.12em] mb-2"
-              style={{ color: "rgba(255,255,255,0.28)" }}
+              style={{ color: "rgba(255,255,255,0.40)" }}
             >
               The difference
             </p>
             <h2
               className="font-sans-display leading-[1.1] tracking-[-0.015em]"
-              style={{ fontSize: "clamp(13px, 1.3vw, 17px)", color: "rgba(255,255,255,0.75)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(13px, 1.3vw, 17px)", color: "#ffffff", fontWeight: 400 }}
             >
               What you've already tried.{" "}
-              <span className="font-serif-display italic" style={{ color: "rgba(255,255,255,0.28)", fontWeight: 400 }}>
+              <span className="font-serif-display italic" style={{ color: "rgba(255,255,255,0.40)", fontWeight: 400 }}>
                 And why it's not enough.
               </span>
             </h2>
@@ -106,19 +106,19 @@ const DifferenceSection = () => {
             >
               <p
                 className="text-[11px] font-medium mb-3"
-                style={{ color: "rgba(255,255,255,0.18)", letterSpacing: "0.08em" }}
+                style={{ color: "rgba(255,255,255,0.30)", letterSpacing: "0.08em" }}
               >
                 {comp.num}
               </p>
               <h3
                 className="font-sans-display mb-1.5 tracking-[-0.015em]"
-                style={{ fontSize: "clamp(15px, 1.6vw, 20px)", color: "rgba(255,255,255,0.65)", fontWeight: 400 }}
+                style={{ fontSize: "clamp(15px, 1.6vw, 20px)", color: "#ffffff", fontWeight: 400 }}
               >
                 {comp.label}
               </h3>
               <p
                 className="text-[12px] mb-8 italic"
-                style={{ color: "rgba(255,255,255,0.28)", fontWeight: 400 }}
+                style={{ color: "rgba(255,255,255,0.40)", fontWeight: 400 }}
               >
                 {comp.sub}
               </p>
@@ -130,18 +130,18 @@ const DifferenceSection = () => {
                     key={label}
                     style={{
                       borderRadius: "8px",
-                      backgroundColor: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.07)",
+                      backgroundColor: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.09)",
                       padding: "12px 14px",
                     }}
                   >
                     <p
                       className="text-[10px] font-medium uppercase tracking-[0.08em] mb-1"
-                      style={{ color: "rgba(255,255,255,0.30)" }}
+                      style={{ color: "rgba(255,255,255,0.42)" }}
                     >
                       {label}
                     </p>
-                    <p className="text-[13px] leading-[1.55]" style={{ color: "rgba(255,255,255,0.62)" }}>
+                    <p className="text-[13px] leading-[1.55]" style={{ color: "rgba(255,255,255,0.85)" }}>
                       {comp.rows[ri]}
                     </p>
                   </div>
