@@ -123,7 +123,7 @@ const HeroSection = () => {
           }}
         >
           <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[360px] mb-4 mx-auto">
-            Cinematic AI ads for DTC supplement brands. Built to test fast, kill fatigue, and compound winners. First ad free, delivered in 48 hours.
+            Cinematic AI ads for supplement brands. Test fast, kill fatigue, compound winners. First ad free in 48 hours.
           </p>
 
           <div className="flex gap-2 justify-center">

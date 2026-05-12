@@ -4,25 +4,25 @@ const steps = [
   {
     num: "01",
     title: "The free ad",
-    body: "Send us your product page and one example of an ad you wish was working. We make you a 15-to-60-second cinematic AI ad in 48 hours. Watermarked, yours to use. No call required. No commitment. If it lands, we keep going. If not, you got a free ad.",
+    body: "Send us your product page and one ad you wish was working. We make a 15-to-60-second cinematic AI ad in 48 hours. Watermarked, yours to use. No call. No commitment. If it lands, we keep going. If not, you got a free ad.",
     cta: "Get my free ad",
   },
   {
     num: "02",
     title: "The pilot",
-    body: "€2,500 flat. 15 ads in 14 days, across 4 creative directions you approve before we ship. You see what we can do at production volume — before you sign anything longer than two weeks. No retainer, no contract, no recurring charge.",
+    body: "€2,500 flat. 15 ads in 14 days, across 4 creative directions you approve. You see what we can do at volume — before signing anything longer than two weeks. No retainer, no contract, no recurring charge.",
     cta: "Start the pilot",
   },
   {
     num: "03",
     title: "The retainer",
-    body: "€5,000 a month. 30 ads, bi-weekly batches. You kill what doesn't perform. We double down on what does. Your winning ad gets 12 new variants the day it starts to fatigue. Month-to-month. Cancel anytime.",
+    body: "€5,000 a month. 30 ads, bi-weekly batches. Kill what doesn't perform. Double down on what does. Your winning ad gets 12 new variants the day it starts to fatigue. Month-to-month. Cancel anytime.",
     cta: "Start the retainer",
   },
   {
     num: "04",
     title: "The loop",
-    body: "Every dying ad becomes the brief for the next one. Hooks get re-cut. Formats get remixed. Footage gets reused. The same product becomes 200 ads a year. Your media buyer stops asking for creative. Your CPA stops climbing.",
+    body: "Every dying ad becomes the brief for the next one. Hooks re-cut. Formats remixed. Footage reused. The same product becomes 200 ads a year. Your media buyer stops asking. Your CPA stops climbing.",
     cta: "See the loop",
   },
 ];
@@ -59,7 +59,7 @@ const ProcessSection = () => {
             className="hidden md:block text-[14px] leading-[1.75] max-w-[400px]"
             style={{ color: "rgba(17,17,17,0.45)" }}
           >
-            Every step is built to move fast. The first ad is free. The pilot ships in 14 days. Everything after that compounds.
+            The first ad is free. The pilot ships in 14 days. Everything after that compounds.
           </p>
         </div>
 

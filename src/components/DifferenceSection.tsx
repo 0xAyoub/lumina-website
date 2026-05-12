@@ -45,11 +45,11 @@ const competitors = [
     sub: "Strong work. Slow delivery. Capped volume.",
     tagline: "Strong work. Slow delivery. Capped volume.",
     rows: [
-      { Icon: ClockIcon,     label: "Delivery",  text: "4–8 weeks per batch. Nothing ships fast." },
+      { Icon: ClockIcon,     label: "Delivery",  text: "4–8 weeks per batch." },
       { Icon: CostIcon,      label: "Pilot",     text: "€10K minimum. Before a single test." },
       { Icon: OutputIcon,    label: "Retainer",  text: "€15K–€50K/mo. Volume stays low." },
-      { Icon: IterationIcon, label: "Output",    text: "3–5 creatives per cycle. Not enough to test." },
-      { Icon: IncentiveIcon, label: "Iteration", text: "Start over each time. No compounding loop." },
+      { Icon: IterationIcon, label: "Output",    text: "3–5 creatives per cycle. Not enough." },
+      { Icon: IncentiveIcon, label: "Iteration", text: "Start over each time. No loop." },
     ],
   },
   {
@@ -58,11 +58,11 @@ const competitors = [
     sub: "Authentic feel. Inconsistent. Doesn't compound.",
     tagline: "Authentic feel. Inconsistent. Doesn't compound.",
     rows: [
-      { Icon: ClockIcon,     label: "Delivery",  text: "5–14 days per batch. Scheduling nightmares." },
-      { Icon: CostIcon,      label: "Pilot",     text: "€200–€500 per video. Adds up fast at volume." },
-      { Icon: OutputIcon,    label: "Retainer",  text: "Inconsistent. One face, one style per creator." },
-      { Icon: IterationIcon, label: "Output",    text: "Low volume. Hard to test at scale." },
-      { Icon: IncentiveIcon, label: "Iteration", text: "No performance data. No funnel awareness." },
+      { Icon: ClockIcon,     label: "Delivery",  text: "5–14 days per batch." },
+      { Icon: CostIcon,      label: "Pilot",     text: "€200–€500 per video. Adds up fast." },
+      { Icon: OutputIcon,    label: "Retainer",  text: "Inconsistent. One face, one style." },
+      { Icon: IterationIcon, label: "Output",    text: "Low volume. Hard to scale." },
+      { Icon: IncentiveIcon, label: "Iteration", text: "No data. No funnel awareness." },
     ],
   },
   {
@@ -71,11 +71,11 @@ const competitors = [
     sub: "Fast. Cheap. Looks like the other 4,000 brands using them.",
     tagline: "Fast. Cheap. Looks like the other 4,000 brands using them.",
     rows: [
-      { Icon: ClockIcon,     label: "Delivery",  text: "Fast — but you do all the work yourself." },
+      { Icon: ClockIcon,     label: "Delivery",  text: "Fast — but you do all the work." },
       { Icon: CostIcon,      label: "Pilot",     text: "€50–€200/month. Cheap until you count your time." },
       { Icon: OutputIcon,    label: "Retainer",  text: "Generic templates. No brand intelligence." },
       { Icon: IterationIcon, label: "Output",    text: "Volume yes. Differentiation no." },
-      { Icon: IncentiveIcon, label: "Iteration", text: "You guess what to test. No strategy behind it." },
+      { Icon: IncentiveIcon, label: "Iteration", text: "You guess what to test. No strategy." },
     ],
   },
 ];

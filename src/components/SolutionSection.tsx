@@ -121,7 +121,7 @@ const SolutionSection = () => {
               style={{ color: "rgba(17,17,17,0.5)" }}
               data-delay="80"
             >
-              Founder UGC-style hooks. Problem-agitation videos. Before/after splits. Ingredient breakdowns. Competitor comparisons. Built for Meta and TikTok feed, in every format your buyer scrolls — 9:16, 1:1, 4:5. Produced with AI video, directed by a human who edited for years before that was a job title.
+              Founder UGC hooks. Problem-agitation. Before/after splits. Ingredient breakdowns. Competitor comparisons. Every format your buyer scrolls — 9:16, 1:1, 4:5. AI-produced, directed by a human who edited for years before that was a job title.
             </p>
 
             <ul className="space-y-4 mb-10">

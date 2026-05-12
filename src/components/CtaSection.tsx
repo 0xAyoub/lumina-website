@@ -23,7 +23,7 @@ const CtaSection = () => {
 
           <div>
             <p className="text-[12px] leading-[1.7] text-black/35 mb-6 max-w-[400px]">
-              Pick a product page. Tell us one thing you wish your ad was doing better. We ship a 15-to-60-second cinematic AI ad in 48 hours. Watermarked, yours to use. No call, no commitment.
+              Pick a product page. Tell us one thing you wish your ad was doing better. We ship in 48 hours. Watermarked, yours to keep. No call, no commitment.
             </p>
             <Link
               to="/free"
@@ -83,6 +83,7 @@ const CtaSection = () => {
             <p className="text-[12px] leading-[1.65] text-black/35 mb-8">
               Pick a product page. Tell us one thing you wish your ad was doing better. We ship in 48 hours. No call, no commitment.
             </p>
+
           </div>
           <Link
             to="/free"

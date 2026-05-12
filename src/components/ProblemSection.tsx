@@ -1,7 +1,7 @@
 const cards = [
   {
     title: "Your winners die in 9 days.",
-    body: "Supplement CPA hit $89 in 2026, up from $42 two years ago. Audiences are smaller, retargeting hits harder, frequency spikes faster. Every founder UGC ad that crushed for six weeks now eats its own ROAS in nine days. Your media buyer keeps asking for more creative.",
+    body: "Supplement CPA hit $89 in 2026, up from $42 two years ago. Audiences are smaller. Frequency spikes faster. Every founder UGC ad that crushed for six weeks now eats its ROAS in nine days. Your media buyer keeps asking for more creative.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -10,7 +10,7 @@ const cards = [
   },
   {
     title: "You're testing 6 ads. You need 30.",
-    body: "Top supplement brands run 25 to 50 new concepts a month on Meta. You're shipping 4. The bottleneck of your entire growth engine isn't targeting. It isn't budget. It's that nobody can produce that volume without burning out, cutting quality, or missing the brief.",
+    body: "Top supplement brands run 25 to 50 new concepts a month on Meta. You're shipping 4. The bottleneck isn't targeting. It isn't budget. It's that nobody can produce that volume without burning out, cutting quality, or missing the brief.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
@@ -19,7 +19,7 @@ const cards = [
   },
   {
     title: "Every other option is broken.",
-    body: "The agency takes 4 weeks per batch and bills €10k a video. The UGC marketplace is slow and inconsistent. The self-serve AI tools produce the same six talking-head templates as every other brand in your category. You're stuck.",
+    body: "The agency takes 4 weeks per batch and bills €10k a video. The UGC marketplace is slow and inconsistent. The self-serve AI tools produce the same six templates as every other brand in your category. You're stuck.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
