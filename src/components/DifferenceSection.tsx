@@ -1,33 +1,5 @@
-// ── Icons ──────────────────────────────────────────────────────────────
-const ClockIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-  </svg>
-);
-const CostIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-  </svg>
-);
-const VolumeIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-  </svg>
-);
-const LoopIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/>
-    <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/>
-  </svg>
-);
-
 // ── Data ───────────────────────────────────────────────────────────────
-const rows = [
-  { label: "Delivery", Icon: ClockIcon },
-  { label: "Cost",     Icon: CostIcon },
-  { label: "Volume",   Icon: VolumeIcon },
-  { label: "Loop",     Icon: LoopIcon },
-];
+const rowLabels = ["Delivery", "Cost", "Volume", "Loop"];
 
 const lumina = {
   highlights: [
@@ -88,46 +60,45 @@ const DifferenceSection = () => {
       {/* ══ DESKTOP: sticky split ══════════════════════════════════════ */}
       <div className="hidden md:flex" style={{ alignItems: "flex-start" }}>
 
-        {/* LEFT — sticky title + scrolling competitors */}
-        <div style={{ width: "50vw" }}>
+        {/* LEFT — dark bg, sticky title + scrolling competitors */}
+        <div style={{ width: "50vw", backgroundColor: "#111111" }}>
 
-          {/* Sticky title — tiny, white bg */}
+          {/* Sticky title */}
           <div
             style={{
               position: "sticky",
               top: 0,
               zIndex: 10,
-              backgroundColor: "#ffffff",
+              backgroundColor: "#111111",
               padding: "52px clamp(32px, 4vw, 80px) 20px clamp(32px, 5vw, 80px)",
-              borderBottom: "1px solid rgba(0,0,0,0.10)",
+              borderBottom: "1px solid rgba(255,255,255,0.07)",
             }}
           >
             <p
               className="text-[10px] font-medium uppercase tracking-[0.12em] mb-2"
-              style={{ color: "rgba(17,17,17,0.35)" }}
+              style={{ color: "rgba(255,255,255,0.28)" }}
             >
               The difference
             </p>
             <h2
               className="font-sans-display leading-[1.1] tracking-[-0.015em]"
-              style={{ fontSize: "clamp(13px, 1.3vw, 17px)", color: "rgba(17,17,17,0.80)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(13px, 1.3vw, 17px)", color: "rgba(255,255,255,0.75)", fontWeight: 400 }}
             >
               What you've already tried.{" "}
-              <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.35)", fontWeight: 400 }}>
+              <span className="font-serif-display italic" style={{ color: "rgba(255,255,255,0.28)", fontWeight: 400 }}>
                 And why it's not enough.
               </span>
             </h2>
           </div>
 
-          {/* Competitor cards — white bg, visible dark borders */}
+          {/* Competitor cards */}
           {competitors.map((comp, ci) => (
             <div
               key={comp.num}
               style={{
                 minHeight: "80vh",
                 padding: "52px clamp(32px, 4vw, 80px) 52px clamp(32px, 5vw, 80px)",
-                borderBottom: ci < competitors.length - 1 ? "1px solid rgba(0,0,0,0.09)" : undefined,
-                backgroundColor: "#ffffff",
+                borderBottom: ci < competitors.length - 1 ? "1px solid rgba(255,255,255,0.07)" : undefined,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -135,40 +106,42 @@ const DifferenceSection = () => {
             >
               <p
                 className="text-[11px] font-medium mb-3"
-                style={{ color: "rgba(17,17,17,0.25)", letterSpacing: "0.08em" }}
+                style={{ color: "rgba(255,255,255,0.18)", letterSpacing: "0.08em" }}
               >
                 {comp.num}
               </p>
               <h3
                 className="font-sans-display mb-1.5 tracking-[-0.015em]"
-                style={{ fontSize: "clamp(15px, 1.6vw, 20px)", color: "rgba(17,17,17,0.72)", fontWeight: 400 }}
+                style={{ fontSize: "clamp(15px, 1.6vw, 20px)", color: "rgba(255,255,255,0.65)", fontWeight: 400 }}
               >
                 {comp.label}
               </h3>
               <p
                 className="text-[12px] mb-8 italic"
-                style={{ color: "rgba(17,17,17,0.35)", fontWeight: 400 }}
+                style={{ color: "rgba(255,255,255,0.28)", fontWeight: 400 }}
               >
                 {comp.sub}
               </p>
 
-              <div>
-                {rows.map((row, ri) => (
+              {/* Bubble rows */}
+              <div className="flex flex-col gap-2">
+                {rowLabels.map((label, ri) => (
                   <div
-                    key={row.label}
-                    className="flex items-start gap-3"
-                    style={{ paddingTop: "13px", paddingBottom: "13px", borderTop: "1px solid rgba(0,0,0,0.09)" }}
+                    key={label}
+                    style={{
+                      borderRadius: "8px",
+                      backgroundColor: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                      padding: "12px 14px",
+                    }}
                   >
-                    <div className="flex items-center gap-1.5 flex-shrink-0 pt-0.5" style={{ width: "80px" }}>
-                      <span style={{ color: "rgba(17,17,17,0.28)" }}><row.Icon /></span>
-                      <span
-                        className="text-[11px] font-medium uppercase tracking-[0.06em]"
-                        style={{ color: "rgba(17,17,17,0.32)" }}
-                      >
-                        {row.label}
-                      </span>
-                    </div>
-                    <p className="text-[13px] leading-[1.65]" style={{ color: "rgba(17,17,17,0.55)" }}>
+                    <p
+                      className="text-[10px] font-medium uppercase tracking-[0.08em] mb-1"
+                      style={{ color: "rgba(255,255,255,0.30)" }}
+                    >
+                      {label}
+                    </p>
+                    <p className="text-[13px] leading-[1.55]" style={{ color: "rgba(255,255,255,0.62)" }}>
                       {comp.rows[ri]}
                     </p>
                   </div>
@@ -178,7 +151,7 @@ const DifferenceSection = () => {
           ))}
         </div>
 
-        {/* RIGHT — sticky Lumina panel, solid #C5D2F8 */}
+        {/* RIGHT — sticky Lumina panel, white */}
         <div
           style={{
             width: "50vw",
@@ -187,7 +160,7 @@ const DifferenceSection = () => {
             height: "100dvh",
             alignSelf: "flex-start",
             borderLeft: "1px solid rgba(0,0,0,0.08)",
-            backgroundColor: "#C5D2F8",
+            backgroundColor: "#ffffff",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -199,7 +172,7 @@ const DifferenceSection = () => {
           <div>
             <p
               className="text-[10px] font-medium uppercase tracking-[0.12em] mb-2"
-              style={{ color: "rgba(17,17,17,0.45)" }}
+              style={{ color: "rgba(17,17,17,0.35)" }}
             >
               Lumina
             </p>
@@ -208,7 +181,7 @@ const DifferenceSection = () => {
               style={{ fontSize: "clamp(16px, 1.7vw, 22px)", color: "#111111", fontWeight: 400 }}
             >
               Numbers on the page.{" "}
-              <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.42)", fontWeight: 400 }}>
+              <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.35)", fontWeight: 400 }}>
                 No surprises.
               </span>
             </h2>
@@ -221,8 +194,8 @@ const DifferenceSection = () => {
                   style={{
                     padding: "14px",
                     borderRadius: "7px",
-                    backgroundColor: "rgba(255,255,255,0.45)",
-                    border: "1px solid rgba(255,255,255,0.65)",
+                    backgroundColor: "rgba(0,0,0,0.03)",
+                    border: "1px solid rgba(0,0,0,0.07)",
                   }}
                 >
                   <p
@@ -231,7 +204,7 @@ const DifferenceSection = () => {
                   >
                     {h.stat}
                   </p>
-                  <p className="text-[11px] leading-[1.4]" style={{ color: "rgba(17,17,17,0.52)" }}>
+                  <p className="text-[11px] leading-[1.4]" style={{ color: "rgba(17,17,17,0.45)" }}>
                     {h.desc}
                   </p>
                 </div>
@@ -241,22 +214,19 @@ const DifferenceSection = () => {
 
           {/* Rows */}
           <div className="flex flex-col justify-center flex-1">
-            {rows.map((row, ri) => (
+            {rowLabels.map((label, ri) => (
               <div
-                key={row.label}
+                key={label}
                 className="flex items-start gap-3"
-                style={{ paddingTop: "12px", paddingBottom: "12px", borderTop: "1px solid rgba(17,17,17,0.12)" }}
+                style={{ paddingTop: "12px", paddingBottom: "12px", borderTop: "1px solid rgba(0,0,0,0.07)" }}
               >
-                <div className="flex items-center gap-1.5 flex-shrink-0 pt-0.5" style={{ width: "80px" }}>
-                  <span style={{ color: "rgba(17,17,17,0.40)" }}><row.Icon /></span>
-                  <span
-                    className="text-[11px] font-medium uppercase tracking-[0.06em]"
-                    style={{ color: "rgba(17,17,17,0.45)" }}
-                  >
-                    {row.label}
-                  </span>
-                </div>
-                <p className="text-[13px] leading-[1.65]" style={{ color: "rgba(17,17,17,0.82)" }}>
+                <span
+                  className="text-[10px] font-medium uppercase tracking-[0.08em] flex-shrink-0 pt-0.5"
+                  style={{ width: "68px", color: "rgba(17,17,17,0.35)" }}
+                >
+                  {label}
+                </span>
+                <p className="text-[13px] leading-[1.65]" style={{ color: "rgba(17,17,17,0.80)" }}>
                   {lumina.rows[ri]}
                 </p>
               </div>
@@ -295,18 +265,19 @@ const DifferenceSection = () => {
           </span>
         </h2>
 
-        {/* Lumina card — solid blue */}
+        {/* Lumina card — white */}
         <div
           style={{
             borderRadius: "7px",
             padding: "20px",
-            backgroundColor: "#C5D2F8",
+            backgroundColor: "#ffffff",
+            border: "1px solid rgba(0,0,0,0.09)",
             marginBottom: "8px",
           }}
         >
           <p
             className="text-[10px] font-medium uppercase tracking-[0.12em] mb-3"
-            style={{ color: "rgba(17,17,17,0.45)" }}
+            style={{ color: "rgba(17,17,17,0.35)" }}
           >
             Lumina
           </p>
@@ -314,7 +285,7 @@ const DifferenceSection = () => {
             {lumina.highlights.map((h, i) => (
               <div
                 key={i}
-                style={{ padding: "12px", borderRadius: "7px", backgroundColor: "rgba(255,255,255,0.45)", border: "1px solid rgba(255,255,255,0.65)" }}
+                style={{ padding: "12px", borderRadius: "7px", backgroundColor: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.07)" }}
               >
                 <p
                   className="font-sans-display leading-none mb-1"
@@ -322,21 +293,18 @@ const DifferenceSection = () => {
                 >
                   {h.stat}
                 </p>
-                <p className="text-[10px] leading-[1.4]" style={{ color: "rgba(17,17,17,0.50)" }}>{h.desc}</p>
+                <p className="text-[10px] leading-[1.4]" style={{ color: "rgba(17,17,17,0.45)" }}>{h.desc}</p>
               </div>
             ))}
           </div>
-          {rows.map((row, ri) => (
+          {rowLabels.map((label, ri) => (
             <div
-              key={row.label}
+              key={label}
               className="flex items-start gap-3"
-              style={{ paddingTop: "11px", paddingBottom: "11px", borderTop: "1px solid rgba(17,17,17,0.12)" }}
+              style={{ paddingTop: "10px", paddingBottom: "10px", borderTop: "1px solid rgba(0,0,0,0.07)" }}
             >
-              <div className="flex items-center gap-1.5 flex-shrink-0 pt-0.5" style={{ width: "72px" }}>
-                <span style={{ color: "rgba(17,17,17,0.38)" }}><row.Icon /></span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(17,17,17,0.44)" }}>{row.label}</span>
-              </div>
-              <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(17,17,17,0.78)" }}>{lumina.rows[ri]}</p>
+              <span className="text-[10px] font-medium uppercase tracking-[0.07em] flex-shrink-0 pt-0.5" style={{ width: "64px", color: "rgba(17,17,17,0.35)" }}>{label}</span>
+              <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(17,17,17,0.75)" }}>{lumina.rows[ri]}</p>
             </div>
           ))}
         </div>
@@ -352,29 +320,32 @@ const DifferenceSection = () => {
           {competitors.map((comp) => (
             <div
               key={comp.num}
-              style={{ borderRadius: "7px", padding: "18px", backgroundColor: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.09)" }}
+              style={{ borderRadius: "7px", padding: "18px", backgroundColor: "#111111", border: "1px solid rgba(255,255,255,0.07)" }}
             >
-              <p className="text-[10px] font-medium mb-2" style={{ color: "rgba(17,17,17,0.25)", letterSpacing: "0.08em" }}>{comp.num}</p>
+              <p className="text-[10px] font-medium mb-2" style={{ color: "rgba(255,255,255,0.18)", letterSpacing: "0.08em" }}>{comp.num}</p>
               <h3
                 className="font-sans-display text-[13px] mb-1 tracking-[-0.01em]"
-                style={{ color: "rgba(17,17,17,0.65)", fontWeight: 400 }}
+                style={{ color: "rgba(255,255,255,0.60)", fontWeight: 400 }}
               >
                 {comp.label}
               </h3>
-              <p className="text-[11px] italic mb-3" style={{ color: "rgba(17,17,17,0.32)", fontWeight: 400 }}>{comp.sub}</p>
-              {rows.map((row, ri) => (
-                <div
-                  key={row.label}
-                  className="flex items-start gap-3"
-                  style={{ paddingTop: "9px", paddingBottom: "9px", borderTop: "1px solid rgba(0,0,0,0.07)" }}
-                >
-                  <div className="flex items-center gap-1.5 flex-shrink-0 pt-0.5" style={{ width: "72px" }}>
-                    <span style={{ color: "rgba(17,17,17,0.25)" }}><row.Icon /></span>
-                    <span className="text-[10px] font-medium uppercase tracking-[0.06em]" style={{ color: "rgba(17,17,17,0.28)" }}>{row.label}</span>
+              <p className="text-[11px] italic mb-3" style={{ color: "rgba(255,255,255,0.25)", fontWeight: 400 }}>{comp.sub}</p>
+              <div className="flex flex-col gap-1.5">
+                {rowLabels.map((label, ri) => (
+                  <div
+                    key={label}
+                    style={{
+                      borderRadius: "7px",
+                      backgroundColor: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                      padding: "10px 12px",
+                    }}
+                  >
+                    <p className="text-[10px] font-medium uppercase tracking-[0.07em] mb-0.5" style={{ color: "rgba(255,255,255,0.28)" }}>{label}</p>
+                    <p className="text-[12px] leading-[1.5]" style={{ color: "rgba(255,255,255,0.58)" }}>{comp.rows[ri]}</p>
                   </div>
-                  <p className="text-[11px] leading-[1.6]" style={{ color: "rgba(17,17,17,0.50)" }}>{comp.rows[ri]}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           ))}
         </div>

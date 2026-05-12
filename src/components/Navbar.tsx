@@ -29,20 +29,16 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const hideSections = document.querySelectorAll('[data-navbar-hide="true"]');
-    if (!hideSections.length) return;
-    const hideObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (window.innerWidth >= 768) {
-            setIsHidden(entry.isIntersecting);
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-    hideSections.forEach((s) => hideObserver.observe(s));
-    return () => hideObserver.disconnect();
+    const hideSection = document.querySelector('[data-navbar-hide="true"]') as HTMLElement | null;
+    if (!hideSection) return;
+    const onScroll = () => {
+      if (window.innerWidth < 768) return;
+      const rect = hideSection.getBoundingClientRect();
+      // Hide only when the section fully fills the viewport (top ≤ 0 AND bottom ≥ vh)
+      setIsHidden(rect.top <= 0 && rect.bottom >= window.innerHeight);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
