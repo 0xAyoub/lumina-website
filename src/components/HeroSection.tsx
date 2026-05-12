@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 // The two text segments — line2Plain is regular, line2Italic is styled
-const LINE1       = "Creative fatigue kills ROAS."
+const LINE1       = "Your best ad is dying in 9 days."
 const LINE2_PLAIN = "";
-const LINE2_ITALIC = "We kill creative fatigue.";
+const LINE2_ITALIC = "Your next one isn't ready.";
 const FULL_LINE2  = LINE2_PLAIN + LINE2_ITALIC;
 
 // Variable delay per character — simulates real typing rhythm
@@ -123,8 +123,7 @@ const HeroSection = () => {
           }}
         >
           <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[360px] mb-4 mx-auto">
-            AI-generated cinematic creatives for DTC brands. Fraction of the cost.
-            Fraction of the time.
+            Cinematic AI ads for DTC supplement brands. Built to test fast, kill fatigue, and compound winners. First ad free, delivered in 48 hours.
           </p>
 
           <div className="flex gap-2 justify-center">
@@ -138,7 +137,7 @@ const HeroSection = () => {
               href="/free"
               className="text-[11px] font-medium text-white/50 px-4 py-1.5 rounded-[6px] border border-white/20 transition-all duration-200 hover:text-white/80 hover:border-white/35 active:scale-[0.97]"
             >
-              Book a call →
+              Get my free ad →
             </a>
           </div>
         </div>

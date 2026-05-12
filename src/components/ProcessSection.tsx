@@ -3,27 +3,27 @@ import { useState } from "react";
 const steps = [
   {
     num: "01",
-    title: "The brief",
-    body: "You talk. We listen. Brand assets, ad accounts, growth targets — everything we need to understand your business in one 30-minute call. No deck. No fluff. Just clarity.",
-    cta: "Schedule your brief",
+    title: "The free ad",
+    body: "Send us your product page and one example of an ad you wish was working. We make you a 15-to-60-second cinematic AI ad in 48 hours. Watermarked, yours to use. No call required. No commitment. If it lands, we keep going. If not, you got a free ad.",
+    cta: "Get my free ad",
   },
   {
     num: "02",
     title: "The pilot",
-    body: "We produce your first batch of creatives. 48 hours. No camera. No studio. You see exactly what we can do for your brand — before any long-term commitment. One flat fee. One deliverable. One decision to make.",
+    body: "€2,500 flat. 15 ads in 14 days, across 4 creative directions you approve before we ship. You see what we can do at production volume — before you sign anything longer than two weeks. No retainer, no contract, no recurring charge.",
     cta: "Start the pilot",
   },
   {
     num: "03",
     title: "The retainer",
-    body: "You liked what you saw. Now we scale it. Monthly subscription. Fresh creatives, bi-weekly. We deploy. We test. You kill what doesn't work, double down on what does. Your ad account becomes a machine.",
+    body: "€5,000 a month. 30 ads, bi-weekly batches. You kill what doesn't perform. We double down on what does. Your winning ad gets 12 new variants the day it starts to fatigue. Month-to-month. Cancel anytime.",
     cta: "Start the retainer",
   },
   {
     num: "04",
     title: "The loop",
-    body: "This is where it compounds. Performance data from every creative feeds the next batch. New angles. New hooks. New formats — designed to find your next winner. We iterate. You grow. The loop never stops.",
-    cta: "Start the loop",
+    body: "Every dying ad becomes the brief for the next one. Hooks get re-cut. Formats get remixed. Footage gets reused. The same product becomes 200 ads a year. Your media buyer stops asking for creative. Your CPA stops climbing.",
+    cta: "See the loop",
   },
 ];
 
@@ -49,17 +49,17 @@ const ProcessSection = () => {
             className="font-sans-display text-[22px] md:text-[38px] leading-[1.1] tracking-[-0.018em]"
             style={{ color: "#111111" }}
           >
-            From brief to performance.
+            From "send me a free ad" to a winning creative engine.
             <br />
             <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.4)" }}>
-              In four steps.
+              Four steps. No deck.
             </span>
           </h2>
           <p
             className="hidden md:block text-[14px] leading-[1.75] max-w-[400px]"
             style={{ color: "rgba(17,17,17,0.45)" }}
           >
-            Every step is designed to be frictionless. The first call is 30 minutes. The first creatives arrive in 48 hours. Everything after that is automatic.
+            Every step is built to move fast. The first ad is free. The pilot ships in 14 days. Everything after that compounds.
           </p>
         </div>
 
@@ -240,13 +240,13 @@ const ProcessSection = () => {
             className="text-[11px] font-medium px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
             style={{ backgroundColor: "#111111", color: "#ffffff" }}
           >
-            Start with a free brief →
+            Get my free ad →
           </a>
           <span
             className="text-[11px] tracking-[0.035em]"
             style={{ color: "rgba(17,17,17,0.3)" }}
           >
-            30 minutes · no commitment
+            48 hours · no commitment · yours to keep
           </span>
         </div>
 

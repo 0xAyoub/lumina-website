@@ -106,7 +106,7 @@ const Navbar = () => {
             transition: "background-color 0.4s ease, color 0.4s ease",
           }}
         >
-          Book a call
+          Get a free ad
         </a>
       </div>
 
@@ -155,7 +155,7 @@ const Navbar = () => {
             style={{ backgroundColor: btnBg, color: btnText }}
             onClick={() => setMenuOpen(false)}
           >
-            Book a call
+            Get a free ad
           </a>
         </div>
       )}

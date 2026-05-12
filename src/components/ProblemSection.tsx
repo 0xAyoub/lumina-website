@@ -1,7 +1,7 @@
 const cards = [
   {
-    title: "Slow",
-    body: "4 to 8 weeks from brief to launch. By the time your ad is live, the trend is dead, your audience has moved on, and your competitors have already tested 20 variations.",
+    title: "Your winners die in 9 days.",
+    body: "Supplement CPA hit $89 in 2026, up from $42 two years ago. Audiences are smaller, retargeting hits harder, frequency spikes faster. Every founder UGC ad that crushed for six weeks now eats its own ROAS in nine days. Your media buyer keeps asking for more creative.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -9,8 +9,8 @@ const cards = [
     ),
   },
   {
-    title: "Expensive",
-    body: "A single 30-second video costs €10K–€50K through a traditional agency. That's your entire monthly creative budget — for one asset, with no guarantee it performs.",
+    title: "You're testing 6 ads. You need 30.",
+    body: "Top supplement brands run 25 to 50 new concepts a month on Meta. You're shipping 4. The bottleneck of your entire growth engine isn't targeting. It isn't budget. It's that nobody can produce that volume without burning out, cutting quality, or missing the brief.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
@@ -18,8 +18,8 @@ const cards = [
     ),
   },
   {
-    title: "Low volume",
-    body: "Winning on Meta and TikTok requires 30 to 50 fresh creatives every month. No human team sustains that output without burning out, cutting quality, or missing the brief.",
+    title: "Every other option is broken.",
+    body: "The agency takes 4 weeks per batch and bills €10k a video. The UGC marketplace is slow and inconsistent. The self-serve AI tools produce the same six talking-head templates as every other brand in your category. You're stuck.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
@@ -40,10 +40,10 @@ const ProblemSection = () => {
         </p>
 
         <h2 className="font-sans-display text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.018em] text-white/70 max-w-[800px] mb-16 reveal">
-          You don't have a targeting problem.
+          You don't have a Meta problem.
           <br />
           <span className="font-serif-display italic text-white/100">
-            You have a creative problem.
+            You have a creative supply problem.
           </span>
         </h2>
 
@@ -72,7 +72,7 @@ const ProblemSection = () => {
             href="#work"
             className="text-[11px] font-medium text-white/50 tracking-[0.035em] transition-colors duration-200 hover:text-white"
           >
-            See what's possible →
+            See what we do instead →
           </a>
         </div>
       </div>
