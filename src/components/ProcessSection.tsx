@@ -4,25 +4,25 @@ const steps = [
   {
     num: "01",
     title: "The free ad",
-    body: "Send us your product page and one ad you wish was working. We make a 15-to-60-second cinematic AI ad in 48 hours. Watermarked, yours to use. No call. No commitment. If it lands, we keep going. If not, you got a free ad.",
+    body: "Send your product page and one ad you wish was working. We ship a cinematic AI ad in 48 hours. Watermarked, yours to use. No call, no commitment.",
     cta: "Get my free ad",
   },
   {
     num: "02",
     title: "The pilot",
-    body: "€2,500 flat. 15 ads in 14 days, across 4 creative directions you approve. You see what we can do at volume — before signing anything longer than two weeks. No retainer, no contract, no recurring charge.",
+    body: "€2,500 flat. 15 ads in 14 days. 4 creative directions, approved before we ship. No retainer, no contract.",
     cta: "Start the pilot",
   },
   {
     num: "03",
     title: "The retainer",
-    body: "€5,000 a month. 30 ads, bi-weekly batches. Kill what doesn't perform. Double down on what does. Your winning ad gets 12 new variants the day it starts to fatigue. Month-to-month. Cancel anytime.",
+    body: "€5,000 a month. 30 ads, bi-weekly. Your winning ad gets 12 new variants the day it fatigues. Month-to-month. Cancel anytime.",
     cta: "Start the retainer",
   },
   {
     num: "04",
     title: "The loop",
-    body: "Every dying ad becomes the brief for the next one. Hooks re-cut. Formats remixed. Footage reused. The same product becomes 200 ads a year. Your media buyer stops asking. Your CPA stops climbing.",
+    body: "Every dying ad becomes the next brief. Footage reused, formats remixed. The same product becomes 200 ads a year. Your CPA stops climbing.",
     cta: "See the loop",
   },
 ];
