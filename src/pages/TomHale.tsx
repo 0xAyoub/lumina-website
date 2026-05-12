@@ -99,6 +99,21 @@ const TomHale = () => {
   );
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Page meta — teaser title for /oura
+  useEffect(() => {
+    const prevTitle = document.title;
+    const prevDesc  = document.querySelector('meta[name="description"]')?.getAttribute("content") ?? "";
+
+    document.title = "Tom — I made you something.";
+    document.querySelector('meta[name="description"]')
+      ?.setAttribute("content", "A 30 second spec ad for Oura. Performance creative, not brand. No ask attached.");
+
+    return () => {
+      document.title = prevTitle;
+      document.querySelector('meta[name="description"]')?.setAttribute("content", prevDesc);
+    };
+  }, []);
+
   // Viewport tracking — determines which slot the single video lives in
   useEffect(() => {
     const update = () => setIsMobile(window.innerWidth < 768);
