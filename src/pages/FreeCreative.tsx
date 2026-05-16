@@ -96,9 +96,9 @@ const FreeCreative = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("https://formsubmit.co/ajax/ayoub@withluminalabs.com", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           _subject: `Free creative request — ${firstName} ${lastName} · ${company}`,
           "First name": firstName,
