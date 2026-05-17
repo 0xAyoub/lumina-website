@@ -11,7 +11,7 @@ const FreeCreative = () => {
   }, []);
 
   return (
-    <div className="h-[100dvh] bg-white flex flex-col overflow-hidden">
+    <div className="bg-white flex flex-col md:h-[100dvh] md:overflow-hidden">
 
       {/* Top bar */}
       <div className="flex-shrink-0 flex items-center px-6 md:px-10 pt-5 pb-3">
@@ -30,7 +30,7 @@ const FreeCreative = () => {
       <div className="flex-1 min-h-0 flex flex-col md:flex-row">
 
         {/* Left — copy */}
-        <div className="flex-shrink-0 md:w-[42%] flex flex-col justify-center px-6 md:px-10 lg:px-16 pb-6 md:pb-0">
+        <div className="flex-shrink-0 md:w-[42%] flex flex-col justify-center px-6 md:px-10 lg:px-16 pt-4 pb-8 md:pb-0">
           <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-black/30 mb-4">
             Free creative
           </p>
@@ -58,11 +58,11 @@ const FreeCreative = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="hidden md:block w-px bg-black/[0.06] my-6" />
-
         {/* Right — cal.com */}
-        <div className="flex-1 min-h-0 overflow-hidden">
+        <div
+          className="flex-1 md:min-h-0 md:overflow-hidden px-4 md:px-8 pb-10 md:pb-6 pt-0 md:pt-4"
+          style={{ minHeight: "720px" }}
+        >
           <Cal
             namespace="growth"
             calLink="ayoublumina/growth"
