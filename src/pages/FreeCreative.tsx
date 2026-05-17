@@ -1,6 +1,15 @@
+import { useEffect } from "react";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import { Link } from "react-router-dom";
 
 const FreeCreative = () => {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "growth" });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
+
   return (
     <div className="h-[100dvh] bg-white flex flex-col overflow-hidden">
 
@@ -53,13 +62,12 @@ const FreeCreative = () => {
         <div className="hidden md:block w-px bg-black/[0.06] my-6" />
 
         {/* Right — cal.com */}
-        <div className="flex-1 min-h-0 overflow-hidden px-0 md:px-0">
-          <iframe
-            src="https://cal.com/ayoub-benouda/15-min-creative-sprint-intro?embed=true&theme=light&layout=month_view&hideBranding=1&hide_event_type_details=1"
-            className="w-full h-full"
-            style={{ border: "none", display: "block" }}
-            title="Book a call"
-            allow="payment"
+        <div className="flex-1 min-h-0 overflow-hidden">
+          <Cal
+            namespace="growth"
+            calLink="ayoublumina/growth"
+            style={{ width: "100%", height: "100%", overflow: "scroll" }}
+            config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
           />
         </div>
 
