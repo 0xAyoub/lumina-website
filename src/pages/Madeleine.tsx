@@ -16,7 +16,6 @@ const VideoPlaceholder = ({ style }: { style?: React.CSSProperties }) => (
       ...style,
     }}
   >
-    {/* Grain overlay */}
     <div
       style={{
         position: "absolute",
@@ -68,7 +67,7 @@ const Madeleine = () => {
   );
 
   useEffect(() => {
-    document.title = "Madeleine — I watched your ads.";
+    document.title = "Madeleine, I watched your ads.";
     document.querySelector('meta[name="description"]')
       ?.setAttribute("content", "A diagnosis and a proposal for Nara Baby.");
     return () => {
@@ -104,7 +103,7 @@ const Madeleine = () => {
       style={
         isMobile
           ? { aspectRatio: "9/16", maxHeight: "70vh", width: "auto" }
-          : { height: "calc(100dvh - 120px)", aspectRatio: "9/16" }
+          : { height: "calc(100dvh - 80px)", aspectRatio: "9/16" }
       }
     />
   );
@@ -148,24 +147,10 @@ const Madeleine = () => {
       >
         <div style={{ maxWidth: isMobile ? "100%" : "490px" }}>
 
-          {/* Mobile: video + tagline inline */}
+          {/* Mobile: video inline */}
           {isMobile && (
             <div style={{ marginBottom: "40px" }}>
               {videoNode}
-              <p
-                className="font-serif-display"
-                style={{
-                  fontSize: "22px",
-                  lineHeight: 1.2,
-                  letterSpacing: "-0.018em",
-                  color: "#111",
-                  fontWeight: 350,
-                  marginTop: "20px",
-                  marginBottom: 0,
-                }}
-              >
-                The label is the ad.
-              </p>
             </div>
           )}
 
@@ -181,7 +166,7 @@ const Madeleine = () => {
               marginBottom: "28px",
             }}
           >
-            Madeleine —
+            Madeleine,
           </h1>
 
           <p style={body}>
@@ -195,7 +180,7 @@ const Madeleine = () => {
           <p style={body}>
             Nara doesn't exist because of milk fat percentage. Nara exists because Esther couldn't
             trust what was on the shelf. Every parent buying formula in 2026 turns the can around
-            and reads the back — that's the actual purchase moment. Your ads sell from the front of
+            and reads the back. That's the actual purchase moment. Your ads sell from the front of
             the package. The brand was built on the back.
           </p>
 
@@ -222,8 +207,8 @@ const Madeleine = () => {
           <p style={body}>
             Nara's first 12 months in market is when creative concentration costs you the most.
             Three winning angles fatigue inside Meta's auction faster than a small team can replace
-            them. You need 30+ distinct narrative variants per month — not 30 variants of the same
-            headline.
+            them. You need 30+ distinct narrative variants per month.
+            Not 30 variants of the same headline.
           </p>
 
           <p
@@ -242,7 +227,7 @@ const Madeleine = () => {
 
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px" }}>
             {[
-              "Map 8 narrative angles beyond “milk fat” and “clinical trial”",
+              `Map 8 narrative angles beyond "milk fat" and "clinical trial"`,
               "30+ vertical video ads per month, segmented across angle and life stage",
               "Weekly performance read tied to CAC by angle, not by ad",
               "One strategy call per month with you. No account-manager middlemen.",
@@ -266,11 +251,11 @@ const Madeleine = () => {
           </ul>
 
           <p style={{ ...beat, marginBottom: "32px" }}>
-            €12,000/month. 3-month minimum. First batch in 7 days.
+            12,000 euros per month. 3-month minimum. First batch in 7 days.
           </p>
 
           <p style={body}>
-            If the diagnosis is wrong, the call's still worth 25 minutes — you'll get a sharper
+            If the diagnosis is wrong, the call's still worth 25 minutes. You'll get a sharper
             read on your creative position than the agencies pitching you this quarter.
           </p>
 
@@ -336,28 +321,13 @@ const Madeleine = () => {
             height: "100dvh",
             background: "#fff",
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            gap: "20px",
             flexShrink: 0,
-            padding: "32px",
+            padding: "40px",
           }}
         >
           {videoNode}
-          <p
-            className="font-serif-display"
-            style={{
-              fontSize: "clamp(18px, 2vw, 24px)",
-              lineHeight: 1.2,
-              letterSpacing: "-0.018em",
-              color: "#111",
-              fontWeight: 350,
-              textAlign: "center",
-            }}
-          >
-            The label is the ad.
-          </p>
         </div>
       )}
 
