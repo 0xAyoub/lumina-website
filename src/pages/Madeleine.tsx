@@ -242,7 +242,7 @@ const Madeleine = () => {
 
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px" }}>
             {[
-              "Map 8 narrative angles beyond "milk fat" and "clinical trial"",
+              "Map 8 narrative angles beyond “milk fat” and “clinical trial”",
               "30+ vertical video ads per month, segmented across angle and life stage",
               "Weekly performance read tied to CAC by angle, not by ad",
               "One strategy call per month with you. No account-manager middlemen.",
