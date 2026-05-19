@@ -140,7 +140,7 @@ const Madeleine = () => {
       {/* ── Letter column ── */}
       <div
         style={{
-          width: isMobile ? "100%" : "50vw",
+          width: isMobile ? "100%" : "58vw",
           padding: isMobile ? "72px 28px 80px" : "76px 64px 80px 80px",
           boxSizing: "border-box",
         }}
@@ -315,7 +315,7 @@ const Madeleine = () => {
       {!isMobile && (
         <div
           style={{
-            width: "50vw",
+            width: "42vw",
             position: "sticky",
             top: 0,
             height: "100dvh",
