@@ -170,8 +170,8 @@ const Madeleine = () => {
           </h1>
 
           <p style={body}>
-            Watched your 53 active Nara ads. 31 open with the milk-fat stat. 4 creator videos run
-            the same "I finally found a formula I trust" script.
+            Watched your 53 active ads. 31 open with the milk-fat stat. 4 creator videos run the
+            same "I finally found a formula I trust" script.
           </p>
 
           <p style={body}>
@@ -180,40 +180,39 @@ const Madeleine = () => {
 
           <p style={body}>
             The ad above is what would run instead. A mother turns two cans around. Reads the back
-            of the competitor. Reads the back of Nara. No voiceover. No music.{" "}
-            <strong style={{ color: "#111", fontWeight: 500 }}>The label does the work.</strong>
+            of the competitor. Reads the back of Nara. No voiceover. No music. The label does the
+            work.
           </p>
 
           <p style={body}>
-            Here's the thing. Nara exists because Esther couldn't trust what was on the shelf. That
-            moment, a parent reading the back of a can, is when they actually decide. Your ads sell
-            from the front. Your brand was built on the back.
+            Nara exists because Esther couldn't trust what was on the shelf. That moment, a parent
+            reading the back of a can, is when they actually decide. Your ads sell from the front.
+            Your brand was built on the back.
           </p>
 
           <p style={body}>
-            You're in month 4 of a national launch with Target on shelf. Three angles will fatigue
-            in Meta's auction faster than your team can replace them.{" "}
-            <strong style={{ color: "#111", fontWeight: 500 }}>You need 30 distinct angles per month,</strong>{" "}
-            not 30 versions of the milk-fat line.
+            Bobbie spent September trying to discredit your formula. Reviewed.com just framed Nara
+            as the research-driven choice against celebrity-led competitors. That's the brand
+            argument winning in earned media.{" "}
+            <strong style={{ color: "#111", fontWeight: 500 }}>It's not the one your paid creative is making yet.</strong>
           </p>
 
           <p style={body}>
-            Quick on us. I built the production system behind the ad above. My co-founder Margot
-            trained at Sup de Pub in Paris and trades media at Publicis. She runs creative direction
-            on every account. We're an agency of two right now, taking three brands this quarter to
-            get the model right before we scale.
+            I built the production system behind the ad above. My co-founder Margot trained at Sup
+            de Pub in Paris and trades media at Publicis. She runs creative direction. We're taking
+            three brands this quarter.
           </p>
 
           <p style={{ ...beat, marginBottom: "16px", marginTop: "32px" }}>
             Here's what you'd get:
           </p>
 
-          <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px" }}>
+          <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px" }}>
             {[
-              "4 new hero concepts every month, each a different angle",
-              "40 variants built only on what's actually performing",
-              "Weekly read on hook rate and CAC by angle, in your inbox Friday",
-              "Monthly strategy call with me directly, no account managers in between",
+              "4 hero concepts every month, each a different angle",
+              "40 variants built only on what's performing",
+              "Weekly read on hook rate and CAC, in your inbox Friday",
+              "Monthly strategy call with me, no account managers",
             ].map((item) => (
               <li
                 key={item}
@@ -233,16 +232,12 @@ const Madeleine = () => {
             ))}
           </ul>
 
-          <p style={{ ...body, marginBottom: "16px" }}>
-            <strong style={{ color: "#111", fontWeight: 500 }}>First batch ready in 7 days from kickoff.</strong>
-          </p>
-
           <p style={{ ...body, marginBottom: "0px" }}>
-            25 minutes to walk through how this looks on your account specifically?
+            <strong style={{ color: "#111", fontWeight: 500 }}>First batch in 7 days.</strong> Worth 25 minutes?
           </p>
 
           {/* Sign-off */}
-          <div style={{ paddingTop: "28px", marginTop: "12px", marginBottom: "64px" }}>
+          <div style={{ paddingTop: "28px", marginTop: "12px", marginBottom: "48px" }}>
             <p
               className="font-serif-display"
               style={{
@@ -257,26 +252,8 @@ const Madeleine = () => {
             </p>
           </div>
 
-          {/* CTA block */}
-          <div>
-            <p
-              className="font-sans-display"
-              style={{
-                fontSize: "22px",
-                lineHeight: 1.15,
-                letterSpacing: "-0.016em",
-                color: "#111",
-                fontWeight: 400,
-                marginBottom: "8px",
-              }}
-            >
-              Book 25 minutes.
-            </p>
-            <p style={{ fontSize: "13px", color: "rgba(17,17,17,0.40)", marginBottom: "24px", lineHeight: 1.6 }}>
-              Pick any open slot below.
-            </p>
-            <CalBlock />
-          </div>
+          {/* CTA — cal inline, no headline */}
+          <CalBlock />
 
           {/* Footer */}
           <div style={{ paddingTop: "24px", marginTop: "48px" }}>
