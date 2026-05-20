@@ -170,67 +170,39 @@ const Madeleine = () => {
           </h1>
 
           <p style={body}>
-            Watched your last 53 ads on Meta. 30+ of them open with "50% of calories for growing
-            babies should come from fat." Four creator videos run essentially the same script. The
-            product is doing the heavy lifting. The creative isn't.
+            Watched your 53 active ads on Meta. 31 of them lead with the milk-fat stat. 4 creator
+            videos run the same "I finally found a formula I trust" script. The product is doing
+            the heavy lifting. The creative isn't.
           </p>
 
-          <p style={{ ...beat, marginBottom: "28px" }}>Here's the diagnosis.</p>
+          <p style={{ ...beat, marginBottom: "28px" }}>The ad above is what I'd run instead.</p>
 
           <p style={body}>
-            Nara doesn't exist because of milk fat percentage. Nara exists because Esther couldn't
-            trust what was on the shelf. Every parent buying formula in 2026 turns the can around
-            and reads the back. That's the actual purchase moment. Your ads sell from the front of
-            the package. The brand was built on the back.
+            A mother turns two cans around. Reads the back of the competitor. Reads the back of
+            Nara. No voiceover. No music. The label does the work.
           </p>
 
           <p style={body}>
-            The video above is one version of the ad I'd run instead. No voiceover, no music, no
-            founder-explains-the-science. Just the moment a mother turns two cans around. The label
-            does the work.
-          </p>
-
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: 1.85,
-              color: "#111",
-              fontWeight: 500,
-              marginBottom: "28px",
-              marginTop: "32px",
-              letterSpacing: "-0.005em",
-            }}
-          >
-            Why this matters now.
+            Nara was built because Esther couldn't trust what was on the shelf. That moment, a
+            parent reading the back of a can, is the actual purchase decision. Your ads sell from
+            the front. The brand was built on the back.
           </p>
 
           <p style={body}>
-            Nara's first 12 months in market is when creative concentration costs you the most.
-            Three winning angles fatigue inside Meta's auction faster than a small team can replace
-            them. You need 30+ distinct narrative variants per month.
-            Not 30 variants of the same headline.
+            First 12 months in market is when creative concentration costs you the most. You need
+            30+ distinct angles per month. Not 30 versions of the same headline.
           </p>
 
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: 1.85,
-              color: "#111",
-              fontWeight: 500,
-              marginBottom: "16px",
-              marginTop: "32px",
-              letterSpacing: "-0.005em",
-            }}
-          >
-            What I'd build for you:
+          <p style={{ ...beat, marginBottom: "16px", marginTop: "32px" }}>
+            What I'd build:
           </p>
 
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px" }}>
             {[
-              `Map 8 narrative angles beyond "milk fat" and "clinical trial"`,
-              "30+ vertical video ads per month, segmented across angle and life stage",
-              "Weekly performance read tied to CAC by angle, not by ad",
-              "One strategy call per month with you. No account-manager middlemen.",
+              "4 hero concepts per month. Each a distinct angle beyond milk fat.",
+              "40 variants across them. Allocated by performance signal, not guesswork.",
+              "Weekly read on hook rate and CAC by angle.",
+              "Monthly strategy call with me. No account managers.",
             ].map((item) => (
               <li
                 key={item}
@@ -250,13 +222,12 @@ const Madeleine = () => {
             ))}
           </ul>
 
-          <p style={{ ...beat, marginBottom: "32px" }}>
-            12,000 euros per month. 3-month minimum. First batch in 7 days.
+          <p style={{ ...beat, marginBottom: "16px" }}>
+            8,000 euros per month. 3-month minimum. First batch in 7 days.
           </p>
 
-          <p style={body}>
-            If the diagnosis is wrong, the call's still worth 25 minutes. You'll get a sharper
-            read on your creative position than the agencies pitching you this quarter.
+          <p style={{ ...body, marginBottom: "0px" }}>
+            25 minutes if the diagnosis is worth a call.
           </p>
 
           {/* Sign-off */}
