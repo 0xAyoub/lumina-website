@@ -170,39 +170,42 @@ const Madeleine = () => {
           </h1>
 
           <p style={body}>
-            Watched your 53 active ads on Meta. 31 of them lead with the milk-fat stat. 4 creator
-            videos run the same "I finally found a formula I trust" script. The product is doing
-            the heavy lifting. The creative isn't.
-          </p>
-
-          <p style={{ ...beat, marginBottom: "28px" }}>The ad above is what I'd run instead.</p>
-
-          <p style={body}>
-            A mother turns two cans around. Reads the back of the competitor. Reads the back of
-            Nara. No voiceover. No music. The label does the work.
+            Watched your 53 active Nara ads. 31 open with the milk-fat stat. 4 creator videos run
+            the same "I finally found a formula I trust" script.
           </p>
 
           <p style={body}>
-            Nara was built because Esther couldn't trust what was on the shelf. That moment, a
-            parent reading the back of a can, is the actual purchase decision. Your ads sell from
-            the front. The brand was built on the back.
+            Your product is doing the heavy lifting. Your creative isn't.
           </p>
 
           <p style={body}>
-            First 12 months in market is when creative concentration costs you the most. You need
-            30+ distinct angles per month. Not 30 versions of the same headline.
+            The ad above is what would run instead. A mother turns two cans around. Reads the back
+            of the competitor. Reads the back of Nara. No voiceover. No music. The label does the
+            work.
+          </p>
+
+          <p style={body}>
+            Here's the thing. Nara exists because Esther couldn't trust what was on the shelf. That
+            moment, a parent reading the back of a can, is when they actually decide. Your ads sell
+            from the front of the package. Your brand was built on the back.
+          </p>
+
+          <p style={body}>
+            You're in month 4 of a national launch. Three angles will fatigue in Meta's auction
+            faster than your team can replace them. You need 30 distinct angles per month, not 30
+            versions of the milk-fat line.
           </p>
 
           <p style={{ ...beat, marginBottom: "16px", marginTop: "32px" }}>
-            What I'd build:
+            Here's what you'd get:
           </p>
 
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px" }}>
             {[
-              "4 hero concepts per month. Each a distinct angle beyond milk fat.",
-              "40 variants across them. Allocated by performance signal, not guesswork.",
-              "Weekly read on hook rate and CAC by angle.",
-              "Monthly strategy call with me. No account managers.",
+              "4 new hero concepts every month, each a different angle",
+              "40 variants built only on what's actually performing",
+              "Weekly read on hook rate and CAC by angle, sent to you Friday",
+              "Monthly strategy call with me, no account managers in between",
             ].map((item) => (
               <li
                 key={item}
@@ -222,16 +225,16 @@ const Madeleine = () => {
             ))}
           </ul>
 
-          <p style={{ ...beat, marginBottom: "16px" }}>
-            8,000 euros per month. 3-month minimum. First batch in 7 days.
+          <p style={{ ...body, marginBottom: "16px" }}>
+            First batch ready in 7 days from kickoff.
           </p>
 
           <p style={{ ...body, marginBottom: "0px" }}>
-            25 minutes if the diagnosis is worth a call.
+            25 minutes to walk through how this looks on your account specifically?
           </p>
 
           {/* Sign-off */}
-          <div style={{ borderTop: "1px solid rgba(17,17,17,0.07)", paddingTop: "28px", marginTop: "12px", marginBottom: "64px" }}>
+          <div style={{ paddingTop: "28px", marginTop: "12px", marginBottom: "64px" }}>
             <p
               className="font-serif-display"
               style={{
@@ -268,7 +271,7 @@ const Madeleine = () => {
           </div>
 
           {/* Footer */}
-          <div style={{ borderTop: "1px solid rgba(17,17,17,0.07)", paddingTop: "24px", marginTop: "48px" }}>
+          <div style={{ paddingTop: "24px", marginTop: "48px" }}>
             <p style={{ fontSize: "13px", color: "rgba(17,17,17,0.35)", margin: 0 }}>
               <a
                 href="mailto:ayoub@withluminalabs.com"
