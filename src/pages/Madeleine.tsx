@@ -145,7 +145,7 @@ const Madeleine = () => {
           boxSizing: "border-box",
         }}
       >
-        <div style={{ maxWidth: isMobile ? "100%" : "490px" }}>
+        <div style={{ maxWidth: isMobile ? "100%" : "560px" }}>
 
           {/* Mobile: video inline */}
           {isMobile && (
