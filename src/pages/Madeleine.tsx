@@ -175,25 +175,33 @@ const Madeleine = () => {
           </p>
 
           <p style={body}>
-            Your product is doing the heavy lifting. Your creative isn't.
+            Your product is doing the heavy lifting. <strong style={{ color: "#111", fontWeight: 500 }}>Your creative isn't.</strong>
           </p>
 
           <p style={body}>
             The ad above is what would run instead. A mother turns two cans around. Reads the back
-            of the competitor. Reads the back of Nara. No voiceover. No music. The label does the
-            work.
+            of the competitor. Reads the back of Nara. No voiceover. No music.{" "}
+            <strong style={{ color: "#111", fontWeight: 500 }}>The label does the work.</strong>
           </p>
 
           <p style={body}>
             Here's the thing. Nara exists because Esther couldn't trust what was on the shelf. That
             moment, a parent reading the back of a can, is when they actually decide. Your ads sell
-            from the front of the package. Your brand was built on the back.
+            from the front. Your brand was built on the back.
           </p>
 
           <p style={body}>
-            You're in month 4 of a national launch. Three angles will fatigue in Meta's auction
-            faster than your team can replace them. You need 30 distinct angles per month, not 30
-            versions of the milk-fat line.
+            You're in month 4 of a national launch with Target on shelf. Three angles will fatigue
+            in Meta's auction faster than your team can replace them.{" "}
+            <strong style={{ color: "#111", fontWeight: 500 }}>You need 30 distinct angles per month,</strong>{" "}
+            not 30 versions of the milk-fat line.
+          </p>
+
+          <p style={body}>
+            Quick on us. I built the production system behind the ad above. My co-founder Margot
+            trained at Sup de Pub in Paris and trades media at Publicis. She runs creative direction
+            on every account. We're an agency of two right now, taking three brands this quarter to
+            get the model right before we scale.
           </p>
 
           <p style={{ ...beat, marginBottom: "16px", marginTop: "32px" }}>
@@ -204,8 +212,8 @@ const Madeleine = () => {
             {[
               "4 new hero concepts every month, each a different angle",
               "40 variants built only on what's actually performing",
-              "Weekly read on hook rate and CAC by angle, sent to you Friday",
-              "Monthly strategy call with me, no account managers in between",
+              "Weekly read on hook rate and CAC by angle, in your inbox Friday",
+              "Monthly strategy call with me directly, no account managers in between",
             ].map((item) => (
               <li
                 key={item}
@@ -226,7 +234,7 @@ const Madeleine = () => {
           </ul>
 
           <p style={{ ...body, marginBottom: "16px" }}>
-            First batch ready in 7 days from kickoff.
+            <strong style={{ color: "#111", fontWeight: 500 }}>First batch ready in 7 days from kickoff.</strong>
           </p>
 
           <p style={{ ...body, marginBottom: "0px" }}>
