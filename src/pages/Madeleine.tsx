@@ -1,43 +1,69 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 
-// ── Video placeholder ─────────────────────────────────────────────────
-const VideoPlaceholder = ({ style }: { style?: React.CSSProperties }) => (
-  <div
-    style={{
-      position: "relative",
-      borderRadius: "12px",
-      overflow: "hidden",
-      backgroundColor: "rgba(17,17,17,0.05)",
-      border: "1px solid rgba(17,17,17,0.08)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      ...style,
-    }}
-  >
-    <div
+// ── Sound icons ───────────────────────────────────────────────────────
+const SoundOn = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+  </svg>
+);
+const SoundOff = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <line x1="23" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="23" y2="15"/>
+  </svg>
+);
+
+// ── Video ─────────────────────────────────────────────────────────────
+const Video = ({
+  videoRef,
+  muted,
+  onToggle,
+  style,
+}: {
+  videoRef: React.RefObject<HTMLVideoElement>;
+  muted: boolean;
+  onToggle: () => void;
+  style?: React.CSSProperties;
+}) => (
+  <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", transform: "translateZ(0)", ...style }}>
+    <video
+      ref={videoRef}
+      autoPlay
+      muted
+      loop
+      playsInline
+      src="/nara-ad.mp4"
+      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+    />
+    <button
+      onClick={onToggle}
       style={{
         position: "absolute",
-        inset: 0,
-        backgroundImage:
-          "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
-        backgroundRepeat: "repeat",
-        opacity: 0.6,
-        pointerEvents: "none",
+        bottom: "12px",
+        right: "12px",
+        background: "rgba(0,0,0,0.36)",
+        border: "none",
+        borderRadius: "50%",
+        width: "34px",
+        height: "34px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        color: "#fff",
+        backdropFilter: "blur(10px)",
+        transition: "background 0.18s",
       }}
-    />
-    <p
-      style={{
-        fontSize: "11px",
-        fontWeight: 500,
-        letterSpacing: "0.10em",
-        textTransform: "uppercase",
-        color: "rgba(17,17,17,0.22)",
-      }}
+      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.60)")}
+      onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.36)")}
+      aria-label={muted ? "Unmute" : "Mute"}
     >
-      Video coming
-    </p>
+      {muted ? <SoundOff /> : <SoundOn />}
+    </button>
   </div>
 );
 
@@ -65,6 +91,21 @@ const Madeleine = () => {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
+  const [muted, setMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) videoRef.current.muted = muted;
+  }, [muted]);
+
+  const toggle = () => setMuted((v) => !v);
 
   useEffect(() => {
     document.title = "Madeleine, I watched your ads.";
@@ -99,7 +140,10 @@ const Madeleine = () => {
   };
 
   const videoNode = (
-    <VideoPlaceholder
+    <Video
+      videoRef={videoRef}
+      muted={muted}
+      onToggle={toggle}
       style={
         isMobile
           ? { aspectRatio: "9/16", maxHeight: "70vh", width: "auto" }
