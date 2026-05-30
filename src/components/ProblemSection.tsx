@@ -1,7 +1,7 @@
 const cards = [
   {
-    title: "Your winners die in 9 days.",
-    body: "Supplement CPA hit $89 in 2026, up from $42 two years ago. Every founder UGC ad that crushed for six weeks now eats its ROAS in nine days. Your media buyer keeps asking for more.",
+    title: "Your winners fatigue in days.",
+    body: "The ad that carried you for six weeks now eats its own ROAS. Your media buyer keeps asking for more. You don't have more.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -10,7 +10,7 @@ const cards = [
   },
   {
     title: "You're testing 6 ads. You need 30.",
-    body: "Top supplement brands run 25–50 new concepts a month on Meta. You're shipping 4. The bottleneck isn't targeting or budget — nobody can produce that volume without burning out or missing the brief.",
+    body: "The brands beating you run 25–50 new concepts a month. You ship 4. The bottleneck isn't budget or targeting — it's that nobody can produce that volume without burning out or going off-brief.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
@@ -19,7 +19,7 @@ const cards = [
   },
   {
     title: "Every other option is broken.",
-    body: "The agency bills €10k a video and takes 4 weeks. UGC is slow and inconsistent. Self-serve AI produces the same six templates as every other brand. You're stuck.",
+    body: "The agency bills €10k a video and takes four weeks. UGC is slow and one-note. Self-serve tools spit out the same six templates as everyone else — and leave you to guess what to test.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
@@ -39,13 +39,17 @@ const ProblemSection = () => {
           The problem
         </p>
 
-        <h2 className="font-sans-display text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.018em] text-white/70 max-w-[800px] mb-16 reveal">
+        <h2 className="font-sans-display text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.018em] text-white/70 max-w-[800px] mb-6 reveal">
           You don't have a Meta problem.
           <br />
           <span className="font-serif-display italic text-white/100">
             You have a creative supply problem.
           </span>
         </h2>
+
+        <p className="text-[14px] leading-[1.75] text-white/40 max-w-[560px] mb-14 reveal" data-delay="60">
+          Targeting is automated. Budgets are optimized. The one lever left is creative — and creative is the one thing you can't produce fast enough.
+        </p>
 
         <div className="grid md:grid-cols-3 gap-x-5 gap-y-5 mb-16">
           {cards.map((card, i) => (

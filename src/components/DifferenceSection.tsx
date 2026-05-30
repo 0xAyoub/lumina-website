@@ -84,9 +84,9 @@ const DifferenceSection = () => {
               className="font-sans-display leading-[1.1] tracking-[-0.015em]"
               style={{ fontSize: "clamp(13px, 1.3vw, 17px)", color: "#ffffff", fontWeight: 400 }}
             >
-              What you've already tried.{" "}
+              What you've already tried —{" "}
               <span className="font-serif-display italic" style={{ color: "rgba(255,255,255,0.40)", fontWeight: 400 }}>
-                And why it's not enough.
+                and why it isn't enough.
               </span>
             </h2>
           </div>
@@ -177,14 +177,17 @@ const DifferenceSection = () => {
               Lumina
             </p>
             <h2
-              className="font-sans-display leading-[1.1] tracking-[-0.015em] mb-5"
+              className="font-sans-display leading-[1.1] tracking-[-0.015em] mb-4"
               style={{ fontSize: "clamp(16px, 1.7vw, 22px)", color: "#111111", fontWeight: 400 }}
             >
-              Numbers on the page.{" "}
+              Anyone can hand you 30 ads.{" "}
               <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.35)", fontWeight: 400 }}>
-                No surprises.
+                We tell you which 3 to scale.
               </span>
             </h2>
+            <p className="text-[12px] leading-[1.75] mb-4" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "340px" }}>
+              Tools and freelancers stop at delivery. We don't. We watch what your batch actually does in-market, kill the losers, and pour the next round into what's working. The output isn't a folder of files — it's a system that gets sharper every week.
+            </p>
 
             {/* Stat tiles */}
             <div className="grid grid-cols-2 gap-2 mb-5">
@@ -259,9 +262,9 @@ const DifferenceSection = () => {
           className="font-sans-display text-[20px] leading-[1.1] tracking-[-0.015em] mb-8"
           style={{ color: "#111111", fontWeight: 400 }}
         >
-          Numbers on the page.{" "}
+          Anyone can hand you 30 ads.{" "}
           <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.32)" }}>
-            No surprises.
+            We tell you which 3 to scale.
           </span>
         </h2>
 

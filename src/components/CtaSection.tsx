@@ -23,7 +23,7 @@ const CtaSection = () => {
 
           <div>
             <p className="text-[12px] leading-[1.7] text-black/35 mb-6 max-w-[400px]">
-              Pick a product page. Tell us one thing you wish your ad was doing better. We ship in 48 hours. Watermarked, yours to keep. No call, no commitment.
+              Pick a product page. Tell us the one thing you wish your ad was doing better. We ship in 48 hours — watermarked, yours to keep. No call, no form, no commitment.
             </p>
             <Link
               to="/free"
@@ -39,7 +39,7 @@ const CtaSection = () => {
           className="flex flex-col justify-between px-8 lg:px-12 pt-14 pb-12"
           style={{ width: "30vw", backgroundColor: "#C5D2F8" }}
         >
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em]" style={{ color: "#C5D2F8" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em]" style={{ color: "rgba(17,17,17,0.45)" }}>
             Or write directly
           </p>
           <div>
@@ -81,7 +81,7 @@ const CtaSection = () => {
               </span>
             </h2>
             <p className="text-[12px] leading-[1.65] text-black/35 mb-8">
-              Pick a product page. Tell us one thing you wish your ad was doing better. We ship in 48 hours. No call, no commitment.
+              Pick a product page. Tell us the one thing you wish your ad was doing better. We ship in 48 hours — watermarked, yours to keep. No call, no form, no commitment.
             </p>
 
           </div>
@@ -95,7 +95,7 @@ const CtaSection = () => {
 
         {/* Second screen: Email the founder */}
         <div className="flex flex-col justify-between px-6 pt-10 pb-14" style={{ minHeight: "44dvh", backgroundColor: "#C5D2F8" }}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "#C5D2F8" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "rgba(17,17,17,0.45)" }}>
             Or write directly
           </p>
           <div>

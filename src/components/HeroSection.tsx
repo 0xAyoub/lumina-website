@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // The two text segments — line2Plain is regular, line2Italic is styled
-const LINE1       = "Your best ad is dying in 9 days."
+const LINE1       = "Your best ad is dying."
 const LINE2_PLAIN = "";
 const LINE2_ITALIC = "Your next one isn't ready.";
 const FULL_LINE2  = LINE2_PLAIN + LINE2_ITALIC;
@@ -122,23 +122,18 @@ const HeroSection = () => {
             transition: "opacity 0.5s ease, transform 0.5s ease",
           }}
         >
-          <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[360px] mb-4 mx-auto">
-            Cinematic AI ads for supplement brands. Test fast, kill fatigue, compound winners. First ad free in 48 hours.
+          <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[380px] mb-4 mx-auto">
+            A creative engine for DTC brands on Meta. Fresh, test-ready ads every week — so your winners never run dry and your CPA stops climbing.
           </p>
 
-          <div className="flex gap-2 justify-center">
-            <a
-              href="#process"
-              className="text-[11px] font-medium bg-white text-black px-4 py-1.5 rounded-[6px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
-            >
-              How it works
-            </a>
+          <div className="flex gap-3 justify-center items-center">
             <a
               href="/free"
-              className="text-[11px] font-medium text-white/50 px-4 py-1.5 rounded-[6px] border border-white/20 transition-all duration-200 hover:text-white/80 hover:border-white/35 active:scale-[0.97]"
+              className="text-[11px] font-medium bg-white text-black px-4 py-1.5 rounded-[6px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
             >
               Get my free ad →
             </a>
+            <span className="text-[11px] text-white/40 italic">No call. No commitment.</span>
           </div>
         </div>
       </div>

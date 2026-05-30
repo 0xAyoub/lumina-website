@@ -20,7 +20,7 @@ const Footer = () => {
           </a>
         ))}
       </div>
-      <span className="text-[10px] text-white/15">Built for supplement brands. Shipped without cameras.</span>
+      <span className="text-[10px] text-white/15">Built for DTC brands that live and die by Meta creative.</span>
     </footer>
   );
 };

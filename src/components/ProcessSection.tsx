@@ -4,25 +4,25 @@ const steps = [
   {
     num: "01",
     title: "The free ad",
-    body: "Send your product page and one ad you wish was working. We ship a cinematic AI ad in 48 hours. Watermarked, yours to use. No call, no commitment.",
+    body: "Send your product page and one ad you wish was working. We ship a finished ad in 48 hours. Watermarked, yours to keep.",
     cta: "Get my free ad",
   },
   {
     num: "02",
-    title: "The pilot",
-    body: "€2,500 flat. 15 ads in 14 days. 4 creative directions, approved before we ship. No retainer, no contract.",
+    title: "The pilot — €2,500",
+    body: "15 ads in 14 days. Four creative directions, approved before we ship. No retainer, no contract.",
     cta: "Start the pilot",
   },
   {
     num: "03",
-    title: "The retainer",
-    body: "€5,000 a month. 30 ads, bi-weekly. Your winning ad gets 12 new variants the day it fatigues. Month-to-month. Cancel anytime.",
+    title: "The retainer — €5,000/mo",
+    body: "30 ads a month, bi-weekly. The day a winner fatigues, it gets 12 fresh variants. Month-to-month. Cancel anytime.",
     cta: "Start the retainer",
   },
   {
     num: "04",
     title: "The loop",
-    body: "Every dying ad becomes the next brief. Footage reused, formats remixed. The same product becomes 200 ads a year. Your CPA stops climbing.",
+    body: "Every dying ad becomes the next brief. Footage reused, formats remixed. One product becomes 200 ads a year — and your CPA stops climbing.",
     cta: "See the loop",
   },
 ];
@@ -50,17 +50,17 @@ const ProcessSection = () => {
             className="font-sans-display text-[22px] md:text-[38px] leading-[1.1] tracking-[-0.018em]"
             style={{ color: "#111111" }}
           >
-            From "send me a free ad" to a winning creative engine.
+            From "send me a free ad" to a creative engine that compounds.
             <br />
             <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.4)" }}>
-              Four steps. No deck.
+              Four steps. No deck. No call until you've seen the work.
             </span>
           </h2>
           <p
             className="hidden md:block text-[14px] leading-[1.75] max-w-[400px]"
             style={{ color: "rgba(17,17,17,0.45)" }}
           >
-            The first ad is free. The pilot ships in 14 days. Everything after that compounds.
+            48 hours · no commitment · yours to keep
           </p>
         </div>
 

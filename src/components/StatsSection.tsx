@@ -1,10 +1,8 @@
 const stats = [
-  { value: "48h", label: "First ad turnaround" },
-  { value: "€2,500", label: "Pilot. 15 ads. 14 days." },
-  { value: "€5,000/mo", label: "Retainer. 30 ads/month." },
-  { value: "30", label: "Ads shipped per retainer month" },
-  { value: "0", label: "Studio, crew, equipment" },
-  { value: "100%", label: "Built for supplement-brand creative formats" },
+  { value: "48h", label: "Average batch delivery" },
+  { value: "30", label: "Ads per retainer month" },
+  { value: "80%", label: "Cost vs. a traditional agency" },
+  { value: "€0", label: "Studio, crew, or equipment" },
 ];
 
 const StatsSection = () => {

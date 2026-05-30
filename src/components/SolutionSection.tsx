@@ -5,7 +5,7 @@ const features = [
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
-    label: "First ad free in 48 hours.",
+    label: "First ad free, in 48 hours.",
   },
   {
     icon: (
@@ -13,7 +13,7 @@ const features = [
         <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" />
       </svg>
     ),
-    label: "Pilot of 15 ads in 2 weeks.",
+    label: "Pilot: 15 ads in 14 days.",
   },
   {
     icon: (
@@ -21,7 +21,7 @@ const features = [
         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
       </svg>
     ),
-    label: "Retainer of 30 ads a month, bi-weekly batches.",
+    label: "Retainer: 30 ads a month, in bi-weekly batches.",
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const features = [
         <line x1="2" y1="2" x2="22" y2="22" /><path d="M7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16" /><path d="M9.5 4h5L17 7h3a2 2 0 0 1 2 2v7.5" /><path d="M14.5 4v3" />
       </svg>
     ),
-    label: "Every dying ad gets re-cut, re-hooked, re-shipped — using the footage you already paid for.",
+    label: "Every fatigued ad gets re-cut, re-hooked, and re-shipped — built from work you've already paid for.",
   },
 ];
 
@@ -40,7 +40,7 @@ const capTiles = [
         <path d="m22 8-6 4 6 4V8Z" /><rect width="14" height="12" x="2" y="6" rx="2" ry="2" />
       </svg>
     ),
-    label: "Founder UGC Hooks",
+    label: "Founder Hooks",
   },
   {
     icon: (
@@ -56,7 +56,7 @@ const capTiles = [
         <circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
       </svg>
     ),
-    label: "Before/After Splits",
+    label: "Before/After",
   },
   {
     icon: (
@@ -72,7 +72,7 @@ const capTiles = [
         <rect width="7" height="12" x="8.5" y="2" rx="1" /><path d="M15.5 8H20a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4.5" /><path d="M8.5 8H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4.5" /><path d="M15.5 18H19a2 2 0 0 1 2 2v2" /><path d="M8.5 18H5a2 2 0 0 0-2 2v2" />
       </svg>
     ),
-    label: "Comparison Ads",
+    label: "Comparison",
   },
   {
     icon: (
@@ -80,7 +80,7 @@ const capTiles = [
         <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
       </svg>
     ),
-    label: "Pattern-Interrupt Hooks",
+    label: "Pattern-Interrupt",
   },
 ];
 
@@ -121,7 +121,9 @@ const SolutionSection = () => {
               style={{ color: "rgba(17,17,17,0.5)" }}
               data-delay="80"
             >
-              Founder UGC hooks. Problem-agitation. Before/after splits. Ingredient breakdowns. Competitor comparisons. Every format your buyer scrolls — 9:16, 1:1, 4:5. AI-produced, directed by a human who edited for years before that was a job title.
+              Founder hooks. Problem-agitation. Before/after splits. Ingredient breakdowns. Competitor comparisons. Pattern-interrupts. Every format your buyer scrolls — 9:16, 1:1, 4:5.
+              <br /><br />
+              Studio-grade creative, produced without the studio. Directed by a human who cut performance ads for years — so volume never costs you the brief.
             </p>
 
             <ul className="space-y-4 mb-10">
