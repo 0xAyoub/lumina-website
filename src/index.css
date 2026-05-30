@@ -61,7 +61,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Manrope', sans-serif;
     letter-spacing: -0.008em;
   }
 
@@ -72,13 +72,13 @@
 
 /* Font utilities */
 .font-serif-display {
-  font-family: 'Newsreader', serif;
-  font-weight: 250;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
 }
 
 .font-sans-display {
-  font-family: 'Newsreader', serif;
-  font-weight: 250;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
 }
 
 /* Marquee animation */
