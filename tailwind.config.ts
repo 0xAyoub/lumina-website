@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Instrument Sans", "sans-serif"],
-        "sans-display": ["Instrument Serif", "serif"],
-        "serif-display": ["Instrument Serif", "serif"],
+        sans: ["Manrope", "sans-serif"],
+        "sans-display": ["Manrope", "sans-serif"],
+        "serif-display": ["Manrope", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

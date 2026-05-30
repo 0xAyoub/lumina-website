@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .font-sans-display,
-  .font-serif-display {
-    font-weight: 300;
-  }
-}
 
 @layer base {
   :root {
