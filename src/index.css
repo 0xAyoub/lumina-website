@@ -61,7 +61,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Manrope', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
     letter-spacing: -0.008em;
   }
 
@@ -73,12 +73,12 @@
 
 /* Font utilities */
 .font-serif-display {
-  font-family: 'Manrope', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
   font-weight: 300;
 }
 
 .font-sans-display {
-  font-family: 'Manrope', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
   font-weight: 300;
 }
 
