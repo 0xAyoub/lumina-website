@@ -61,14 +61,6 @@ const capTiles = [
   {
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 3h5v5" /><path d="M8 3H3v5" /><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" /><path d="m15 9 6-6" />
-      </svg>
-    ),
-    label: "Ingredient Education",
-  },
-  {
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect width="7" height="12" x="8.5" y="2" rx="1" /><path d="M15.5 8H20a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4.5" /><path d="M8.5 8H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4.5" /><path d="M15.5 18H19a2 2 0 0 1 2 2v2" /><path d="M8.5 18H5a2 2 0 0 0-2 2v2" />
       </svg>
     ),
@@ -121,9 +113,9 @@ const SolutionSection = () => {
               style={{ color: "rgba(17,17,17,0.5)" }}
               data-delay="80"
             >
-              Founder hooks. Problem-agitation. Before/after splits. Ingredient breakdowns. Competitor comparisons. Pattern-interrupts. Every format your buyer scrolls — 9:16, 1:1, 4:5.
+              Founder hooks, problem-agitation, before/after, comparisons, pattern-interrupts — every format your buyer scrolls, in every ratio.
               <br /><br />
-              Studio-grade creative, produced without the studio. Directed by a human who cut performance ads for years — so volume never costs you the brief.
+              Studio-grade creative, produced without the studio. Directed by hand, so volume never costs you the brief.
             </p>
 
             <ul className="space-y-4 mb-10">

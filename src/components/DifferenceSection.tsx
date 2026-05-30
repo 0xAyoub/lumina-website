@@ -186,7 +186,7 @@ const DifferenceSection = () => {
               </span>
             </h2>
             <p className="text-[12px] leading-[1.75] mb-4" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "340px" }}>
-              Tools and freelancers stop at delivery. We don't. We watch what your batch actually does in-market, kill the losers, and pour the next round into what's working. The output isn't a folder of files — it's a system that gets sharper every week.
+              We watch what your batch does in-market, cut the losers, and pour the next round into what's working. Not a folder of files — a system that sharpens every week.
             </p>
 
             {/* Stat tiles */}

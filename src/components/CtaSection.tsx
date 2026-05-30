@@ -13,7 +13,7 @@ const CtaSection = () => {
               Free creative
             </p>
             <h2 className="font-sans-display text-[26px] lg:text-[42px] leading-[1.05] tracking-[-0.022em] text-black max-w-[580px]">
-              Send us your product.
+              Send your product.
               <br />
               <span className="font-serif-display italic text-black/35">
                 Get one ad. Free. 48 hours.
@@ -23,7 +23,7 @@ const CtaSection = () => {
 
           <div>
             <p className="text-[12px] leading-[1.7] text-black/35 mb-6 max-w-[400px]">
-              Pick a product page. Tell us the one thing you wish your ad was doing better. We ship in 48 hours — watermarked, yours to keep. No call, no form, no commitment.
+              No call, no form, no commitment.
             </p>
             <Link
               to="/free"
@@ -57,7 +57,7 @@ const CtaSection = () => {
               </span>
             </a>
             <p className="text-[11px] mt-3 leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              No sales team. No form. Just me.
+              Just me.
             </p>
           </div>
         </div>
@@ -74,14 +74,14 @@ const CtaSection = () => {
               Free creative
             </p>
             <h2 className="font-sans-display text-[22px] leading-[1.08] tracking-[-0.022em] text-black mb-3">
-              Send us your product.
+              Send your product.
               <br />
               <span className="font-serif-display italic text-black/35">
                 Get one ad. Free. 48 hours.
               </span>
             </h2>
             <p className="text-[12px] leading-[1.65] text-black/35 mb-8">
-              Pick a product page. Tell us the one thing you wish your ad was doing better. We ship in 48 hours — watermarked, yours to keep. No call, no form, no commitment.
+              No call, no form, no commitment.
             </p>
 
           </div>
@@ -113,7 +113,7 @@ const CtaSection = () => {
               </span>
             </a>
             <p className="text-[11px] mt-3 leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              No sales team. No form. Just me.
+              Just me.
             </p>
           </div>
         </div>

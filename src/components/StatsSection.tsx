@@ -1,8 +1,8 @@
 const stats = [
-  { value: "48h", label: "Average batch delivery" },
-  { value: "30", label: "Ads per retainer month" },
-  { value: "80%", label: "Cost vs. a traditional agency" },
-  { value: "€0", label: "Studio, crew, or equipment" },
+  { value: "48h", label: "delivery" },
+  { value: "30", label: "ads / month" },
+  { value: "80%", label: "cheaper than an agency" },
+  { value: "€0", label: "studio or crew" },
 ];
 
 const StatsSection = () => {

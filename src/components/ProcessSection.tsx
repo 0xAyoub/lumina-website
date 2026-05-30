@@ -3,26 +3,26 @@ import { useState } from "react";
 const steps = [
   {
     num: "01",
-    title: "The free ad",
-    body: "Send your product page and one ad you wish was working. We ship a finished ad in 48 hours. Watermarked, yours to keep.",
+    title: "Free ad.",
+    body: "Send a product page. We ship a finished ad in 48h. Yours to keep.",
     cta: "Get my free ad",
   },
   {
     num: "02",
-    title: "The pilot — €2,500",
-    body: "15 ads in 14 days. Four creative directions, approved before we ship. No retainer, no contract.",
+    title: "Pilot, €2,500.",
+    body: "15 ads in 14 days. Directions approved before we ship.",
     cta: "Start the pilot",
   },
   {
     num: "03",
-    title: "The retainer — €5,000/mo",
-    body: "30 ads a month, bi-weekly. The day a winner fatigues, it gets 12 fresh variants. Month-to-month. Cancel anytime.",
+    title: "Retainer, €5,000/mo.",
+    body: "30 ads a month. Cancel anytime.",
     cta: "Start the retainer",
   },
   {
     num: "04",
-    title: "The loop",
-    body: "Every dying ad becomes the next brief. Footage reused, formats remixed. One product becomes 200 ads a year — and your CPA stops climbing.",
+    title: "The loop.",
+    body: "Every dying ad becomes the next brief. One product — 200 ads a year.",
     cta: "See the loop",
   },
 ];
@@ -50,11 +50,7 @@ const ProcessSection = () => {
             className="font-sans-display text-[22px] md:text-[38px] leading-[1.1] tracking-[-0.018em]"
             style={{ color: "#111111" }}
           >
-            From "send me a free ad" to a creative engine that compounds.
-            <br />
-            <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.4)" }}>
-              Four steps. No deck. No call until you've seen the work.
-            </span>
+            Four steps. No deck.
           </h2>
           <p
             className="hidden md:block text-[14px] leading-[1.75] max-w-[400px]"

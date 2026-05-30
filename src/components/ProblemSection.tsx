@@ -1,7 +1,7 @@
 const cards = [
   {
     title: "Your winners fatigue in days.",
-    body: "The ad that carried you for six weeks now eats its own ROAS. Your media buyer keeps asking for more. You don't have more.",
+    body: "You're shipping 4 ads a month. The brands beating you ship 30.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -9,8 +9,8 @@ const cards = [
     ),
   },
   {
-    title: "You're testing 6 ads. You need 30.",
-    body: "The brands beating you run 25–50 new concepts a month. You ship 4. The bottleneck isn't budget or targeting — it's that nobody can produce that volume without burning out or going off-brief.",
+    title: "Agencies are slow and expensive.",
+    body: "€10k a video and four weeks per batch. By the time the ad ships, the window is gone.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
@@ -18,8 +18,8 @@ const cards = [
     ),
   },
   {
-    title: "Every other option is broken.",
-    body: "The agency bills €10k a video and takes four weeks. UGC is slow and one-note. Self-serve tools spit out the same six templates as everyone else — and leave you to guess what to test.",
+    title: "Self-serve looks like everyone else.",
+    body: "UGC is one-note. Self-serve tools hand you the same templates as your competitors — then leave you to guess what to test.",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
@@ -48,7 +48,7 @@ const ProblemSection = () => {
         </h2>
 
         <p className="text-[14px] leading-[1.75] text-white/40 max-w-[560px] mb-14 reveal" data-delay="60">
-          Targeting is automated. Budgets are optimized. The one lever left is creative — and creative is the one thing you can't produce fast enough.
+          Targeting is automated. Budgets optimize themselves. Creative is the only lever left — and the one thing you can't make fast enough.
         </p>
 
         <div className="grid md:grid-cols-3 gap-x-5 gap-y-5 mb-16">
@@ -76,7 +76,7 @@ const ProblemSection = () => {
             href="#work"
             className="text-[11px] font-medium text-white/50 tracking-[0.035em] transition-colors duration-200 hover:text-white"
           >
-            See what we do instead →
+            See what we do →
           </a>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 // The two text segments — line2Plain is regular, line2Italic is styled
 const LINE1       = "Your best ad is dying."
 const LINE2_PLAIN = "";
-const LINE2_ITALIC = "Your next one isn't ready.";
+const LINE2_ITALIC = "Have the next one ready.";
 const FULL_LINE2  = LINE2_PLAIN + LINE2_ITALIC;
 
 // Variable delay per character — simulates real typing rhythm
@@ -123,7 +123,7 @@ const HeroSection = () => {
           }}
         >
           <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[380px] mb-4 mx-auto">
-            A creative engine for DTC brands on Meta. Fresh, test-ready ads every week — so your winners never run dry and your CPA stops climbing.
+            A creative engine for DTC brands on Meta.
           </p>
 
           <div className="flex gap-3 justify-center items-center">

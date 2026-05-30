@@ -11,7 +11,7 @@ const capabilities = [
   },
   {
     label: "Nara Baby — Spec",
-    short: "The label does the work. No voiceover needed.",
+    short: "The label does the work.",
     desc: "A mother turns two cans around. Reads the back of the competitor. Reads the back of Nara. No music. No founder voiceover. The ingredient label closes the sale.",
     video: "/nara-ad.mp4",
     placeholder: null,
@@ -19,7 +19,7 @@ const capabilities = [
   },
   {
     label: "Jewelry — Campaign",
-    short: "Cartier-grade cinematics. No set, no crew.",
+    short: "Cartier-grade. No set, no crew.",
     desc: "This is the kind of ad a luxury jewelry brand spends $400K and 6 weeks to shoot. We produce the same result in 48 hours — no studio, no crew, no travel. Same visual language. Infinite scale.",
     video: "/jewelry-ad.mp4",
     placeholder: null,
@@ -35,7 +35,7 @@ const capabilities = [
   },
   {
     label: "Impossible Shots",
-    short: "Visuals no real set could ever capture.",
+    short: "Visuals no real set could capture.",
     desc: "Liquid metal. Gravity-defying product reveals. Microscopic textures expanding into cinematic landscapes. Every frame here is physically impossible to film — and we deliver them on demand.",
     video: "/bose-ad.mp4",
     placeholder: null,
