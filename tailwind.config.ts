@@ -16,7 +16,7 @@ export default {
       fontFamily: {
         sans: ["-apple-system", "BlinkMacSystemFont", "SF Pro Text", "SF Pro Display", "system-ui", "sans-serif"],
         "sans-display": ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "SF Pro Text", "system-ui", "sans-serif"],
-        "serif-display": ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "SF Pro Text", "system-ui", "sans-serif"],
+        "serif-display": ["Newsreader", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
