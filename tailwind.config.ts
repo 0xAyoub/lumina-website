@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["-apple-system", "BlinkMacSystemFont", "SF Pro Text", "SF Pro Display", "system-ui", "sans-serif"],
-        "sans-display": ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "SF Pro Text", "system-ui", "sans-serif"],
+        "sans-display": ["Newsreader", "Georgia", "serif"],
         "serif-display": ["Newsreader", "Georgia", "serif"],
       },
       colors: {

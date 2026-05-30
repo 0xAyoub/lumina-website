@@ -78,7 +78,12 @@
 }
 
 .font-sans-display {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  font-family: "Newsreader", Georgia, serif;
   font-weight: 300;
 }
 
