@@ -5,7 +5,6 @@ import SolutionSection from "@/components/SolutionSection";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
 import ProcessSection from "@/components/ProcessSection";
 import DifferenceSection from "@/components/DifferenceSection";
-import StatsTicker from "@/components/StatsTicker";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -23,7 +22,6 @@ const Index = () => {
         <CapabilitiesSection />
         <ProcessSection />
         <DifferenceSection />
-        <StatsTicker />
         <CtaSection />
       </main>
       <Footer />

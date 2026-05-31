@@ -4,25 +4,25 @@ const steps = [
   {
     num: "01",
     title: "Free ad.",
-    body: "Send a product page. We ship a finished ad in 48h. Yours to keep.",
+    body: "Send us a link to your product page. No call, no contract, no payment. We build a finished ad in 48 hours and send it over — yours to keep and run, whatever you decide.",
     cta: "Get my free ad",
   },
   {
     num: "02",
     title: "Pilot, €2,500.",
-    body: "15 ads in 14 days. Directions approved before we ship.",
+    body: "15 performance ads in 14 days. Before we go into production, you approve the creative directions — angles, formats, hooks. You know exactly what's coming before we ship it.",
     cta: "Start the pilot",
   },
   {
     num: "03",
     title: "Retainer, €5,000/mo.",
-    body: "30 ads a month. Cancel anytime.",
+    body: "30 fresh ads every month, delivered in two bi-weekly batches. We track what's working in-market, kill what's fatiguing, and brief the next round around your winners. Cancel anytime.",
     cta: "Start the retainer",
   },
   {
     num: "04",
     title: "The loop.",
-    body: "Every dying ad becomes the next brief. One product — 200 ads a year.",
+    body: "Every ad feeds the next brief. We watch performance, spot fatigue before it costs you spend, and brief the replacement before the drop hits. One product, one strategy — compounding every week.",
     cta: "See the loop",
   },
 ];
@@ -52,12 +52,6 @@ const ProcessSection = () => {
           >
             Four steps. No deck.
           </h2>
-          <p
-            className="hidden md:block text-[14px] leading-[1.75] max-w-[400px]"
-            style={{ color: "rgba(17,17,17,0.45)" }}
-          >
-            48 hours · no commitment · yours to keep
-          </p>
         </div>
 
         {/* Desktop: book-page cards */}
@@ -233,7 +227,7 @@ const ProcessSection = () => {
         </div>
 
         {/* CTA — desktop only */}
-        <div className="hidden md:flex flex-shrink-0 mt-6 items-center gap-4">
+        <div className="hidden md:flex flex-shrink-0 mt-6">
           <a
             href="/free"
             className="text-[11px] font-medium px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
@@ -241,12 +235,6 @@ const ProcessSection = () => {
           >
             Get my free ad →
           </a>
-          <span
-            className="text-[11px] tracking-[0.035em]"
-            style={{ color: "rgba(17,17,17,0.3)" }}
-          >
-            48 hours · no commitment · yours to keep
-          </span>
         </div>
 
       </div>
