@@ -58,20 +58,20 @@ const DifferenceSection = () => {
       <div className="hidden md:flex" style={{ alignItems: "flex-start" }}>
 
         {/* LEFT — competitors scrolling */}
-        <div style={{ width: "50vw", backgroundColor: "#ffffff", padding: "5px" }}>
+        <div style={{ width: "50vw", backgroundColor: "#ffffff", padding: "15px" }}>
           {competitors.map((comp, ci) => (
             <div
               key={comp.num}
               style={{
-                minHeight: "calc(100vh - 10px)",
+                minHeight: "calc(100vh - 30px)",
                 padding: "72px clamp(28px, 3.5vw, 70px) 72px clamp(28px, 4vw, 70px)",
-                marginBottom: ci < competitors.length - 1 ? "5px" : 0,
+                marginBottom: ci < competitors.length - 1 ? "15px" : 0,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 borderRadius: "10px",
                 backgroundColor: "#ffffff",
-                border: "2px solid #E8E8E8",
+                border: "1px solid #E8E8E8",
               }}
             >
               <p
@@ -122,7 +122,7 @@ const DifferenceSection = () => {
             top: 0,
             height: "100dvh",
             alignSelf: "flex-start",
-            borderLeft: "1px solid rgba(0,0,0,0.07)",
+            borderLeft: "none",
             backgroundColor: "#ffffff",
             display: "flex",
             flexDirection: "column",
@@ -212,8 +212,8 @@ const DifferenceSection = () => {
             borderRadius: "10px",
             padding: "22px",
             backgroundColor: "#ffffff",
-            border: "2px solid #E8E8E8",
-            marginBottom: "5px",
+            border: "1px solid #E8E8E8",
+            marginBottom: "15px",
           }}
         >
           <h2
@@ -272,11 +272,11 @@ const DifferenceSection = () => {
           What you've tried.
         </p>
 
-        <div className="flex flex-col gap-[5px]">
+        <div className="flex flex-col gap-[15px]">
           {competitors.map((comp) => (
             <div
               key={comp.num}
-              style={{ borderRadius: "10px", padding: "22px", backgroundColor: "#ffffff", border: "2px solid #E8E8E8" }}
+              style={{ borderRadius: "10px", padding: "22px", backgroundColor: "#ffffff", border: "1px solid #E8E8E8" }}
             >
               <p className="text-[42px] leading-none mb-3 font-light" style={{ color: "rgba(17,17,17,0.09)", letterSpacing: "-0.04em" }}>{comp.num}</p>
               <h3
