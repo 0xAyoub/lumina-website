@@ -58,7 +58,7 @@ const DifferenceSection = () => {
       <div className="hidden md:flex" style={{ alignItems: "flex-start" }}>
 
         {/* LEFT — competitors scrolling */}
-        <div style={{ width: "50vw", backgroundColor: "#F6F6F6", padding: "5px" }}>
+        <div style={{ width: "50vw", backgroundColor: "#ffffff", padding: "5px" }}>
           {competitors.map((comp, ci) => (
             <div
               key={comp.num}
@@ -71,6 +71,7 @@ const DifferenceSection = () => {
                 justifyContent: "center",
                 borderRadius: "10px",
                 backgroundColor: "#ffffff",
+                border: "2px solid #E8E8E8",
               }}
             >
               <p
@@ -203,7 +204,7 @@ const DifferenceSection = () => {
       </div>
 
       {/* ══ MOBILE: stacked cards ══════════════════════════════════════ */}
-      <div className="md:hidden px-4 py-12" style={{ backgroundColor: "#F6F6F6" }}>
+      <div className="md:hidden px-4 py-12 bg-white">
 
         {/* Lumina card */}
         <div
@@ -211,7 +212,7 @@ const DifferenceSection = () => {
             borderRadius: "10px",
             padding: "22px",
             backgroundColor: "#ffffff",
-            border: "1px solid rgba(0,0,0,0.07)",
+            border: "2px solid #E8E8E8",
             marginBottom: "5px",
           }}
         >
@@ -275,7 +276,7 @@ const DifferenceSection = () => {
           {competitors.map((comp) => (
             <div
               key={comp.num}
-              style={{ borderRadius: "10px", padding: "22px", backgroundColor: "#ffffff", border: "1px solid rgba(0,0,0,0.06)" }}
+              style={{ borderRadius: "10px", padding: "22px", backgroundColor: "#ffffff", border: "2px solid #E8E8E8" }}
             >
               <p className="text-[42px] leading-none mb-3 font-light" style={{ color: "rgba(17,17,17,0.09)", letterSpacing: "-0.04em" }}>{comp.num}</p>
               <h3
