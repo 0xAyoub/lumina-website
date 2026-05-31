@@ -27,7 +27,7 @@ const CtaSection = () => {
             </p>
             <Link
               to="/free"
-              className="inline-flex items-center gap-2 text-[12px] font-medium bg-black text-white px-7 py-3 rounded-[8px] transition-all duration-200 hover:opacity-75 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 text-[12px] font-medium bg-black text-white px-7 py-3 rounded-none transition-all duration-200 hover:opacity-75 active:scale-[0.98]"
             >
               Get my free ad →
             </Link>
@@ -87,7 +87,7 @@ const CtaSection = () => {
           </div>
           <Link
             to="/free"
-            className="inline-flex items-center gap-2 text-[12px] font-medium bg-black text-white px-7 py-3.5 rounded-[8px] transition-all duration-200 hover:opacity-75 active:scale-[0.98] self-start"
+            className="inline-flex items-center gap-2 text-[12px] font-medium bg-black text-white px-7 py-3.5 rounded-none transition-all duration-200 hover:opacity-75 active:scale-[0.98] self-start"
           >
             Get my free ad →
           </Link>

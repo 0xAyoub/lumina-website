@@ -62,7 +62,7 @@ const ProcessSection = () => {
               <div
                 key={step.num}
                 onMouseEnter={() => setActive(i)}
-                className="relative overflow-hidden rounded-[7px] cursor-pointer"
+                className="relative overflow-hidden rounded-none cursor-pointer"
                 style={{
                   flexGrow: isActive ? 5 : 1,
                   flexShrink: 0,
@@ -154,7 +154,7 @@ const ProcessSection = () => {
               <div
                 key={step.num}
                 onClick={() => setActive(i)}
-                className="relative overflow-hidden rounded-[7px] cursor-pointer"
+                className="relative overflow-hidden rounded-none cursor-pointer"
                 style={{
                   flexGrow: isActive ? 5 : 1,
                   flexShrink: 0,
@@ -230,7 +230,7 @@ const ProcessSection = () => {
         <div className="hidden md:flex flex-shrink-0 mt-6">
           <a
             href="/free"
-            className="text-[11px] font-medium px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
+            className="text-[11px] font-medium px-6 py-2.5 rounded-none transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
             style={{ backgroundColor: "#111111", color: "#ffffff" }}
           >
             Get my free ad →

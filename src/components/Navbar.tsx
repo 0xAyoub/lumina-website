@@ -76,7 +76,7 @@ const Navbar = () => {
         backgroundColor: inHero ? "rgba(255,255,255,0.04)" : isDark ? "rgba(17,17,17,0.72)" : "rgba(255,255,255,0.82)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
-        borderRadius: "7px",
+        borderRadius: 0,
         border: inHero
           ? "1px solid rgba(255,255,255,0.08)"
           : isDark
@@ -94,7 +94,7 @@ const Navbar = () => {
           alt="Lumina"
           width={26}
           height={26}
-          style={{ borderRadius: "5px", opacity: isDark ? 0.9 : 1, transition: "opacity 0.4s ease" }}
+          style={{ borderRadius: 0, opacity: isDark ? 0.9 : 1, transition: "opacity 0.4s ease" }}
         />
       </a>
 
@@ -114,7 +114,7 @@ const Navbar = () => {
         ))}
         <a
           href="/free"
-          className="text-[11px] font-medium px-3 py-1.5 sm:px-4 rounded-[7px] hover:opacity-80 active:scale-[0.97]"
+          className="text-[11px] font-medium px-3 py-1.5 sm:px-4 rounded-none hover:opacity-80 active:scale-[0.97]"
           style={{
             backgroundColor: btnBg,
             color: btnText,
@@ -146,7 +146,7 @@ const Navbar = () => {
       {/* Dropdown for tiny screens */}
       {menuOpen && (
         <div
-          className="min-[360px]:hidden absolute top-12 left-0 right-0 rounded-[7px] p-4 flex flex-col gap-3"
+          className="min-[360px]:hidden absolute top-12 left-0 right-0 rounded-none p-4 flex flex-col gap-3"
           style={{
             backgroundColor: isDark ? "rgba(17,17,17,0.95)" : "rgba(255,255,255,0.96)",
             backdropFilter: "blur(24px)",
@@ -166,7 +166,7 @@ const Navbar = () => {
           ))}
           <a
             href="/free"
-            className="text-[11px] font-medium px-4 py-2 rounded-[7px] text-center mt-1"
+            className="text-[11px] font-medium px-4 py-2 rounded-none text-center mt-1"
             style={{ backgroundColor: btnBg, color: btnText }}
             onClick={() => setMenuOpen(false)}
           >

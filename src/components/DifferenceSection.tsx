@@ -69,7 +69,7 @@ const DifferenceSection = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                borderRadius: "10px",
+                borderRadius: 0,
                 backgroundColor: "#ffffff",
                 border: "1px solid #E8E8E8",
               }}
@@ -92,7 +92,7 @@ const DifferenceSection = () => {
                   <div
                     key={label}
                     style={{
-                      borderRadius: "8px",
+                      borderRadius: 0,
                       backgroundColor: "rgba(0,0,0,0.03)",
                       border: "1px solid rgba(0,0,0,0.06)",
                       padding: "13px 16px",
@@ -150,7 +150,7 @@ const DifferenceSection = () => {
                   key={i}
                   style={{
                     padding: "16px",
-                    borderRadius: "8px",
+                    borderRadius: 0,
                     backgroundColor: "rgba(0,0,0,0.03)",
                     border: "1px solid rgba(0,0,0,0.07)",
                   }}
@@ -194,7 +194,7 @@ const DifferenceSection = () => {
           <div style={{ paddingTop: "28px" }}>
             <a
               href="/free"
-              className="inline-flex text-[12px] font-medium px-6 py-3 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
+              className="inline-flex text-[12px] font-medium px-6 py-3 rounded-none transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
               style={{ backgroundColor: "#111111", color: "#ffffff" }}
             >
               Get a free ad for your brand →
@@ -209,7 +209,7 @@ const DifferenceSection = () => {
         {/* Lumina card */}
         <div
           style={{
-            borderRadius: "10px",
+            borderRadius: 0,
             padding: "22px",
             backgroundColor: "#ffffff",
             border: "1px solid #E8E8E8",
@@ -230,7 +230,7 @@ const DifferenceSection = () => {
             {lumina.highlights.map((h, i) => (
               <div
                 key={i}
-                style={{ padding: "14px", borderRadius: "8px", backgroundColor: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.07)" }}
+                style={{ padding: "14px", borderRadius: 0, backgroundColor: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.07)" }}
               >
                 <p
                   className="font-sans-display leading-none mb-1"
@@ -257,7 +257,7 @@ const DifferenceSection = () => {
           <div style={{ paddingTop: "20px" }}>
             <a
               href="/free"
-              className="inline-flex text-[11px] font-medium px-5 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
+              className="inline-flex text-[11px] font-medium px-5 py-2.5 rounded-none transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
               style={{ backgroundColor: "#111111", color: "#ffffff" }}
             >
               Get a free ad for your brand →
@@ -276,7 +276,7 @@ const DifferenceSection = () => {
           {competitors.map((comp) => (
             <div
               key={comp.num}
-              style={{ borderRadius: "10px", padding: "22px", backgroundColor: "#ffffff", border: "1px solid #E8E8E8" }}
+              style={{ borderRadius: 0, padding: "22px", backgroundColor: "#ffffff", border: "1px solid #E8E8E8" }}
             >
               <p className="text-[42px] leading-none mb-3 font-light" style={{ color: "rgba(17,17,17,0.09)", letterSpacing: "-0.04em" }}>{comp.num}</p>
               <h3
@@ -290,7 +290,7 @@ const DifferenceSection = () => {
                   <div
                     key={label}
                     style={{
-                      borderRadius: "7px",
+                      borderRadius: 0,
                       backgroundColor: "rgba(0,0,0,0.03)",
                       border: "1px solid rgba(0,0,0,0.06)",
                       padding: "10px 12px",

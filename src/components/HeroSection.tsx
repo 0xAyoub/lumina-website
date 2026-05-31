@@ -78,7 +78,7 @@ const HeroSection = () => {
       data-navbar-dark="true"
       className="bg-white" style={{ height: "100dvh", padding: "10px" }}
     >
-      <div className="relative flex flex-col justify-end pb-10 overflow-hidden rounded-[10px]" style={{ height: "100%" }}>
+      <div className="relative flex flex-col justify-end pb-10 overflow-hidden rounded-none" style={{ height: "100%" }}>
       <video
         autoPlay muted loop playsInline
         className="absolute w-full object-cover"
@@ -89,7 +89,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/15 pointer-events-none" />
       <div
         ref={orbRef}
-        className="absolute top-[20%] right-[5%] w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full bg-primary opacity-15 pointer-events-none"
+        className="absolute top-[20%] right-[5%] w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-none bg-primary opacity-15 pointer-events-none"
         style={{ filter: "blur(100px)" }}
       />
 
@@ -130,7 +130,7 @@ const HeroSection = () => {
           <div className="flex gap-3 justify-center items-center">
             <a
               href="/free"
-              className="text-[11px] font-medium bg-white text-black px-4 py-1.5 rounded-[6px] transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
+              className="text-[11px] font-medium bg-white text-black px-4 py-1.5 rounded-none transition-all duration-200 hover:opacity-80 active:scale-[0.97]"
             >
               Get my free ad →
             </a>

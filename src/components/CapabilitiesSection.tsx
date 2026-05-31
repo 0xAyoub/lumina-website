@@ -159,7 +159,7 @@ const CapabilitiesSection = () => {
                   style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: "68vw" }}
                   onClick={() => setModal(i)}
                 >
-                  <div className="flex-1 min-h-0 rounded-[10px] mb-2 overflow-hidden relative" style={{ backgroundColor: "rgba(0,0,0,0.06)" }}>
+                  <div className="flex-1 min-h-0 rounded-none mb-2 overflow-hidden relative" style={{ backgroundColor: "rgba(0,0,0,0.06)" }}>
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video}
                         onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
@@ -169,7 +169,7 @@ const CapabilitiesSection = () => {
                         <p className="text-[12px] text-white/20 text-center leading-[1.6] whitespace-pre-line">{cap.placeholder}</p>
                       </div>
                     )}
-                    <div className="absolute bottom-2 right-2 w-6 h-6 rounded-full bg-black/40 flex items-center justify-center backdrop-blur-sm">
+                    <div className="absolute bottom-2 right-2 w-6 h-6 rounded-none bg-black/40 flex items-center justify-center backdrop-blur-sm">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
                       </svg>
@@ -206,7 +206,7 @@ const CapabilitiesSection = () => {
                 </h2>
                 <a
                   href="/free"
-                  className="flex-shrink-0 text-[11px] font-medium px-4 py-2 rounded-[7px] transition-all duration-200"
+                  className="flex-shrink-0 text-[11px] font-medium px-4 py-2 rounded-none transition-all duration-200"
                   style={{ color: "rgba(17,17,17,0.45)", border: "1px solid rgba(0,0,0,0.15)" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#111"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.35)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "rgba(17,17,17,0.45)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.15)"; }}
@@ -228,7 +228,7 @@ const CapabilitiesSection = () => {
                   style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: `${cardWidth}px` }}
                   onClick={() => setModal(i)}
                 >
-                  <div className="flex-1 min-h-0 rounded-[10px] overflow-hidden relative mb-3" style={{ backgroundColor: "rgba(0,0,0,0.06)" }}>
+                  <div className="flex-1 min-h-0 rounded-none overflow-hidden relative mb-3" style={{ backgroundColor: "rgba(0,0,0,0.06)" }}>
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video}
                         onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
@@ -239,7 +239,7 @@ const CapabilitiesSection = () => {
                       </div>
                     )}
                     <div
-                      className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-opacity duration-200 opacity-0 group-hover:opacity-100"
+                      className="absolute bottom-3 right-3 w-8 h-8 rounded-none flex items-center justify-center transition-opacity duration-200 opacity-0 group-hover:opacity-100"
                       style={{ backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)" }}
                     >
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -271,7 +271,7 @@ const CapabilitiesSection = () => {
           >
             {/* Video */}
             <div
-              className="relative rounded-[12px] overflow-hidden bg-black flex-shrink-0"
+              className="relative rounded-none overflow-hidden bg-black flex-shrink-0"
               style={modalVideoStyle(capabilities[modal].aspect)}
             >
               {capabilities[modal].video ? (
@@ -293,7 +293,7 @@ const CapabilitiesSection = () => {
               {/* Close — top left */}
               <button
                 onClick={() => setModal(null)}
-                className="absolute top-3 left-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
+                className="absolute top-3 left-3 w-8 h-8 rounded-none flex items-center justify-center hover:opacity-70 transition-opacity"
                 style={{ backgroundColor: "rgba(0,0,0,0.50)", backdropFilter: "blur(6px)" }}
               >
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -305,7 +305,7 @@ const CapabilitiesSection = () => {
               {capabilities[modal].video && (
                 <button
                   onClick={() => setMuted(v => !v)}
-                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity"
+                  className="absolute bottom-3 right-3 w-8 h-8 rounded-none flex items-center justify-center hover:opacity-70 transition-opacity"
                   style={{ backgroundColor: "rgba(0,0,0,0.50)", backdropFilter: "blur(6px)" }}
                 >
                   {muted ? (
@@ -336,7 +336,7 @@ const CapabilitiesSection = () => {
               <a
                 href="/free"
                 onClick={() => setModal(null)}
-                className="flex-shrink-0 text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/40 whitespace-nowrap"
+                className="flex-shrink-0 text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-none transition-all duration-200 hover:text-white hover:border-white/40 whitespace-nowrap"
               >
                 Book a call →
               </a>

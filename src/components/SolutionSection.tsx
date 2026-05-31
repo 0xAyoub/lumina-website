@@ -136,7 +136,7 @@ const SolutionSection = () => {
             <div className="reveal" data-delay="450">
               <a
                 href="/free"
-                className="inline-block text-[11px] font-medium px-6 py-2.5 rounded-[7px] transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
+                className="inline-block text-[11px] font-medium px-6 py-2.5 rounded-none transition-all duration-200 hover:opacity-75 active:scale-[0.97]"
                 style={{ backgroundColor: "#111111", color: "#ffffff" }}
               >
                 Get my free ad →
@@ -170,7 +170,7 @@ const SolutionSection = () => {
                   <a
                     key={i}
                     href="/free"
-                    className="group relative flex flex-col justify-end p-5 rounded-[7px] overflow-hidden flex-shrink-0 transition-all duration-300"
+                    className="group relative flex flex-col justify-end p-5 rounded-none overflow-hidden flex-shrink-0 transition-all duration-300"
                     style={{ backgroundColor: "rgba(0,0,0,0.04)", minHeight: "118px" }}
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.07)")}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.04)")}
@@ -188,7 +188,7 @@ const SolutionSection = () => {
                   <a
                     key={i}
                     href="/free"
-                    className="group relative flex flex-col justify-end p-5 rounded-[7px] overflow-hidden flex-shrink-0 transition-all duration-300"
+                    className="group relative flex flex-col justify-end p-5 rounded-none overflow-hidden flex-shrink-0 transition-all duration-300"
                     style={{ backgroundColor: "rgba(0,0,0,0.04)", minHeight: "118px" }}
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.07)")}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.04)")}
@@ -213,7 +213,7 @@ const SolutionSection = () => {
                   <a
                     key={i}
                     href="/free"
-                    className="group relative flex flex-col justify-end p-4 rounded-[7px] overflow-hidden flex-shrink-0 transition-all duration-300"
+                    className="group relative flex flex-col justify-end p-4 rounded-none overflow-hidden flex-shrink-0 transition-all duration-300"
                     style={{ backgroundColor: "rgba(0,0,0,0.04)", width: "140px", height: "110px" }}
                   >
                     <span className="absolute top-4 left-4" style={{ color: "#C5D2F8" }}>{tile.icon}</span>

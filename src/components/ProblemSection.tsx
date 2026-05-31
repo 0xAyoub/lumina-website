@@ -55,12 +55,12 @@ const ProblemSection = () => {
           {cards.map((card, i) => (
             <div
               key={card.title}
-              className="reveal p-7 rounded-[10px]"
+              className="reveal p-7 rounded-none"
               data-delay={String(i * 80)}
               style={{ backgroundColor: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.06)" }}
             >
               <span
-                className="inline-flex items-center justify-center w-7 h-7 rounded-[6px] mb-5"
+                className="inline-flex items-center justify-center w-7 h-7 rounded-none mb-5"
                 style={{ backgroundColor: "rgba(0,0,0,0.05)", color: "rgba(17,17,17,0.45)" }}
               >
                 {card.icon}

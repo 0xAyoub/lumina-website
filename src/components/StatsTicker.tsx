@@ -10,7 +10,7 @@ const stats = [
 ];
 
 const Dot = () => (
-  <span className="w-[3px] h-[3px] rounded-full flex-shrink-0" style={{ backgroundColor: "rgba(255,255,255,0.15)" }} />
+  <span className="w-[3px] h-[3px] rounded-none flex-shrink-0" style={{ backgroundColor: "rgba(255,255,255,0.15)" }} />
 );
 
 const TickerItem = ({ stat }: { stat: typeof stats[0] }) => (

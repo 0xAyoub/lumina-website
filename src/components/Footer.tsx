@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="bg-white w-full px-6 md:px-12 lg:px-20 py-6 flex flex-wrap items-center justify-between gap-4" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
       <div className="flex items-center gap-6">
-        <img src="/logo.svg" alt="Lumina" width={20} height={20} style={{ opacity: 0.25, borderRadius: "4px" }} />
+        <img src="/logo.svg" alt="Lumina" width={20} height={20} style={{ opacity: 0.25, borderRadius: 0 }} />
         <span className="text-[10px]" style={{ color: "rgba(17,17,17,0.30)" }}>© 2026 Lumina Labs</span>
       </div>
       <div className="flex items-center gap-6">
