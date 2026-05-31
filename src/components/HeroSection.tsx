@@ -76,8 +76,9 @@ const HeroSection = () => {
   return (
     <section
       data-navbar-dark="true"
-      className="relative flex flex-col justify-end pb-10 overflow-hidden bg-black" style={{ height: "100dvh" }}
+      className="bg-white" style={{ height: "100dvh", padding: "10px" }}
     >
+      <div className="relative flex flex-col justify-end pb-10 overflow-hidden rounded-[10px]" style={{ height: "100%" }}>
       <video
         autoPlay muted loop playsInline
         className="absolute w-full object-cover"
@@ -136,6 +137,7 @@ const HeroSection = () => {
             <span className="text-[11px] text-white/40 italic">No call. No commitment.</span>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

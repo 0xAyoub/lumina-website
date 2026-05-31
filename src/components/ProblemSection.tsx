@@ -31,23 +31,23 @@ const cards = [
 const ProblemSection = () => {
   return (
     <section
-      data-navbar-dark="true"
-      className="bg-secondary text-secondary-foreground py-[100px] md:py-[140px]"
+      className="bg-white py-[100px] md:py-[140px]"
+      style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}
     >
       <div className="w-full px-6 md:px-12 lg:px-20">
-        <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-12 reveal">
+        <p className="text-[11px] font-medium uppercase tracking-[0.10em] reveal mb-12" style={{ color: "rgba(17,17,17,0.35)" }}>
           The problem
         </p>
 
-        <h2 className="font-sans-display text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.018em] text-white/70 max-w-[800px] mb-6 reveal">
+        <h2 className="font-sans-display text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.018em] max-w-[800px] mb-6 reveal" style={{ color: "rgba(17,17,17,0.65)" }}>
           You don't have a Meta problem.
           <br />
-          <span className="font-serif-display italic text-white/100">
+          <span className="font-serif-display italic" style={{ color: "#111111" }}>
             You have a creative supply problem.
           </span>
         </h2>
 
-        <p className="text-[14px] leading-[1.75] text-white/40 max-w-[560px] mb-14 reveal" data-delay="60">
+        <p className="text-[14px] leading-[1.75] max-w-[560px] mb-14 reveal" data-delay="60" style={{ color: "rgba(17,17,17,0.45)" }}>
           Targeting is automated. Budgets optimize themselves. Creative is the only lever left — and the one thing you can't make fast enough.
         </p>
 
@@ -55,18 +55,20 @@ const ProblemSection = () => {
           {cards.map((card, i) => (
             <div
               key={card.title}
-              className="reveal p-7 rounded-[7px]"
+              className="reveal p-7 rounded-[10px]"
               data-delay={String(i * 80)}
-              style={{ backgroundColor: "rgba(255,255,255,0.04)" }}
+              style={{ backgroundColor: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.06)" }}
             >
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-[6px] mb-5 text-white/40"
-                style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>
+              <span
+                className="inline-flex items-center justify-center w-7 h-7 rounded-[6px] mb-5"
+                style={{ backgroundColor: "rgba(0,0,0,0.05)", color: "rgba(17,17,17,0.45)" }}
+              >
                 {card.icon}
               </span>
-              <h3 className="font-serif-display text-[22px] text-white mb-4">
+              <h3 className="font-sans-display text-[20px] mb-4" style={{ color: "#111111", fontWeight: 450 }}>
                 {card.title}
               </h3>
-              <p className="text-[13px] leading-[1.75] text-white/45">{card.body}</p>
+              <p className="text-[13px] leading-[1.75]" style={{ color: "rgba(17,17,17,0.50)" }}>{card.body}</p>
             </div>
           ))}
         </div>
@@ -74,7 +76,10 @@ const ProblemSection = () => {
         <div className="flex items-center gap-6 reveal" data-delay="300">
           <a
             href="#work"
-            className="text-[11px] font-medium text-white/50 tracking-[0.035em] transition-colors duration-200 hover:text-white"
+            className="text-[11px] font-medium tracking-[0.035em] transition-colors duration-200"
+            style={{ color: "rgba(17,17,17,0.45)" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#111")}
+            onMouseLeave={e => (e.currentTarget.style.color = "rgba(17,17,17,0.45)")}
           >
             See what we do →
           </a>

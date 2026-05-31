@@ -131,17 +131,17 @@ const CapabilitiesSection = () => {
 
   return (
     <>
-      <div id="work" data-navbar-dark="true" className="bg-secondary text-secondary-foreground">
+      <div id="work" className="bg-white">
 
         {/* ── Mobile / tablet: 100dvh, horizontal scroll (< 768px) ── */}
         <div className="md:hidden flex flex-col" style={{ height: "100dvh" }}>
           <div className="flex-shrink-0 px-5 pt-10 pb-4">
-            <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-2">
+            <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-2" style={{ color: "rgba(17,17,17,0.35)" }}>
               What we produce
             </p>
-            <h2 className="font-sans-display text-[19px] leading-[1.1] tracking-[-0.018em] text-white">
+            <h2 className="font-sans-display text-[19px] leading-[1.1] tracking-[-0.018em]" style={{ color: "#111111" }}>
               Every frame.{" "}
-              <span className="font-serif-display italic text-white/50">
+              <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.40)" }}>
                 Indistinguishable from reality.
               </span>
             </h2>
@@ -159,7 +159,7 @@ const CapabilitiesSection = () => {
                   style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: "68vw" }}
                   onClick={() => setModal(i)}
                 >
-                  <div className="flex-1 min-h-0 rounded-[10px] mb-2 overflow-hidden bg-white/5 relative">
+                  <div className="flex-1 min-h-0 rounded-[10px] mb-2 overflow-hidden relative" style={{ backgroundColor: "rgba(0,0,0,0.06)" }}>
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video}
                         onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
@@ -175,8 +175,8 @@ const CapabilitiesSection = () => {
                       </svg>
                     </div>
                   </div>
-                  <p className="flex-shrink-0 text-[12px] font-medium tracking-[0.02em] text-white/70 mb-0.5">{cap.label}</p>
-                  <p className="flex-shrink-0 text-[11px] leading-[1.55] text-white/35 line-clamp-2">{cap.short}</p>
+                  <p className="flex-shrink-0 text-[12px] font-medium tracking-[0.02em] mb-0.5" style={{ color: "rgba(17,17,17,0.70)" }}>{cap.label}</p>
+                  <p className="flex-shrink-0 text-[11px] leading-[1.55] line-clamp-2" style={{ color: "rgba(17,17,17,0.40)" }}>{cap.short}</p>
                 </div>
               ))}
             </div>
@@ -194,19 +194,22 @@ const CapabilitiesSection = () => {
             style={{ height: "100dvh", transform: "translateZ(0)", paddingTop: "48px", paddingBottom: "32px" }}
           >
             <div className="flex-shrink-0 mb-6" style={{ paddingLeft: px, paddingRight: px }}>
-              <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/30 mb-3">
+              <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-3" style={{ color: "rgba(17,17,17,0.35)" }}>
                 What we produce
               </p>
               <div className="flex items-end justify-between gap-6">
-                <h2 className="font-sans-display text-[28px] md:text-[32px] lg:text-[34px] leading-[1.1] tracking-[-0.018em] text-white">
+                <h2 className="font-sans-display text-[28px] md:text-[32px] lg:text-[34px] leading-[1.1] tracking-[-0.018em]" style={{ color: "#111111" }}>
                   Every frame.{" "}
-                  <span className="font-serif-display italic text-white/50">
+                  <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.40)" }}>
                     Indistinguishable from reality.
                   </span>
                 </h2>
                 <a
                   href="/free"
-                  className="flex-shrink-0 text-[11px] font-medium text-white/40 border border-white/15 px-4 py-2 rounded-[7px] transition-all duration-200 hover:text-white hover:border-white/30"
+                  className="flex-shrink-0 text-[11px] font-medium px-4 py-2 rounded-[7px] transition-all duration-200"
+                  style={{ color: "rgba(17,17,17,0.45)", border: "1px solid rgba(0,0,0,0.15)" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#111"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.35)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "rgba(17,17,17,0.45)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.15)"; }}
                 >
                   Get a free sample →
                 </a>
@@ -225,7 +228,7 @@ const CapabilitiesSection = () => {
                   style={cap.aspect === "16:9" ? { aspectRatio: "16/9" } : { width: `${cardWidth}px` }}
                   onClick={() => setModal(i)}
                 >
-                  <div className="flex-1 min-h-0 rounded-[10px] overflow-hidden bg-white/5 relative mb-3">
+                  <div className="flex-1 min-h-0 rounded-[10px] overflow-hidden relative mb-3" style={{ backgroundColor: "rgba(0,0,0,0.06)" }}>
                     {cap.video && (
                       <video autoPlay muted loop playsInline className="w-full h-full object-cover" src={cap.video}
                         onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }} />
@@ -244,8 +247,8 @@ const CapabilitiesSection = () => {
                       </svg>
                     </div>
                   </div>
-                  <p className="flex-shrink-0 text-[13px] font-medium tracking-[0.02em] text-white/70 mb-1">{cap.label}</p>
-                  <p className="flex-shrink-0 text-[12px] leading-[1.6] text-white/35">{cap.short}</p>
+                  <p className="flex-shrink-0 text-[13px] font-medium tracking-[0.02em] mb-1" style={{ color: "rgba(17,17,17,0.70)" }}>{cap.label}</p>
+                  <p className="flex-shrink-0 text-[12px] leading-[1.6]" style={{ color: "rgba(17,17,17,0.40)" }}>{cap.short}</p>
                 </div>
               ))}
             </div>
