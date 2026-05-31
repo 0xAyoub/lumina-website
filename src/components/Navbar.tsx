@@ -71,8 +71,8 @@ const Navbar = () => {
     <nav
       className="fixed top-[10px] z-50 flex items-center justify-between h-10 px-2"
       style={{
-        left: isDesktop && scrolled ? "400px" : "5px",
-        right: isDesktop && scrolled ? "400px" : "5px",
+        left: "5px",
+        right: "5px",
         backgroundColor: inHero ? "rgba(255,255,255,0.04)" : isDark ? "rgba(17,17,17,0.72)" : "rgba(255,255,255,0.82)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
