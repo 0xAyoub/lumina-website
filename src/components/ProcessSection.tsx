@@ -74,9 +74,10 @@ const ProcessSection = () => {
                   flexShrink: 0,
                   flexBasis: 0,
                   minWidth: 0,
-                  backgroundColor: isActive ? "#111111" : "rgba(0,0,0,0.04)",
+                  backgroundColor: isActive ? "#ffffff" : "rgba(0,0,0,0.04)",
                   transition:
                     "flex-grow 0.65s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s ease",
+                  border: isActive ? "1px solid rgba(0,0,0,0.08)" : "1px solid transparent",
                 }}
               >
                 {/* Collapsed: vertical step number */}
@@ -113,20 +114,20 @@ const ProcessSection = () => {
                 >
                   <div>
                     <p
-                      className="font-serif-display text-[64px] leading-none mb-7"
-                      style={{ color: "rgba(197,210,248,0.45)" }}
+                      className="font-sans-display text-[64px] leading-none mb-7"
+                      style={{ color: "rgba(17,17,17,0.07)", letterSpacing: "-0.02em" }}
                     >
                       {step.num}
                     </p>
                     <h3
                       className="font-sans-display text-[20px] font-medium tracking-[-0.015em] mb-5"
-                      style={{ color: "#ffffff" }}
+                      style={{ color: "#111111" }}
                     >
                       {step.title}
                     </h3>
                     <p
                       className="text-[13px] leading-[1.85]"
-                      style={{ color: "rgba(255,255,255,0.5)", maxWidth: "380px" }}
+                      style={{ color: "rgba(17,17,17,0.50)", maxWidth: "380px" }}
                     >
                       {step.body}
                     </p>
@@ -135,12 +136,12 @@ const ProcessSection = () => {
                   <a
                     href="/free"
                     className="text-[11px] tracking-[0.02em] transition-colors duration-200 w-fit"
-                    style={{ color: "rgba(255,255,255,0.3)" }}
+                    style={{ color: "rgba(17,17,17,0.30)" }}
                     onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "rgba(255,255,255,0.75)")
+                      (e.currentTarget.style.color = "rgba(17,17,17,0.75)")
                     }
                     onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "rgba(255,255,255,0.3)")
+                      (e.currentTarget.style.color = "rgba(17,17,17,0.30)")
                     }
                   >
                     {step.cta} →
@@ -165,9 +166,10 @@ const ProcessSection = () => {
                   flexShrink: 0,
                   flexBasis: 0,
                   minHeight: 0,
-                  backgroundColor: isActive ? "#111111" : "rgba(0,0,0,0.04)",
+                  backgroundColor: isActive ? "#ffffff" : "rgba(0,0,0,0.04)",
                   transition:
                     "flex-grow 0.65s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s ease",
+                  border: isActive ? "1px solid rgba(0,0,0,0.08)" : "1px solid transparent",
                 }}
               >
                 {/* Collapsed: step number centered */}
@@ -199,20 +201,20 @@ const ProcessSection = () => {
                 >
                   <div>
                     <p
-                      className="font-serif-display text-[40px] leading-none mb-3"
-                      style={{ color: "rgba(197,210,248,0.45)" }}
+                      className="font-sans-display text-[40px] leading-none mb-3"
+                      style={{ color: "rgba(17,17,17,0.07)", letterSpacing: "-0.02em" }}
                     >
                       {step.num}
                     </p>
                     <h3
                       className="font-sans-display text-[15px] font-medium tracking-[-0.015em] mb-2"
-                      style={{ color: "#ffffff" }}
+                      style={{ color: "#111111" }}
                     >
                       {step.title}
                     </h3>
                     <p
                       className="text-[12px] leading-[1.75]"
-                      style={{ color: "rgba(255,255,255,0.5)" }}
+                      style={{ color: "rgba(17,17,17,0.50)" }}
                     >
                       {step.body}
                     </p>
@@ -220,7 +222,7 @@ const ProcessSection = () => {
                   <a
                     href="/free"
                     className="text-[11px] tracking-[0.02em] w-fit"
-                    style={{ color: "rgba(255,255,255,0.3)" }}
+                    style={{ color: "rgba(17,17,17,0.30)" }}
                   >
                     {step.cta} →
                   </a>
