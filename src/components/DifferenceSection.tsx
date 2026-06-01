@@ -138,7 +138,7 @@ const DifferenceSection = () => {
               style={{ fontSize: "clamp(20px, 2vw, 28px)", color: "#111111", fontWeight: 400 }}
             >
               Anyone can hand you 30 ads.{" "}
-              <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.35)", fontWeight: 400 }}>
+              <span className="font-serif-display italic" style={{ color: "#111111", fontWeight: 400 }}>
                 We tell you which 3 to scale.
               </span>
             </h2>
@@ -221,7 +221,7 @@ const DifferenceSection = () => {
             style={{ color: "#111111", fontWeight: 400 }}
           >
             Anyone can hand you 30 ads.{" "}
-            <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.32)" }}>
+            <span className="font-serif-display italic" style={{ color: "#111111" }}>
               We tell you which 3 to scale.
             </span>
           </h2>

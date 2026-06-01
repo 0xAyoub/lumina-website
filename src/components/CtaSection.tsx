@@ -15,7 +15,7 @@ const CtaSection = () => {
             <h2 className="font-sans-display text-[26px] lg:text-[42px] leading-[1.05] tracking-[-0.022em] text-black max-w-[580px]">
               Send your product.
               <br />
-              <span className="font-serif-display italic text-black/35">
+              <span className="font-serif-display italic text-black">
                 Get one ad. Free. 48 hours.
               </span>
             </h2>
@@ -76,7 +76,7 @@ const CtaSection = () => {
             <h2 className="font-sans-display text-[22px] leading-[1.08] tracking-[-0.022em] text-black mb-3">
               Send your product.
               <br />
-              <span className="font-serif-display italic text-black/35">
+              <span className="font-serif-display italic text-black">
                 Get one ad. Free. 48 hours.
               </span>
             </h2>

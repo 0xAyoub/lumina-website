@@ -141,7 +141,7 @@ const CapabilitiesSection = () => {
             </p>
             <h2 className="font-sans-display text-[19px] leading-[1.1] tracking-[-0.018em]" style={{ color: "#111111" }}>
               Every frame.{" "}
-              <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.40)" }}>
+              <span className="font-serif-display italic" style={{ color: "#111111" }}>
                 Indistinguishable from reality.
               </span>
             </h2>
@@ -200,7 +200,7 @@ const CapabilitiesSection = () => {
               <div className="flex items-end justify-between gap-6">
                 <h2 className="font-sans-display text-[28px] md:text-[32px] lg:text-[34px] leading-[1.1] tracking-[-0.018em]" style={{ color: "#111111" }}>
                   Every frame.{" "}
-                  <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.40)" }}>
+                  <span className="font-serif-display italic" style={{ color: "#111111" }}>
                     Indistinguishable from reality.
                   </span>
                 </h2>
