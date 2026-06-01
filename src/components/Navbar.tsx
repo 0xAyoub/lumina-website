@@ -69,7 +69,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="fixed top-[10px] z-50 flex items-center justify-between h-10 px-2"
+      className="fixed top-[10px] z-50 flex items-center justify-between h-10 px-[5px]"
       style={{
         left: "5px",
         right: "5px",
