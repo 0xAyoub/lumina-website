@@ -15,8 +15,8 @@ const steps = [
   },
   {
     num: "03",
-    title: "Retainer, €5,000/mo.",
-    body: "30 fresh ads every month, delivered in two bi-weekly batches. We track what's working in-market, kill what's fatiguing, and brief the next round around your winners. Cancel anytime.",
+    title: "Retainer, from €1,500/mo.",
+    body: "30 fresh ads every month, delivered in two bi-weekly batches. We track what's working in-market, retire what's fatiguing, and brief the next round around your winners. Cancel anytime.",
     cta: "Start the retainer",
   },
   {

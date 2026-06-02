@@ -103,19 +103,19 @@ const SolutionSection = () => {
               className="font-sans-display text-[28px] md:text-[42px] leading-[1.1] tracking-[-0.018em] mb-5 reveal"
               style={{ color: "#111111" }}
             >
-              We ship 30 supplement ads a month.
+              30 finished ads a month.
               <br />
               <span className="font-serif-display italic">You test more. You win more.</span>
-            
+
             </h2>
             <p
               className="text-[14px] leading-[1.8] mb-10 max-w-[480px] reveal"
               style={{ color: "rgba(17,17,17,0.5)" }}
               data-delay="80"
             >
-              Founder hooks, problem-agitation, before/after, comparisons, pattern-interrupts — every format your buyer scrolls, in every ratio.
+              Hooks, problem-agitation, before/after, comparisons, product close-ups — every format your buyer scrolls, in every ratio.
               <br /><br />
-              Studio-grade creative, produced without the studio. Directed by hand, so volume never costs you the brief.
+              Studio-grade creative, produced without the studio. The brief, the edit, the strategy — handled.
             </p>
 
             <ul className="space-y-4 mb-10">

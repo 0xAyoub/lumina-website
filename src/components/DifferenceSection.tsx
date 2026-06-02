@@ -3,14 +3,14 @@ const rowLabels = ["Delivery", "Cost", "Volume", "Loop"];
 
 const lumina = {
   highlights: [
-    { stat: "48h",    desc: "First ad, every time." },
-    { stat: "€2,500", desc: "15 ads in 14 days." },
-    { stat: "€5k/mo", desc: "30 ads, cancel anytime." },
-    { stat: "30",     desc: "Ads per retainer month." },
+    { stat: "48h",      desc: "First creative, every time." },
+    { stat: "Free",     desc: "First ad to prove the work." },
+    { stat: "€1,500+",  desc: "Retainer, cancel anytime." },
+    { stat: "30",       desc: "Ads per retainer month." },
   ],
   rows: [
     "48h, every time.",
-    "€2,500 pilot · €5,000/mo retainer.",
+    "Free first ad · from €1,500/mo retainer.",
     "30 ads a month. Bi-weekly.",
     "Every dying ad becomes the next brief.",
   ],

@@ -6,38 +6,38 @@ import Footer from "@/components/Footer";
 const pieces = [
   {
     label: "Oura Ring — Spec",
-    category: "Wearable",
-    format: "9:16",
-    desc: "A woman mid-run. A glance at the ring. The moment the data changes how she trains. Hook, pacing, and color graded to feel filmed — delivered in 48 hours.",
+    category: "Wearable · 9:16",
+    desc: "Hook, pacing, and color grade edited to feel filmed. No crew, no set, no delay.",
     video: "/oura-ad.mp4",
+    format: "9:16",
   },
   {
     label: "Jewelry — Campaign",
-    category: "Luxury",
-    format: "16:9",
-    desc: "The visual language of a €400K campaign. No studio, no crew, no travel. The craft is in the edit — the grade, the pacing, the material texture that reads as real.",
+    category: "Luxury · 16:9",
+    desc: "The visual language of a €400K campaign. Delivered in 48 hours.",
     video: "/jewelry-ad.mp4",
+    format: "16:9",
   },
   {
     label: "Nara Baby — Spec",
-    category: "Baby / Nutrition",
-    format: "9:16",
-    desc: "No music. No founder voiceover. A mother turns two cans around, reads the back of each. The ingredient label closes the sale. The edit creates the tension.",
+    category: "Baby / Nutrition · 9:16",
+    desc: "No voiceover. No founder. The ingredient label closes the sale.",
     video: "/nara-ad.mp4",
+    format: "9:16",
   },
   {
     label: "Skincare — Campaign",
-    category: "Beauty",
-    format: "9:16",
-    desc: "Honest, textural, skin-close. The brief was: let the product do the work. The edit is minimal — fast cuts, natural light, real texture. Nothing that could run for another brand.",
+    category: "Beauty · 9:16",
+    desc: "Honest, textural, skin-close. Nothing that could run for another brand.",
     video: "/skincare-ad.mp4",
+    format: "9:16",
   },
   {
     label: "Impossible Shots",
-    category: "Demo",
-    format: "16:9",
-    desc: "Liquid metal. Gravity-defying reveals. Microscopic textures expanding into cinematic landscapes. Shots no production budget could film. The differentiation is the format choice.",
+    category: "Demo · 16:9",
+    desc: "Shots no production budget can film. The format choice is the differentiation.",
     video: "/bose-ad.mp4",
+    format: "16:9",
   },
 ];
 
@@ -56,19 +56,19 @@ const Work = () => {
             Work
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h1 className="font-sans-display text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.025em]" style={{ color: "#111111" }}>
-              The edit{" "}
-              <span className="font-serif-display italic">is what converts.</span>
+            <h1 className="font-sans-display text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.025em]" style={{ color: "#111111" }}>
+              What we deliver.{" "}
+              <span className="font-serif-display italic">Click to watch.</span>
             </h1>
-            <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[280px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              Spec work and client campaigns — edited for performance, delivered in 48 hours, without a studio or crew.
+            <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[260px]" style={{ color: "rgba(17,17,17,0.45)" }}>
+              Spec work and client campaigns. Edited for conversion, not awards.
             </p>
           </div>
         </div>
 
         {/* Grid */}
         <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-14">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
             {pieces.map((p, i) => (
               <div key={p.label} className={p.format === "16:9" && i === 1 ? "md:col-span-2" : ""}>
                 <button
@@ -79,7 +79,7 @@ const Work = () => {
                     className="relative overflow-hidden mb-4 w-full"
                     style={{
                       aspectRatio: p.format === "16:9" ? "16/9" : "9/16",
-                      maxHeight: p.format === "9:16" ? "560px" : "none",
+                      maxHeight: p.format === "9:16" ? "520px" : "none",
                       backgroundColor: "rgba(0,0,0,0.05)",
                     }}
                   >
@@ -89,16 +89,16 @@ const Work = () => {
                       src={p.video}
                       onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: "rgba(0,0,0,0.18)" }}>
-                      <span className="text-white text-[11px] font-medium tracking-[0.04em] uppercase">Play</span>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: "rgba(0,0,0,0.15)" }}>
+                      <span className="text-white text-[11px] font-medium tracking-[0.06em] uppercase">Watch</span>
                     </div>
                   </div>
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-[14px] font-medium mb-1" style={{ color: "#111111" }}>{p.label}</p>
-                      <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "420px" }}>{p.desc}</p>
+                      <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "400px" }}>{p.desc}</p>
                     </div>
-                    <span className="flex-shrink-0 text-[10px] uppercase tracking-[0.08em] pt-0.5" style={{ color: "rgba(17,17,17,0.30)" }}>
+                    <span className="flex-shrink-0 text-[10px] uppercase tracking-[0.08em] pt-0.5 text-right" style={{ color: "rgba(17,17,17,0.30)" }}>
                       {p.category}
                     </span>
                   </div>
@@ -113,10 +113,10 @@ const Work = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 className="font-sans-display text-[22px] md:text-[32px] leading-[1.1] tracking-[-0.02em] mb-2" style={{ color: "#111111" }}>
-                See what we do for yours.
+                Want one for your brand?
               </h2>
               <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-                Send your product page. Get a finished ad in 48 hours. Free.
+                First ad free. Delivered in 48 hours. No call, no commitment.
               </p>
             </div>
             <Link
@@ -180,10 +180,7 @@ const Work = () => {
               </button>
             </div>
             <div className="flex items-center justify-between mt-3">
-              <div>
-                <p className="text-white text-[12px] font-medium">{pieces[modal].label}</p>
-                <p className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>{pieces[modal].category}</p>
-              </div>
+              <p className="text-white text-[12px] font-medium">{pieces[modal].label}</p>
               <Link
                 to="/free"
                 onClick={() => setModal(null)}

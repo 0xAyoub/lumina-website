@@ -4,7 +4,7 @@ const capabilities = [
   {
     label: "Oura Ring — Spec",
     short: "Performance creative for a category-defining wearable.",
-    desc: "A woman mid-run. A glance at her ring. A readiness score that changes how she trains. Shot by AI in 48 hours — no crew, no set, no wasted week.",
+    desc: "A woman mid-run. A glance at the ring. The moment the data changes how she trains. Hook, pacing, and color grade — delivered in 48 hours, no crew, no set.",
     video: "/oura-ad.mp4",
     placeholder: null,
     aspect: "9:16" as const,
@@ -28,7 +28,7 @@ const capabilities = [
   {
     label: "Skincare — Campaign",
     short: "Clean beauty, start to finish.",
-    desc: "Minimalist Inc asked for a campaign that feels honest, textural, skin-close. No model. No studio. AI-directed light, real product, cinematic result — at a fraction of a traditional shoot.",
+    desc: "A campaign that feels honest, textural, skin-close. No model, no studio. Directed light, real product, cinematic result — at a fraction of a traditional shoot.",
     video: "/skincare-ad.mp4",
     placeholder: null,
     aspect: "9:16" as const,
@@ -338,7 +338,7 @@ const CapabilitiesSection = () => {
                 onClick={() => setModal(null)}
                 className="flex-shrink-0 text-[11px] font-medium text-white/70 border border-white/20 px-4 py-2 rounded-none transition-all duration-200 hover:text-white hover:border-white/40 whitespace-nowrap"
               >
-                Book a call →
+                Get one like this →
               </a>
             </div>
           </div>

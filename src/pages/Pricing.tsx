@@ -8,7 +8,7 @@ const tiers = [
     name: "Free Creative",
     price: "€0",
     period: "one time",
-    desc: "One finished ad, delivered in 48 hours. No call required, no payment, no commitment. The proof before anything else.",
+    desc: "One finished ad for your brand, delivered in 48 hours. No call, no payment, no contract. The proof before anything else.",
     includes: [
       "1 finished ad (9:16 or 16:9)",
       "Brief written by us",
@@ -22,16 +22,15 @@ const tiers = [
   },
   {
     name: "Pilot",
-    price: "Custom",
+    price: "Flat rate",
     period: "one time",
-    desc: "A defined batch of ads, flat price, no monthly commitment. Directions approved before we build anything.",
+    desc: "A defined batch of finished ads at a flat price. You approve creative directions before we build anything — no surprises, no subscription.",
     includes: [
       "Defined batch of finished ads",
       "Direction approval before production",
       "Mix of 9:16 and 16:9",
       "Full usage rights",
       "No monthly commitment",
-      "Performance debrief at end",
     ],
     cta: "Start a pilot",
     href: "/free",
@@ -41,7 +40,7 @@ const tiers = [
     name: "Retainer",
     price: "From €1,500",
     period: "/ month",
-    desc: "30 ads a month, bi-weekly delivery. Performance tracking, brief iteration, and a creative partner who knows your brand.",
+    desc: "30 ads a month, bi-weekly. We track what's working, retire what's fatiguing, and brief the next round around your winners. Cancel anytime.",
     includes: [
       "30 ads per month",
       "Bi-weekly delivery",
@@ -59,22 +58,26 @@ const tiers = [
 const faqs = [
   {
     q: "Is the free ad really free?",
-    a: "Yes. No card required, no contract, no catch. We produce one ad for your brand and send it to you. If you like it, we talk about next steps.",
+    a: "Yes. No card, no contract, no catch. We produce one finished ad for your brand and send it over. If you want to go further, we talk.",
+  },
+  {
+    q: "What does the pilot cost?",
+    a: "The pilot is a flat-rate project — price depends on the scope and number of ads. Send a message and we'll give you a number in 24 hours.",
   },
   {
     q: "What's included in the creative direction?",
-    a: "We write the brief, choose the hook format, direct the visual language, write the copy, and handle the full edit — pacing, sound, color grade. You don't need to provide a brief or assets.",
+    a: "We write the brief, choose the hook format, direct the visual language, write the copy, and produce the full edit — pacing, sound, color grade. You don't need to provide a brief or assets.",
   },
   {
     q: "Can I do a pilot without the free ad first?",
-    a: "Yes. The free ad is an entry point but not a requirement. If you've seen enough of our work to decide, you can go straight to the pilot.",
+    a: "Yes. The free ad is the lowest-friction entry point, but if you've seen our work and want to move, we can go straight to a pilot.",
   },
   {
-    q: "What happens if I want to cancel the retainer?",
-    a: "Cancel by the end of any month and your next cycle won't bill. No penalty, no minimum notice period beyond that.",
+    q: "What if I want to cancel the retainer?",
+    a: "Cancel by the end of any month and your next cycle won't bill. No penalty, no notice period beyond that.",
   },
   {
-    q: "Do you work with brands outside of Europe?",
+    q: "Do you work with brands outside Europe?",
     a: "Yes. We work with DTC brands globally. Pricing is in euros but we can invoice in USD or GBP.",
   },
 ];
@@ -93,18 +96,18 @@ const Pricing = () => {
             Pricing
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h1 className="font-sans-display text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.025em]" style={{ color: "#111111" }}>
-              Simple pricing.{" "}
-              <span className="font-serif-display italic">Start for free.</span>
+            <h1 className="font-sans-display text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.025em]" style={{ color: "#111111" }}>
+              Start free.{" "}
+              <span className="font-serif-display italic">No surprises.</span>
             </h1>
-            <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[260px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              Get the first ad free. Commit to nothing until the work proves itself.
+            <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[240px]" style={{ color: "rgba(17,17,17,0.45)" }}>
+              First ad free. Commit to nothing until the work proves itself.
             </p>
           </div>
         </div>
 
         {/* Tiers */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-14 md:py-20">
+        <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
           <div className="grid md:grid-cols-3 gap-px" style={{ backgroundColor: "rgba(0,0,0,0.07)" }}>
             {tiers.map((tier) => (
               <div
@@ -121,7 +124,7 @@ const Pricing = () => {
 
                 <div className="mb-6">
                   <p
-                    className="font-sans-display text-[42px] leading-none tracking-[-0.03em]"
+                    className="font-sans-display text-[40px] leading-none tracking-[-0.03em]"
                     style={{ color: tier.highlight ? "#ffffff" : "#111111" }}
                   >
                     {tier.price}
@@ -135,13 +138,13 @@ const Pricing = () => {
                 </div>
 
                 <p
-                  className="text-[13px] leading-[1.7] mb-8 flex-1"
+                  className="text-[13px] leading-[1.7] mb-8"
                   style={{ color: tier.highlight ? "rgba(255,255,255,0.60)" : "rgba(17,17,17,0.55)" }}
                 >
                   {tier.desc}
                 </p>
 
-                <div className="flex flex-col gap-2.5 mb-8">
+                <div className="flex flex-col gap-2.5 mb-8 flex-1">
                   {tier.includes.map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <span
@@ -173,13 +176,22 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* What's included note */}
+        {/* What's included */}
         <div className="w-full px-6 md:px-12 lg:px-20 py-10 md:py-14" style={{ borderTop: "1px solid rgba(0,0,0,0.07)", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { label: "All plans include", items: ["Brief written by us", "Full creative direction", "Production & post-production edit", "Full usage rights"] },
-              { label: "Retainer also includes", items: ["Performance tracking", "Brief iteration on winners", "Batch planning", "Fatigue monitoring"] },
-              { label: "We don't charge for", items: ["Revisions on approved direction", "Format variations", "Platform resizes", "Extra concepts within the batch"] },
+              {
+                label: "All plans include",
+                items: ["Brief written by us", "Full creative direction", "Production & post-production edit", "Full usage rights"],
+              },
+              {
+                label: "Retainer also includes",
+                items: ["Performance tracking", "Brief iteration on winners", "Batch planning", "Fatigue monitoring"],
+              },
+              {
+                label: "We don't charge for",
+                items: ["Revisions on approved direction", "Format variations", "Platform resizes", "Extra concepts within the batch"],
+              },
             ].map((col) => (
               <div key={col.label}>
                 <p className="text-[11px] font-medium uppercase tracking-[0.08em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>
@@ -199,11 +211,11 @@ const Pricing = () => {
         </div>
 
         {/* FAQ */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-20" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+        <div className="w-full px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
           <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-10" style={{ color: "rgba(17,17,17,0.35)" }}>
             Common questions
           </p>
-          <div className="max-w-[680px]">
+          <div className="max-w-[640px]">
             {faqs.map((faq, i) => (
               <div key={i} style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
                 <button
@@ -214,9 +226,7 @@ const Pricing = () => {
                   <span
                     className="flex-shrink-0 text-[18px] leading-none transition-transform duration-200"
                     style={{ color: "rgba(17,17,17,0.35)", transform: openFaq === i ? "rotate(45deg)" : "none" }}
-                  >
-                    +
-                  </span>
+                  >+</span>
                 </button>
                 {openFaq === i && (
                   <p className="pb-5 text-[13px] leading-[1.75]" style={{ color: "rgba(17,17,17,0.55)" }}>
@@ -236,7 +246,7 @@ const Pricing = () => {
                 Not sure which tier?
               </h2>
               <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-                Start with the free ad. You'll know after you see it.
+                Start free. You'll know after you see the first ad.
               </p>
             </div>
             <Link
