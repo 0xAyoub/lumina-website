@@ -5,16 +5,16 @@ import Footer from "@/components/Footer";
 
 const tiers = [
   {
-    name: "Free Ad",
+    name: "Free Creative",
     price: "€0",
     period: "one time",
-    desc: "One finished performance ad, delivered in 48 hours. No contract, no call, no payment.",
+    desc: "One finished ad, delivered in 48 hours. No call required, no payment, no commitment. The proof before anything else.",
     includes: [
-      "1 ad (9:16 or 16:9)",
-      "Full creative direction",
+      "1 finished ad (9:16 or 16:9)",
+      "Brief written by us",
       "Delivered in 48 hours",
-      "No watermark",
       "Full usage rights",
+      "No watermark",
     ],
     cta: "Get my free ad",
     href: "/free",
@@ -22,24 +22,24 @@ const tiers = [
   },
   {
     name: "Pilot",
-    price: "€2,500",
+    price: "Custom",
     period: "one time",
-    desc: "15 ads in 14 days. Direction approved before production. The fastest way to validate Lumina for your brand.",
+    desc: "A defined batch of ads, flat price, no monthly commitment. Directions approved before we build anything.",
     includes: [
-      "15 finished ads",
+      "Defined batch of finished ads",
       "Direction approval before production",
-      "Delivered in 2 batches over 14 days",
       "Mix of 9:16 and 16:9",
       "Full usage rights",
+      "No monthly commitment",
       "Performance debrief at end",
     ],
-    cta: "Start the pilot",
+    cta: "Start a pilot",
     href: "/free",
     highlight: false,
   },
   {
     name: "Retainer",
-    price: "€5,000",
+    price: "From €1,500",
     period: "/ month",
     desc: "30 ads a month, bi-weekly delivery. Performance tracking, brief iteration, and a creative partner who knows your brand.",
     includes: [
@@ -49,7 +49,6 @@ const tiers = [
       "Performance tracking",
       "Brief iteration on winners",
       "Cancel anytime",
-      "Priority support",
     ],
     cta: "Start the retainer",
     href: "/free",
@@ -63,8 +62,8 @@ const faqs = [
     a: "Yes. No card required, no contract, no catch. We produce one ad for your brand and send it to you. If you like it, we talk about next steps.",
   },
   {
-    q: "What's included in 'full creative direction'?",
-    a: "We write the brief, choose the hook format, direct the visual language, write the copy, and produce the final edit. You don't need to provide a brief or assets.",
+    q: "What's included in the creative direction?",
+    a: "We write the brief, choose the hook format, direct the visual language, write the copy, and handle the full edit — pacing, sound, color grade. You don't need to provide a brief or assets.",
   },
   {
     q: "Can I do a pilot without the free ad first?",
@@ -95,11 +94,11 @@ const Pricing = () => {
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h1 className="font-sans-display text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.025em]" style={{ color: "#111111" }}>
-              Transparent pricing.{" "}
-              <span className="font-serif-display italic">No surprises.</span>
+              Simple pricing.{" "}
+              <span className="font-serif-display italic">Start for free.</span>
             </h1>
             <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[260px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              Start free. Scale when the work speaks for itself.
+              Get the first ad free. Commit to nothing until the work proves itself.
             </p>
           </div>
         </div>
@@ -178,9 +177,9 @@ const Pricing = () => {
         <div className="w-full px-6 md:px-12 lg:px-20 py-10 md:py-14" style={{ borderTop: "1px solid rgba(0,0,0,0.07)", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { label: "All plans include", items: ["Full creative direction", "Brief writing", "Production & editing", "Full usage rights"] },
-              { label: "Retainer also includes", items: ["Performance tracking", "Brief iteration", "Batch planning", "Priority turnaround"] },
-              { label: "We don't charge for", items: ["Revisions on approved direction", "Format variations", "Platform resizes", "Additional concepts"] },
+              { label: "All plans include", items: ["Brief written by us", "Full creative direction", "Production & post-production edit", "Full usage rights"] },
+              { label: "Retainer also includes", items: ["Performance tracking", "Brief iteration on winners", "Batch planning", "Fatigue monitoring"] },
+              { label: "We don't charge for", items: ["Revisions on approved direction", "Format variations", "Platform resizes", "Extra concepts within the batch"] },
             ].map((col) => (
               <div key={col.label}>
                 <p className="text-[11px] font-medium uppercase tracking-[0.08em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>

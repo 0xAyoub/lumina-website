@@ -15,8 +15,8 @@ const Blog = () => {
             Blog
           </p>
           <h1 className="font-sans-display text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.025em]" style={{ color: "#111111" }}>
-            On creative, performance,{" "}
-            <span className="font-serif-display italic">and winning on Meta.</span>
+            On creative, the edit,{" "}
+            <span className="font-serif-display italic">and what actually converts.</span>
           </h1>
         </div>
 
@@ -86,10 +86,10 @@ const Blog = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 className="font-sans-display text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.02em] mb-2" style={{ color: "#111111" }}>
-                Want to see what we ship?
+                See it in practice.
               </h2>
               <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-                Get one finished ad for your brand — free, in 48 hours.
+                Get one finished ad for your brand — free, delivered in 48 hours.
               </p>
             </div>
             <Link

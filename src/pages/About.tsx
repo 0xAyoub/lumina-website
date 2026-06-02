@@ -4,20 +4,20 @@ import Footer from "@/components/Footer";
 
 const values = [
   {
-    label: "Speed is a feature.",
-    body: "48 hours is not a promise — it's the constraint we design around. Slower creative cycles mean slower feedback loops, which means slower growth. We built the system so speed is the default.",
+    label: "The edit is the product.",
+    body: "Generating footage is the easy part. The work that converts is the hook structure, the pacing, the sound design, the color grade that turns raw material into something that stops a scroll. That's where we spend our craft.",
   },
   {
-    label: "Creative that performs.",
-    body: "We don't make ads that win awards. We make ads that stop the scroll, hold attention, and drive purchases. Every creative decision is made with performance in mind.",
+    label: "Speed is not a compromise.",
+    body: "48 hours is not a promise we make reluctantly — it's the constraint we design around. Slower creative cycles mean slower feedback loops. We built the system so speed is the default, not the exception.",
   },
   {
-    label: "No retainers of trust.",
-    body: "The free ad isn't a loss leader. It's how we prove the work before asking for anything. If it's good, you'll know. If it's not, you owe us nothing.",
+    label: "The proof comes first.",
+    body: "The free creative isn't a loss leader. It's how we prove the work before asking for anything. If it's good, you'll know. If it's not, you owe us nothing and we've learned something.",
   },
   {
-    label: "One brand, not fifty.",
-    body: "We keep our client roster small by design. Every brand we work with gets a creative partner who actually knows their product — not a rotating team of generalists.",
+    label: "Performance over polish.",
+    body: "We don't make ads that win awards. We make ads that stop the scroll, hold attention, and drive purchases. Every creative decision is tested against one question: does this convert?",
   },
 ];
 
@@ -33,8 +33,8 @@ const About = () => {
             About
           </p>
           <h1 className="font-sans-display text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.025em] max-w-[700px]" style={{ color: "#111111" }}>
-            Built for brands that can't afford{" "}
-            <span className="font-serif-display italic">to wait.</span>
+            The studio between{" "}
+            <span className="font-serif-display italic">the models and your brand.</span>
           </h1>
         </div>
 
@@ -46,16 +46,16 @@ const About = () => {
                 The origin
               </p>
               <p className="text-[16px] leading-[1.80] mb-6 font-medium" style={{ color: "rgba(17,17,17,0.75)" }}>
-                Lumina started from a simple observation: the brands winning on Meta weren't spending more — they were testing faster.
+                Lumina started from a simple observation: the brands winning on Meta weren't spending more — they were producing faster, and editing better.
               </p>
               <p className="text-[14px] leading-[1.80] mb-5" style={{ color: "rgba(17,17,17,0.55)" }}>
                 The old model — brief an agency, wait four weeks, receive three ads — is broken for the pace of modern DTC. By the time the creative lands, the window is already closing.
               </p>
               <p className="text-[14px] leading-[1.80] mb-5" style={{ color: "rgba(17,17,17,0.55)" }}>
-                We built Lumina to collapse that cycle. Using AI-directed production, we deliver 30 finished, platform-ready performance ads every month — in bi-weekly batches, with a creative strategy that evolves around your actual data.
+                We built Lumina to be the layer between what generation can produce and what a brand actually needs: a studio that brings the brief, the edit, and the performance judgment. The result is 30 finished ads per month — not raw files, not templates. Finished creative, edited to convert.
               </p>
               <p className="text-[14px] leading-[1.80]" style={{ color: "rgba(17,17,17,0.55)" }}>
-                Not spec work. Not templates. Real performance creative, at a volume and speed that wasn't possible before.
+                The proof isn't a pitch. It's the free creative we send you in 48 hours, before anything is signed.
               </p>
             </div>
             <div>
@@ -72,13 +72,13 @@ const About = () => {
                 </div>
               </div>
               <p className="text-[14px] leading-[1.80] mb-5" style={{ color: "rgba(17,17,17,0.55)" }}>
-                I spent years studying what separates DTC brands that scale from ones that plateau. The answer is almost always creative velocity — the ability to generate, test, and iterate faster than your competition.
+                I spent years studying what separates DTC brands that scale from ones that plateau. The answer is almost always creative — specifically, the ability to produce, test, and iterate faster than your competitors.
               </p>
               <p className="text-[14px] leading-[1.80] mb-5" style={{ color: "rgba(17,17,17,0.55)" }}>
-                When generative AI reached the point where AI-directed video was genuinely indistinguishable from live production, I realized the old bottleneck was gone. The question became: who would build the system to take advantage of it?
+                The tools that changed what's possible in production created a new problem: anyone can generate footage, but almost no one can turn it into an ad that converts. The bottleneck moved from production to editing — the hook, the pacing, the grade, the structure. That's where the real craft lives.
               </p>
               <p className="text-[14px] leading-[1.80]" style={{ color: "rgba(17,17,17,0.55)" }}>
-                Lumina is that system.
+                Lumina is the studio built around that bottleneck.
               </p>
             </div>
           </div>

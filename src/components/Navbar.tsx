@@ -30,6 +30,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    setIsHidden(false);
     const hideSection = document.querySelector('[data-navbar-hide="true"]') as HTMLElement | null;
     if (!hideSection) return;
     const onScroll = () => {

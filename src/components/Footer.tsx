@@ -13,7 +13,7 @@ const Footer = () => {
               <span className="text-[13px] font-medium" style={{ color: "#111111" }}>Lumina</span>
             </div>
             <p className="text-[12px] leading-[1.7]" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "200px" }}>
-              AI-directed creative for DTC brands on Meta.
+              Performance creative for premium DTC brands on Meta.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
               {[
                 { label: "Get a free ad", href: "/free" },
                 { label: "Start a pilot", href: "/free" },
-                { label: "Book a call", href: "/free" },
+                { label: "Start a retainer", href: "/free" },
               ].map((link) => (
                 <a
                   key={link.label}
@@ -90,7 +90,7 @@ const Footer = () => {
         <div className="flex flex-wrap items-center justify-between gap-4 pt-8" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
           <span className="text-[10px]" style={{ color: "rgba(17,17,17,0.28)" }}>© 2026 Lumina Labs</span>
           <span className="text-[10px]" style={{ color: "rgba(17,17,17,0.20)" }}>
-            Built for DTC brands that live and die by Meta creative.
+            The studio between the models and your brand.
           </span>
         </div>
       </div>

@@ -6,30 +6,30 @@ import Footer from "@/components/Footer";
 const steps = [
   {
     num: "01",
-    title: "Free ad.",
-    sub: "No contract. No call. No risk.",
-    body: "Send us a link to your product page. We review it, write the brief, direct the creative, and ship a finished performance ad in 48 hours. Yours to keep and run — whatever you decide next.",
-    detail: ["Any product category", "9:16 or 16:9 format", "Delivered in 48 hours", "No watermark"],
+    title: "Free creative.",
+    sub: "No call. No commitment. No risk.",
+    body: "Send us your product page. We study it, write the brief, direct the creative, and deliver a finished performance ad in 48 hours. Yours to keep and run. No card required, no contract, no follow-up call unless you want one.",
+    detail: ["Any product category", "9:16 or 16:9 format", "Delivered in 48 hours", "Full usage rights"],
   },
   {
     num: "02",
-    title: "Pilot, €2,500.",
-    sub: "15 ads in 14 days.",
-    body: "Before we go into production, you review and approve the creative directions — angles, formats, hooks. You know exactly what you're getting before we build it. Then we ship 15 finished ads in 14 days, in two batches.",
-    detail: ["Direction approval before production", "15 finished ads", "Delivered in 2 batches over 14 days", "Full usage rights"],
+    title: "Pilot.",
+    sub: "A defined batch. One flat price.",
+    body: "Before we produce, you review and approve the creative directions — hooks, angles, formats. You know exactly what you're getting before anything is built. Then we deliver the batch on time.",
+    detail: ["Direction approval before production", "Defined number of ads", "Full usage rights", "No monthly commitment"],
   },
   {
     num: "03",
-    title: "Retainer, €5,000/mo.",
+    title: "Retainer, from €1,500/mo.",
     sub: "30 ads a month. Cancel anytime.",
-    body: "Thirty fresh ads every month, delivered in two bi-weekly batches. We track what's working in-market, kill what's fatiguing, and brief the next round around your winners. You get a creative partner who knows your brand — not a new freelancer every time.",
+    body: "Thirty fresh ads every month, delivered in two bi-weekly batches. We track what's working in-market, retire what's fatiguing, and brief the next round around your winners. You get a creative partner who knows your brand — not a new freelancer every time.",
     detail: ["30 ads per month", "Bi-weekly delivery", "Performance tracking included", "Cancel anytime"],
   },
   {
     num: "04",
     title: "The loop.",
-    sub: "Every ad feeds the next brief.",
-    body: "We watch performance, identify fatigue before it costs you spend, and brief the replacement before the drop hits. One product, one continuous strategy — the system sharpens every week. This is what compounding creative looks like.",
+    sub: "Every result briefs the next creative.",
+    body: "We watch what's working in-market, identify fatigue before it costs you spend, and brief the replacement before the drop hits. One brand, one continuous creative strategy — the system sharpens every week. This is what compounding creative looks like.",
     detail: ["Continuous brief refinement", "Fatigue detection", "Iteration on winners", "Strategy evolves weekly"],
   },
 ];
@@ -76,11 +76,11 @@ const ProcessPage = () => {
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h1 className="font-sans-display text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.025em] max-w-[560px]" style={{ color: "#111111" }}>
-              Four steps.{" "}
-              <span className="font-serif-display italic">No deck.</span>
+              From one free ad{" "}
+              <span className="font-serif-display italic">to a creative system.</span>
             </h1>
             <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[260px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              Start with one free ad. Scale when you're ready. Cancel anytime.
+              Start with zero commitment. Scale when the work earns it.
             </p>
           </div>
         </div>
@@ -136,9 +136,9 @@ const ProcessPage = () => {
               <tbody>
                 {[
                   { label: "Delivery", lumina: "48h", agency: "4–8 weeks", ugc: "5–14 days", self: "Same day" },
-                  { label: "Cost", lumina: "€5k/mo", agency: "€10k+ min", ugc: "€200–500/video", self: "€50–200/mo" },
+                  { label: "Cost", lumina: "From €1,500/mo", agency: "€10k+ min", ugc: "€200–500/video", self: "€50–200/mo" },
                   { label: "Volume", lumina: "30/mo", agency: "3–5/cycle", ugc: "Inconsistent", self: "Unlimited" },
-                  { label: "Strategy", lumina: "Included", agency: "Extra", ugc: "None", self: "None" },
+                  { label: "Quality", lumina: "Studio-edited", agency: "Studio-edited", ugc: "Creator-level", self: "Generic" },
                   { label: "Loop", lumina: "Built-in", agency: "None", ugc: "None", self: "Manual" },
                 ].map((row) => (
                   <tr key={row.label} style={{ borderBottom: "1px solid rgba(0,0,0,0.05)" }}>

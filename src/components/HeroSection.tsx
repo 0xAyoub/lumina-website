@@ -124,7 +124,7 @@ const HeroSection = () => {
           }}
         >
           <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[380px] mb-4 mx-auto">
-            A creative engine for DTC brands on Meta.
+            The creative studio that turns generation into ads that convert.
           </p>
 
           <div className="flex gap-3 justify-center items-center">

@@ -8,35 +8,35 @@ const pieces = [
     label: "Oura Ring — Spec",
     category: "Wearable",
     format: "9:16",
-    desc: "A woman mid-run. A glance at her ring. A readiness score that changes how she trains. Shot by AI in 48 hours — no crew, no set, no wasted week.",
+    desc: "A woman mid-run. A glance at the ring. The moment the data changes how she trains. Hook, pacing, and color graded to feel filmed — delivered in 48 hours.",
     video: "/oura-ad.mp4",
   },
   {
     label: "Jewelry — Campaign",
     category: "Luxury",
     format: "16:9",
-    desc: "This is the kind of ad a luxury jewelry brand spends €400K and 6 weeks to shoot. We produce the same result in 48 hours — no studio, no crew, no travel.",
+    desc: "The visual language of a €400K campaign. No studio, no crew, no travel. The craft is in the edit — the grade, the pacing, the material texture that reads as real.",
     video: "/jewelry-ad.mp4",
   },
   {
     label: "Nara Baby — Spec",
     category: "Baby / Nutrition",
     format: "9:16",
-    desc: "A mother turns two cans around. Reads the back of the competitor. Reads the back of Nara. No music. No founder voiceover. The ingredient label closes the sale.",
+    desc: "No music. No founder voiceover. A mother turns two cans around, reads the back of each. The ingredient label closes the sale. The edit creates the tension.",
     video: "/nara-ad.mp4",
   },
   {
     label: "Skincare — Campaign",
     category: "Beauty",
     format: "9:16",
-    desc: "Minimalist Inc asked for a campaign that feels honest, textural, skin-close. No model. No studio. AI-directed light, real product, cinematic result.",
+    desc: "Honest, textural, skin-close. The brief was: let the product do the work. The edit is minimal — fast cuts, natural light, real texture. Nothing that could run for another brand.",
     video: "/skincare-ad.mp4",
   },
   {
     label: "Impossible Shots",
     category: "Demo",
     format: "16:9",
-    desc: "Liquid metal. Gravity-defying product reveals. Microscopic textures expanding into cinematic landscapes. Every frame here is physically impossible to film.",
+    desc: "Liquid metal. Gravity-defying reveals. Microscopic textures expanding into cinematic landscapes. Shots no production budget could film. The differentiation is the format choice.",
     video: "/bose-ad.mp4",
   },
 ];
@@ -57,11 +57,11 @@ const Work = () => {
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h1 className="font-sans-display text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.025em]" style={{ color: "#111111" }}>
-              Every frame.{" "}
-              <span className="font-serif-display italic">Indistinguishable from reality.</span>
+              The edit{" "}
+              <span className="font-serif-display italic">is what converts.</span>
             </h1>
             <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[280px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              Spec work and client campaigns — all produced without a studio, without a crew, in 48 hours.
+              Spec work and client campaigns — edited for performance, delivered in 48 hours, without a studio or crew.
             </p>
           </div>
         </div>
@@ -113,10 +113,10 @@ const Work = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 className="font-sans-display text-[22px] md:text-[32px] leading-[1.1] tracking-[-0.02em] mb-2" style={{ color: "#111111" }}>
-                Want one for your brand?
+                See what we do for yours.
               </h2>
               <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-                Send your product page. Get a finished ad in 48h. Free.
+                Send your product page. Get a finished ad in 48 hours. Free.
               </p>
             </div>
             <Link

@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why Your Best Ad Dies in 9 Days",
     date: "2026-05-20",
     category: "Creative Strategy",
-    excerpt: "Meta's algorithm is designed to exhaust your creative. Here's what happens after the honeymoon phase — and what the fastest-growing DTC brands do about it.",
+    excerpt: "Meta's delivery system is designed to exhaust your creative. Here's what happens after the first week — and what the fastest-scaling brands do about it.",
     readTime: "5 min read",
     body: `Every time you launch a new ad on Meta, you get a window. The algorithm is curious. It tests your creative against new audiences, learns who clicks, who buys. For a few days, your ROAS looks good. Sometimes great.
 
@@ -67,7 +67,7 @@ The nine-day cliff doesn't disappear. But when you're shipping faster than it hi
     title: "The Math Behind 30 Ads a Month",
     date: "2026-05-06",
     category: "Operations",
-    excerpt: "Why traditional creative production breaks down at scale, and what a system designed for volume actually looks like in practice.",
+    excerpt: "Why traditional creative production breaks at volume, and what a system designed to ship 30 ads a month actually looks like in practice.",
     readTime: "4 min read",
     body: `Thirty ads a month sounds like a lot. Most brands produce fewer than five. So when we say that number, we usually get one of two reactions: "How is that even possible?" or "That must mean low quality."
 
@@ -81,7 +81,7 @@ Brief → Creative director review → Concept approval → Production brief →
 
 That's seven handoffs at minimum. Each one adds days. By the time the ad ships, three to five weeks have passed. The window it was designed for may have closed.
 
-At €5,000 to €15,000 per creative, you can afford maybe two or three ads per month before the budget breaks. And because each one cost so much, every ad carries enormous pressure to perform — which makes brands conservative, which means fewer angles tested, which means slower learning.
+At €3,000 to €15,000 per creative, you can afford maybe two or three ads per month before the budget breaks. And because each one cost so much, every ad carries enormous pressure to perform — which makes brands conservative, which means fewer angles tested, which means slower learning.
 
 Traditional production is designed for prestige, not velocity.
 
@@ -112,7 +112,7 @@ Thirty ads a month isn't reckless. It's the minimum viable creative surface to l
     title: "What Makes a Hook Work on Meta in 2026",
     date: "2026-04-18",
     category: "Creative",
-    excerpt: "The first three seconds of a Meta ad determine everything. Here's what we've learned from building hundreds of them — and what's changed.",
+    excerpt: "The first three seconds determine everything. Here's what makes a hook work in practice in 2026 — and what stopped working.",
     readTime: "6 min read",
     body: `The first three seconds of a Meta ad are the only three seconds that matter.
 

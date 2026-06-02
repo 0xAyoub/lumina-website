@@ -8,29 +8,29 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const works = [
   {
     label: "Oura Ring — Spec",
-    desc: "A woman mid-run. A glance at her ring. Shot in 48 hours.",
+    desc: "A woman mid-run. A glance at the ring. The moment the data changes how she trains.",
     video: "/oura-ad.mp4",
     aspect: "9:16" as const,
   },
   {
     label: "Jewelry — Campaign",
-    desc: "Cartier-grade production. No set, no crew, no travel.",
+    desc: "The visual language of a €400K campaign. Delivered in 48 hours.",
     video: "/jewelry-ad.mp4",
     aspect: "16:9" as const,
   },
   {
     label: "Nara Baby — Spec",
-    desc: "The ingredient label closes the sale. No voiceover.",
+    desc: "No voiceover. No founder. The ingredient label closes the sale.",
     video: "/nara-ad.mp4",
     aspect: "9:16" as const,
   },
 ];
 
 const stats = [
-  { value: "48h", label: "First ad delivered" },
-  { value: "30", label: "Ads per month" },
-  { value: "€0", label: "Studio or crew" },
-  { value: "200+", label: "Ads per year, per brand" },
+  { value: "48h", label: "First creative delivered" },
+  { value: "30", label: "Ads per month on retainer" },
+  { value: "Weekly", label: "Fresh creative in-market" },
+  { value: "€0", label: "To see the first result" },
 ];
 
 const Index = () => {
@@ -71,8 +71,8 @@ const Index = () => {
                   Selected work
                 </p>
                 <h2 className="font-sans-display text-[26px] md:text-[38px] leading-[1.08] tracking-[-0.022em]" style={{ color: "#111111" }}>
-                  Every frame.{" "}
-                  <span className="font-serif-display italic">Indistinguishable from reality.</span>
+                  The edit{" "}
+                  <span className="font-serif-display italic">is the work.</span>
                 </h2>
               </div>
               <Link
@@ -128,11 +128,11 @@ const Index = () => {
                   The service
                 </p>
                 <h2 className="font-sans-display text-[26px] md:text-[36px] leading-[1.08] tracking-[-0.02em] mb-6" style={{ color: "#111111" }}>
-                  A creative engine.{" "}
-                  <span className="font-serif-display italic">Not an agency.</span>
+                  A creative studio.{" "}
+                  <span className="font-serif-display italic">Not a tool.</span>
                 </h2>
                 <p className="text-[14px] leading-[1.75] mb-8" style={{ color: "rgba(17,17,17,0.50)" }}>
-                  We produce 30 performance ads a month — founder hooks, before/afters, problem-agitation, comparisons, pattern-interrupts. Every format your buyer scrolls, in every ratio. Directed by hand, delivered in days.
+                  We produce 30 performance ads a month — hooks, comparisons, problem-agitation, product close-ups, impossible-to-film shots. Every format your buyer scrolls, every ratio. Edited for conversion, delivered in days.
                 </p>
                 <Link
                   to="/process"
@@ -146,10 +146,10 @@ const Index = () => {
               <div className="reveal" data-delay="80">
                 <div className="flex flex-col gap-px" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
                   {[
-                    { step: "01", text: "Send your product page. Get one ad free in 48h." },
-                    { step: "02", text: "Pilot: 15 ads in 14 days. Directions approved first." },
-                    { step: "03", text: "Retainer: 30 ads a month. Cancel anytime." },
-                    { step: "04", text: "The loop: every fatigued ad feeds the next brief." },
+                    { step: "01", text: "Send your product page. Get one finished ad free in 48h." },
+                    { step: "02", text: "Pilot: a batch of ads, one-off, no commitment." },
+                    { step: "03", text: "Retainer: from €1,500/mo. 30 ads. Cancel anytime." },
+                    { step: "04", text: "The loop: every fatigued ad briefs the next one." },
                   ].map((item) => (
                     <div
                       key={item.step}
