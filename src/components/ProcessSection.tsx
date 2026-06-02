@@ -4,26 +4,20 @@ const steps = [
   {
     num: "01",
     title: "Free ad.",
-    body: "Send us a link to your product page. No call, no contract, no payment. We build a finished ad in 48 hours and send it over — yours to keep and run, whatever you decide.",
+    body: "Send us a link to your product page. We write the brief, direct the creative, and deliver one finished ad in 48 hours. No call, no contract, no card. Yours to keep.",
     cta: "Get my free ad",
   },
   {
     num: "02",
-    title: "Pilot, €2,500.",
-    body: "15 performance ads in 14 days. Before we go into production, you approve the creative directions — angles, formats, hooks. You know exactly what's coming before we ship it.",
-    cta: "Start the pilot",
-  },
-  {
-    num: "03",
     title: "Retainer, from €1,500/mo.",
-    body: "30 fresh ads every month, delivered in two bi-weekly batches. We track what's working in-market, retire what's fatiguing, and brief the next round around your winners. Cancel anytime.",
+    body: "A weekly batch of 10 to 15 finished ads. You approve the creative angles on Monday. We deliver every Friday. We track what's working, retire what's fatiguing, and brief the next round around your winners.",
     cta: "Start the retainer",
   },
   {
-    num: "04",
+    num: "03",
     title: "The loop.",
-    body: "Every ad feeds the next brief. We watch performance, spot fatigue before it costs you spend, and brief the replacement before the drop hits. One product, one strategy — compounding every week.",
-    cta: "See the loop",
+    body: "Every ad feeds the next brief. We watch performance, identify fatigue before it costs you spend, and replace what's dying before the drop hits. One strategy, compounding every week.",
+    cta: "See the work",
   },
 ];
 
@@ -50,7 +44,7 @@ const ProcessSection = () => {
             className="font-sans-display text-[22px] md:text-[38px] leading-[1.1] tracking-[-0.018em]"
             style={{ color: "#111111" }}
           >
-            Four steps. No deck.
+            Three steps. No deck.
           </h2>
         </div>
 

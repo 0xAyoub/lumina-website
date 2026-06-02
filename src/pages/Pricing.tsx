@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 const tiers = [
   {
     name: "Free Creative",
-    price: "€0",
+    price: "$0",
     period: "one time",
     desc: "One finished ad for your brand, delivered in 48 hours. No call, no payment, no contract. The proof before anything else.",
     includes: [
@@ -21,29 +21,13 @@ const tiers = [
     highlight: false,
   },
   {
-    name: "Pilot",
-    price: "Flat rate",
-    period: "one time",
-    desc: "A defined batch of finished ads at a flat price. You approve creative directions before we build anything — no surprises, no subscription.",
-    includes: [
-      "Defined batch of finished ads",
-      "Direction approval before production",
-      "Mix of 9:16 and 16:9",
-      "Full usage rights",
-      "No monthly commitment",
-    ],
-    cta: "Start a pilot",
-    href: "/free",
-    highlight: false,
-  },
-  {
     name: "Retainer",
-    price: "From €1,500",
+    price: "From $1,500",
     period: "/ month",
-    desc: "30 ads a month, bi-weekly. We track what's working, retire what's fatiguing, and brief the next round around your winners. Cancel anytime.",
+    desc: "A weekly batch of 10 to 15 ads. You approve creative angles on Monday. We deliver every Friday. We track what works, retire what fatigues, and brief the next round around your winners. Cancel anytime.",
     includes: [
-      "30 ads per month",
-      "Bi-weekly delivery",
+      "10 to 15 ads per week",
+      "Weekly Friday delivery",
       "Direction approval each batch",
       "Performance tracking",
       "Brief iteration on winners",
@@ -61,16 +45,16 @@ const faqs = [
     a: "Yes. No card, no contract, no catch. We produce one finished ad for your brand and send it over. If you want to go further, we talk.",
   },
   {
-    q: "What does the pilot cost?",
-    a: "The pilot is a flat-rate project — price depends on the scope and number of ads. Send a message and we'll give you a number in 24 hours.",
-  },
-  {
     q: "What's included in the creative direction?",
-    a: "We write the brief, choose the hook format, direct the visual language, write the copy, and produce the full edit — pacing, sound, color grade. You don't need to provide a brief or assets.",
+    a: "We write the brief, choose the hook format, direct the visual language, write the copy, and produce the full edit: pacing, sound, color grade. You don't need to provide a brief or assets.",
   },
   {
-    q: "Can I do a pilot without the free ad first?",
-    a: "Yes. The free ad is the lowest-friction entry point, but if you've seen our work and want to move, we can go straight to a pilot.",
+    q: "How does the weekly batch work?",
+    a: "You approve the creative angles on Monday. We go into production and deliver the full batch every Friday. Each batch is briefed around what's working in-market and what's starting to fatigue.",
+  },
+  {
+    q: "How do you track performance?",
+    a: "We use Meta Ads Manager data you share with us. We look at hook rate, hold rate, CTR, and ROAS to decide what to iterate, what to scale, and what to retire.",
   },
   {
     q: "What if I want to cancel the retainer?",
@@ -78,7 +62,11 @@ const faqs = [
   },
   {
     q: "Do you work with brands outside Europe?",
-    a: "Yes. We work with DTC brands globally. Pricing is in euros but we can invoice in USD or GBP.",
+    a: "Yes. We work with DTC brands globally. Pricing is in dollars but we can invoice in euros or GBP.",
+  },
+  {
+    q: "What categories do you work with?",
+    a: "Premium DTC brands on Meta: beauty, skincare, supplements, food, apparel, baby products, wearables, home goods. Physical product with buyers on Meta.",
   },
 ];
 
@@ -108,7 +96,7 @@ const Pricing = () => {
 
         {/* Tiers */}
         <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
-          <div className="grid md:grid-cols-3 gap-px" style={{ backgroundColor: "rgba(0,0,0,0.07)" }}>
+          <div className="grid md:grid-cols-2 gap-px" style={{ backgroundColor: "rgba(0,0,0,0.07)" }}>
             {tiers.map((tier) => (
               <div
                 key={tier.name}
@@ -176,46 +164,12 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* What's included */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-10 md:py-14" style={{ borderTop: "1px solid rgba(0,0,0,0.07)", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                label: "All plans include",
-                items: ["Brief written by us", "Full creative direction", "Production & post-production edit", "Full usage rights"],
-              },
-              {
-                label: "Retainer also includes",
-                items: ["Performance tracking", "Brief iteration on winners", "Batch planning", "Fatigue monitoring"],
-              },
-              {
-                label: "We don't charge for",
-                items: ["Revisions on approved direction", "Format variations", "Platform resizes", "Extra concepts within the batch"],
-              },
-            ].map((col) => (
-              <div key={col.label}>
-                <p className="text-[11px] font-medium uppercase tracking-[0.08em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>
-                  {col.label}
-                </p>
-                <div className="flex flex-col gap-2">
-                  {col.items.map((item) => (
-                    <div key={item} className="flex items-center gap-2.5">
-                      <span className="w-1 h-1 flex-shrink-0" style={{ backgroundColor: "rgba(17,17,17,0.25)" }} />
-                      <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.60)" }}>{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* FAQ */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+        <div className="w-full px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ borderTop: "1px solid rgba(0,0,0,0.07)", borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
           <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-10" style={{ color: "rgba(17,17,17,0.35)" }}>
             Common questions
           </p>
-          <div className="max-w-[640px]">
+          <div>
             {faqs.map((faq, i) => (
               <div key={i} style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
                 <button
@@ -243,7 +197,7 @@ const Pricing = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 className="font-sans-display text-[22px] md:text-[32px] leading-[1.1] tracking-[-0.02em] mb-2" style={{ color: "#111111" }}>
-                Not sure which tier?
+                Not sure yet?
               </h2>
               <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.45)" }}>
                 Start free. You'll know after you see the first ad.

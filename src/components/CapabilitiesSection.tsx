@@ -2,15 +2,15 @@ import { useRef, useEffect, useState } from "react";
 
 const capabilities = [
   {
-    label: "Oura Ring — Spec",
+    label: "Oura Ring",
     short: "Performance creative for a category-defining wearable.",
-    desc: "A woman mid-run. A glance at the ring. The moment the data changes how she trains. Hook, pacing, and color grade — delivered in 48 hours, no crew, no set.",
+    desc: "A woman mid-run. A glance at the ring. The moment the data changes how she trains. Hook, pacing, and color grade, delivered in 48 hours, no crew, no set.",
     video: "/oura-ad.mp4",
     placeholder: null,
     aspect: "9:16" as const,
   },
   {
-    label: "Nara Baby — Spec",
+    label: "Nara Baby",
     short: "The label does the work.",
     desc: "A mother turns two cans around. Reads the back of the competitor. Reads the back of Nara. No music. No founder voiceover. The ingredient label closes the sale.",
     video: "/nara-ad.mp4",
@@ -18,17 +18,17 @@ const capabilities = [
     aspect: "9:16" as const,
   },
   {
-    label: "Jewelry — Campaign",
+    label: "Jewelry Campaign",
     short: "Cartier-grade. No set, no crew.",
-    desc: "This is the kind of ad a luxury jewelry brand spends $400K and 6 weeks to shoot. We produce the same result in 48 hours — no studio, no crew, no travel. Same visual language. Infinite scale.",
+    desc: "This is the kind of ad a luxury jewelry brand spends $400K and 6 weeks to shoot. We produce the same result in 48 hours. No studio, no crew, no travel. Same visual language. Infinite scale.",
     video: "/jewelry-ad.mp4",
     placeholder: null,
     aspect: "16:9" as const,
   },
   {
-    label: "Skincare — Campaign",
+    label: "Skincare Campaign",
     short: "Clean beauty, start to finish.",
-    desc: "A campaign that feels honest, textural, skin-close. No model, no studio. Directed light, real product, cinematic result — at a fraction of a traditional shoot.",
+    desc: "A campaign that feels honest, textural, skin-close. No model, no studio. Directed light, real product, cinematic result, at a fraction of a traditional shoot.",
     video: "/skincare-ad.mp4",
     placeholder: null,
     aspect: "9:16" as const,
@@ -36,7 +36,7 @@ const capabilities = [
   {
     label: "Impossible Shots",
     short: "Visuals no real set could capture.",
-    desc: "Liquid metal. Gravity-defying product reveals. Microscopic textures expanding into cinematic landscapes. Every frame here is physically impossible to film — and we deliver them on demand.",
+    desc: "Liquid metal. Gravity-defying product reveals. Microscopic textures expanding into cinematic landscapes. Every frame here is physically impossible to film, and we deliver them on demand.",
     video: "/bose-ad.mp4",
     placeholder: null,
     aspect: "16:9" as const,
@@ -199,9 +199,9 @@ const CapabilitiesSection = () => {
               </p>
               <div className="flex items-end justify-between gap-6">
                 <h2 className="font-sans-display text-[28px] md:text-[32px] lg:text-[34px] leading-[1.1] tracking-[-0.018em]" style={{ color: "#111111" }}>
-                  Every frame.{" "}
+                  Every frame,{" "}
                   <span className="font-serif-display italic" style={{ color: "#111111" }}>
-                    Indistinguishable from reality.
+                    built to stop the scroll.
                   </span>
                 </h2>
                 <a

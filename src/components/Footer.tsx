@@ -13,7 +13,7 @@ const Footer = () => {
               <span className="text-[13px] font-medium" style={{ color: "#111111" }}>Lumina</span>
             </div>
             <p className="text-[12px] leading-[1.7]" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "200px" }}>
-              Performance creative for premium DTC brands on Meta.
+              Creative that converts, for premium brands.
             </p>
           </div>
 
@@ -52,7 +52,6 @@ const Footer = () => {
             <div className="flex flex-col gap-2.5">
               {[
                 { label: "Get a free ad", href: "/free" },
-                { label: "Start a pilot", href: "/free" },
                 { label: "Start a retainer", href: "/free" },
               ].map((link) => (
                 <a

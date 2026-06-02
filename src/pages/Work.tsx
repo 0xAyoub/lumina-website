@@ -5,34 +5,39 @@ import Footer from "@/components/Footer";
 
 const pieces = [
   {
-    label: "Oura Ring — Spec",
+    num: "01",
+    label: "Oura Ring",
     category: "Wearable · 9:16",
     desc: "Hook, pacing, and color grade edited to feel filmed. No crew, no set, no delay.",
     video: "/oura-ad.mp4",
     format: "9:16",
   },
   {
-    label: "Jewelry — Campaign",
+    num: "02",
+    label: "Jewelry Campaign",
     category: "Luxury · 16:9",
     desc: "The visual language of a €400K campaign. Delivered in 48 hours.",
     video: "/jewelry-ad.mp4",
     format: "16:9",
   },
   {
-    label: "Nara Baby — Spec",
+    num: "03",
+    label: "Nara Baby",
     category: "Baby / Nutrition · 9:16",
     desc: "No voiceover. No founder. The ingredient label closes the sale.",
     video: "/nara-ad.mp4",
     format: "9:16",
   },
   {
-    label: "Skincare — Campaign",
+    num: "04",
+    label: "Skincare Campaign",
     category: "Beauty · 9:16",
     desc: "Honest, textural, skin-close. Nothing that could run for another brand.",
     video: "/skincare-ad.mp4",
     format: "9:16",
   },
   {
+    num: "05",
     label: "Impossible Shots",
     category: "Demo · 16:9",
     desc: "Shots no production budget can film. The format choice is the differentiation.",
@@ -66,50 +71,92 @@ const Work = () => {
           </div>
         </div>
 
-        {/* Grid */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
-            {pieces.map((p, i) => (
-              <div key={p.label} className={p.format === "16:9" && i === 1 ? "md:col-span-2" : ""}>
-                <button
-                  className="w-full text-left group"
-                  onClick={() => { setModal(i); setMuted(true); }}
-                >
+        {/* Work list */}
+        <div className="w-full px-6 md:px-12 lg:px-20">
+          {pieces.map((p, i) => (
+            <div
+              key={p.label}
+              style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}
+            >
+              <button
+                className="w-full text-left group py-8 md:py-10"
+                onClick={() => { setModal(i); setMuted(true); }}
+              >
+                <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+
+                  {/* Number */}
+                  <span
+                    className="flex-shrink-0 font-sans-display text-[13px] md:text-[14px] tabular-nums pt-0.5"
+                    style={{ color: "rgba(17,17,17,0.25)", minWidth: "28px" }}
+                  >
+                    {p.num}
+                  </span>
+
+                  {/* Thumbnail */}
                   <div
-                    className="relative overflow-hidden mb-4 w-full"
+                    className="flex-shrink-0 relative overflow-hidden"
                     style={{
-                      aspectRatio: p.format === "16:9" ? "16/9" : "9/16",
-                      maxHeight: p.format === "9:16" ? "520px" : "none",
+                      width: "100%",
+                      maxWidth: "340px",
+                      aspectRatio: p.format === "16:9" ? "16/9" : "4/3",
                       backgroundColor: "rgba(0,0,0,0.05)",
                     }}
                   >
                     <video
                       autoPlay muted loop playsInline
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                      className="w-full h-full object-cover"
                       src={p.video}
                       onCanPlay={e => { (e.currentTarget as HTMLVideoElement).play().catch(() => {}); }}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: "rgba(0,0,0,0.15)" }}>
-                      <span className="text-white text-[11px] font-medium tracking-[0.06em] uppercase">Watch</span>
+                    {/* Hover overlay */}
+                    <div
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ backgroundColor: "rgba(0,0,0,0.45)" }}
+                    >
+                      <div
+                        className="flex items-center justify-center w-11 h-11 scale-90 group-hover:scale-100 transition-transform duration-300"
+                        style={{ border: "1px solid rgba(255,255,255,0.6)" }}
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+                          <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-start justify-between gap-4">
+
+                  {/* Meta */}
+                  <div className="flex-1 min-w-0 flex flex-col justify-between gap-4">
                     <div>
-                      <p className="text-[14px] font-medium mb-1" style={{ color: "#111111" }}>{p.label}</p>
-                      <p className="text-[12px] leading-[1.6]" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "400px" }}>{p.desc}</p>
+                      <p className="font-sans-display text-[18px] md:text-[22px] leading-[1.15] tracking-[-0.015em] mb-2 group-hover:opacity-60 transition-opacity duration-200" style={{ color: "#111111" }}>
+                        {p.label}
+                      </p>
+                      <p className="text-[13px] leading-[1.7]" style={{ color: "rgba(17,17,17,0.50)" }}>
+                        {p.desc}
+                      </p>
                     </div>
-                    <span className="flex-shrink-0 text-[10px] uppercase tracking-[0.08em] pt-0.5 text-right" style={{ color: "rgba(17,17,17,0.30)" }}>
+                    <span className="text-[10px] font-medium uppercase tracking-[0.08em]" style={{ color: "rgba(17,17,17,0.30)" }}>
                       {p.category}
                     </span>
                   </div>
-                </button>
-              </div>
-            ))}
-          </div>
+
+                  {/* Arrow */}
+                  <div className="hidden md:flex flex-shrink-0 items-center self-center">
+                    <span
+                      className="text-[13px] opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1 transform"
+                      style={{ color: "rgba(17,17,17,0.40)" }}
+                    >
+                      →
+                    </span>
+                  </div>
+
+                </div>
+              </button>
+            </div>
+          ))}
         </div>
 
         {/* CTA */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-20" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
+        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-20">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 className="font-sans-display text-[22px] md:text-[32px] leading-[1.1] tracking-[-0.02em] mb-2" style={{ color: "#111111" }}>
@@ -154,7 +201,7 @@ const Work = () => {
               />
               <button
                 onClick={() => setModal(null)}
-                className="absolute top-3 left-3 w-8 h-8 flex items-center justify-center hover:opacity-70"
+                className="absolute top-3 left-3 w-8 h-8 flex items-center justify-center hover:opacity-70 transition-opacity"
                 style={{ backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)" }}
               >
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -163,7 +210,7 @@ const Work = () => {
               </button>
               <button
                 onClick={() => setMuted(v => !v)}
-                className="absolute bottom-3 right-3 w-8 h-8 flex items-center justify-center hover:opacity-70"
+                className="absolute bottom-3 right-3 w-8 h-8 flex items-center justify-center hover:opacity-70 transition-opacity"
                 style={{ backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)" }}
               >
                 {muted ? (

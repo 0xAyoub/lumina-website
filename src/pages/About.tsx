@@ -2,103 +2,108 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const points = [
-  {
-    label: "The edit is the product.",
-    body: "Generating footage is now accessible to anyone. The bottleneck moved to editing — the hook structure, pacing, sound, and color grade that turn raw material into something that converts. That's where our craft lives.",
-  },
-  {
-    label: "Volume and quality are not opposites.",
-    body: "30 ads a month doesn't mean 30 compromises. It means 30 deliberate creative decisions, tested in-market, feeding the next brief. The system produces better creative over time, not worse.",
-  },
-  {
-    label: "The proof comes first.",
-    body: "We don't sell you on the work before you see it. First ad is free, delivered in 48 hours, no call required. If it's good, you'll know. If it's not, you owe us nothing.",
-  },
-];
-
 const About = () => {
   return (
     <>
       <Navbar />
       <main className="bg-white pt-24 md:pt-28">
 
-        {/* Header */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>
+        {/* Hero */}
+        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-24" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8" style={{ color: "rgba(17,17,17,0.35)" }}>
             About
           </p>
-          <h1 className="font-sans-display text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.025em] max-w-[680px]" style={{ color: "#111111" }}>
-            The studio between generation{" "}
-            <span className="font-serif-display italic">and your brand.</span>
+          <h1 className="font-sans-display text-[40px] md:text-[72px] lg:text-[88px] leading-[0.98] tracking-[-0.03em] max-w-[900px]" style={{ color: "#111111" }}>
+            Two people.{" "}
+            <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.45)" }}>One studio.</span>
           </h1>
         </div>
 
         {/* Mission */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-20">
+        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-24" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+          <p className="font-sans-display text-[20px] md:text-[32px] leading-[1.3] tracking-[-0.018em] max-w-[760px]" style={{ color: "#111111", fontWeight: 400 }}>
+            We built Lumina because the tools changed but the workflow didn't. Generation is now accessible to anyone. The bottleneck moved to the edit, and that's where we operate.
+          </p>
+        </div>
+
+        {/* Founders */}
+        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-24" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+
+            {/* Margot */}
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-6" style={{ color: "rgba(17,17,17,0.35)" }}>
-                What we are
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-9 h-9 flex items-center justify-center bg-black text-white text-[12px] font-medium flex-shrink-0">
+                  M
+                </div>
+                <div>
+                  <p className="text-[14px] font-medium" style={{ color: "#111111" }}>Margot Gress</p>
+                  <p className="text-[11px]" style={{ color: "rgba(17,17,17,0.40)" }}>Co-founder, Creative Direction</p>
+                </div>
+              </div>
+              <p className="text-[15px] leading-[1.85] mb-5" style={{ color: "rgba(17,17,17,0.60)" }}>
+                Margot runs creative strategy at Publicis and studies at Sup de Pub, one of the top advertising schools in France. She's spent years learning what makes creative work and what makes it convert.
               </p>
-              <p className="text-[16px] leading-[1.80] mb-5 font-medium" style={{ color: "rgba(17,17,17,0.75)" }}>
-                Lumina is a creative studio for premium DTC brands on Meta.
-              </p>
-              <p className="text-[14px] leading-[1.80] mb-5" style={{ color: "rgba(17,17,17,0.55)" }}>
-                We produce 30 finished, performance-edited ads per month — hooks, comparisons, product close-ups, impossible-to-film shots — in two bi-weekly batches. Delivered as finished creative, not raw files.
-              </p>
-              <p className="text-[14px] leading-[1.80]" style={{ color: "rgba(17,17,17,0.55)" }}>
-                The brands winning on Meta aren't spending more. They're producing faster, testing more, and iterating around what actually converts. That's the system we built.
+              <p className="text-[15px] leading-[1.85]" style={{ color: "rgba(17,17,17,0.60)" }}>
+                At Lumina, she sets the direction: the brief, the hook, the angle, the judgment call on what the AI produces. She knows what good looks like, and she won't ship anything that doesn't.
               </p>
             </div>
 
+            {/* Ayoub */}
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-6" style={{ color: "rgba(17,17,17,0.35)" }}>
-                The founder
-              </p>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-10 h-10 flex items-center justify-center bg-black text-white text-[13px] font-medium flex-shrink-0">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-9 h-9 flex items-center justify-center bg-black text-white text-[12px] font-medium flex-shrink-0">
                   A
                 </div>
                 <div>
-                  <p className="text-[13px] font-medium" style={{ color: "#111111" }}>Ayoub</p>
-                  <p className="text-[11px]" style={{ color: "rgba(17,17,17,0.40)" }}>Founder, Lumina Labs</p>
+                  <p className="text-[14px] font-medium" style={{ color: "#111111" }}>Ayoub</p>
+                  <p className="text-[11px]" style={{ color: "rgba(17,17,17,0.40)" }}>Co-founder, Production & Engineering</p>
                 </div>
               </div>
-              <p className="text-[14px] leading-[1.80] mb-5" style={{ color: "rgba(17,17,17,0.55)" }}>
-                I built Lumina because I saw the same pattern in every brand that plateaued: they couldn't produce fast enough to test, and they couldn't test fast enough to learn.
+              <p className="text-[15px] leading-[1.85] mb-5" style={{ color: "rgba(17,17,17,0.60)" }}>
+                Ayoub is the video editor and engineer behind Lumina. He built the production stack that lets us generate, cut, and deliver at a pace no traditional studio can match.
               </p>
-              <p className="text-[14px] leading-[1.80]" style={{ color: "rgba(17,17,17,0.55)" }}>
-                The new production tools removed the old bottleneck. The new bottleneck is the edit — the brief, the structure, the pacing that turns footage into conversion. That's where we operate.
+              <p className="text-[15px] leading-[1.85]" style={{ color: "rgba(17,17,17,0.60)" }}>
+                The system exists to give Margot's judgment more surface area. More formats, more hooks, more angles, shipped faster. The output is only as good as the craft behind it.
               </p>
               <a
                 href="mailto:ayoub@withluminalabs.com"
-                className="inline-block mt-5 text-[12px] transition-opacity hover:opacity-60"
+                className="inline-block mt-6 text-[12px] transition-opacity hover:opacity-60"
                 style={{ color: "rgba(17,17,17,0.45)" }}
               >
                 ayoub@withluminalabs.com →
               </a>
             </div>
+
           </div>
         </div>
 
-        {/* How we work */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+        {/* What we believe */}
+        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-24" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
           <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-10" style={{ color: "rgba(17,17,17,0.35)" }}>
-            How we work
+            What we believe
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {points.map((p) => (
-              <div
-                key={p.label}
-                className="p-7"
-                style={{ backgroundColor: "rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.06)" }}
-              >
-                <h3 className="font-sans-display text-[18px] leading-[1.2] tracking-[-0.015em] mb-3" style={{ color: "#111111" }}>
-                  {p.label}
+          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+            {[
+              {
+                heading: "The edit is the product.",
+                body: "Generating footage is accessible to anyone now. The bottleneck is the edit: the hook, the pacing, the structure that turns raw material into something that converts. That's where we operate.",
+              },
+              {
+                heading: "Volume and quality are not opposites.",
+                body: "A weekly batch doesn't mean compromise. It means deliberate creative decisions, tested in-market, feeding the next brief. The system produces better creative over time, not worse.",
+              },
+              {
+                heading: "The proof comes first.",
+                body: "We don't sell the work before you see it. First ad is free, delivered in 48 hours, no call required. If it's good, you'll know. If it's not, you owe us nothing.",
+              },
+            ].map((item) => (
+              <div key={item.heading}>
+                <h3 className="font-sans-display text-[17px] leading-[1.2] tracking-[-0.012em] mb-4" style={{ color: "#111111" }}>
+                  {item.heading}
                 </h3>
-                <p className="text-[13px] leading-[1.75]" style={{ color: "rgba(17,17,17,0.55)" }}>
-                  {p.body}
+                <p className="text-[13px] leading-[1.8]" style={{ color: "rgba(17,17,17,0.55)" }}>
+                  {item.body}
                 </p>
               </div>
             ))}

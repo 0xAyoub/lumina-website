@@ -10,10 +10,10 @@ const features = [
   {
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" />
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
       </svg>
     ),
-    label: "Pilot: 15 ads in 14 days.",
+    label: "Weekly batch of 10 to 15 ads, delivered every Friday.",
   },
   {
     icon: (
@@ -21,15 +21,15 @@ const features = [
         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
       </svg>
     ),
-    label: "Retainer: 30 ads a month, in bi-weekly batches.",
+    label: "Every winner gets re-cut into variants before it fatigues.",
   },
   {
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="2" y1="2" x2="22" y2="22" /><path d="M7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16" /><path d="M9.5 4h5L17 7h3a2 2 0 0 1 2 2v7.5" /><path d="M14.5 4v3" />
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
       </svg>
     ),
-    label: "Every fatigued ad gets re-cut, re-hooked, and re-shipped — built from work you've already paid for.",
+    label: "Every creative choice is documented so the brief compounds.",
   },
 ];
 
@@ -74,6 +74,14 @@ const capTiles = [
     ),
     label: "Pattern-Interrupt",
   },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    ),
+    label: "Impossible Shots",
+  },
 ];
 
 const LongArrow = () => (
@@ -103,9 +111,9 @@ const SolutionSection = () => {
               className="font-sans-display text-[28px] md:text-[42px] leading-[1.1] tracking-[-0.018em] mb-5 reveal"
               style={{ color: "#111111" }}
             >
-              30 finished ads a month.
+              A fresh batch every week.
               <br />
-              <span className="font-serif-display italic">You test more. You win more.</span>
+              <span className="font-serif-display italic">Heroes that win, variants that test.</span>
 
             </h2>
             <p
@@ -113,9 +121,7 @@ const SolutionSection = () => {
               style={{ color: "rgba(17,17,17,0.5)" }}
               data-delay="80"
             >
-              Hooks, problem-agitation, before/after, comparisons, product close-ups — every format your buyer scrolls, in every ratio.
-              <br /><br />
-              Studio-grade creative, produced without the studio. The brief, the edit, the strategy — handled.
+              We produce the hooks, the comparisons, the product close-ups, and the impossible shots that stop the scroll. Each weekly batch is briefed around what's working and what's fatiguing. You approve the angles. We ship the ads.
             </p>
 
             <ul className="space-y-4 mb-10">

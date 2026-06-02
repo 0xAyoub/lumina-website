@@ -124,7 +124,7 @@ const HeroSection = () => {
           }}
         >
           <p className="text-[13px] md:text-[14px] leading-[1.55] text-white/55 max-w-[380px] mb-4 mx-auto">
-            The creative studio that turns generation into ads that convert.
+            The creative studio built on an AI stack. We turn raw generation into ads that convert, fresh every week.
           </p>
 
           <div className="flex gap-3 justify-center items-center">

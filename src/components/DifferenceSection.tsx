@@ -41,7 +41,7 @@ const competitors = [
     num: "03",
     label: "Self-Serve AI",
     rows: [
-      "Fast — you do the work.",
+      "Fast. You do the work.",
       "€50–€200/month + your time.",
       "Volume. No differentiation.",
       "You guess what to test.",
@@ -137,9 +137,9 @@ const DifferenceSection = () => {
               className="font-sans-display leading-[1.1] tracking-[-0.015em] mb-6"
               style={{ fontSize: "clamp(20px, 2vw, 28px)", color: "#111111", fontWeight: 400 }}
             >
-              Anyone can hand you 30 ads.{" "}
+              Anyone can hand you ads.{" "}
               <span className="font-serif-display italic" style={{ color: "#111111", fontWeight: 400 }}>
-                We tell you which 3 to scale.
+                We tell you which to scale.
               </span>
             </h2>
 
