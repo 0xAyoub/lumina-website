@@ -22,7 +22,7 @@ const About = () => {
         {/* Mission */}
         <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-24" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
           <p className="font-sans-display text-[20px] md:text-[32px] leading-[1.3] tracking-[-0.018em] max-w-[760px]" style={{ color: "#111111", fontWeight: 400 }}>
-            We built Lumina because the tools changed but the workflow didn't. Generation is now accessible to anyone. The bottleneck moved to the edit, and that's where we operate.
+            Generation is now accessible to anyone. The new differentiator is post-production: the judgment, the taste, the curation that turns raw AI footage into something that stops the scroll, holds the viewer, lands the message, and drives the purchase.
           </p>
         </div>
 
@@ -42,10 +42,10 @@ const About = () => {
                 </div>
               </div>
               <p className="text-[15px] leading-[1.85] mb-5" style={{ color: "rgba(17,17,17,0.60)" }}>
-                Margot runs creative strategy at Publicis and studies at Sup de Pub, one of the top advertising schools in France. She's spent years learning what makes creative work and what makes it convert.
+                Margot runs creative strategy at Publicis and studies at Sup de Pub, one of the top advertising schools in France. She's spent years training the eye that tells a good ad from a great one.
               </p>
               <p className="text-[15px] leading-[1.85]" style={{ color: "rgba(17,17,17,0.60)" }}>
-                At Lumina, she sets the direction: the brief, the hook, the angle, the judgment call on what the AI produces. She knows what good looks like, and she won't ship anything that doesn't.
+                At Lumina, she brings the judgment, the taste, and the curation. She decides what gets made, how it gets shaped in post, and what never ships. The AI generates the raw material. Margot decides what it becomes.
               </p>
             </div>
 
@@ -84,10 +84,10 @@ const About = () => {
             What we believe
           </p>
           <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-            {[
+            [
               {
-                heading: "The edit is the product.",
-                body: "Generating footage is accessible to anyone now. The bottleneck is the edit: the hook, the pacing, the structure that turns raw material into something that converts. That's where we operate.",
+                heading: "Post-production is the differentiator.",
+                body: "Any brand can generate footage now. What separates the ads that convert from the ones that get scrolled past is judgment, taste, and curation in post. That's the craft we bring.",
               },
               {
                 heading: "Volume and quality are not opposites.",
