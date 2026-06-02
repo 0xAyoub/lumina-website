@@ -1,31 +1,32 @@
 import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Results", href: "#results" },
+  { label: "Work", href: "/work" },
+  { label: "Process", href: "/process" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDarkSection, setIsDarkSection] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const intersectingDark = useRef(new Set<Element>());
 
   useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
-    checkDesktop();
-    window.addEventListener("resize", checkDesktop, { passive: true });
+    setMenuOpen(false);
+  }, [location.pathname]);
 
+  useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handler, { passive: true });
-
-    return () => {
-      window.removeEventListener("resize", checkDesktop);
-      window.removeEventListener("scroll", handler);
-    };
+    handler();
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
   useEffect(() => {
@@ -34,147 +35,179 @@ const Navbar = () => {
     const onScroll = () => {
       if (window.innerWidth < 768) return;
       const rect = hideSection.getBoundingClientRect();
-      // Hide only when the section fully fills the viewport (top ≤ 0 AND bottom ≥ vh)
       setIsHidden(rect.top <= 0 && rect.bottom >= window.innerHeight);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
+    if (!isHome) {
+      setIsDarkSection(false);
+      return;
+    }
     const darkSections = document.querySelectorAll('[data-navbar-dark="true"]');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            intersectingDark.current.add(entry.target);
-          } else {
-            intersectingDark.current.delete(entry.target);
-          }
+          if (entry.isIntersecting) intersectingDark.current.add(entry.target);
+          else intersectingDark.current.delete(entry.target);
         });
-        setIsDark(intersectingDark.current.size > 0);
+        setIsDarkSection(intersectingDark.current.size > 0);
       },
       { rootMargin: "0px 0px -88% 0px", threshold: 0 }
     );
     darkSections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [isHome, location.pathname]);
 
-  const inHero = isDark && !scrolled;
-  const textColor = isDark ? "rgba(255,255,255,0.6)" : "rgba(17,17,17,0.6)";
+  const isDark = isHome && isDarkSection && !scrolled;
+  const textColor = isDark ? "rgba(255,255,255,0.65)" : "rgba(17,17,17,0.55)";
   const textColorHover = isDark ? "#ffffff" : "#111111";
-  const logColor = isDark ? "#ffffff" : "#111111";
-  const btnBg = isDark ? "rgba(255,255,255,1)" : "rgba(17,17,17,1)";
+  const btnBg = isDark ? "#ffffff" : "#111111";
   const btnText = isDark ? "#111111" : "#ffffff";
+  const bgColor = isDark
+    ? "rgba(0,0,0,0.12)"
+    : scrolled
+    ? "rgba(255,255,255,0.92)"
+    : "rgba(255,255,255,0.92)";
+  const borderColor = isDark
+    ? "rgba(255,255,255,0.10)"
+    : "rgba(0,0,0,0.07)";
 
   return (
-    <nav
-      className="fixed top-[10px] z-50 flex items-center justify-between h-10 px-2"
-      style={{
-        left: "10px",
-        right: "10px",
-        backgroundColor: inHero ? "rgba(255,255,255,0.04)" : isDark ? "rgba(17,17,17,0.72)" : "rgba(255,255,255,0.82)",
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
-        borderRadius: 0,
-        border: inHero
-          ? "1px solid rgba(255,255,255,0.08)"
-          : isDark
-          ? "1px solid rgba(255,255,255,0.07)"
-          : "1px solid rgba(0,0,0,0.06)",
-        transform: isHidden ? "translateY(calc(-100% - 20px))" : "translateY(0)",
-        transition:
-          "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), left 0.6s cubic-bezier(0.16, 1, 0.3, 1), right 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, border-color 0.4s ease",
-      }}
-    >
-      {/* Logo */}
-      <a href="#" className="flex items-center flex-shrink-0">
-        <img
-          src="/logo.svg"
-          alt="Lumina"
-          width={26}
-          height={26}
-          style={{ borderRadius: 0, opacity: isDark ? 0.9 : 1, transition: "opacity 0.4s ease" }}
-        />
-      </a>
-
-      {/* Full nav — visible on all screens ≥ 360px */}
-      <div className="hidden min-[360px]:flex items-center gap-3 sm:gap-5 md:gap-6">
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="text-[11px] font-medium tracking-[0.035em] transition-colors duration-200"
-            style={{ color: textColor }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = textColorHover)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
-          >
-            {link.label}
-          </a>
-        ))}
-        <a
-          href="/free"
-          className="text-[11px] font-medium px-3 py-1.5 sm:px-4 rounded-none hover:opacity-80 active:scale-[0.97]"
-          style={{
-            backgroundColor: btnBg,
-            color: btnText,
-            transition: "background-color 0.4s ease, color 0.4s ease",
-          }}
-        >
-          Get a free ad
-        </a>
-      </div>
-
-      {/* Hamburger — only on truly tiny screens (< 360px) */}
-      <button
-        className="min-[360px]:hidden flex items-center justify-center"
-        aria-label="Menu"
-        style={{ color: logColor }}
-        onClick={() => setMenuOpen((v) => !v)}
+    <>
+      <nav
+        className="fixed z-50 flex items-center justify-between h-11"
+        style={{
+          top: "10px",
+          left: "10px",
+          right: "10px",
+          backgroundColor: bgColor,
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderBottom: `1px solid ${borderColor}`,
+          paddingLeft: "16px",
+          paddingRight: "12px",
+          transform: isHidden ? "translateY(calc(-100% - 20px))" : "translateY(0)",
+          transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1), background-color 0.3s ease, border-color 0.3s ease",
+        }}
       >
-        {menuOpen ? (
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <line x1="5" y1="5" x2="15" y2="15" /><line x1="15" y1="5" x2="5" y2="15" />
-          </svg>
-        ) : (
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <line x1="3" y1="7" x2="17" y2="7" /><line x1="3" y1="13" x2="17" y2="13" />
-          </svg>
-        )}
-      </button>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <img
+            src="/logo.svg"
+            alt="Lumina"
+            width={22}
+            height={22}
+            style={{ opacity: isDark ? 0.9 : 1, transition: "opacity 0.3s ease" }}
+          />
+          <span
+            className="text-[13px] font-medium tracking-[-0.01em]"
+            style={{ color: isDark ? "rgba(255,255,255,0.9)" : "#111111", transition: "color 0.3s ease" }}
+          >
+            Lumina
+          </span>
+        </Link>
 
-      {/* Dropdown for tiny screens */}
-      {menuOpen && (
-        <div
-          className="min-[360px]:hidden absolute top-12 left-0 right-0 rounded-none p-4 flex flex-col gap-3"
-          style={{
-            backgroundColor: isDark ? "rgba(17,17,17,0.95)" : "rgba(255,255,255,0.96)",
-            backdropFilter: "blur(24px)",
-            border: isDark ? "1px solid rgba(255,255,255,0.07)" : "1px solid rgba(0,0,0,0.06)",
-          }}
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[12px] font-medium py-1"
-              style={{ color: textColor }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="/free"
-            className="text-[11px] font-medium px-4 py-2 rounded-none text-center mt-1"
-            style={{ backgroundColor: btnBg, color: btnText }}
-            onClick={() => setMenuOpen(false)}
+        {/* Desktop nav links */}
+        <div className="hidden md:flex items-center gap-7">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-[12px] font-medium tracking-[0.01em] transition-colors duration-200"
+                style={{
+                  color: isActive
+                    ? isDark ? "#ffffff" : "#111111"
+                    : textColor,
+                  borderBottom: isActive ? `1px solid ${isDark ? "rgba(255,255,255,0.6)" : "rgba(17,17,17,0.4)"}` : "1px solid transparent",
+                  paddingBottom: "1px",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = textColorHover)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? (isDark ? "#ffffff" : "#111111") : textColor)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            to="/free"
+            className="text-[11px] font-medium px-4 py-2 transition-opacity duration-200 hover:opacity-75"
+            style={{ backgroundColor: btnBg, color: btnText, transition: "background-color 0.3s ease, color 0.3s ease" }}
           >
             Get a free ad
-          </a>
+          </Link>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px]"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          <span
+            className="block w-5 h-px transition-all duration-300"
+            style={{
+              backgroundColor: isDark ? "rgba(255,255,255,0.8)" : "#111111",
+              transform: menuOpen ? "translateY(3px) rotate(45deg)" : "none",
+            }}
+          />
+          <span
+            className="block w-5 h-px transition-all duration-300"
+            style={{
+              backgroundColor: isDark ? "rgba(255,255,255,0.8)" : "#111111",
+              transform: menuOpen ? "translateY(-3px) rotate(-45deg)" : "none",
+              opacity: menuOpen ? 1 : 1,
+            }}
+          />
+        </button>
+      </nav>
+
+      {/* Mobile full-screen menu */}
+      <div
+        className="fixed inset-0 z-40 bg-white flex flex-col md:hidden"
+        style={{
+          opacity: menuOpen ? 1 : 0,
+          pointerEvents: menuOpen ? "auto" : "none",
+          transition: "opacity 0.25s ease",
+        }}
+      >
+        <div className="flex flex-col pt-24 px-8 pb-10 h-full">
+          <div className="flex flex-col flex-1">
+            {navLinks.map((link, i) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="font-sans-display text-[40px] leading-none py-5 tracking-[-0.025em]"
+                style={{
+                  color: location.pathname === link.href ? "#111111" : "rgba(17,17,17,0.30)",
+                  borderBottom: "1px solid rgba(0,0,0,0.08)",
+                  transitionDelay: menuOpen ? `${i * 40}ms` : "0ms",
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <Link
+            to="/free"
+            className="text-[13px] font-medium px-6 py-4 text-center bg-black text-white mt-6"
+          >
+            Get a free ad →
+          </Link>
+          <p className="text-[10px] text-center mt-4" style={{ color: "rgba(17,17,17,0.30)" }}>
+            ayoub@withluminalabs.com
+          </p>
+        </div>
+      </div>
+    </>
   );
 };
 
