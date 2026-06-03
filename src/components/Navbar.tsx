@@ -69,12 +69,7 @@ const Navbar = () => {
   const btnText = isDark ? "#111111" : "#ffffff";
   const bgColor = isDark
     ? "rgba(0,0,0,0.12)"
-    : scrolled
-    ? "rgba(255,255,255,0.92)"
     : "rgba(255,255,255,0.92)";
-  const borderColor = isDark
-    ? "rgba(255,255,255,0.10)"
-    : "rgba(0,0,0,0.07)";
 
   return (
     <>
@@ -87,7 +82,6 @@ const Navbar = () => {
           backgroundColor: bgColor,
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          borderBottom: `1px solid ${borderColor}`,
           paddingLeft: "16px",
           paddingRight: "12px",
           transform: isHidden ? "translateY(calc(-100% - 20px))" : "translateY(0)",
@@ -124,8 +118,6 @@ const Navbar = () => {
                   color: isActive
                     ? isDark ? "#ffffff" : "#111111"
                     : textColor,
-                  borderBottom: isActive ? `1px solid ${isDark ? "rgba(255,255,255,0.6)" : "rgba(17,17,17,0.4)"}` : "1px solid transparent",
-                  paddingBottom: "1px",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = textColorHover)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? (isDark ? "#ffffff" : "#111111") : textColor)}

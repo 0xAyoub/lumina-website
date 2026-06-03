@@ -1,155 +1,149 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const steps = [
   {
     num: "01",
-    title: "Free ad.",
-    price: "$0, no commitment.",
-    body: "Send your product page. We write the brief, direct the creative, and deliver a finished ad in 48 hours. No call, no payment, no contract. Keep the ad whatever you decide.",
+    title: "You send the brief.",
+    body: "Your product, your offer, what you want the ad to do. That's it. We take it from there. No long forms, no kickoff deck, no back and forth.",
   },
   {
     num: "02",
-    title: "Retainer.",
-    price: "From $1,500/mo, cancel anytime.",
-    body: "A weekly batch of 10 to 15 finished ads. You approve the creative angles on Monday. We deliver every Friday. We track what's working in-market, retire what's fatiguing, and brief the next round around your winners.",
+    title: "We find the heroes.",
+    body: "We analyze your brief and design hero concepts: the ad ideas most likely to convert for your product. We pull from our internal dataset of what's trending on social right now and which formats perform. Proven angle, fresh format, built to win attention.",
   },
   {
     num: "03",
-    title: "The loop.",
-    price: "Built into the retainer.",
-    body: "Every ad feeds the next brief. We watch performance, identify fatigue before it costs you spend, and replace what's dying before the drop hits. One strategy, compounding every week.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Do I need to provide any assets?",
-    a: "No. Send your product page and we handle everything: brief, direction, production, editing. If you have brand assets you'd like included, we use them.",
+    title: "Four variants per hero.",
+    body: "Each hero ships with four variants to test it. Same concept, different hook, length, ratio, opening. The hook is where most of the performance lives, so that's what we test hardest.",
   },
   {
-    q: "What formats do you produce?",
-    a: "9:16 (Reels, Stories, TikTok) and 16:9 (feed, YouTube pre-roll) as standard. Square and other formats on request.",
+    num: "04",
+    title: "We generate every scene.",
+    body: "We produce all the footage on our proprietary AI stack. Fast, on demand, at a scale no shoot could match, and in the formats where AI looks its best.",
   },
   {
-    q: "How does the approval process work?",
-    a: "You approve creative angles before production starts. This removes most revision needs. If something doesn't match the approved direction, we fix it.",
+    num: "05",
+    title: "Our editors make it convert.",
+    body: "This is where it's won. Our editors turn the raw footage into on-brand, high-performing creative. Built for the hook, edited to be sticky, graded to read as filmed. The speed of AI, the finish of a studio.",
   },
   {
-    q: "How do you track performance?",
-    a: "We use Meta Ads Manager data you share with us. We look at hook rate, hold rate, CTR, and ROAS to decide what to iterate and what to retire.",
+    num: "06",
+    title: "Fresh every Friday.",
+    body: "Every Friday, a new batch lands: fresh heroes plus variants for the week ahead. Your creative never runs dry, your winners never have to carry you too long.",
   },
   {
-    q: "What categories do you work with?",
-    a: "Premium DTC brands on Meta: beauty, skincare, supplements, food, apparel, baby products, wearables, home goods. Physical product with buyers on Meta.",
-  },
-  {
-    q: "Is there a minimum commitment?",
-    a: "The free creative has no commitment. The retainer is month-to-month. Cancel anytime.",
+    num: "07",
+    title: "We learn what works.",
+    body: "We collect lightweight performance signals on what we ship, as frictionless as possible. We use it for one thing: to see what's working for your brand and make every next batch sharper. The creative gets better because the data feeds it.",
   },
 ];
 
 const ProcessPage = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  useScrollReveal();
 
   return (
     <>
       <Navbar />
       <main className="bg-white pt-24 md:pt-28">
 
-        {/* Header */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>
+        {/* Hero */}
+        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-24" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-8 reveal" style={{ color: "rgba(17,17,17,0.35)" }}>
             Process
           </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h1 className="font-sans-display text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.025em] max-w-[540px]" style={{ color: "#111111" }}>
-              Start for free.{" "}
-              <span className="font-serif-display italic">Scale when it earns it.</span>
-            </h1>
-            <p className="text-[13px] leading-[1.7] md:text-right md:max-w-[240px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-              No call, no contract, no commitment to start.
-            </p>
+          <h1 className="font-sans-display text-[36px] md:text-[64px] lg:text-[80px] leading-[0.98] tracking-[-0.03em] max-w-[900px] mb-8 reveal" style={{ color: "#111111" }}>
+            From your brief to a weekly batch of ads{" "}
+            <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.40)" }}>that convert.</span>
+          </h1>
+          <p className="text-[14px] leading-[1.7] max-w-[480px] mb-10 reveal" data-delay="80" style={{ color: "rgba(17,17,17,0.50)" }}>
+            No deck. No four-week wait. You send a brief, we send back finished ads, fresh every Friday.
+          </p>
+          <div className="reveal" data-delay="140">
+            <Link
+              to="/free"
+              className="inline-flex text-[12px] font-medium px-7 py-3.5 bg-black text-white transition-opacity hover:opacity-75"
+            >
+              Get my free ad →
+            </Link>
           </div>
         </div>
 
         {/* Steps */}
-        <div className="w-full px-6 md:px-12 lg:px-20">
-          {steps.map((step) => (
+        <div className="w-full">
+          {steps.map((step, i) => (
             <div
               key={step.num}
-              className="py-14 md:py-20"
+              className="relative w-full px-6 md:px-12 lg:px-20 py-16 md:py-24 reveal"
+              data-delay={String(i * 40)}
               style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}
             >
-              <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-20 items-start">
-                <div>
-                  <p
-                    className="font-sans-display leading-none mb-5"
-                    style={{ fontSize: "clamp(72px, 8vw, 120px)", color: "rgba(17,17,17,0.06)", letterSpacing: "-0.04em" }}
+              {/* Large watermark number */}
+              <span
+                className="absolute right-6 md:right-12 lg:right-20 top-1/2 font-sans-display pointer-events-none select-none"
+                style={{
+                  fontSize: "clamp(100px, 18vw, 240px)",
+                  lineHeight: 1,
+                  color: "rgba(17,17,17,0.04)",
+                  letterSpacing: "-0.04em",
+                  transform: "translateY(-50%)",
+                  zIndex: 0,
+                }}
+              >
+                {step.num}
+              </span>
+
+              <div className="relative z-10 grid md:grid-cols-[160px_1fr] gap-6 md:gap-16 items-start">
+                <div className="flex-shrink-0">
+                  <span
+                    className="font-sans-display text-[13px] tabular-nums"
+                    style={{ color: "rgba(17,17,17,0.25)" }}
                   >
                     {step.num}
-                  </p>
-                  <h2 className="font-sans-display text-[24px] md:text-[32px] leading-[1.1] tracking-[-0.018em] mb-2" style={{ color: "#111111" }}>
+                  </span>
+                </div>
+                <div className="max-w-[600px]">
+                  <h2
+                    className="font-sans-display text-[22px] md:text-[34px] leading-[1.1] tracking-[-0.02em] mb-5"
+                    style={{ color: "#111111" }}
+                  >
                     {step.title}
                   </h2>
-                  <p className="text-[12px]" style={{ color: "rgba(17,17,17,0.38)" }}>{step.price}</p>
-                </div>
-                <div className="md:pt-2">
-                  <p className="text-[15px] leading-[1.85]" style={{ color: "rgba(17,17,17,0.55)" }}>{step.body}</p>
+                  <p className="text-[15px] leading-[1.85]" style={{ color: "rgba(17,17,17,0.55)" }}>
+                    {step.body}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* FAQ */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-14 md:py-20" style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.10em] mb-10" style={{ color: "rgba(17,17,17,0.35)" }}>
-            Common questions
-          </p>
-          <div>
-            {faqs.map((faq, i) => (
-              <div key={i} style={{ borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
-                <button
-                  className="w-full text-left flex items-center justify-between gap-4 py-5"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                >
-                  <span className="text-[14px] font-medium" style={{ color: "#111111" }}>{faq.q}</span>
-                  <span
-                    className="flex-shrink-0 text-[18px] leading-none transition-transform duration-200"
-                    style={{ color: "rgba(17,17,17,0.35)", transform: openFaq === i ? "rotate(45deg)" : "none" }}
-                  >+</span>
-                </button>
-                {openFaq === i && (
-                  <p className="pb-5 text-[13px] leading-[1.75]" style={{ color: "rgba(17,17,17,0.55)" }}>
-                    {faq.a}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="w-full px-6 md:px-12 lg:px-20 py-16 md:py-20">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h2 className="font-sans-display text-[22px] md:text-[32px] leading-[1.1] tracking-[-0.02em] mb-2" style={{ color: "#111111" }}>
-                Start with zero risk.
-              </h2>
-              <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-                First ad free. No call, no commitment, delivered in 48 hours.
-              </p>
-            </div>
+        {/* Closing CTA */}
+        <div className="w-full px-6 md:px-12 lg:px-20 py-20 md:py-28 reveal">
+          <h2 className="font-sans-display text-[28px] md:text-[52px] leading-[1.05] tracking-[-0.025em] mb-8 max-w-[700px]" style={{ color: "#111111" }}>
+            Fresh ads that convert, every week.{" "}
+            <span className="font-serif-display italic" style={{ color: "rgba(17,17,17,0.40)" }}>At the scale of AI.</span>
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
             <Link
               to="/free"
-              className="inline-flex text-[12px] font-medium px-7 py-3.5 bg-black text-white transition-opacity hover:opacity-75 flex-shrink-0"
+              className="inline-flex text-[12px] font-medium px-7 py-3.5 bg-black text-white transition-opacity hover:opacity-75"
             >
               Get my free ad →
             </Link>
+            <span className="text-[12px] self-center" style={{ color: "rgba(17,17,17,0.35)" }}>
+              No call. No commitment.
+            </span>
           </div>
+          <a
+            href="mailto:ayoub@withluminalabs.com"
+            className="inline-block mt-6 text-[12px] transition-opacity hover:opacity-60"
+            style={{ color: "rgba(17,17,17,0.40)" }}
+          >
+            Or write directly: ayoub@withluminalabs.com →
+          </a>
         </div>
 
       </main>

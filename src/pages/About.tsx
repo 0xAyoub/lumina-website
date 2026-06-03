@@ -84,7 +84,7 @@ const About = () => {
             What we believe
           </p>
           <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-            [
+            {[
               {
                 heading: "Post-production is the differentiator.",
                 body: "Any brand can generate footage now. What separates the ads that convert from the ones that get scrolled past is judgment, taste, and curation in post. That's the craft we bring.",
