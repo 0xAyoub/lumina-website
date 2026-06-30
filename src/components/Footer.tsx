@@ -3,94 +3,66 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-white w-full" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
-      <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+      <div className="w-full px-6 md:px-12 lg:px-20 py-10 md:py-14">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
 
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <img src="/logo.svg" alt="Lumina" width={20} height={20} style={{ opacity: 0.8 }} />
+          <div>
+            <div className="flex items-center gap-2.5 mb-3">
+              <img src="/logo.svg" alt="Lumina" width={18} height={18} style={{ opacity: 0.7 }} />
               <span className="text-[13px] font-medium" style={{ color: "#111111" }}>Lumina</span>
             </div>
-            <p className="text-[12px] leading-[1.7]" style={{ color: "rgba(17,17,17,0.45)", maxWidth: "200px" }}>
-              Creative that converts, for premium brands.
+            <p className="text-[12px] leading-[1.7]" style={{ color: "rgba(17,17,17,0.40)", maxWidth: "200px" }}>
+              The studio between the models and your brand.
             </p>
           </div>
 
-          {/* Pages */}
-          <div>
-            <p className="text-[10px] font-medium uppercase tracking-[0.10em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>
-              Pages
-            </p>
+          {/* Nav + Contact */}
+          <div className="flex gap-12 md:gap-16">
             <div className="flex flex-col gap-2.5">
               {[
                 { label: "Work", href: "/work" },
                 { label: "Process", href: "/process" },
                 { label: "Pricing", href: "/pricing" },
-                { label: "Blog", href: "/blog" },
                 { label: "About", href: "/about" },
               ].map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-[12px] transition-colors duration-200"
-                  style={{ color: "rgba(17,17,17,0.50)" }}
+                  className="text-[12px] transition-opacity hover:opacity-100"
+                  style={{ color: "rgba(17,17,17,0.45)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#111111")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(17,17,17,0.50)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(17,17,17,0.45)")}
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
-          </div>
-
-          {/* Start */}
-          <div>
-            <p className="text-[10px] font-medium uppercase tracking-[0.10em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>
-              Start
-            </p>
             <div className="flex flex-col gap-2.5">
-              {[
-                { label: "Get a free ad", href: "/free" },
-                { label: "Start a retainer", href: "/free" },
-              ].map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-[12px] transition-colors duration-200"
-                  style={{ color: "rgba(17,17,17,0.50)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#111111")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(17,17,17,0.50)")}
-                >
-                  {link.label}
-                </a>
-              ))}
+              <a
+                href="mailto:ayoub@withluminalabs.com"
+                className="text-[12px] transition-colors duration-200"
+                style={{ color: "rgba(17,17,17,0.45)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#111111")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(17,17,17,0.45)")}
+              >
+                ayoub@withluminalabs.com
+              </a>
+              <Link
+                to="/free"
+                className="text-[12px] transition-colors duration-200"
+                style={{ color: "rgba(17,17,17,0.45)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#111111")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(17,17,17,0.45)")}
+              >
+                Get a free ad
+              </Link>
             </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <p className="text-[10px] font-medium uppercase tracking-[0.10em] mb-4" style={{ color: "rgba(17,17,17,0.35)" }}>
-              Contact
-            </p>
-            <a
-              href="mailto:ayoub@withluminalabs.com"
-              className="text-[12px] transition-colors duration-200 block"
-              style={{ color: "rgba(17,17,17,0.50)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#111111")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(17,17,17,0.50)")}
-            >
-              ayoub@withluminalabs.com
-            </a>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-8" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
-          <span className="text-[10px]" style={{ color: "rgba(17,17,17,0.28)" }}>© 2026 Lumina Labs</span>
-          <span className="text-[10px]" style={{ color: "rgba(17,17,17,0.20)" }}>
-            The studio between the models and your brand.
-          </span>
+        <div className="mt-10 pt-8 flex items-center justify-between" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
+          <span className="text-[10px]" style={{ color: "rgba(17,17,17,0.25)" }}>© 2026 Lumina Labs</span>
         </div>
       </div>
     </footer>

@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why Your Best Ad Dies in 9 Days",
     date: "2026-05-20",
     category: "Creative Strategy",
-    excerpt: "Meta's delivery system is designed to exhaust your creative. Here's what happens after the first week — and what the fastest-scaling brands do about it.",
+    excerpt: "Meta's delivery system is designed to exhaust your creative. Here's what happens after the first week, and what the fastest-scaling brands do about it.",
     readTime: "5 min read",
     body: `Every time you launch a new ad on Meta, you get a window. The algorithm is curious. It tests your creative against new audiences, learns who clicks, who buys. For a few days, your ROAS looks good. Sometimes great.
 
@@ -34,9 +34,9 @@ Then what?
 
 ## The Replacement Problem
 
-Most DTC brands have no answer to this. They run one or two ads at a time. When those ads die, they scramble — briefing an agency, waiting four weeks for delivery, watching ROAS crater in the meantime.
+Most DTC brands have no answer to this. They run one or two ads at a time. When those ads die, they scramble, briefing an agency, waiting four weeks for delivery, watching ROAS crater in the meantime.
 
-The brands winning on Meta in 2026 don't have better targeting. They don't have bigger budgets. They have more creative. Not more random creative — more deliberate creative, shipped fast, tested continuously.
+The brands winning on Meta in 2026 don't have better targeting. They don't have bigger budgets. They have more creative. Not more random creative. More deliberate creative, shipped fast, tested continuously.
 
 They treat ads the way a newsroom treats stories: new ones published every week, old ones retired without sentimentality, the data from yesterday's losers feeding tomorrow's brief.
 
@@ -44,9 +44,9 @@ They treat ads the way a newsroom treats stories: new ones published every week,
 
 When you have 30 ads in-market instead of three, the game changes completely:
 
-**You find winners faster.** More creative means more data points. You discover which hooks, which formats, which angles convert — not by guessing, but by running the experiment at scale.
+**You find winners faster.** More creative means more data points. You discover which hooks, which formats, which angles convert, not by guessing, but by running the experiment at scale.
 
-**You extend your winning concepts.** When something works, you iterate on it immediately — new hook, new ending, new format — before the original fatigues out.
+**You extend your winning concepts.** When something works, you iterate on it immediately, new hook, new ending, new format, before the original fatigues out.
 
 **You're never caught flat-footed.** A dead ad is a planned retirement, not an emergency. You already have the replacement ready.
 
@@ -56,7 +56,7 @@ When you have 30 ads in-market instead of three, the game changes completely:
 
 The brands that compound on Meta share a pattern: they produce creative faster than it fatigues.
 
-Not creatively desperate creative. Not quantity over quality. Fast, directed creative — built on a clear brief, approved before production, shipped in days, not weeks.
+Not creatively desperate creative. Not quantity over quality. Fast, directed creative, built on a clear brief, approved before production, shipped in days, not weeks.
 
 That's the equation. Not better ads. More ads, faster, built on what you've already learned.
 
@@ -81,7 +81,7 @@ Brief → Creative director review → Concept approval → Production brief →
 
 That's seven handoffs at minimum. Each one adds days. By the time the ad ships, three to five weeks have passed. The window it was designed for may have closed.
 
-At €3,000 to €15,000 per creative, you can afford maybe two or three ads per month before the budget breaks. And because each one cost so much, every ad carries enormous pressure to perform — which makes brands conservative, which means fewer angles tested, which means slower learning.
+At €3,000 to €15,000 per creative, you can afford maybe two or three ads per month before the budget breaks. And because each one cost so much, every ad carries enormous pressure to perform, which makes brands conservative, which means fewer angles tested, which means slower learning.
 
 Traditional production is designed for prestige, not velocity.
 
@@ -89,11 +89,11 @@ Traditional production is designed for prestige, not velocity.
 
 A system designed to ship 30 ads a month looks completely different:
 
-**Briefs are standing documents, not one-off requests.** We maintain a running brief for every client — what's working, what's fatigued, which angles we haven't tested, which hooks performed last cycle. New briefs take 20 minutes, not two days.
+**Briefs are standing documents, not one-off requests.** We maintain a running brief for every client: what's working, what's fatigued, which angles we haven't tested, which hooks performed last cycle. New briefs take 20 minutes, not two days.
 
 **Production runs in parallel, not in series.** While one batch is in final edit, the next is in brief. While that one's in brief, the one before is being analyzed in-market. Everything overlaps.
 
-**Approval is direction-level, not execution-level.** Clients approve creative angles — "founder hook + problem-agitation + social proof" — before we go into production. Not every cut, not every frame. The direction. This eliminates revision cycles.
+**Approval is direction-level, not execution-level.** Clients approve creative angles, "founder hook + problem-agitation + social proof", before we go into production. Not every cut, not every frame. The direction. This eliminates revision cycles.
 
 **Formats are systematized, not reinvented.** We know which formats work for which objectives. We're not discovering the wheel every brief. We're applying known frameworks to new angles.
 
@@ -112,13 +112,13 @@ Thirty ads a month isn't reckless. It's the minimum viable creative surface to l
     title: "What Makes a Hook Work on Meta in 2026",
     date: "2026-04-18",
     category: "Creative",
-    excerpt: "The first three seconds determine everything. Here's what makes a hook work in practice in 2026 — and what stopped working.",
+    excerpt: "The first three seconds determine everything. Here's what makes a hook work in practice in 2026, and what stopped working.",
     readTime: "6 min read",
     body: `The first three seconds of a Meta ad are the only three seconds that matter.
 
 That's an exaggeration, but not by much. If your hook doesn't stop the scroll, nothing else does. No amount of brilliant copy, beautiful cinematography, or clever offer structure rescues an ad that loses the viewer in the first three frames.
 
-So what makes a hook work? Not in theory — in practice, in 2026, on a feed full of people who have seen every trick.
+So what makes a hook work? Not in theory. In practice, in 2026, on a feed full of people who have seen every trick.
 
 ## What's Changed
 
@@ -126,9 +126,9 @@ Two years ago, pattern interrupts worked well. Weird angles. Unexpected visuals.
 
 That's over.
 
-The feed has trained itself. Users have developed what you might call creative immunity — they recognize the format of an ad before they consciously process what it's selling. Visual weirdness no longer signals "this might be interesting." It signals "this is an ad trying to trick me."
+The feed has trained itself. Users have developed what you might call creative immunity. They recognize the format of an ad before they consciously process what it's selling. Visual weirdness no longer signals "this might be interesting." It signals "this is an ad trying to trick me."
 
-What works now is specificity. Not novelty — specificity.
+What works now is specificity. Not novelty. Specificity.
 
 ## The Specificity Principle
 
@@ -143,7 +143,7 @@ But: "My HRV dropped 30% after my second kid. Here's what I changed."
 Not: "This supplement is different."
 But: "I'm a pediatric nurse. This is what I actually give my kids."
 
-The specificity creates a selection effect — the right viewer feels like you're talking directly to them. Everyone else keeps scrolling. That's fine. You don't want everyone. You want the right person, fully engaged.
+The specificity creates a selection effect. The right viewer feels like you're talking directly to them. Everyone else keeps scrolling. That's fine. You don't want everyone. You want the right person, fully engaged.
 
 ## Hook Formats That Still Work
 
@@ -155,12 +155,12 @@ The pattern here is honesty that disarms. It signals: this isn't a pitch. This i
 **The Label Hook**
 The product appears on screen with a direct text overlay stating the specific claim. No voice. No movement. Just a product and a claim that the viewer has to evaluate.
 
-Works especially well for supplements, skincare, food. The viewer becomes a judge, which is an active cognitive state — better than passive watching.
+Works especially well for supplements, skincare, food. The viewer becomes a judge, which is an active cognitive state, better than passive watching.
 
 **The Before Hook**
 Opens mid-situation. Something is happening. We don't know yet what it is. The viewer's pattern-recognition kicks in and they keep watching to resolve the ambiguity.
 
-"I was at 1.2x ROAS and about to cancel everything. Then—"
+"I was at 1.2x ROAS and about to cancel everything. Then..."
 
 The interruption is the hook. The viewer completes the sentence themselves and has to keep watching to see if they were right.
 

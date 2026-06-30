@@ -48,6 +48,10 @@ const Navbar = () => {
       return;
     }
     const darkSections = document.querySelectorAll('[data-navbar-dark="true"]');
+    if (darkSections.length === 0) {
+      setIsDarkSection(false);
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

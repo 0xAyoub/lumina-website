@@ -151,7 +151,7 @@ const BlogPost = () => {
                 See it in practice.
               </h2>
               <p className="text-[13px]" style={{ color: "rgba(17,17,17,0.45)" }}>
-                Get one finished ad for your brand — free, in 48 hours.
+                Get one finished ad for your brand, free, in 48 hours.
               </p>
             </div>
             <Link
