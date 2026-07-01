@@ -2,90 +2,80 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Background from "@/components/Background";
 
-const DK = "#1c1c1e";
-const MUTED = "rgba(28,28,30,0.48)";
+const DK    = "#1c1c1e";
+const MUTED = "rgba(28,28,30,0.42)";
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName]       = useState("");
+  const [email, setEmail]     = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`Message from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const body    = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     window.location.href = `mailto:ayoub@withluminalabs.com?subject=${subject}&body=${body}`;
   };
 
   return (
-    <div style={{ position: "fixed", inset: 0, background: "#fff", overflow: "hidden" }}>
+    <>
       <Background />
 
-      <div
-        style={{
-          position: "relative",
-          zIndex: 10,
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "20px",
-        }}
-      >
+      <div className="glass-layer">
+
+        {/* Top bar */}
         <div
-          className="glass"
           style={{
-            width: "100%",
-            maxWidth: "440px",
-            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "18px 28px",
+            borderBottom: "1px solid rgba(28,28,30,0.07)",
+            flexShrink: 0,
           }}
         >
-          {/* Header */}
-          <div
+          <Link
+            to="/"
+            style={{ fontSize: "12px", color: MUTED, transition: "color 0.18s ease" }}
+            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = DK)}
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = MUTED)}
+          >
+            ← back
+          </Link>
+
+          <span
             style={{
-              padding: "24px 36px",
-              borderBottom: "1px solid rgba(28,28,30,0.07)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
+              fontSize: "10px",
+              fontWeight: 500,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              color: "rgba(28,28,30,0.32)",
             }}
           >
-            <Link
-              to="/"
-              style={{
-                fontSize: "12.5px",
-                color: MUTED,
-                letterSpacing: "0.005em",
-                transition: "color 0.2s ease",
-              }}
-              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = DK)}
-              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = MUTED)}
-            >
-              ← back
-            </Link>
-            <span
-              style={{
-                fontSize: "10.5px",
-                fontWeight: 500,
-                letterSpacing: "0.10em",
-                textTransform: "uppercase",
-                color: "rgba(28,28,30,0.35)",
-              }}
-            >
-              Contact
-            </span>
-            <div style={{ width: "48px" }} />
-          </div>
+            Contact
+          </span>
 
-          {/* Form */}
-          <div style={{ padding: "32px 36px 36px" }}>
+          <div style={{ width: "56px" }} />
+        </div>
+
+        {/* Centered form */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "28px",
+          }}
+        >
+          <div style={{ width: "100%", maxWidth: "380px" }}>
             <h1
               style={{
-                fontSize: "clamp(20px, 2.8vw, 24px)",
+                fontSize: "clamp(18px, 2.4vw, 22px)",
                 fontWeight: 400,
                 letterSpacing: "-0.022em",
                 color: DK,
-                marginBottom: "24px",
+                marginBottom: "22px",
               }}
             >
               Get in touch.
@@ -93,12 +83,12 @@ const Contact = () => {
 
             <form
               onSubmit={handleSubmit}
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+              style={{ display: "flex", flexDirection: "column", gap: "9px" }}
             >
               <input
                 className="field"
                 type="text"
-                placeholder="Name"
+                placeholder="name"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 required
@@ -106,42 +96,45 @@ const Contact = () => {
               <input
                 className="field"
                 type="email"
-                placeholder="Email"
+                placeholder="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required
               />
               <textarea
                 className="field"
-                placeholder="Message"
+                placeholder="message"
                 value={message}
                 onChange={e => setMessage(e.target.value)}
                 required
                 rows={4}
                 style={{ resize: "none" }}
               />
-              <div style={{ marginTop: "6px" }}>
-                <button type="submit" className="btn btn-dark" style={{ width: "100%" }}>
-                  Send
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="btn btn-dark btn-full"
+                style={{ marginTop: "4px" }}
+              >
+                send
+              </button>
             </form>
 
             <p
               style={{
-                marginTop: "16px",
-                fontSize: "11.5px",
-                color: "rgba(28,28,30,0.30)",
-                letterSpacing: "0.005em",
+                marginTop: "14px",
+                fontSize: "11px",
+                color: "rgba(28,28,30,0.28)",
                 textAlign: "center",
+                letterSpacing: "0.01em",
               }}
             >
-              Opens your email client with the message pre-filled.
+              opens your email client with the message pre-filled
             </p>
           </div>
         </div>
+
       </div>
-    </div>
+    </>
   );
 };
 

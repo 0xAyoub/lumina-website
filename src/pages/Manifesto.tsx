@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Background from "@/components/Background";
 
-const DK = "#1c1c1e";
-const MUTED = "rgba(28,28,30,0.48)";
+const DK    = "#1c1c1e";
+const MUTED = "rgba(28,28,30,0.42)";
 
 const paragraphs = [
   "Every few decades, the cost of creating something collapses to almost nothing — and when it does, the world reorganizes around whoever understands what to do with that freedom.",
@@ -15,105 +15,85 @@ const paragraphs = [
 ];
 
 const Manifesto = () => (
-  <div style={{ position: "fixed", inset: 0, background: "#fff", overflow: "hidden" }}>
+  <>
     <Background />
 
-    <div
-      style={{
-        position: "relative",
-        zIndex: 10,
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "20px",
-      }}
-    >
+    <div className="glass-layer">
+
+      {/* Top bar */}
       <div
-        className="glass"
         style={{
-          width: "100%",
-          maxWidth: "620px",
-          maxHeight: "calc(100vh - 40px)",
           display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "18px 28px",
+          borderBottom: "1px solid rgba(28,28,30,0.07)",
+          flexShrink: 0,
         }}
       >
-        {/* Header */}
-        <div
+        <Link
+          to="/"
+          style={{ fontSize: "12px", color: MUTED, transition: "color 0.18s ease" }}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = DK)}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = MUTED)}
+        >
+          ← back
+        </Link>
+
+        <span
           style={{
-            padding: "24px 36px",
-            borderBottom: "1px solid rgba(28,28,30,0.07)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexShrink: 0,
+            fontSize: "10px",
+            fontWeight: 500,
+            letterSpacing: "0.10em",
+            textTransform: "uppercase",
+            color: "rgba(28,28,30,0.32)",
           }}
         >
-          <Link
-            to="/"
-            style={{
-              fontSize: "12.5px",
-              color: MUTED,
-              letterSpacing: "0.005em",
-              transition: "color 0.2s ease",
-            }}
-            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = DK)}
-            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = MUTED)}
-          >
-            ← back
-          </Link>
+          Manifesto
+        </span>
 
-          <span
-            style={{
-              fontSize: "10.5px",
-              fontWeight: 500,
-              letterSpacing: "0.10em",
-              textTransform: "uppercase",
-              color: "rgba(28,28,30,0.35)",
-            }}
-          >
-            Manifesto
-          </span>
+        <Link to="/contact" className="btn btn-dark">contact us</Link>
+      </div>
 
-          <Link to="/contact" className="btn btn-dark btn-sm">
-            Contact us
-          </Link>
-        </div>
-
-        {/* Scrollable body */}
+      {/* Scrollable reading column */}
+      <div
+        className="mf-scroll"
+        style={{ flex: 1, overflowY: "auto", padding: "0 28px" }}
+      >
         <div
-          className="manifesto-scroll"
-          style={{ flex: 1, padding: "36px 36px 44px" }}
+          style={{
+            maxWidth: "580px",
+            margin: "0 auto",
+            padding: "44px 0 56px",
+          }}
         >
-          {/* Pull quote — first sentence highlighted */}
+          {/* Lead paragraph — larger */}
           <p
             style={{
-              fontSize: "clamp(17px, 2.2vw, 21px)",
+              fontSize: "clamp(16px, 2vw, 19px)",
               fontWeight: 400,
-              letterSpacing: "-0.018em",
-              lineHeight: 1.62,
+              letterSpacing: "-0.016em",
+              lineHeight: 1.65,
               color: DK,
-              marginBottom: "28px",
-              paddingBottom: "28px",
+              marginBottom: "32px",
+              paddingBottom: "32px",
               borderBottom: "1px solid rgba(28,28,30,0.07)",
             }}
           >
             {paragraphs[0]}
           </p>
 
-          {/* Body paragraphs */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
+          {/* Body */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             {paragraphs.slice(1).map((p, i) => (
               <p
                 key={i}
                 style={{
-                  fontSize: "clamp(14px, 1.6vw, 15.5px)",
+                  fontSize: "clamp(13.5px, 1.5vw, 15px)",
                   fontWeight: 300,
-                  lineHeight: 1.82,
-                  color: "rgba(28,28,30,0.82)",
-                  letterSpacing: "-0.008em",
+                  lineHeight: 1.85,
+                  color: "rgba(28,28,30,0.78)",
+                  letterSpacing: "-0.007em",
                 }}
               >
                 {p}
@@ -124,22 +104,23 @@ const Manifesto = () => (
           {/* Signature */}
           <p
             style={{
-              marginTop: "40px",
+              marginTop: "44px",
               paddingTop: "28px",
               borderTop: "1px solid rgba(28,28,30,0.07)",
-              fontSize: "15px",
-              fontWeight: 300,
+              fontSize: "14.5px",
               fontStyle: "italic",
+              fontWeight: 300,
               color: MUTED,
-              letterSpacing: "-0.008em",
+              letterSpacing: "-0.006em",
             }}
           >
             — Ayoub
           </p>
         </div>
       </div>
+
     </div>
-  </div>
+  </>
 );
 
 export default Manifesto;
