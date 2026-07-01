@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Background from "@/components/Background";
 
 const DK    = "#1c1c1e";
-const MUTED = "rgba(28,28,30,0.42)";
+const MUTED = "rgba(28,28,30,0.38)";
 
 const paragraphs = [
   "Every few decades, the cost of creating something collapses to almost nothing — and when it does, the world reorganizes around whoever understands what to do with that freedom.",
@@ -27,7 +27,6 @@ const Manifesto = () => (
           alignItems: "center",
           justifyContent: "space-between",
           padding: "18px 28px",
-          borderBottom: "1px solid rgba(28,28,30,0.07)",
           flexShrink: 0,
         }}
       >
@@ -40,74 +39,41 @@ const Manifesto = () => (
           ← back
         </Link>
 
-        <span
-          style={{
-            fontSize: "10px",
-            fontWeight: 500,
-            letterSpacing: "0.10em",
-            textTransform: "uppercase",
-            color: "rgba(28,28,30,0.32)",
-          }}
-        >
-          Manifesto
-        </span>
-
         <Link to="/contact" className="btn btn-dark">contact us</Link>
       </div>
 
-      {/* Scrollable reading column */}
+      {/* Reading column */}
       <div
         className="mf-scroll"
         style={{ flex: 1, overflowY: "auto", padding: "0 28px" }}
       >
         <div
           style={{
-            maxWidth: "580px",
+            maxWidth: "560px",
             margin: "0 auto",
-            padding: "44px 0 56px",
+            padding: "32px 0 56px",
           }}
         >
-          {/* Lead paragraph — larger */}
+          {paragraphs.map((p, i) => (
+            <p
+              key={i}
+              style={{
+                fontSize: "clamp(13.5px, 1.5vw, 15px)",
+                fontWeight: i === 0 ? 400 : 300,
+                lineHeight: 1.85,
+                color: i === 0 ? DK : "rgba(28,28,30,0.72)",
+                letterSpacing: "-0.007em",
+                marginBottom: i < paragraphs.length - 1 ? "20px" : 0,
+              }}
+            >
+              {p}
+            </p>
+          ))}
+
           <p
             style={{
-              fontSize: "clamp(16px, 2vw, 19px)",
-              fontWeight: 400,
-              letterSpacing: "-0.016em",
-              lineHeight: 1.65,
-              color: DK,
-              marginBottom: "32px",
-              paddingBottom: "32px",
-              borderBottom: "1px solid rgba(28,28,30,0.07)",
-            }}
-          >
-            {paragraphs[0]}
-          </p>
-
-          {/* Body */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            {paragraphs.slice(1).map((p, i) => (
-              <p
-                key={i}
-                style={{
-                  fontSize: "clamp(13.5px, 1.5vw, 15px)",
-                  fontWeight: 300,
-                  lineHeight: 1.85,
-                  color: "rgba(28,28,30,0.78)",
-                  letterSpacing: "-0.007em",
-                }}
-              >
-                {p}
-              </p>
-            ))}
-          </div>
-
-          {/* Signature */}
-          <p
-            style={{
-              marginTop: "44px",
-              paddingTop: "28px",
-              borderTop: "1px solid rgba(28,28,30,0.07)",
-              fontSize: "14.5px",
+              marginTop: "36px",
+              fontSize: "14px",
               fontStyle: "italic",
               fontWeight: 300,
               color: MUTED,

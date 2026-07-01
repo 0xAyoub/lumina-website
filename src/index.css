@@ -107,9 +107,9 @@ input, textarea, button, select { font-family: inherit; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 15px;
+  padding: 5px 12px;
   border-radius: 8px;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
   font-family: inherit;
   letter-spacing: 0.005em;
@@ -129,4 +129,4 @@ input, textarea, button, select { font-family: inherit; }
   color: #1c1c1e;
   border: 1px solid rgba(28, 28, 30, 0.10);
 }
-.btn-full { width: 100%; padding: 10px 15px; font-size: 13px; }
+.btn-full { width: 100%; padding: 9px 12px; font-size: 13px; }
