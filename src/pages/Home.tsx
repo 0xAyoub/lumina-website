@@ -24,7 +24,7 @@ const Home = () => (
             fontSize: "clamp(20px, 2.8vw, 26px)",
             fontWeight: 300,
             fontOpticalSizing: "auto",
-            letterSpacing: "-0.01em",
+            letterSpacing: 0,
             lineHeight: 1.2,
             color: "#1c1c1e",
             marginBottom: "20px",
