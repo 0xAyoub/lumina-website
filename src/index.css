@@ -30,10 +30,10 @@ input, textarea, button, select { font-family: inherit; }
   background: linear-gradient(
     -45deg,
     #ffffff  0%,
-    #edf1ff 18%,
-    #C5D2F8 40%,
-    #d4e0ff 58%,
-    #eef2ff 78%,
+    #f5f7ff 22%,
+    #e9effe 44%,
+    #edf1ff 62%,
+    #f8f9ff 82%,
     #ffffff 100%
   );
   background-size: 320% 320%;

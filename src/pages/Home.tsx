@@ -20,10 +20,12 @@ const Home = () => (
         {/* Headline */}
         <h1
           style={{
-            fontSize: "clamp(18px, 2.6vw, 24px)",
-            fontWeight: 400,
-            letterSpacing: "-0.022em",
-            lineHeight: 1.25,
+            fontFamily: "'Fraunces', serif",
+            fontSize: "clamp(20px, 2.8vw, 26px)",
+            fontWeight: 300,
+            fontOpticalSizing: "auto",
+            letterSpacing: "-0.01em",
+            lineHeight: 1.2,
             color: "#1c1c1e",
             marginBottom: "20px",
           }}
