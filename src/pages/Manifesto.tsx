@@ -44,7 +44,7 @@ const Manifesto = () => (
           ← back
         </Link>
 
-        <Link to="/contact" className="btn btn-dark">contact us</Link>
+        <a href="mailto:ayoub@withluminalabs.com" className="btn btn-dark">contact us</a>
       </div>
 
       {/* Reading column */}

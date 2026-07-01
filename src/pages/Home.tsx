@@ -35,7 +35,7 @@ const Home = () => (
 
         {/* Buttons */}
         <div style={{ display: "flex", gap: "7px", justifyContent: "center" }}>
-          <Link to="/contact" className="btn btn-dark">contact us</Link>
+          <a href="mailto:ayoub@withluminalabs.com" className="btn btn-dark">contact us</a>
           <Link to="/manifesto" className="btn btn-ghost">manifesto</Link>
         </div>
 
