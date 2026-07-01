@@ -24,14 +24,7 @@ const Contact = () => {
       <div className="glass-layer">
 
         {/* Top bar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            padding: "18px 28px",
-            flexShrink: 0,
-          }}
-        >
+        <div style={{ padding: "18px 28px", flexShrink: 0 }}>
           <Link
             to="/"
             style={{ fontSize: "12px", color: MUTED, transition: "color 0.18s ease" }}
@@ -42,149 +35,97 @@ const Contact = () => {
           </Link>
         </div>
 
-        {/* Two-column body */}
-        <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
+        {/* Centered form */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0 28px 40px",
+          }}
+        >
+          <div style={{ width: "100%", maxWidth: "360px" }}>
 
-          {/* Left — form */}
-          <div
-            style={{
-              flex: "1 1 300px",
-              display: "flex",
-              alignItems: "center",
-              padding: "40px 48px",
-            }}
-          >
-            <div style={{ width: "100%", maxWidth: "340px" }}>
-              <h1
-                style={{
-                  fontFamily: "'Fraunces', serif",
-                  fontSize: "clamp(20px, 2.4vw, 26px)",
-                  fontWeight: 300,
-                  fontOpticalSizing: "auto",
-                  letterSpacing: 0,
-                  lineHeight: 1.2,
-                  color: DK,
-                  marginBottom: "28px",
-                }}
-              >
-                Get in touch.
-              </h1>
-
-              <form
-                onSubmit={handleSubmit}
-                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
-              >
-                <input
-                  className="field"
-                  type="text"
-                  placeholder="name"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  required
-                />
-                <input
-                  className="field"
-                  type="email"
-                  placeholder="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  required
-                />
-                <textarea
-                  className="field"
-                  placeholder="message"
-                  value={message}
-                  onChange={e => setMessage(e.target.value)}
-                  required
-                  rows={4}
-                  style={{ resize: "none" }}
-                />
-                <button
-                  type="submit"
-                  className="btn btn-dark btn-full"
-                  style={{ marginTop: "6px" }}
-                >
-                  send
-                </button>
-              </form>
-            </div>
-          </div>
-
-          {/* Right — decorative */}
-          <div
-            className="contact-right"
-            style={{
-              flex: "1 1 340px",
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              padding: "48px",
-              overflow: "hidden",
-              borderLeft: "1px solid rgba(28,28,30,0.06)",
-            }}
-          >
-            {/* Gradient orb */}
-            <div
-              style={{
-                position: "absolute",
-                width: "480px",
-                height: "480px",
-                borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(197,210,248,0.32) 0%, rgba(197,210,248,0) 68%)",
-                top: "50%",
-                left: "40%",
-                transform: "translate(-50%, -54%)",
-                pointerEvents: "none",
-              }}
-            />
-
-            {/* Large display text */}
-            <p
+            {/* Header */}
+            <h1
               style={{
                 fontFamily: "'Fraunces', serif",
-                fontSize: "clamp(52px, 7vw, 86px)",
+                fontSize: "clamp(22px, 2.6vw, 28px)",
                 fontWeight: 300,
                 fontOpticalSizing: "auto",
-                lineHeight: 1.0,
-                letterSpacing: "-0.02em",
+                letterSpacing: 0,
+                lineHeight: 1.2,
                 color: DK,
-                marginBottom: "32px",
-                position: "relative",
+                marginBottom: "6px",
               }}
             >
-              Let's<br />talk.
-            </p>
-
-            {/* Email */}
-            <a
-              href="mailto:ayoub@withluminalabs.com"
+              Get in touch.
+            </h1>
+            <p
               style={{
                 fontSize: "12px",
                 color: MUTED,
+                marginBottom: "28px",
                 letterSpacing: 0,
-                transition: "color 0.18s ease",
-                position: "relative",
-              }}
-              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = DK)}
-              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = MUTED)}
-            >
-              ayoub@withluminalabs.com
-            </a>
-
-            <p
-              style={{
-                marginTop: "6px",
-                fontSize: "11px",
-                color: "rgba(28,28,30,0.28)",
-                position: "relative",
               }}
             >
-              Response within 24 hours.
+              We respond within 24 hours.
             </p>
-          </div>
 
+            {/* Form */}
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+            >
+              <input
+                className="field"
+                type="text"
+                placeholder="name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                required
+              />
+              <input
+                className="field"
+                type="email"
+                placeholder="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+              />
+              <textarea
+                className="field"
+                placeholder="message"
+                value={message}
+                onChange={e => setMessage(e.target.value)}
+                required
+                rows={5}
+                style={{ resize: "none" }}
+              />
+              <button
+                type="submit"
+                className="btn btn-dark btn-full"
+                style={{ marginTop: "4px" }}
+              >
+                send
+              </button>
+            </form>
+
+            {/* Or email directly */}
+            <p style={{ marginTop: "20px", fontSize: "11px", color: "rgba(28,28,30,0.28)", textAlign: "center" }}>
+              or{" "}
+              <a
+                href="mailto:ayoub@withluminalabs.com"
+                style={{ color: MUTED, textDecoration: "underline", textUnderlineOffset: "3px" }}
+              >
+                email directly
+              </a>
+            </p>
+
+          </div>
         </div>
+
       </div>
     </>
   );
