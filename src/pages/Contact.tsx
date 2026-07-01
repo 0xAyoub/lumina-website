@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Background from "@/components/Background";
 
 const DK    = "#1c1c1e";
-const MUTED = "rgba(28,28,30,0.42)";
+const MUTED = "rgba(28,28,30,0.38)";
 
 const Contact = () => {
   const [name, setName]       = useState("");
@@ -28,9 +28,7 @@ const Contact = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
             padding: "18px 28px",
-            borderBottom: "1px solid rgba(28,28,30,0.07)",
             flexShrink: 0,
           }}
         >
@@ -42,97 +40,151 @@ const Contact = () => {
           >
             ← back
           </Link>
-
-          <span
-            style={{
-              fontSize: "10px",
-              fontWeight: 500,
-              letterSpacing: "0.10em",
-              textTransform: "uppercase",
-              color: "rgba(28,28,30,0.32)",
-            }}
-          >
-            Contact
-          </span>
-
-          <div style={{ width: "56px" }} />
         </div>
 
-        {/* Centered form */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "28px",
-          }}
-        >
-          <div style={{ width: "100%", maxWidth: "380px" }}>
-            <h1
+        {/* Two-column body */}
+        <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
+
+          {/* Left — form */}
+          <div
+            style={{
+              flex: "1 1 300px",
+              display: "flex",
+              alignItems: "center",
+              padding: "40px 48px",
+            }}
+          >
+            <div style={{ width: "100%", maxWidth: "340px" }}>
+              <h1
+                style={{
+                  fontFamily: "'Fraunces', serif",
+                  fontSize: "clamp(20px, 2.4vw, 26px)",
+                  fontWeight: 300,
+                  fontOpticalSizing: "auto",
+                  letterSpacing: 0,
+                  lineHeight: 1.2,
+                  color: DK,
+                  marginBottom: "28px",
+                }}
+              >
+                Get in touch.
+              </h1>
+
+              <form
+                onSubmit={handleSubmit}
+                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+              >
+                <input
+                  className="field"
+                  type="text"
+                  placeholder="name"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  required
+                />
+                <input
+                  className="field"
+                  type="email"
+                  placeholder="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                />
+                <textarea
+                  className="field"
+                  placeholder="message"
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
+                  required
+                  rows={4}
+                  style={{ resize: "none" }}
+                />
+                <button
+                  type="submit"
+                  className="btn btn-dark btn-full"
+                  style={{ marginTop: "6px" }}
+                >
+                  send
+                </button>
+              </form>
+            </div>
+          </div>
+
+          {/* Right — decorative */}
+          <div
+            className="contact-right"
+            style={{
+              flex: "1 1 340px",
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+              padding: "48px",
+              overflow: "hidden",
+              borderLeft: "1px solid rgba(28,28,30,0.06)",
+            }}
+          >
+            {/* Gradient orb */}
+            <div
               style={{
-                fontSize: "clamp(18px, 2.4vw, 22px)",
-                fontWeight: 400,
-                letterSpacing: "-0.022em",
+                position: "absolute",
+                width: "480px",
+                height: "480px",
+                borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(197,210,248,0.32) 0%, rgba(197,210,248,0) 68%)",
+                top: "50%",
+                left: "40%",
+                transform: "translate(-50%, -54%)",
+                pointerEvents: "none",
+              }}
+            />
+
+            {/* Large display text */}
+            <p
+              style={{
+                fontFamily: "'Fraunces', serif",
+                fontSize: "clamp(52px, 7vw, 86px)",
+                fontWeight: 300,
+                fontOpticalSizing: "auto",
+                lineHeight: 1.0,
+                letterSpacing: "-0.02em",
                 color: DK,
-                marginBottom: "22px",
+                marginBottom: "32px",
+                position: "relative",
               }}
             >
-              Get in touch.
-            </h1>
+              Let's<br />talk.
+            </p>
 
-            <form
-              onSubmit={handleSubmit}
-              style={{ display: "flex", flexDirection: "column", gap: "9px" }}
+            {/* Email */}
+            <a
+              href="mailto:ayoub@withluminalabs.com"
+              style={{
+                fontSize: "12px",
+                color: MUTED,
+                letterSpacing: 0,
+                transition: "color 0.18s ease",
+                position: "relative",
+              }}
+              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = DK)}
+              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = MUTED)}
             >
-              <input
-                className="field"
-                type="text"
-                placeholder="name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                required
-              />
-              <input
-                className="field"
-                type="email"
-                placeholder="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-              />
-              <textarea
-                className="field"
-                placeholder="message"
-                value={message}
-                onChange={e => setMessage(e.target.value)}
-                required
-                rows={4}
-                style={{ resize: "none" }}
-              />
-              <button
-                type="submit"
-                className="btn btn-dark btn-full"
-                style={{ marginTop: "4px" }}
-              >
-                send
-              </button>
-            </form>
+              ayoub@withluminalabs.com
+            </a>
 
             <p
               style={{
-                marginTop: "14px",
+                marginTop: "6px",
                 fontSize: "11px",
                 color: "rgba(28,28,30,0.28)",
-                textAlign: "center",
-                letterSpacing: "0.01em",
+                position: "relative",
               }}
             >
-              opens your email client with the message pre-filled
+              Response within 24 hours.
             </p>
           </div>
-        </div>
 
+        </div>
       </div>
     </>
   );

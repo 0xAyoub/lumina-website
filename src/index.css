@@ -130,3 +130,7 @@ input, textarea, button, select { font-family: inherit; }
   border: 1px solid rgba(28, 28, 30, 0.10);
 }
 .btn-full { width: 100%; padding: 9px 12px; font-size: 13px; }
+
+@media (max-width: 600px) {
+  .contact-right { display: none; }
+}
